@@ -1,0 +1,94 @@
+<mvc:View
+	controllerName="focus.customersupportsystem.CustomerSupportSystem.controller.ToolPage"
+	xmlns="sap.m"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns:tnt="sap.tnt"
+	height="100%"
+	xmlns:f="sap.f">
+	<tnt:ToolPage id="toolPage" sideExpanded="false">
+		<tnt:header>
+			<tnt:ToolHeader>
+				<Button
+					id="sideNavigationToggleButton"
+					icon="sap-icon://menu2"
+					type="Transparent"
+					press=".onSideNavButtonPress">
+					<layoutData>
+						<OverflowToolbarLayoutData priority="NeverOverflow" />
+					</layoutData>
+				</Button>
+				<ToolbarSpacer width="20px" />
+				<Button text="File" type="Transparent">
+					<layoutData>
+						<OverflowToolbarLayoutData priority="Low" />
+					</layoutData>
+				</Button>
+				
+				<tnt:ToolHeaderUtilitySeparator />
+				
+				<ToolbarSpacer>
+					<layoutData>
+						<OverflowToolbarLayoutData priority="NeverOverflow" minWidth="20px" />
+					</layoutData>
+				</ToolbarSpacer>
+				
+				<Button icon="sap-icon://world" type="Transparent">
+					<layoutData>
+						<OverflowToolbarLayoutData priority="Low" />
+					</layoutData>
+				</Button>
+				
+				<Button icon="sap-icon://account" type="Transparent" press=".handleUserNamePress">
+					<layoutData>
+						<OverflowToolbarLayoutData priority="NeverOverflow" />
+					</layoutData>
+				</Button>
+				
+				<Button icon="sap-icon://log" type="Transparent">
+					<layoutData>
+						<OverflowToolbarLayoutData priority="Low" />
+					</layoutData>
+				</Button>
+
+			</tnt:ToolHeader>
+		</tnt:header>
+		
+		<tnt:sideContent>
+			<tnt:SideNavigation
+				expanded="true"
+				selectedKey="master"
+				itemSelect=".onItemSelect">
+				<tnt:NavigationList>
+					
+					<tnt:NavigationListItem
+						text="Tickets"
+						icon="sap-icon://tags"
+						key="master">
+					</tnt:NavigationListItem>
+					
+					<tnt:NavigationListItem
+						text="Add ticket"
+						icon="sap-icon://sys-add"
+						key="addticket">
+						
+					</tnt:NavigationListItem>
+					
+					
+				</tnt:NavigationList>
+				
+				<tnt:fixedItem>
+					<tnt:NavigationList>
+						<tnt:NavigationListItem text="Settings" icon="sap-icon://action-settings" />
+					</tnt:NavigationList>
+				</tnt:fixedItem>
+				
+			</tnt:SideNavigation>
+		</tnt:sideContent>
+		
+		<tnt:mainContents>
+			
+			<f:FlexibleColumnLayout id="fcl" stateChange="onStateChanged"	layout="{/layout}" backgroundDesign="Translucent"/>
+			
+		</tnt:mainContents>
+	</tnt:ToolPage>
+</mvc:View>
