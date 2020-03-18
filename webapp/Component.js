@@ -3,8 +3,9 @@ sap.ui.define([
 	"sap/ui/Device",
 	"focus/customersupportsystem/CustomerSupportSystem/model/models",
 	"sap/ui/model/json/JSONModel",
-	"sap/f/FlexibleColumnLayoutSemanticHelper"
-], function (UIComponent, Device, models, JSONModel, FlexibleColumnLayoutSemanticHelper) {
+	"sap/f/FlexibleColumnLayoutSemanticHelper",
+	'sap/ui/fl/FakeLrepConnectorLocalStorage'
+], function (UIComponent, Device, models, JSONModel, FlexibleColumnLayoutSemanticHelper, FakeLrepConnectorLocalStorage) {
 	"use strict";
 
 	return UIComponent.extend("focus.customersupportsystem.CustomerSupportSystem.Component", {
@@ -19,6 +20,9 @@ sap.ui.define([
 		 * @override
 		 */
 		init: function () {
+			
+			FakeLrepConnectorLocalStorage.enableFakeConnector(sap.ui.require.toUrl("focus/customersupportsystem/CustomerSupportSystem/lrep/component-test-changes.json"));
+			
 			// call the base component's init function
 			UIComponent.prototype.init.apply(this, arguments);
 
@@ -47,6 +51,11 @@ sap.ui.define([
 				};
 
 			return FlexibleColumnLayoutSemanticHelper.getInstanceFor(oFCL, oSettings);
+		},
+		
+		destroy: function() {
+			FakeLrepConnectorLocalStorage.disableFakeConnector();
+			UIComponent.prototype.destroy.apply(this, arguments);
 		}
 	});
 });

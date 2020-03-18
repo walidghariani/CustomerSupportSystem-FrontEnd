@@ -9,9 +9,20 @@
 		},
 		"title": "{{appTitle}}",
 		"description": "{{appDescription}}",
+		"ach": "CA-UI5-FST",
 		"sourceTemplate": {
 			"id": "ui5template.basicSAPUI5ApplicationProject",
 			"version": "1.40.12"
+		},
+		"dataSources": {
+			"mainService": {
+				"uri": "/sap/opu/odata/sap/EPM_REF_APPS_PROD_MAN_SRV/",
+				"type": "OData",
+				"settings": {
+					"odataVersion": "2.0",
+					"localUri": "localService/metadata.xml"
+				}
+			}
 		}
 	},
 	"sap.ui": {
@@ -58,9 +69,12 @@
 					"bundleName": "focus.customersupportsystem.CustomerSupportSystem.i18n.i18n"
 				}
 			},
-			"products": {
-				"type": "sap.ui.model.json.JSONModel",
-				"uri": "model/products.json"
+			"": {
+				"dataSource": "mainService",
+				"preload": true,
+				"settings": {
+					"defaultBindingMode": "TwoWay"
+				}
 			}
 		},
 		"resources": {

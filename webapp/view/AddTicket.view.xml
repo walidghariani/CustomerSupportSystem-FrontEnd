@@ -2,8 +2,32 @@
 	controllerName="focus.customersupportsystem.CustomerSupportSystem.controller.AddTicket"
 	xmlns="sap.m"
 	xmlns:mvc="sap.ui.core.mvc"
-	height="100%" > 
+	xmlns:smartFilterBar="sap.ui.comp.smartfilterbar"
+	xmlns:smartTable="sap.ui.comp.smarttable"> 
 	
-	<Text text="You can add your ticket"/>
+	<smartFilterBar:SmartFilterBar 
+		id="smartFilterBar"
+		entitySet="Products">
+		<smartFilterBar:controlConfiguration>
+			<smartFilterBar:ControlConfiguration
+				key="Category" visibleInAdvancedArea="true"
+				preventInitialDataFetchInValueHelpDialog="false">
+			</smartFilterBar:ControlConfiguration>
+		</smartFilterBar:controlConfiguration>
+	</smartFilterBar:SmartFilterBar>
+	
+	<smartTable:SmartTable 
+		id="smartTable_ResponsiveTable"
+		smartFilterId="smartFilterBar" 
+		tableType="ResponsiveTable" 
+		editable="false"
+		entitySet="Products" 
+		useVariantManagement="false"
+		useTablePersonalisation="false" 
+		header="Products" 
+		showRowCount="true"
+		useExportToExcel="false" 
+		enableAutoBinding="true">
+	</smartTable:SmartTable>
 	
 </mvc:View>

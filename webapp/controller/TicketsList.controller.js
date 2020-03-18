@@ -11,6 +11,8 @@ sap.ui.define([
 	return Controller.extend("focus.customersupportsystem.CustomerSupportSystem.controller.TicketsList", {
 		onInit: function () {
 			this.oRouter = this.getOwnerComponent().getRouter();
+			
+			var oModel = this.getOwnerComponent().getModel();
 			this._bDescendingSort = false;
 		},
 		onListItemPress: function (oEvent) {
