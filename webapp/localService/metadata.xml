@@ -31,7 +31,7 @@
 				<Property Name="DESCR" Type="Edm.String" MaxLength="25" sap:label="Description"/>
 			</EntityType>
 			<EntityContainer m:IsDefaultEntityContainer="true" sap:supported-formats="atom json">
-				<EntitySet Name="Products" EntityType="EPM_REF_APPS_PROD_MAN_SRV.Product"/>
+				<EntitySet Name="ProductSet" EntityType="EPM_REF_APPS_PROD_MAN_SRV.Product"/>
 				<EntitySet Name="Currency" EntityType="EPM_REF_APPS_PROD_MAN_SRV.Currency"/>
 				<EntitySet Name="Category" EntityType="EPM_REF_APPS_PROD_MAN_SRV.Category"/>
 			</EntityContainer>

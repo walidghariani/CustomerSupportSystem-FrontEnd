@@ -69,7 +69,7 @@
 					"bundleName": "focus.customersupportsystem.CustomerSupportSystem.i18n.i18n"
 				}
 			},
-			"": {
+			"myModels": {
 				"dataSource": "mainService",
 				"preload": true,
 				"settings": {

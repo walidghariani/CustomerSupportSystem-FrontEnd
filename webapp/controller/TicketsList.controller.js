@@ -10,14 +10,16 @@ sap.ui.define([
 
 	return Controller.extend("focus.customersupportsystem.CustomerSupportSystem.controller.TicketsList", {
 		onInit: function () {
-			this.oRouter = this.getOwnerComponent().getRouter();
 			
-			var oModel = this.getOwnerComponent().getModel();
+			var oModel = this.getOwnerComponent().getModel("myModels");
+			this.getView().setModel(oModel);
+			
+			this.oRouter = this.getOwnerComponent().getRouter();
 			this._bDescendingSort = false;
 		},
 		onListItemPress: function (oEvent) {
 			var oNextUIState = this.getOwnerComponent().getHelper().getNextUIState(1),
-				productPath = oEvent.getSource().getBindingContext("products").getPath(),
+				productPath = oEvent.getSource().getBindingContext("ProductSet").getPath(),
 				product = productPath.split("/").slice(-1).pop();
 
 			this.oRouter.navTo("detail", {layout: oNextUIState.layout, product: product});

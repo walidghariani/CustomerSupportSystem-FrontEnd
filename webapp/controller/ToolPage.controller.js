@@ -15,9 +15,6 @@ sap.ui.define([
 	return Controller.extend("focus.customersupportsystem.CustomerSupportSystem.controller.ToolPage", {
 
 		onInit: function () {
-			//var oModel = new JSONModel(sap.ui.require.toUrl("model/data.json"));
-			//this.getView().setModel(oModel);
-			
 			this._setToggleButtonTooltip(!Device.system.desktop);
 			this.oRouter = this.getOwnerComponent().getRouter();
 			this.oRouter.attachRouteMatched(this.onRouteMatched, this);
