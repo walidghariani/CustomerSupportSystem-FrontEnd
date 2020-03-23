@@ -19,8 +19,10 @@ sap.ui.define([
 		},
 		onListItemPress: function (oEvent) {
 			var oNextUIState = this.getOwnerComponent().getHelper().getNextUIState(1),
-				productPath = oEvent.getSource().getBindingContext("ProductSet").getPath(),
-				product = productPath.split("/").slice(-1).pop();
+				productPath = oEvent.getSource().getSelectedItem().getBindingContext().getPath(),
+				
+				product = productPath.match(/'([^']+)'/)[1];
+			//	product = productPath.split("/").slice(-1).pop();
 
 			this.oRouter.navTo("detail", {layout: oNextUIState.layout, product: product});
 		},

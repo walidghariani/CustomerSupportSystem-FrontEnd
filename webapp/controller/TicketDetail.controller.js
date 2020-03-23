@@ -7,7 +7,8 @@ sap.ui.define([
 	return Controller.extend("focus.customersupportsystem.CustomerSupportSystem.controller.TicketDetail", {
 		onInit: function () {
 			this.oRouter = this.getOwnerComponent().getRouter();
-			this.oModel = this.getOwnerComponent().getModel();
+			var oModel = this.getOwnerComponent().getModel("myModels");
+			this.getView().setModel(oModel);
 
 			this.oRouter.getRoute("master").attachPatternMatched(this._onProductMatched, this);
 			this.oRouter.getRoute("detail").attachPatternMatched(this._onProductMatched, this);
@@ -15,7 +16,7 @@ sap.ui.define([
 		},
 		handleItemPress: function (oEvent) {
 			var oNextUIState = this.getOwnerComponent().getHelper().getNextUIState(2),
-				supplierPath = oEvent.getSource().getBindingContext("products").getPath(),
+				supplierPath = oEvent.getSource().getBindingContext("ProductSet").getPath(),
 				supplier = supplierPath.split("/").slice(-1).pop();
 
 			this.oRouter.navTo("detailDetail", {layout: oNextUIState.layout,
@@ -36,8 +37,8 @@ sap.ui.define([
 		_onProductMatched: function (oEvent) {
 			this._product = oEvent.getParameter("arguments").product || this._product || "0";
 			this.getView().bindElement({
-				path: "/ProductCollection/" + this._product,
-				model: "products"
+				path: "/ProductSet('" + this._product + "')",
+				model: "myModels"
 			});
 		}
 	});

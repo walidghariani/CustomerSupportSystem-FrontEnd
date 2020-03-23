@@ -41,7 +41,7 @@
 					showRowCount="true"
 					useExportToExcel="false"
 					enableAutoBinding="true">
-						<Table id="productsTable" selectionChange="onListItemPress">
+						<Table id="productsTable" selectionChange="onListItemPress" mode="SingleSelectMaster" >
 							
 						</Table>
 				</smartTable:SmartTable>
