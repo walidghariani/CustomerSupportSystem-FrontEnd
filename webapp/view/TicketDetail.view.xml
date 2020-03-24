@@ -15,14 +15,14 @@
 				<headerTitle>
 					<ObjectPageDynamicHeaderTitle>
 						<expandedHeading>
-							<m:Title text="{products>Name}" wrapping="true" class="sapUiSmallMarginEnd"/>
+							<m:Title text="{Name}" wrapping="true" class="sapUiSmallMarginEnd"/>
 						</expandedHeading>
 
 						<snappedHeading>
 							<m:FlexBox wrap="Wrap" fitContainer="true" alignItems="Center">
 								<m:FlexBox wrap="NoWrap" fitContainer="true" alignItems="Center" class="sapUiTinyMarginEnd">
 									<f:Avatar src="../../../../../../../{products>ProductPicUrl}" displaySize="S" displayShape="Square"/>
-									<m:Title id="name" text="{/Name}" wrapping="true" class="sapUiTinyMarginEnd"/>
+									<m:Title id="name" text="{Name}" wrapping="true" class="sapUiTinyMarginEnd"/>
 								</m:FlexBox>
 							</m:FlexBox>
 						</snappedHeading>
@@ -65,15 +65,15 @@
 						</f:Avatar>
 						<m:VBox justifyContent="Center" class="sapUiSmallMarginEnd">
 							<m:Label text="Main Category"/>
-							<m:Text text="{products>MainCategory}"/>
+							<m:Text text="{MainCategory}"/>
 						</m:VBox>
 						<m:VBox justifyContent="Center" class="sapUiSmallMarginEnd">
 							<m:Label text="Subcategory"/>
-							<m:Text text="{products>Category}"/>
+							<m:Text text="{Category}"/>
 						</m:VBox>
 						<m:VBox justifyContent="Center" class="sapUiSmallMarginEnd">
 							<m:Label text="Price"/>
-							<m:ObjectNumber number="{products>CurrencyCode} {products>Price}" emphasized="false"/>
+							<m:ObjectNumber number="{CurrencyCode} {Price}" emphasized="false"/>
 						</m:VBox>
 					</m:FlexBox>
 				</headerContent>
@@ -95,11 +95,11 @@
 								columnsM="1">
 								<form:content>
 									<m:Label text="Product ID"/>
-									<m:Text text="{products>ProductId}"/>
+									<m:Text text="{ProductId}"/>
 									<m:Label text="Description"/>
-									<m:Text text="{products>Description}"/>
+									<m:Text text="{Description}"/>
 									<m:Label text="Supplier"/>
-									<m:Text text="{products>SupplierName}"/>
+									<m:Text text="{SupplierName}"/>
 								</form:content>
 							</form:SimpleForm>
 						</blocks>
@@ -112,14 +112,14 @@
 					<ObjectPageSubSection>
 						<blocks>
 							<m:Table id="suppliersTable"
-									 items="{path : 'products>/ProductCollectionStats/Filters/1/values'}">
+									 items="{path : '/ProductSet'}">
 								<m:columns>
 									<m:Column />
 								</m:columns>
 								<m:items>
 									<m:ColumnListItem type="Navigation" press="handleItemPress">
 										<m:cells>
-											<m:ObjectIdentifier text="{products>text}" />
+											<m:ObjectIdentifier text="{SupplierName}" />
 										</m:cells>
 									</m:ColumnListItem>
 								</m:items>
