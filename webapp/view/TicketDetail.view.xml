@@ -64,16 +64,16 @@
 								  class="sapUiTinyMarginEnd">
 						</f:Avatar>
 						<m:VBox justifyContent="Center" class="sapUiSmallMarginEnd">
-							<m:Label text="Main Category"/>
-							<m:Text text="{MainCategory}"/>
+							<m:Label text="Customer"/>
+							<m:Link text="{MainCategory}" press="handleItemPress"/>
 						</m:VBox>
 						<m:VBox justifyContent="Center" class="sapUiSmallMarginEnd">
-							<m:Label text="Subcategory"/>
-							<m:Text text="{Category}"/>
+							<m:Label text="Developper"/>
+							<m:Link text="{Category}" press="handleItemPress"/>
 						</m:VBox>
 						<m:VBox justifyContent="Center" class="sapUiSmallMarginEnd">
-							<m:Label text="Price"/>
-							<m:ObjectNumber number="{CurrencyCode} {Price}" emphasized="false"/>
+							<m:Label text="System"/>
+							<m:Link text="{Category}" press="handleItemPress"/>
 						</m:VBox>
 					</m:FlexBox>
 				</headerContent>

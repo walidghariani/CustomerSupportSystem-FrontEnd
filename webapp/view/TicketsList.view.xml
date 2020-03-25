@@ -4,23 +4,26 @@
 	xmlns:f="sap.f"
 	xmlns:mvc="sap.ui.core.mvc"
 	xmlns:smartFilterBar="sap.ui.comp.smartfilterbar"
-	xmlns:smartTable="sap.ui.comp.smarttable">
+	xmlns:smartTable="sap.ui.comp.smarttable"
+	xmlns:t="sap.ui.table" >
 	
-	<f:DynamicPage id="dynamicPageId" toggleHeaderOnTitleClick="false">
+	<f:DynamicPage id="dynamicPageId" toggleHeaderOnTitleClick="false" class="sapUiNoContentPadding" >
 		
 		<f:title>
 			<f:DynamicPageTitle>
 				<f:heading>
-					<Title text="Products"/>
+					<Title text="Tickets"/>
 				</f:heading>
 			</f:DynamicPageTitle>
 		</f:title>
 	
 		<f:content>
-			<Panel>
+			<VBox>
 				<smartFilterBar:SmartFilterBar
 					id="smartFilterBar"
-					entitySet="ProductSet">
+					entitySet="ProductSet"
+					basicSearchFieldName="Name"
+					enableBasicSearch="true">
 					<smartFilterBar:controlConfiguration>
 						<smartFilterBar:ControlConfiguration
 							key="Category"
@@ -32,108 +35,25 @@
 				<smartTable:SmartTable
 					id="smartTable_ResponsiveTable"
 					smartFilterId="smartFilterBar"
-					tableType="ResponsiveTable"
+					tableType="Table"
 					editable="false"
 					entitySet="ProductSet"
 					useVariantManagement="false"
-					useTablePersonalisation="false"
-					header="Products"
+					useTablePersonalisation="true"
+					header="Tickets"
 					showRowCount="true"
 					useExportToExcel="false"
-					enableAutoBinding="true">
-						<Table id="productsTable" selectionChange="onListItemPress" mode="SingleSelectMaster" >
-							
-						</Table>
+					enableAutoBinding="true"
+					visible="true">
+						<t:Table id="productsTable" 
+								selectionMode="Single" 
+								selectionBehavior="RowOnly" 
+								rowSelectionChange="onListRowSelect">
+						</t:Table>
 				</smartTable:SmartTable>
-			</Panel>
-			
+			</VBox>
 		</f:content>
-
-		<f:footer>
-			<OverflowToolbar>
-				<ToolbarSpacer/>
-				<Button type="Accept" text="Accept"/>
-				<Button type="Reject" text="Reject"/>
-			</OverflowToolbar>
-		</f:footer>
 		
 	</f:DynamicPage>
 	
 </mvc:View>
-
-
-<!--<mvc:View displayBlock="true" -->
-<!--			controllerName="focus.customersupportsystem.CustomerSupportSystem.controller.TicketsList" -->
-<!--			height="100%"-->
-<!--			xmlns="sap.m"-->
-<!--			xmlns:f="sap.f"-->
-<!--			xmlns:mvc="sap.ui.core.mvc" >-->
-	
-<!--	<f:DynamicPage id="dynamicPageId"-->
-<!--				   toggleHeaderOnTitleClick="false">-->
-
-<!--		<f:title>-->
-<!--			<f:DynamicPageTitle>-->
-<!--				<f:heading>-->
-<!--					<Title text="Products"/>-->
-<!--				</f:heading>-->
-<!--			</f:DynamicPageTitle>-->
-<!--		</f:title>-->
-
-<!--		<f:content>-->
-<!--			<Table id="productsTable"-->
-<!--				   inset="false"-->
-<!--				   items="{-->
-<!--						path: 'Products',-->
-<!--						sorter: {-->
-<!--							path: 'Name'-->
-<!--						}-->
-<!--					}"-->
-<!--				   class="sapFDynamicPageAlignContent"-->
-<!--				   width="auto">-->
-<!--				<headerToolbar>-->
-<!--					<OverflowToolbar>-->
-<!--						<ToolbarSpacer/>-->
-<!--						<SearchField search="onSearch" width="17.5rem"/>-->
-<!--						<OverflowToolbarButton icon="sap-icon://add" type="Transparent" press="onAdd"/>-->
-<!--						<OverflowToolbarButton icon="sap-icon://sort" type="Transparent" press="onSort"/>-->
-<!--					</OverflowToolbar>-->
-<!--				</headerToolbar>-->
-<!--				<columns>-->
-<!--					<Column width="12em">-->
-<!--						<Text text="Product" />-->
-<!--					</Column>-->
-<!--					<Column	hAlign="End">-->
-<!--						<Text text="Price" />-->
-<!--					</Column>-->
-<!--				</columns>-->
-<!--				<items>-->
-<!--					<ColumnListItem type="Navigation" press="onListItemPress">-->
-<!--						<cells>-->
-<!--							<ObjectIdentifier title="{Products>Name}" text="{Products>ProductId}" />-->
-<!--							<ObjectNumber-->
-<!--									number="{-->
-<!--										parts:[{path:'Products>Price'},{path:'Products>CurrencyCode'}],-->
-<!--										type: 'sap.ui.model.type.Currency',-->
-<!--										formatOptions: {showMeasure: false}-->
-<!--									}"-->
-<!--									unit="{Products>CurrencyCode}" />-->
-<!--						</cells>-->
-<!--					</ColumnListItem>-->
-<!--				</items>-->
-<!--			</Table>-->
-<!--		</f:content>-->
-
-<!--		<f:footer>-->
-<!--			<OverflowToolbar>-->
-<!--				<ToolbarSpacer/>-->
-<!--				<Button type="Accept" text="Accept"/>-->
-<!--				<Button type="Reject" text="Reject"/>-->
-<!--			</OverflowToolbar>-->
-<!--		</f:footer>-->
-<!--	</f:DynamicPage>-->
-
-<!--</mvc:View>-->
-	
-		
-	
