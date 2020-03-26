@@ -1,9 +1,8 @@
 sap.ui.define([
 	"sap/ui/core/UIComponent",
-	"focus/customersupportsystem/CustomerSupportSystem/model/models",
 	"sap/ui/model/json/JSONModel",
 	"sap/f/FlexibleColumnLayoutSemanticHelper"
-], function (UIComponent, models, JSONModel, FlexibleColumnLayoutSemanticHelper) {
+], function (UIComponent, JSONModel, FlexibleColumnLayoutSemanticHelper) {
 	"use strict";
 
 	return UIComponent.extend("focus.customersupportsystem.CustomerSupportSystem.Component", {
