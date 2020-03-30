@@ -3,131 +3,111 @@
 		xmlns:mvc="sap.ui.core.mvc"
 		xmlns:m="sap.m"
 		xmlns:f="sap.f"
-		xmlns:form="sap.ui.layout.form">
+		xmlns:form="sap.ui.layout.form"
+		xmlns:smartform="sap.ui.comp.smartform"
+		xmlns:core="sap.ui.core">
 
-	<ObjectPageLayout id="ObjectPageLayout"
-					 showTitleInHeaderContent="true"
-					alwaysShowContentHeader="false"
-					preserveHeaderStateOnScroll="false"
-					headerContentPinnable="true"
-					isChildPage="true"
-					upperCaseAnchorBar="false">
-				<headerTitle>
-					<ObjectPageDynamicHeaderTitle>
-						<expandedHeading>
-							<m:Title text="{Name}" wrapping="true" class="sapUiSmallMarginEnd"/>
-						</expandedHeading>
-
-						<snappedHeading>
-							<m:FlexBox wrap="Wrap" fitContainer="true" alignItems="Center">
-								<m:FlexBox wrap="NoWrap" fitContainer="true" alignItems="Center" class="sapUiTinyMarginEnd">
-									<f:Avatar src="../../../../../../../{products>ProductPicUrl}" displaySize="S" displayShape="Square"/>
-									<m:Title id="name" text="{Name}" wrapping="true" class="sapUiTinyMarginEnd"/>
-								</m:FlexBox>
-							</m:FlexBox>
-						</snappedHeading>
-
-						<navigationActions>
-							<m:OverflowToolbarButton type="Transparent" icon="sap-icon://full-screen" press="handleFullScreen" tooltip="Enter Full Screen Mode" visible="{= ${/actionButtonsInfo/midColumn/fullScreen} !== null }"/>
-							<m:OverflowToolbarButton type="Transparent" icon="sap-icon://exit-full-screen" press="handleExitFullScreen" tooltip="Exit Full Screen Mode" visible="{= ${/actionButtonsInfo/midColumn/exitFullScreen} !== null }"/>
-							<m:OverflowToolbarButton type="Transparent" icon="sap-icon://decline" press="handleClose"  tooltip="Close column" visible="{= ${/actionButtonsInfo/midColumn/closeColumn} !== null }"/>
-						</navigationActions>
-
+	<ObjectPageLayout 
+		id="ObjectPageLayout"
+		showTitleInHeaderContent="true"
+		alwaysShowContentHeader="true"
+		headerContentPinnable="false"
+		preserveHeaderStateOnScroll="true"
+		useIconTabBar="true">
+		
+			<headerTitle>
+				<ObjectPageHeader
+					isObjectIconAlwaysVisible="false"
+					isObjectTitleAlwaysVisible="false"
+					isActionAreaAlwaysVisible="true"
+					objectImageURI="sap-icon://tags"
+					objectTitle="{ProductId}">
+					
+					<actions>
+						<m:Button type="Transparent" icon="sap-icon://full-screen" press="handleFullScreen"/>
+						<m:Button type="Transparent" icon="sap-icon://exit-full-screen" press="handleExitFullScreen"/>
+						<m:Button type="Transparent" icon="sap-icon://decline" press="handleClose"/>
+					</actions>
+				</ObjectPageHeader>
+			</headerTitle>
+		
+			<headerContent>
+				<m:FlexBox wrap="Wrap" fitContainer="true" alignItems="Start">
+					<m:VBox justifyContent="Center" class="sapUiMediumMarginBeginEnd">
+						<m:Label text="Customer"/>
+						<m:Link text="Evonik Industries AG" press="handleItemPress"/>
+					</m:VBox>
+					<m:VBox justifyContent="Center" class="sapUiMediumMarginBeginEnd">
+						<m:Label text="Developper"/>
+						<m:Link text="Walid Ghariani" press="handleItemPress"/>
+					</m:VBox>
+					<m:VBox justifyContent="Center" class="sapUiMediumMarginBeginEnd">
+						<m:Label text="System ID"/>
+						<m:Link text="D99" press="handleItemPress"/>
+					</m:VBox>
+				</m:FlexBox>
+			</headerContent>
+			
+			
+			<sections>
+				
+				<ObjectPageSection title="Overview" titleUppercase="false">
+					<ObjectPageSubSection>
 						<actions>
-							<m:Button
-									text="Edit"
-									type="Emphasized"
-									press="toggleAreaPriority"/>
-							<m:Button
-									text="Delete"
-									type="Transparent"/>
-							<m:Button
-									text="Copy"
-									type="Transparent"/>
-							<m:Button
-									text="Toggle Footer"
-									type="Transparent"
-									press="onToggleFooter"/>
-							<m:Button
-									icon="sap-icon://action"
-									type="Transparent"/>
+							<m:Button type="Emphasized" icon="sap-icon://edit" press="toggleAreaPriority"/>
+							<m:Button icon="sap-icon://display" press="toggleAreaPriority"/>
 						</actions>
-
-					</ObjectPageDynamicHeaderTitle>
-				</headerTitle>
-
-				<headerContent>
-					<m:FlexBox wrap="Wrap" fitContainer="true" alignItems="Stretch">
-						<f:Avatar src="../../../../../../../{products>ProductPicUrl}"
-								  displaySize="L"
-								  displayShape="Square"
-								  class="sapUiTinyMarginEnd">
-						</f:Avatar>
-						<m:VBox justifyContent="Center" class="sapUiSmallMarginEnd">
-							<m:Label text="Customer"/>
-							<m:Link text="{MainCategory}" press="handleItemPress"/>
-						</m:VBox>
-						<m:VBox justifyContent="Center" class="sapUiSmallMarginEnd">
-							<m:Label text="Developper"/>
-							<m:Link text="{Category}" press="handleItemPress"/>
-						</m:VBox>
-						<m:VBox justifyContent="Center" class="sapUiSmallMarginEnd">
-							<m:Label text="System"/>
-							<m:Link text="{Category}" press="handleItemPress"/>
-						</m:VBox>
-					</m:FlexBox>
-				</headerContent>
-
-		<sections>
-			<ObjectPageSection title="General Information">
-				<subSections>
-					<ObjectPageSubSection>
 						<blocks>
-							<form:SimpleForm
-								maxContainerCols="2"
-								editable="false"
-								layout="ResponsiveGridLayout"
-								labelSpanL="12"
-								labelSpanM="12"
-								emptySpanL="0"
-								emptySpanM="0"
-								columnsL="1"
-								columnsM="1">
-								<form:content>
-									<m:Label text="Product ID"/>
-									<m:Text text="{ProductId}"/>
-									<m:Label text="Description"/>
-									<m:Text text="{Description}"/>
-									<m:Label text="Supplier"/>
-									<m:Text text="{SupplierName}"/>
-								</form:content>
-							</form:SimpleForm>
+							<mvc:XMLView viewName="focus.customersupportsystem.CustomerSupportSystem.view.TicketSummary" />
 						</blocks>
 					</ObjectPageSubSection>
-				</subSections>
-			</ObjectPageSection>
-
-			<ObjectPageSection title="Suppliers">
-				<subSections>
+				</ObjectPageSection>
+				
+				<ObjectPageSection title="Attachments" titleUppercase="false">
 					<ObjectPageSubSection>
+						<actions>
+						
+						</actions>
 						<blocks>
-							<m:Table id="suppliersTable"
-									 items="{path : '/ProductSet'}">
-								<m:columns>
-									<m:Column />
-								</m:columns>
-								<m:items>
-									<m:ColumnListItem type="Navigation" press="handleItemPress">
-										<m:cells>
-											<m:ObjectIdentifier text="{SupplierName}" />
-										</m:cells>
-									</m:ColumnListItem>
-								</m:items>
-							</m:Table>
+							<mvc:XMLView viewName="focus.customersupportsystem.CustomerSupportSystem.view.TicketAttachment" />
 						</blocks>
 					</ObjectPageSubSection>
-				</subSections>
-			</ObjectPageSection>
-		</sections>
+				</ObjectPageSection>
+				
+				<ObjectPageSection title="Solution" titleUppercase="false">
+					<ObjectPageSubSection>
+						<actions>
+
+						</actions>
+						<blocks>
+							<mvc:XMLView viewName="focus.customersupportsystem.CustomerSupportSystem.view.TicketSolution" />
+						</blocks>
+					</ObjectPageSubSection>
+				</ObjectPageSection>
+				
+				<ObjectPageSection title="Communication" titleUppercase="false">
+					<ObjectPageSubSection>
+						<actions>
+
+						</actions>
+						<blocks>
+							<mvc:XMLView viewName="focus.customersupportsystem.CustomerSupportSystem.view.TicketCommunication" />
+						</blocks>
+					</ObjectPageSubSection>
+				</ObjectPageSection>
+				
+				<ObjectPageSection title="Log" titleUppercase="false">
+					<ObjectPageSubSection>
+						<actions>
+
+						</actions>
+						<blocks>
+							<mvc:XMLView viewName="focus.customersupportsystem.CustomerSupportSystem.view.TicketLog" />
+						</blocks>
+					</ObjectPageSubSection>
+				</ObjectPageSection>
+			</sections>
+		
+		
 	</ObjectPageLayout>
 </mvc:View>

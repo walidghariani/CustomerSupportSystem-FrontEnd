@@ -97,51 +97,49 @@
 				{
 					"pattern": "addticket",
 					"name": "addticket",
-					"layout": "EndColumnFullScreen",
 					"target": [
 						"addticket"
 					]
 				},
 				{
-					"pattern": ":layout:",
-					"name": "master",
+					"pattern": "",
+					"name": "ticketslist",
 					"target": [
-						"master",
-						"detail"
+						"ticketslist"
 					]
 				},
 				{
-					"pattern": "detail/{product}/{layout}",
-					"name": "detail",
+					"pattern": "tickets/{ticket}",
+					"name": "ticketdetail",
 					"target": [
-						"master",
-						"detail"
+						"ticketslist",
+						"ticketdetail"
 					]
 				},
 				{
-					"pattern": "detailDetail/{product}/{supplier}/{layout}",
-					"name": "detailDetail",
+					"pattern": "tickets/{ticket}/company/{company}",
+					"name": "companydetail",
 					"target": [
-						"master",
-						"detail",
-						"detailDetail"
+						"ticketslist",
+						"ticketdetail",
+						"companydetail"
 					]
 				}
 			],
 			"targets": {
-				"master": {
+				"ticketslist": {
 					"viewName": "TicketsList",
 					"controlAggregation": "beginColumnPages"
 				},
 				"addticket": {
 					"viewName": "AddTicket",
-					"controlAggregation": "endColumnPages"
+					"controlAggregation": "beginColumnPages"
 				},
-				"detail": {
+				"ticketdetail": {
 					"viewName": "TicketDetail",
 					"controlAggregation": "midColumnPages"
 				},
-				"detailDetail": {
+				"companydetail": {
 					"viewName": "CompanyDetail",
 					"controlAggregation": "endColumnPages"
 				}

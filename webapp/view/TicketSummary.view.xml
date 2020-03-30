@@ -1,0 +1,35 @@
+<mvc:View
+	controllerName="focus.customersupportsystem.CustomerSupportSystem.controller.TicketSummary"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns:m="sap.m"
+	xmlns:form="sap.ui.layout.form" > 
+	
+<!-- We should use Smart form once we have metadata -->
+	
+		<form:SimpleForm
+			maxContainerCols="2"
+			editable="false"
+			layout="ResponsiveGridLayout"
+			labelSpanL="12"
+			labelSpanM="12"
+			emptySpanL="0"
+			emptySpanM="0"
+			columnsL="1"
+			columnsM="1">
+			<form:content>
+				<m:Label text="Description"/>
+				<m:Text text="MTE - Upload error for evidence"/>
+				<m:Label text="Status"/>
+				<m:Text text="In Process"/>
+				<m:Label text="Component"/>
+				<m:Text text="SV-SMG-OST-FB-TWB"/>
+				<m:Label text="Processor"/>
+				<m:Text text="Walid Ghariani"/>
+				<m:Label text="Processing"/>
+				<m:Text text="DS Development"/>
+				<m:Label text="Service Team"/>
+				<m:Text text="DS Dev EMEA"/>
+			</form:content>
+		</form:SimpleForm>
+		
+</mvc:View>

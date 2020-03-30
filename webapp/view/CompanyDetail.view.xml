@@ -8,20 +8,20 @@
 			<DynamicPageTitle>
 				<heading>
 					<m:FlexBox wrap="Wrap" fitContainer="true" alignItems="Center">
-						<m:Title text="{products>text}" wrapping="true" class="sapUiTinyMarginEnd"/>
+						<m:Title text="Evonik Industries AG" wrapping="true" class="sapUiTinyMarginEnd"/>
 					</m:FlexBox>
 				</heading>
 
 				<navigationActions>
-					<m:OverflowToolbarButton type="Transparent" icon="sap-icon://full-screen" press="handleFullScreen" tooltip="Enter Full Screen Mode" visible="{= ${/actionButtonsInfo/endColumn/fullScreen} !== null }"/>
-					<m:OverflowToolbarButton type="Transparent" icon="sap-icon://exit-full-screen" press="handleExitFullScreen" tooltip="Exit Full Screen Mode" visible="{= ${/actionButtonsInfo/endColumn/exitFullScreen} !== null }"/>
-					<m:OverflowToolbarButton type="Transparent" icon="sap-icon://decline" press="handleClose"  tooltip="Close column" visible="{= ${/actionButtonsInfo/endColumn/closeColumn} !== null }"/>
+					<m:OverflowToolbarButton type="Transparent" icon="sap-icon://full-screen" press="handleFullScreen" tooltip="Enter Full Screen Mode"/>
+					<m:OverflowToolbarButton type="Transparent" icon="sap-icon://exit-full-screen" press="handleExitFullScreen" tooltip="Exit Full Screen Mode"/>
+					<m:OverflowToolbarButton type="Transparent" icon="sap-icon://decline" press="handleClose"  tooltip="Close column"/>
 				</navigationActions>
 
 			</DynamicPageTitle>
 		</title>
 		<content>
-			<m:Link text="Navigate to next page…" press="handleAboutPress" />
+			<m:Text text="Company details" />
 		</content>
 	</DynamicPage>
 </mvc:View>

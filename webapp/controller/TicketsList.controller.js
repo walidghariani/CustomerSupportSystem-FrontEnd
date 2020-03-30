@@ -6,19 +6,26 @@ sap.ui.define([
 
 	return Controller.extend("focus.customersupportsystem.CustomerSupportSystem.controller.TicketsList", {
 		onInit: function () {
-			
-			var oModel = this.getOwnerComponent().getModel("myModels");
-			this.getView().setModel(oModel);
 			this.oRouter = this.getOwnerComponent().getRouter();
+			this.oModel = this.getOwnerComponent().getModel();
+			var model = this.getOwnerComponent().getModel("myModels");
+			
+			this.oRouter.attachRouteMatched(this.onRouteMatched, this);
+			
+			this.getView().setModel(model);
 		},
 		
 		onListRowSelect: function (oEvent) {
-			var oNextUIState = this.getOwnerComponent().getHelper().getNextUIState(1),
-				productPath = oEvent.getParameter("rowContext").getPath(),
-				
-				product = productPath.match(/'([^']+)'/)[1];
-				
-			this.oRouter.navTo("detail", {layout: oNextUIState.layout, product: product});
+			var productPath = oEvent.getParameter("rowContext").getPath(),
+			ticket = productPath.match(/'([^']+)'/)[1];
+			
+			this.oRouter.navTo("ticketdetail", {ticket: ticket});
+		},
+		
+		onRouteMatched: function (oEvent) {
+			var sRouteName = oEvent.getParameter("name");
+			if(sRouteName === "")
+				this.oModel.setProperty("/layout", "OneColumn");
 		}
 	});
 }, true);

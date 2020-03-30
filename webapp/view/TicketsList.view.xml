@@ -38,17 +38,17 @@
 					tableType="Table"
 					editable="false"
 					entitySet="ProductSet"
-					useVariantManagement="false"
 					useTablePersonalisation="true"
-					header="Tickets"
+					header="Incidents"
 					showRowCount="true"
 					useExportToExcel="false"
-					enableAutoBinding="true"
+					enableAutoBinding="false"
 					visible="true">
 						<t:Table id="productsTable" 
 								selectionMode="Single" 
 								selectionBehavior="RowOnly" 
-								rowSelectionChange="onListRowSelect">
+								rowSelectionChange="onListRowSelect"
+								width="100%">
 						</t:Table>
 				</smartTable:SmartTable>
 			</VBox>

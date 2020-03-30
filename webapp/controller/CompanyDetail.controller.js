@@ -8,32 +8,39 @@ sap.ui.define([
 		onInit: function () {
 			this.oRouter = this.getOwnerComponent().getRouter();
 			this.oModel = this.getOwnerComponent().getModel();
-
-			this.oRouter.getRoute("detailDetail").attachPatternMatched(this._onSupplierMatched, this);
+			
+			this.oRouter.attachRouteMatched(this.onRouteMatched, this);
+			this.oRouter.getRoute("companydetail").attachPatternMatched(this._onSupplierMatched, this);
 		},
-		handleAboutPress: function () {
-			var oNextUIState = this.getOwnerComponent().getHelper().getNextUIState(3);
-			this.oRouter.navTo("page2", {layout: oNextUIState.layout});
+		
+		handleFullScreen: function (oEvent) {
+			this.oModel.setProperty("/layout", "EndColumnFullScreen");
+			this.oRouter.navTo("companydetail", {ticket: this._ticket, company: this._company});
 		},
-		handleFullScreen: function () {
-			var sNextLayout = this.oModel.getProperty("/actionButtonsInfo/endColumn/fullScreen");
-			this.oRouter.navTo("detailDetail", {layout: sNextLayout, product: this._product, supplier: this._supplier});
+		
+		handleExitFullScreen: function (oEvent) {
+			this.oModel.setProperty("/layout", "ThreeColumnsMidExpanded");
+			this.oRouter.navTo("companydetail", {ticket: this._ticket, company: this._company});
 		},
-		handleExitFullScreen: function () {
-			var sNextLayout = this.oModel.getProperty("/actionButtonsInfo/endColumn/exitFullScreen");
-			this.oRouter.navTo("detailDetail", {layout: sNextLayout, product: this._product, supplier: this._supplier});
+		
+		handleClose: function (oEvent) {
+			this.oModel.setProperty("/layout", "TwoColumnsMidExpanded");
+			this.oRouter.navTo("ticketdetail", {ticket: this._ticket});
 		},
-		handleClose: function () {
-			var sNextLayout = this.oModel.getProperty("/actionButtonsInfo/endColumn/closeColumn");
-			this.oRouter.navTo("detail", {layout: sNextLayout, product: this._product});
-		},
+		
 		_onSupplierMatched: function (oEvent) {
-			this._supplier = oEvent.getParameter("arguments").supplier || this._supplier || "0";
-			this._product = oEvent.getParameter("arguments").product || this._product || "0";
+			this._company = oEvent.getParameter("arguments").company || this._company || "0";
+			this._ticket = oEvent.getParameter("arguments").ticket || this._ticket || "0";
 			this.getView().bindElement({
-				path: "/ProductCollectionStats/Filters/1/values/" + this._supplier,
+				path: "/ProductCollectionStats/Filters/1/values/" + this._company,
 				model: "products"
 			});
+		},
+		
+		onRouteMatched: function (oEvent) {
+			var sRouteName = oEvent.getParameter("name");
+			if(sRouteName === "companydetail")
+				this.oModel.setProperty("/layout", "ThreeColumnsMidExpanded");
 		}
 	});
 }, true);

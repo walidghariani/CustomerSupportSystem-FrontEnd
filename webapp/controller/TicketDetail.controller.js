@@ -8,39 +8,48 @@ sap.ui.define([
 		onInit: function () {
 			this.oRouter = this.getOwnerComponent().getRouter();
 			this.oModel = this.getOwnerComponent().getModel();
-			
 			var model = this.getOwnerComponent().getModel("myModels");
+			
+			this.oRouter.attachRouteMatched(this.onRouteMatched, this);
 			this.getView().setModel(model);
 
-			this.oRouter.getRoute("master").attachPatternMatched(this._onProductMatched, this);
-			this.oRouter.getRoute("detail").attachPatternMatched(this._onProductMatched, this);
-			this.oRouter.getRoute("detailDetail").attachPatternMatched(this._onProductMatched, this);
+			this.oRouter.getRoute("ticketslist").attachPatternMatched(this._onProductMatched, this);
+			this.oRouter.getRoute("ticketdetail").attachPatternMatched(this._onProductMatched, this);
+			this.oRouter.getRoute("companydetail").attachPatternMatched(this._onProductMatched, this);
 		},
 		handleItemPress: function (oEvent) {
-			var oNextUIState = this.getOwnerComponent().getHelper().getNextUIState(2),
-				supplierPath = oEvent.getSource().getBindingContext().getPath(),
-				supplier = supplierPath.split("/").slice(-1).pop();
+				var supplierPath = oEvent.getSource().getBindingContext().getPath(),
+				company = supplierPath.match(/'([^']+)'/)[1];
 
-			this.oRouter.navTo("detailDetail", {layout: oNextUIState.layout,
-				product: this._product, supplier: supplier});
+			this.oRouter.navTo("companydetail", {ticket: this._ticket, company: company});
 		},
-		handleFullScreen: function () {
-			var sNextLayout = this.oModel.getProperty("/actionButtonsInfo/midColumn/fullScreen");
-			this.oRouter.navTo("detail", {layout: sNextLayout, product: this._product});
+		
+		handleFullScreen: function (oEvent) {
+			this.oModel.setProperty("/layout", "MidColumnFullScreen");
+			this.oRouter.navTo("ticketdetail", {ticket: this._ticket});
 		},
-		handleExitFullScreen: function () {
-			var sNextLayout = this.oModel.getProperty("/actionButtonsInfo/midColumn/exitFullScreen");
-			this.oRouter.navTo("detail", {layout: sNextLayout, product: this._product});
+		
+		handleExitFullScreen: function (oEvent) {
+			this.oModel.setProperty("/layout", "TwoColumnsMidExpanded");
+			this.oRouter.navTo("ticketdetail", {ticket: this._ticket});
 		},
-		handleClose: function () {
-			var sNextLayout = this.oModel.getProperty("/actionButtonsInfo/midColumn/closeColumn");
-			this.oRouter.navTo("master", {layout: sNextLayout});
+		
+		handleClose: function (oEvent) {
+			this.oModel.setProperty("/layout", "OneColumn");
+			this.oRouter.navTo("ticketslist");
 		},
+		
 		_onProductMatched: function (oEvent) {
-			this._product = oEvent.getParameter("arguments").product || this._product || "0";
+			this._ticket = oEvent.getParameter("arguments").ticket || this._ticket || "0";
 			this.getView().bindElement({
-				path: "/ProductSet('" + this._product + "')"
+				path: "/ProductSet('" + this._ticket + "')"
 			});
+		},
+		
+		onRouteMatched: function (oEvent) {
+			var sRouteName = oEvent.getParameter("name");
+			if(sRouteName === "ticketdetail")
+				this.oModel.setProperty("/layout", "TwoColumnsMidExpanded");
 		}
 	});
 }, true);

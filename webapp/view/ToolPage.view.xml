@@ -63,7 +63,7 @@
 					<tnt:NavigationListItem
 						text="Tickets"
 						icon="sap-icon://tags"
-						key="master">
+						key="ticketslist">
 					</tnt:NavigationListItem>
 					
 					<tnt:NavigationListItem
