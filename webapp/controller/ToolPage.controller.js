@@ -10,6 +10,8 @@ sap.ui.define([
 		onInit: function () {
 			this.oRouter = this.getOwnerComponent().getRouter();
 			this.oModel = this.getOwnerComponent().getModel();
+			
+			this.oRouter.attachBeforeRouteMatched(this.onBeforeRouteMatched, this);
 		},
 		
 		onItemSelect: function (oEvent) {
@@ -21,7 +23,19 @@ sap.ui.define([
 			var oToolPage = this.byId("toolPage");
 			oToolPage.setSideExpanded(!oToolPage.getSideExpanded());
 		},
-
+		
+		onBeforeRouteMatched: function (oEvent) {
+			var sRouteName = oEvent.getParameter("name");
+			if(sRouteName === "ticketslist")
+				this.oModel.setProperty("/layout", "OneColumn");
+				
+			else if(sRouteName === "ticketdetail")
+				this.oModel.setProperty("/layout", "TwoColumnsMidExpanded");
+			
+			else if(sRouteName === "companydetail")
+				this.oModel.setProperty("/layout", "ThreeColumnsMidExpanded");
+		},
+		
 		onExit: function () {
 			this.oRouter.detachRouteMatched(this.onRouteMatched, this);
 			this.oRouter.detachBeforeRouteMatched(this.onBeforeRouteMatched, this);

@@ -9,7 +9,6 @@ sap.ui.define([
 			this.oRouter = this.getOwnerComponent().getRouter();
 			this.oModel = this.getOwnerComponent().getModel();
 			
-			this.oRouter.attachRouteMatched(this.onRouteMatched, this);
 			this.oRouter.getRoute("companydetail").attachPatternMatched(this._onSupplierMatched, this);
 		},
 		
@@ -35,12 +34,6 @@ sap.ui.define([
 				path: "/ProductCollectionStats/Filters/1/values/" + this._company,
 				model: "products"
 			});
-		},
-		
-		onRouteMatched: function (oEvent) {
-			var sRouteName = oEvent.getParameter("name");
-			if(sRouteName === "companydetail")
-				this.oModel.setProperty("/layout", "ThreeColumnsMidExpanded");
 		}
 	});
 }, true);

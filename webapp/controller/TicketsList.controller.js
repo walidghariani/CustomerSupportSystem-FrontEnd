@@ -10,8 +10,6 @@ sap.ui.define([
 			this.oModel = this.getOwnerComponent().getModel();
 			var model = this.getOwnerComponent().getModel("myModels");
 			
-			this.oRouter.attachRouteMatched(this.onRouteMatched, this);
-			
 			this.getView().setModel(model);
 		},
 		
@@ -20,12 +18,6 @@ sap.ui.define([
 			ticket = productPath.match(/'([^']+)'/)[1];
 			
 			this.oRouter.navTo("ticketdetail", {ticket: ticket});
-		},
-		
-		onRouteMatched: function (oEvent) {
-			var sRouteName = oEvent.getParameter("name");
-			if(sRouteName === "")
-				this.oModel.setProperty("/layout", "OneColumn");
 		}
 	});
 }, true);

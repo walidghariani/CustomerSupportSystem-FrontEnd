@@ -4,21 +4,21 @@
 	xmlns:mvc="sap.ui.core.mvc"
 	height="100%" > 
 	
-	<m:UploadCollection multiple="true" numberOfAttachmentsText="Uploaded (2)">
+	<m:UploadCollection multiple="true" numberOfAttachmentsText="{i18n>numberOfAttachmentsText} (2)">
 		<m:items>
 			<m:UploadCollectionItem enableDelete="true" 
 									enableEdit="true"
 									fileName="screenshot1.jpg"
 									url="https://i.stack.imgur.com/XhGuS.png">
 				<m:attributes>
-					<m:ObjectAttribute title="Uploaded date" text="3/28/2020"/>
-					<m:ObjectAttribute title="Contributor" text="Walid Ghariani"/>
+					<m:ObjectAttribute title="{i18n>uploadedDateAttributeLabel}" text="3/28/2020"/>
+					<m:ObjectAttribute title="{i18n>contributorAttributeLabel}" text="Walid Ghariani"/>
 				</m:attributes>
 				<m:markers>
 					<m:ObjectMarker type="Locked" visibility="IconOnly"/>
 				</m:markers>
 				<m:statuses>
-					<m:ObjectStatus state="Success" text="Uploaded"/>
+					<m:ObjectStatus state="Success" text="{i18n>uploadedStatusText}"/>
 				</m:statuses> 
 			</m:UploadCollectionItem>
 			
@@ -27,14 +27,14 @@
 									fileName="screenshot2.jpg"
 									url="https://i.stack.imgur.com/XhGuS.png">
 				<m:attributes>
-					<m:ObjectAttribute title="Uploaded date" text="3/28/2020"/>
-					<m:ObjectAttribute title="Contributor" text="Khouloud Daghsni"/>
+					<m:ObjectAttribute title="{i18n>uploadedDateAttributeLabel}" text="3/28/2020"/>
+					<m:ObjectAttribute title="{i18n>contributorAttributeLabel}" text="Khouloud Daghsni"/>
 				</m:attributes>
 				<m:markers>
 					<m:ObjectMarker type="Locked" visibility="IconOnly"/>
 				</m:markers>
 				<m:statuses>
-					<m:ObjectStatus state="Success" text="Uploaded"/>
+					<m:ObjectStatus state="Success" text="{i18n>uploadedStatusText}"/>
 				</m:statuses> 
 			</m:UploadCollectionItem>
 		</m:items>

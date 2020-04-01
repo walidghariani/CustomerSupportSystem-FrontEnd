@@ -12,7 +12,7 @@
 		<f:title>
 			<f:DynamicPageTitle>
 				<f:heading>
-					<Title text="Tickets"/>
+					<Title text="{i18n>ticketsListTitle}"/>
 				</f:heading>
 			</f:DynamicPageTitle>
 		</f:title>
@@ -39,7 +39,7 @@
 					editable="false"
 					entitySet="ProductSet"
 					useTablePersonalisation="true"
-					header="Incidents"
+					header="{i18n>ticketsListHeaderTable}"
 					showRowCount="true"
 					useExportToExcel="false"
 					enableAutoBinding="false"

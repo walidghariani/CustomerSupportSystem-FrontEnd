@@ -56,18 +56,18 @@
 		<tnt:sideContent>
 			<tnt:SideNavigation
 				expanded="true"
-				selectedKey="master"
+				selectedKey="ticketslist"
 				itemSelect=".onItemSelect">
 				<tnt:NavigationList>
 					
 					<tnt:NavigationListItem
-						text="Tickets"
+						text="{i18n>ticketsListButton}"
 						icon="sap-icon://tags"
 						key="ticketslist">
 					</tnt:NavigationListItem>
 					
 					<tnt:NavigationListItem
-						text="Add ticket"
+						text="{i18n>Add Incident}"
 						icon="sap-icon://sys-add"
 						key="addticket">
 						

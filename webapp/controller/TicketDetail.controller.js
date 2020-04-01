@@ -10,7 +10,6 @@ sap.ui.define([
 			this.oModel = this.getOwnerComponent().getModel();
 			var model = this.getOwnerComponent().getModel("myModels");
 			
-			this.oRouter.attachRouteMatched(this.onRouteMatched, this);
 			this.getView().setModel(model);
 
 			this.oRouter.getRoute("ticketslist").attachPatternMatched(this._onProductMatched, this);
@@ -18,7 +17,7 @@ sap.ui.define([
 			this.oRouter.getRoute("companydetail").attachPatternMatched(this._onProductMatched, this);
 		},
 		handleItemPress: function (oEvent) {
-				var supplierPath = oEvent.getSource().getBindingContext().getPath(),
+			var supplierPath = oEvent.getSource().getBindingContext().getPath(),
 				company = supplierPath.match(/'([^']+)'/)[1];
 
 			this.oRouter.navTo("companydetail", {ticket: this._ticket, company: company});
@@ -44,12 +43,6 @@ sap.ui.define([
 			this.getView().bindElement({
 				path: "/ProductSet('" + this._ticket + "')"
 			});
-		},
-		
-		onRouteMatched: function (oEvent) {
-			var sRouteName = oEvent.getParameter("name");
-			if(sRouteName === "ticketdetail")
-				this.oModel.setProperty("/layout", "TwoColumnsMidExpanded");
 		}
 	});
 }, true);

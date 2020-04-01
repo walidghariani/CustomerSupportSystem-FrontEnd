@@ -34,15 +34,15 @@
 			<headerContent>
 				<m:FlexBox wrap="Wrap" fitContainer="true" alignItems="Start">
 					<m:VBox justifyContent="Center" class="sapUiMediumMarginBeginEnd">
-						<m:Label text="Customer"/>
+						<m:Label text="{i18n>customerLabel}"/>
 						<m:Link text="Evonik Industries AG" press="handleItemPress"/>
 					</m:VBox>
 					<m:VBox justifyContent="Center" class="sapUiMediumMarginBeginEnd">
-						<m:Label text="Developper"/>
+						<m:Label text="{i18n>developerLabel}"/>
 						<m:Link text="Walid Ghariani" press="handleItemPress"/>
 					</m:VBox>
 					<m:VBox justifyContent="Center" class="sapUiMediumMarginBeginEnd">
-						<m:Label text="System ID"/>
+						<m:Label text="{i18n>systemIdLabel}"/>
 						<m:Link text="D99" press="handleItemPress"/>
 					</m:VBox>
 				</m:FlexBox>
@@ -51,7 +51,7 @@
 			
 			<sections>
 				
-				<ObjectPageSection title="Overview" titleUppercase="false">
+				<ObjectPageSection title="{i18n>tabBarLabelOverview}" titleUppercase="false">
 					<ObjectPageSubSection>
 						<actions>
 							<m:Button type="Emphasized" icon="sap-icon://edit" press="toggleAreaPriority"/>
@@ -63,7 +63,7 @@
 					</ObjectPageSubSection>
 				</ObjectPageSection>
 				
-				<ObjectPageSection title="Attachments" titleUppercase="false">
+				<ObjectPageSection title="{i18n>tabBarLabelAttachments}" titleUppercase="false">
 					<ObjectPageSubSection>
 						<actions>
 						
@@ -74,7 +74,7 @@
 					</ObjectPageSubSection>
 				</ObjectPageSection>
 				
-				<ObjectPageSection title="Solution" titleUppercase="false">
+				<ObjectPageSection title="{i18n>tabBarLabelSolution}" titleUppercase="false">
 					<ObjectPageSubSection>
 						<actions>
 
@@ -85,7 +85,7 @@
 					</ObjectPageSubSection>
 				</ObjectPageSection>
 				
-				<ObjectPageSection title="Communication" titleUppercase="false">
+				<ObjectPageSection title="{i18n>tabBarLabelCommunication}" titleUppercase="false">
 					<ObjectPageSubSection>
 						<actions>
 
@@ -96,7 +96,7 @@
 					</ObjectPageSubSection>
 				</ObjectPageSection>
 				
-				<ObjectPageSection title="Log" titleUppercase="false">
+				<ObjectPageSection title="{i18n>tabBarLabelLog}" titleUppercase="false">
 					<ObjectPageSubSection>
 						<actions>
 

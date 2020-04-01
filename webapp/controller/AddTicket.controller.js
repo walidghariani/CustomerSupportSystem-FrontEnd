@@ -7,6 +7,14 @@ sap.ui.define([
 		onInit: function () {
 			this.oRouter = this.getOwnerComponent().getRouter();
 			this.oModel = this.getOwnerComponent().getModel();
+			
+			this.oRouter.attachRouteMatched(this.onRouteMatched, this);
+		},
+		
+		onRouteMatched: function (oEvent) {
+			var sRouteName = oEvent.getParameter("name");
+			if(sRouteName === "addticket")
+				this.oModel.setProperty("/layout", "OneColumn");
 		}
 	});
 });
