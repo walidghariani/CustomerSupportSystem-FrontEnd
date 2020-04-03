@@ -69,9 +69,15 @@
 					"bundleName": "focus.customersupportsystem.CustomerSupportSystem.i18n.i18n"
 				}
 			},
-			"myModels": {
+			"": {
 				"dataSource": "mainService",
 				"preload": true,
+				"settings": {
+					"defaultBindingMode": "TwoWay"
+				}
+			},
+			"settingsModel": {
+				"type": "sap.ui.model.json.JSONModel",
 				"settings": {
 					"defaultBindingMode": "TwoWay"
 				}

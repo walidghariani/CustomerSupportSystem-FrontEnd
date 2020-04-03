@@ -67,7 +67,7 @@
 					</tnt:NavigationListItem>
 					
 					<tnt:NavigationListItem
-						text="{i18n>Add Incident}"
+						text="{i18n>addTicketButton}"
 						icon="sap-icon://sys-add"
 						key="addticket">
 						
@@ -87,7 +87,7 @@
 		
 		<tnt:mainContents>
 			
-			<f:FlexibleColumnLayout id="fcl" stateChange="onStateChanged"	layout="{/layout}" backgroundDesign="Translucent"/>
+			<f:FlexibleColumnLayout id="fcl" stateChange="onStateChanged"	layout="{settingsModel>/layout}" backgroundDesign="Translucent"/>
 			
 		</tnt:mainContents>
 	</tnt:ToolPage>

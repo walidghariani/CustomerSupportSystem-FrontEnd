@@ -1,7 +1,8 @@
 sap.ui.define([
 	"sap/ui/core/UIComponent",
-	"sap/ui/model/json/JSONModel"
-], function (UIComponent, JSONModel) {
+	"sap/ui/model/json/JSONModel",
+	"sap/f/FlexibleColumnLayoutSemanticHelper"
+], function (UIComponent, JSONModel, FlexibleColumnLayoutSemanticHelper) {
 	"use strict";
 
 	return UIComponent.extend("focus.customersupportsystem.CustomerSupportSystem.Component", {
@@ -16,10 +17,14 @@ sap.ui.define([
 
 			// enable routing
 			this.getRouter().initialize();
-
-			// init model
-			var oModel = new JSONModel();
-			this.setModel(oModel);
+		},
+		
+		getFlexibleColumnLayoutHelper: function(){
+			var fcl = this.getRootControl().byId("fcl");
+			return new FlexibleColumnLayoutSemanticHelper.getInstanceFor(fcl,{
+				defaultTwoColumnLayoutType : "TwoColumnsMidExpanded",
+				defaultThreeColumnLayoutType : "ThreeColumnsMidExpanded"
+			});
 		}
 	});
 });

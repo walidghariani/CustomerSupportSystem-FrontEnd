@@ -21,18 +21,22 @@
 					isObjectTitleAlwaysVisible="false"
 					isActionAreaAlwaysVisible="true"
 					objectImageURI="sap-icon://tags"
-					objectTitle="{ProductId}">
+					objectTitle="MTE - Upload error for evidence">
 					
 					<actions>
-						<m:Button type="Transparent" icon="sap-icon://full-screen" press="handleFullScreen"/>
-						<m:Button type="Transparent" icon="sap-icon://exit-full-screen" press="handleExitFullScreen"/>
-						<m:Button type="Transparent" icon="sap-icon://decline" press="handleClose"/>
+						<m:Button type="Transparent" icon="sap-icon://full-screen" press="handleFullScreen" visible="{= ${settingsModel>/actionButtonsInfo/midColumn/fullScreen} !== null }" />
+						<m:Button type="Transparent" icon="sap-icon://exit-full-screen" press="handleExitFullScreen"  visible="{= ${settingsModel>/actionButtonsInfo/midColumn/exitFullScreen} !== null }"/>
+						<m:Button type="Transparent" icon="sap-icon://decline" press="handleClose"  visible="{= ${settingsModel>/actionButtonsInfo/midColumn/closeColumn} !== null }"/>
 					</actions>
 				</ObjectPageHeader>
 			</headerTitle>
 		
 			<headerContent>
 				<m:FlexBox wrap="Wrap" fitContainer="true" alignItems="Start">
+					<m:VBox justifyContent="Center" class="sapUiMediumMarginBeginEnd">
+						<m:Label text="{i18n>incidentIdLabel}"/>
+						<m:Link text="{ProductId}" />
+					</m:VBox>
 					<m:VBox justifyContent="Center" class="sapUiMediumMarginBeginEnd">
 						<m:Label text="{i18n>customerLabel}"/>
 						<m:Link text="Evonik Industries AG" press="handleItemPress"/>
@@ -51,7 +55,7 @@
 			
 			<sections>
 				
-				<ObjectPageSection title="{i18n>tabBarLabelOverview}" titleUppercase="false">
+				<ObjectPageSection title="{i18n>tabBarLabelOverview}" titleUppercase="false" id="overview">
 					<ObjectPageSubSection>
 						<actions>
 							<m:Button type="Emphasized" icon="sap-icon://edit" press="toggleAreaPriority"/>

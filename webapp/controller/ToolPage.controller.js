@@ -9,9 +9,9 @@ sap.ui.define([
 
 		onInit: function () {
 			this.oRouter = this.getOwnerComponent().getRouter();
-			this.oModel = this.getOwnerComponent().getModel();
+			this.settingsModel = this.getOwnerComponent().getModel("settingsModel");
 			
-			this.oRouter.attachBeforeRouteMatched(this.onBeforeRouteMatched, this);
+			this.oRouter.attachRouteMatched(this.onRouteMatched, this);
 		},
 		
 		onItemSelect: function (oEvent) {
@@ -24,22 +24,34 @@ sap.ui.define([
 			oToolPage.setSideExpanded(!oToolPage.getSideExpanded());
 		},
 		
-		onBeforeRouteMatched: function (oEvent) {
+		onRouteMatched: function (oEvent) {
 			var sRouteName = oEvent.getParameter("name");
+			
+			var oNextUIState;
+			
 			if(sRouteName === "ticketslist")
-				this.oModel.setProperty("/layout", "OneColumn");
+				oNextUIState = this.getOwnerComponent().getFlexibleColumnLayoutHelper().getNextUIState(0);
 				
 			else if(sRouteName === "ticketdetail")
-				this.oModel.setProperty("/layout", "TwoColumnsMidExpanded");
+				oNextUIState = this.getOwnerComponent().getFlexibleColumnLayoutHelper().getNextUIState(1);
 			
 			else if(sRouteName === "companydetail")
-				this.oModel.setProperty("/layout", "ThreeColumnsMidExpanded");
+				oNextUIState = this.getOwnerComponent().getFlexibleColumnLayoutHelper().getNextUIState(2);
+				
+			this.settingsModel.setProperty("/layout", oNextUIState.layout);
+			
+			var oUIState = this.getOwnerComponent().getFlexibleColumnLayoutHelper().getCurrentUIState();
+			this.settingsModel.setData(oUIState);
+		},
+		
+		onStateChanged: function (oEvent) {
+			var oUIState = this.getOwnerComponent().getFlexibleColumnLayoutHelper().getCurrentUIState();
+			this.settingsModel.setData(oUIState);
 		},
 		
 		onExit: function () {
 			this.oRouter.detachRouteMatched(this.onRouteMatched, this);
 			this.oRouter.detachBeforeRouteMatched(this.onBeforeRouteMatched, this);
 		}
-
 	});
 });

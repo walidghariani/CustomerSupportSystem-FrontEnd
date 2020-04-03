@@ -17,6 +17,8 @@
 			columnsL="1"
 			columnsM="1">
 			<form:content>
+				<m:Label text="ID Incident"/>
+				<m:Text text="{ProductId}"/>
 				<m:Label text="Description"/>
 				<m:Text text="MTE - Upload error for evidence"/>
 				<m:Label text="Status"/>

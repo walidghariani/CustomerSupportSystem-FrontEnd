@@ -23,7 +23,9 @@
 					id="smartFilterBar"
 					entitySet="ProductSet"
 					basicSearchFieldName="Name"
-					enableBasicSearch="true">
+					enableBasicSearch="true"
+					useToolbar="false"
+					showFilterConfiguration="false">
 					<smartFilterBar:controlConfiguration>
 						<smartFilterBar:ControlConfiguration
 							key="Category"

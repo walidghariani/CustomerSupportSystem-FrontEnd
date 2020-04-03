@@ -13,9 +13,9 @@
 				</heading>
 
 				<navigationActions>
-					<m:OverflowToolbarButton type="Transparent" icon="sap-icon://full-screen" press="handleFullScreen" tooltip="Enter Full Screen Mode"/>
-					<m:OverflowToolbarButton type="Transparent" icon="sap-icon://exit-full-screen" press="handleExitFullScreen" tooltip="Exit Full Screen Mode"/>
-					<m:OverflowToolbarButton type="Transparent" icon="sap-icon://decline" press="handleClose"  tooltip="Close column"/>
+					<m:OverflowToolbarButton type="Transparent" icon="sap-icon://full-screen" press="handleFullScreen" visible="{= ${settingsModel>/actionButtonsInfo/endColumn/fullScreen} !== null }" />
+					<m:OverflowToolbarButton type="Transparent" icon="sap-icon://exit-full-screen" press="handleExitFullScreen" tooltip="Exit Full Screen Mode" visible="{= ${settingsModel>/actionButtonsInfo/endColumn/exitFullScreen} !== null }" />
+					<m:OverflowToolbarButton type="Transparent" icon="sap-icon://decline" press="handleClose"  tooltip="Close column" visible="{= ${settingsModel>/actionButtonsInfo/endColumn/closeColumn} !== null }"/>
 				</navigationActions>
 
 			</DynamicPageTitle>
