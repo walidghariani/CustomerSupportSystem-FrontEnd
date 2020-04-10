@@ -21,6 +21,8 @@
 				<m:Text text="{ProductId}"/>
 				<m:Label text="Description"/>
 				<m:Text text="MTE - Upload error for evidence"/>
+				<m:Label text="Reporter"/>
+				<m:Text text="Herr Peter Renger"/>
 				<m:Label text="Status"/>
 				<m:Text text="In Process"/>
 				<m:Label text="Component"/>

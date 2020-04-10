@@ -4,12 +4,12 @@ sap.ui.define([
 ], function (JSONModel, Controller) {
 	"use strict";
 
-	return Controller.extend("focus.customersupportsystem.CustomerSupportSystem.controller.CompanyDetail", {
+	return Controller.extend("focus.customersupportsystem.CustomerSupportSystem.controller.CustomerDetail", {
 		onInit: function () {
 			this.oRouter = this.getOwnerComponent().getRouter();
 			this.settingsModel = this.getOwnerComponent().getModel("settingsModel");
 			
-			this.oRouter.getRoute("companydetail").attachPatternMatched(this._onSupplierMatched, this);
+			this.oRouter.getRoute("customerdetail").attachPatternMatched(this._onSupplierMatched, this);
 		},
 		
 		handleFullScreen: function (oEvent) {
@@ -31,10 +31,10 @@ sap.ui.define([
 		},
 		
 		_onSupplierMatched: function (oEvent) {
-			this._company = oEvent.getParameter("arguments").company || this._company || "0";
+			this._customer = oEvent.getParameter("arguments").customer || this._customer || "0";
 			this._ticket = oEvent.getParameter("arguments").ticket || this._ticket || "0";
 			this.getView().bindElement({
-				path: "/ProductCollectionStats/Filters/1/values/" + this._company,
+				path: "/ProductCollectionStats/Filters/1/values/" + this._customer,
 				model: "products"
 			});
 		}

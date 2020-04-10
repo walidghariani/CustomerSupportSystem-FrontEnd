@@ -123,12 +123,12 @@
 					]
 				},
 				{
-					"pattern": "tickets/{ticket}/company/{company}",
-					"name": "companydetail",
+					"pattern": "tickets/{ticket}/customer/{customer}",
+					"name": "customerdetail",
 					"target": [
 						"ticketslist",
 						"ticketdetail",
-						"companydetail"
+						"customerdetail"
 					]
 				}
 			],
@@ -145,8 +145,8 @@
 					"viewName": "TicketDetail",
 					"controlAggregation": "midColumnPages"
 				},
-				"companydetail": {
-					"viewName": "CompanyDetail",
+				"customerdetail": {
+					"viewName": "CustomerDetail",
 					"controlAggregation": "endColumnPages"
 				}
 			}

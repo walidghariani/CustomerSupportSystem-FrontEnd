@@ -14,9 +14,9 @@ sap.ui.define([
 		
 		handleItemPress: function (oEvent) {
 			var supplierPath = oEvent.getSource().getBindingContext().getPath(),
-				company = supplierPath.match(/'([^']+)'/)[1];
+				customer = supplierPath.match(/'([^']+)'/)[1];
 
-			this.oRouter.navTo("companydetail", {ticket: this._ticket, company: company});
+			this.oRouter.navTo("customerdetail", {ticket: this._ticket, customer: customer});
 		},
 		
 		handleFullScreen: function (oEvent) {

@@ -1,4 +1,4 @@
-<mvc:View displayBlock="true" controllerName="focus.customersupportsystem.CustomerSupportSystem.controller.CompanyDetail" height="100%"
+<mvc:View displayBlock="true" controllerName="focus.customersupportsystem.CustomerSupportSystem.controller.CustomerDetail" height="100%"
 		xmlns:mvc="sap.ui.core.mvc"
 		xmlns="sap.f"
 		xmlns:m="sap.m">
