@@ -2,9 +2,7 @@
 		xmlns="sap.uxap"
 		xmlns:mvc="sap.ui.core.mvc"
 		xmlns:m="sap.m"
-		xmlns:f="sap.f"
-		xmlns:form="sap.ui.layout.form"
-		xmlns:smartform="sap.ui.comp.smartform"
+		xmlns:l="sap.ui.layout"
 		xmlns:core="sap.ui.core">
 
 	<ObjectPageLayout 
@@ -13,22 +11,30 @@
 		alwaysShowContentHeader="true"
 		headerContentPinnable="false"
 		preserveHeaderStateOnScroll="true"
-		useIconTabBar="true">
+		useIconTabBar="true"
+		upperCaseAnchorBar="false">
 		
 			<headerTitle>
-				<ObjectPageHeader
-					isObjectIconAlwaysVisible="false"
-					isObjectTitleAlwaysVisible="false"
-					isActionAreaAlwaysVisible="true"
-					objectImageURI="sap-icon://tags"
-					objectTitle="MTE - Upload error for evidence">
+				<ObjectPageDynamicHeaderTitle>
+					<heading>
+						<l:HorizontalLayout>
+							<m:Title text="MTO - Update" class="sapUiTinyMargin"/>
+							<m:GenericTag text="In Process" design="StatusIconHidden" status="Warning" class="sapUiTinyMargin"/>
+							<m:GenericTag text="High" design="StatusIconHidden" status="Error" class="sapUiTinyMargin"/>
+						</l:HorizontalLayout>
+					</heading>
 					
 					<actions>
+						<m:Button icon="sap-icon://edit" text="Edit" type="Default"></m:Button>
+						<m:Button icon="sap-icon://save" text="Save" type="Accept"></m:Button>
+						<m:Button icon="sap-icon://decline" text="Cancel" type="Reject"></m:Button>
+					</actions>
+					<navigationActions>
 						<m:Button type="Transparent" icon="sap-icon://full-screen" press="handleFullScreen" visible="{= ${settingsModel>/actionButtonsInfo/midColumn/fullScreen} !== null }" />
 						<m:Button type="Transparent" icon="sap-icon://exit-full-screen" press="handleExitFullScreen"  visible="{= ${settingsModel>/actionButtonsInfo/midColumn/exitFullScreen} !== null }"/>
 						<m:Button type="Transparent" icon="sap-icon://decline" press="handleClose"  visible="{= ${settingsModel>/actionButtonsInfo/midColumn/closeColumn} !== null }"/>
-					</actions>
-				</ObjectPageHeader>
+					</navigationActions>
+				</ObjectPageDynamicHeaderTitle>
 			</headerTitle>
 		
 			<headerContent>
@@ -55,11 +61,10 @@
 			
 			<sections>
 				
-				<ObjectPageSection title="{i18n>tabBarLabelOverview}" titleUppercase="false" id="overview">
-					<ObjectPageSubSection>
+				<ObjectPageSection title="{i18n>tabBarLabelOverview}" titleUppercase="true" id="overview">
+					<ObjectPageSubSection titleUppercase="true">
 						<actions>
-							<m:Button type="Emphasized" icon="sap-icon://edit" press="toggleAreaPriority"/>
-							<m:Button icon="sap-icon://display" press="toggleAreaPriority"/>
+						
 						</actions>
 						<blocks>
 							<mvc:XMLView viewName="focus.customersupportsystem.CustomerSupportSystem.view.TicketSummary" />
@@ -67,8 +72,19 @@
 					</ObjectPageSubSection>
 				</ObjectPageSection>
 				
+				<ObjectPageSection title="{i18n>tabBarLabelCommunication}" titleUppercase="false">
+					<ObjectPageSubSection titleUppercase="false">
+						<actions>
+
+						</actions>
+						<blocks>
+							<mvc:XMLView viewName="focus.customersupportsystem.CustomerSupportSystem.view.TicketCommunication" />
+						</blocks>
+					</ObjectPageSubSection>
+				</ObjectPageSection>
+				
 				<ObjectPageSection title="{i18n>tabBarLabelAttachments}" titleUppercase="false">
-					<ObjectPageSubSection>
+					<ObjectPageSubSection titleUppercase="false">
 						<actions>
 						
 						</actions>
@@ -79,7 +95,7 @@
 				</ObjectPageSection>
 				
 				<ObjectPageSection title="{i18n>tabBarLabelSolution}" titleUppercase="false">
-					<ObjectPageSubSection>
+					<ObjectPageSubSection titleUppercase="false">
 						<actions>
 
 						</actions>
@@ -89,19 +105,8 @@
 					</ObjectPageSubSection>
 				</ObjectPageSection>
 				
-				<ObjectPageSection title="{i18n>tabBarLabelCommunication}" titleUppercase="false">
-					<ObjectPageSubSection>
-						<actions>
-
-						</actions>
-						<blocks>
-							<mvc:XMLView viewName="focus.customersupportsystem.CustomerSupportSystem.view.TicketCommunication" />
-						</blocks>
-					</ObjectPageSubSection>
-				</ObjectPageSection>
-				
 				<ObjectPageSection title="{i18n>tabBarLabelLog}" titleUppercase="false">
-					<ObjectPageSubSection>
+					<ObjectPageSubSection titleUppercase="false">
 						<actions>
 
 						</actions>
