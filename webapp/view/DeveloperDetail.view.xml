@@ -1,4 +1,4 @@
-<mvc:View displayBlock="true" controllerName="focus.customersupportsystem.CustomerSupportSystem.controller.CustomerDetail" height="100%"
+<mvc:View displayBlock="true" controllerName="focus.customersupportsystem.CustomerSupportSystem.controller.DeveloperDetail" height="100%"
 		xmlns:mvc="sap.ui.core.mvc"
 		xmlns="sap.f"
 		xmlns:m="sap.m"
@@ -10,10 +10,9 @@
 			<DynamicPageTitle>
 				<heading>
 					<m:FlexBox alignContent="Start" >
-						<core:Icon src="sap-icon://building" class="sapUiTinyMargin" />
-						<m:Title text="Evonik Industries AG" class="sapUiTinyMargin" wrapping="true"/>
+						<core:Icon src="sap-icon://employee" class="sapUiTinyMargin" />
+						<m:Title text="Walid Ghariani" class="sapUiTinyMargin" wrapping="true"/>
 					</m:FlexBox>
-					
 				</heading>
 				<navigationActions>
 					<m:OverflowToolbarButton type="Transparent" icon="sap-icon://full-screen" press="handleFullScreen" visible="{= ${layoutSettingsModel>/actionButtonsInfo/endColumn/fullScreen} !== null }" />
@@ -25,27 +24,17 @@
 		<content>
 			<form:SimpleForm editable="false">
 				<form:content>
-					<m:Label text="Customer" />
-					<m:Text text="Evonik Industries AG" />
-					<m:Text text="1170" />
-					<m:Text text="DE" />
-					<m:Label text="Contact Type" />
-					<m:Text text="PSLE / MA / MA4 / SLA" />
-					<m:Link text="Full Support" />
-					<m:Label text="Reporter" />
-					<m:Link text="Peter Regner" />
-					<m:Link text="+49-692185954" />
-					<m:Label text="Time And Country" />
-					<m:Text text="21.02.2020 10:49:38 (UTC+1)" />
-					<m:Text text="Germany" />
-					<m:Label text="Partner type" />
-					<m:Text text="" />
-					<m:Label text="Support Partner" />
-					<m:Text text="" />
-					<m:Label text="Service Partner" />
-					<m:Text text="" />
-					<m:Label text="Creator" />
-					<m:Link text="Peter Regner" />
+					<m:Label text="Name" />
+					<m:Text text="Walid Ghariani" />
+					<m:Label text="E-mail" />
+					<m:Link text="walid.ghariani@sap.com" />
+					<m:Label text="Phone number" />
+					<m:Link text="+21653789379" />
+					<m:Label text="Company" />
+					<m:Text text="Focus" />
+					<m:Text text="Tunisie" />
+					<m:Label text="Team" />
+					<m:Text text="Focused Build" />
 				</form:content>
 			</form:SimpleForm>
 		</content>

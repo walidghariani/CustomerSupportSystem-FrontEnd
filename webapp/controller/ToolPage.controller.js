@@ -9,7 +9,7 @@ sap.ui.define([
 
 		onInit: function () {
 			this.oRouter = this.getOwnerComponent().getRouter();
-			this.settingsModel = this.getOwnerComponent().getModel("settingsModel");
+			this.layoutSettingsModel = this.getOwnerComponent().getModel("layoutSettingsModel");
 			
 			this.oRouter.attachRouteMatched(this.onRouteMatched, this);
 		},
@@ -63,18 +63,18 @@ sap.ui.define([
 			else if(sRouteName === "ticketdetail")
 				oNextUIState = this.getOwnerComponent().getFlexibleColumnLayoutHelper().getNextUIState(1);
 			
-			else if(sRouteName === "customerdetail")
+			else if(sRouteName === "customerdetail" || sRouteName === "systemdetail" || sRouteName === "developerdetail")
 				oNextUIState = this.getOwnerComponent().getFlexibleColumnLayoutHelper().getNextUIState(2);
 				
-			this.settingsModel.setProperty("/layout", oNextUIState.layout);
+			this.layoutSettingsModel.setProperty("/layout", oNextUIState.layout);
 			
 			var oUIState = this.getOwnerComponent().getFlexibleColumnLayoutHelper().getCurrentUIState();
-			this.settingsModel.setData(oUIState);
+			this.layoutSettingsModel.setData(oUIState);
 		},
 		
 		onStateChanged: function (oEvent) {
 			var oUIState = this.getOwnerComponent().getFlexibleColumnLayoutHelper().getCurrentUIState();
-			this.settingsModel.setData(oUIState);
+			this.layoutSettingsModel.setData(oUIState);
 		},
 		
 		onExit: function () {

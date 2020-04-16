@@ -4,12 +4,12 @@ sap.ui.define([
 ], function (JSONModel, Controller) {
 	"use strict";
 
-	return Controller.extend("focus.customersupportsystem.CustomerSupportSystem.controller.CustomerDetail", {
+	return Controller.extend("focus.customersupportsystem.CustomerSupportSystem.controller.DeveloperDetail", {
 		onInit: function () {
 			this.oRouter = this.getOwnerComponent().getRouter();
 			this.layoutSettingsModel = this.getOwnerComponent().getModel("layoutSettingsModel");
 			
-			this.oRouter.getRoute("customerdetail").attachPatternMatched(this._onSupplierMatched, this);
+			this.oRouter.getRoute("developerdetail").attachPatternMatched(this._onSupplierMatched, this);
 		},
 		
 		handleFullScreen: function (oEvent) {
@@ -31,12 +31,13 @@ sap.ui.define([
 		},
 		
 		_onSupplierMatched: function (oEvent) {
-			this._customer = oEvent.getParameter("arguments").customer || this._customer || "0";
+			this._developer = oEvent.getParameter("arguments").developer || this._developer || "0";
 			this._ticket = oEvent.getParameter("arguments").ticket || this._ticket || "0";
 			this.getView().bindElement({
-				path: "/ProductCollectionStats/Filters/1/values/" + this._customer,
+				path: "/ProductCollectionStats/Filters/1/values/" + this._developer,
 				model: "products"
 			});
 		}
 	});
 }, true);
+	

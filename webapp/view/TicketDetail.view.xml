@@ -17,22 +17,22 @@
 			<headerTitle>
 				<ObjectPageDynamicHeaderTitle>
 					<heading>
-						<l:HorizontalLayout>
-							<m:Title text="MTO - Update" class="sapUiTinyMargin"/>
+						<m:FlexBox wrap="Wrap" fitContainer="true" alignItems="Start">
+							<m:Title text="MTE - Upload error for evidence" class="sapUiTinyMargin"/>
 							<m:GenericTag text="In Process" design="StatusIconHidden" status="Warning" class="sapUiTinyMargin"/>
 							<m:GenericTag text="High" design="StatusIconHidden" status="Error" class="sapUiTinyMargin"/>
-						</l:HorizontalLayout>
+						</m:FlexBox>
 					</heading>
 					
 					<actions>
-						<m:Button icon="sap-icon://edit" text="Edit" type="Default"></m:Button>
-						<m:Button icon="sap-icon://save" text="Save" type="Accept"></m:Button>
-						<m:Button icon="sap-icon://decline" text="Cancel" type="Reject"></m:Button>
+						<m:Button icon="sap-icon://edit" text="Edit" type="Default" press="onEdit"></m:Button>
+						<m:Button icon="sap-icon://save" text="Save" type="Accept" press="onSave"></m:Button>
+						<m:Button icon="sap-icon://decline" text="Cancel" type="Reject" press="onCancel"></m:Button>
 					</actions>
 					<navigationActions>
-						<m:Button type="Transparent" icon="sap-icon://full-screen" press="handleFullScreen" visible="{= ${settingsModel>/actionButtonsInfo/midColumn/fullScreen} !== null }" />
-						<m:Button type="Transparent" icon="sap-icon://exit-full-screen" press="handleExitFullScreen"  visible="{= ${settingsModel>/actionButtonsInfo/midColumn/exitFullScreen} !== null }"/>
-						<m:Button type="Transparent" icon="sap-icon://decline" press="handleClose"  visible="{= ${settingsModel>/actionButtonsInfo/midColumn/closeColumn} !== null }"/>
+						<m:Button type="Transparent" icon="sap-icon://full-screen" press="handleFullScreen" visible="{= ${layoutSettingsModel>/actionButtonsInfo/midColumn/fullScreen} !== null }" />
+						<m:Button type="Transparent" icon="sap-icon://exit-full-screen" press="handleExitFullScreen"  visible="{= ${layoutSettingsModel>/actionButtonsInfo/midColumn/exitFullScreen} !== null }"/>
+						<m:Button type="Transparent" icon="sap-icon://decline" press="handleClose"  visible="{= ${layoutSettingsModel>/actionButtonsInfo/midColumn/closeColumn} !== null }"/>
 					</navigationActions>
 				</ObjectPageDynamicHeaderTitle>
 			</headerTitle>
@@ -41,19 +41,19 @@
 				<m:FlexBox wrap="Wrap" fitContainer="true" alignItems="Start">
 					<m:VBox justifyContent="Center" class="sapUiMediumMarginBeginEnd">
 						<m:Label text="{i18n>incidentIdLabel}"/>
-						<m:Link text="{ProductId}" />
+						<m:Text text="{ProductId}" />
 					</m:VBox>
 					<m:VBox justifyContent="Center" class="sapUiMediumMarginBeginEnd">
 						<m:Label text="{i18n>customerLabel}"/>
-						<m:Link text="Evonik Industries AG" press="handleItemPress"/>
+						<m:Link text="Evonik Industries AG" press="handleCustomerLinkPress"/>
 					</m:VBox>
 					<m:VBox justifyContent="Center" class="sapUiMediumMarginBeginEnd">
 						<m:Label text="{i18n>developerLabel}"/>
-						<m:Link text="Walid Ghariani" press="handleItemPress"/>
+						<m:Link text="Walid Ghariani" press="handleDeveloperLinkPress"/>
 					</m:VBox>
 					<m:VBox justifyContent="Center" class="sapUiMediumMarginBeginEnd">
 						<m:Label text="{i18n>systemIdLabel}"/>
-						<m:Link text="D99" press="handleItemPress"/>
+						<m:Link text="D99" press="handleSystemLinkPress"/>
 					</m:VBox>
 				</m:FlexBox>
 			</headerContent>

@@ -67,7 +67,7 @@
 		
 		<tnt:mainContents>
 			
-			<f:FlexibleColumnLayout id="fcl" stateChange="onStateChanged"	layout="{settingsModel>/layout}" backgroundDesign="Translucent"/>
+			<f:FlexibleColumnLayout id="fcl" stateChange="onStateChanged"	layout="{layoutSettingsModel>/layout}" backgroundDesign="Translucent"/>
 			
 		</tnt:mainContents>
 	</tnt:ToolPage>

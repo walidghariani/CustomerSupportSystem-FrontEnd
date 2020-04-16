@@ -76,10 +76,23 @@
 					"defaultBindingMode": "TwoWay"
 				}
 			},
+			"layoutSettingsModel": {
+				"type": "sap.ui.model.json.JSONModel",
+				"settings": {
+					"defaultBindingMode": "TwoWay"
+				}
+			},
 			"settingsModel": {
 				"type": "sap.ui.model.json.JSONModel",
 				"settings": {
 					"defaultBindingMode": "TwoWay"
+				}
+			},
+			"errorsCategories": {
+				"type": "sap.ui.model.json.JSONModel",
+				"uri": "model/ErrorsCategories.json",
+				"settings": {
+					"defaultBindingMode": "OneWay"
 				}
 			}
 		},
@@ -130,6 +143,24 @@
 						"ticketdetail",
 						"customerdetail"
 					]
+				},
+				{
+					"pattern": "tickets/{ticket}/system/{system}",
+					"name": "systemdetail",
+					"target": [
+						"ticketslist",
+						"ticketdetail",
+						"systemdetail"
+					]
+				},
+				{
+					"pattern": "tickets/{ticket}/developer/{developer}",
+					"name": "developerdetail",
+					"target": [
+						"ticketslist",
+						"ticketdetail",
+						"developerdetail"
+					]
 				}
 			],
 			"targets": {
@@ -147,6 +178,14 @@
 				},
 				"customerdetail": {
 					"viewName": "CustomerDetail",
+					"controlAggregation": "endColumnPages"
+				},
+				"systemdetail": {
+					"viewName": "SystemDetail",
+					"controlAggregation": "endColumnPages"
+				},
+				"developerdetail": {
+					"viewName": "DeveloperDetail",
 					"controlAggregation": "endColumnPages"
 				}
 			}

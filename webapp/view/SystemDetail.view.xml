@@ -1,4 +1,4 @@
-<mvc:View displayBlock="true" controllerName="focus.customersupportsystem.CustomerSupportSystem.controller.CustomerDetail" height="100%"
+<mvc:View displayBlock="true" controllerName="focus.customersupportsystem.CustomerSupportSystem.controller.SystemDetail" height="100%"
 		xmlns:mvc="sap.ui.core.mvc"
 		xmlns="sap.f"
 		xmlns:m="sap.m"
@@ -10,10 +10,9 @@
 			<DynamicPageTitle>
 				<heading>
 					<m:FlexBox alignContent="Start" >
-						<core:Icon src="sap-icon://building" class="sapUiTinyMargin" />
-						<m:Title text="Evonik Industries AG" class="sapUiTinyMargin" wrapping="true"/>
+						<core:Icon src="sap-icon://customize" class="sapUiTinyMargin" />
+						<m:Title text="D99" class="sapUiTinyMargin" wrapping="true"/>
 					</m:FlexBox>
-					
 				</heading>
 				<navigationActions>
 					<m:OverflowToolbarButton type="Transparent" icon="sap-icon://full-screen" press="handleFullScreen" visible="{= ${layoutSettingsModel>/actionButtonsInfo/endColumn/fullScreen} !== null }" />
@@ -25,27 +24,22 @@
 		<content>
 			<form:SimpleForm editable="false">
 				<form:content>
-					<m:Label text="Customer" />
-					<m:Text text="Evonik Industries AG" />
-					<m:Text text="1170" />
-					<m:Text text="DE" />
-					<m:Label text="Contact Type" />
-					<m:Text text="PSLE / MA / MA4 / SLA" />
-					<m:Link text="Full Support" />
-					<m:Label text="Reporter" />
-					<m:Link text="Peter Regner" />
-					<m:Link text="+49-692185954" />
-					<m:Label text="Time And Country" />
-					<m:Text text="21.02.2020 10:49:38 (UTC+1)" />
-					<m:Text text="Germany" />
-					<m:Label text="Partner type" />
+					<m:Label text="System ID" />
+					<m:Link text="D99" />
+					<m:Text text="Dev. Solution Manager 7.2" />
+					<m:Label text="System Role" />
+					<m:Text text="DEVELOP / OnP" />
+					<m:Label text="Product Version" />
+					<m:Text text="SAP SOLUTION MANAGER 7.2 / 740" />
+					<m:Label text="Installation " />
+					<m:Text text="0020148952" />
+					<m:Link text="EWA" />
+					<m:Label text="Operating System" />
+					<m:Text text="LINUX_X86_64" />
+					<m:Label text="Database" />
+					<m:Text text="F99 / 2.00.037.00.15525310" />
+					<m:Label text="Data Protection" />
 					<m:Text text="" />
-					<m:Label text="Support Partner" />
-					<m:Text text="" />
-					<m:Label text="Service Partner" />
-					<m:Text text="" />
-					<m:Label text="Creator" />
-					<m:Link text="Peter Regner" />
 				</form:content>
 			</form:SimpleForm>
 		</content>

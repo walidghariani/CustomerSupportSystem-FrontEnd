@@ -1,0 +1,52 @@
+{
+	"errorsCategories1" : [
+		{
+			"errorId" : "0",
+			"errorText" : "Service Request",
+			"errorsCategories2" :[
+				{
+					"errorId" : "0",
+					"errorText" : "System, client, tenant, instance request/refresh"
+				},
+				{
+					"errorId" : "1",
+					"errorText" : "License related"
+				},
+				{
+					"errorId" : "2",
+					"errorText" : "Data migration or restore"
+				},
+				{
+					"errorId" : "3",
+					"errorText" : "Change request"
+				},
+				{
+					"errorId" : "4",
+					"errorText" : "Other service request"
+				}
+			]
+		},
+		{
+			"errorId" : "1",
+			"errorText" : "Others",
+			"errorsCategories2" :[
+				{
+					"errorId" : "0",
+					"errorText" : "Issue cannot be reproduced"
+				},
+				{
+					"errorId" : "1",
+					"errorText" : "Duplicate incident"
+				},
+				{
+					"errorId" : "2",
+					"errorText" : "Closed by customer"
+				},
+				{
+					"errorId" : "3",
+					"errorText" : "Unknown"
+				}
+			]
+		}
+	]
+}
