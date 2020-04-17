@@ -4,10 +4,12 @@
 	xmlns:mvc="sap.ui.core.mvc"
 	height="100%" > 
 	
-	<m:UploadCollection multiple="true" numberOfAttachmentsText="{i18n>numberOfAttachmentsText} (2)">
+	<m:UploadCollection multiple="true" 
+						numberOfAttachmentsText="{i18n>numberOfAttachmentsText} (2)"
+						uploadEnabled="{= ${settingsModel>/editmode} === true }">
 		<m:items>
-			<m:UploadCollectionItem enableDelete="true" 
-									enableEdit="true"
+			<m:UploadCollectionItem enableDelete="{= ${settingsModel>/editmode} === true }" 
+									enableEdit="{= ${settingsModel>/editmode} === true }"
 									fileName="screenshot1.jpg"
 									url="https://i.stack.imgur.com/XhGuS.png">
 				<m:attributes>
@@ -22,8 +24,8 @@
 				</m:statuses> 
 			</m:UploadCollectionItem>
 			
-			<m:UploadCollectionItem enableDelete="false" 
-									enableEdit="false"
+			<m:UploadCollectionItem enableDelete="{= ${settingsModel>/editmode} === true }" 
+									enableEdit="{= ${settingsModel>/editmode} === true }"
 									fileName="screenshot2.jpg"
 									url="https://i.stack.imgur.com/XhGuS.png">
 				<m:attributes>

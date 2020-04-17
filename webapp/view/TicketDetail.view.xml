@@ -48,7 +48,7 @@
 						<m:Link text="Evonik Industries AG" press="handleCustomerLinkPress"/>
 					</m:VBox>
 					<m:VBox justifyContent="Center" class="sapUiMediumMarginBeginEnd">
-						<m:Label text="{i18n>developerLabel}"/>
+						<m:Label text="{i18n>processorLabel}"/>
 						<m:Link text="Walid Ghariani" press="handleDeveloperLinkPress"/>
 					</m:VBox>
 					<m:VBox justifyContent="Center" class="sapUiMediumMarginBeginEnd">

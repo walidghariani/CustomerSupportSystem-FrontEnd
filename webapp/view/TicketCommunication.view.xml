@@ -8,16 +8,16 @@
 		<OverflowToolbar>
 			<content>
 				<ToolbarSpacer width="300px"/>
-				<Button text="New reply" icon="sap-icon://response" type="Transparent"/>
-				<Button text="New internal memo" icon="sap-icon://edit" type="Transparent"/>
-				<Button text="Info to customer" icon="sap-icon://message-information" type="Transparent"/>
-				<Button text="Call from customer" icon="sap-icon://incoming-call" type="Transparent"/>
-				<Button text="Call to customer" icon="sap-icon://outgoing-call" type="Transparent"/>	
-				<Button text="Steps to reproduce" icon="sap-icon://step" type="Transparent"/>
-				<Button text="Business Impact" icon="sap-icon://business-by-design" type="Transparent"/>	
+				<Button text="New reply" icon="sap-icon://response" type="Transparent" enabled="{= ${settingsModel>/editmode} === true }" />
+				<Button text="New internal memo" icon="sap-icon://edit" type="Transparent" enabled="{= ${settingsModel>/editmode} === true }" />
+				<Button text="Info to customer" icon="sap-icon://message-information" type="Transparent" enabled="{= ${settingsModel>/editmode} === true }" />
+				<Button text="Call from customer" icon="sap-icon://incoming-call" type="Transparent" enabled="{= ${settingsModel>/editmode} === true }" />
+				<Button text="Call to customer" icon="sap-icon://outgoing-call" type="Transparent" enabled="{= ${settingsModel>/editmode} === true }" />	
+				<Button text="Steps to reproduce" icon="sap-icon://step" type="Transparent" enabled="{= ${settingsModel>/editmode} === true }" />
+				<Button text="Business Impact" icon="sap-icon://business-by-design" type="Transparent" enabled="{= ${settingsModel>/editmode} === true }" />	
 			</content>
 		</OverflowToolbar>
-		<FeedInput placeholder="{i18n>sendResponsePlaceHolder}" growing="true" />
+		<FeedInput placeholder="{i18n>sendResponsePlaceHolder}" growing="true" enabled="{= ${settingsModel>/editmode} === true }" />
 		<FeedListItem sender="Walid Ghariani" text="I think that there is an issue in your account configuration." timestamp="March 27 2020" />
 		<FeedListItem sender="Khouloud Daghsni" text="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum." timestamp="March 28 2020" />
 	</Panel> 

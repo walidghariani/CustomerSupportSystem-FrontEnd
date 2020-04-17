@@ -6,22 +6,19 @@
 	xmlns:core="sap.ui.core" > 
 	
 <!-- We should use Smart form once we have metadata -->
-	<Panel class="sapUxAPObjectPageSubSectionAlignContent" width="auto" visible="{= ${settingsModel>/editmode} !== true }">
-		<form:SimpleForm
+	<Panel class="sapUxAPObjectPageSubSectionAlignContent" visible="{= ${settingsModel>/editmode} !== true }">
+		<form:SimpleForm 
 			editable="false"
 			layout="ResponsiveGridLayout"
-			labelSpanXL="4"
-			labelSpanL="4"
-			labelSpanM="12"
-			labelSpanS="12"
 			adjustLabelSpan="false"
-			emptySpanXL="0"
-			emptySpanL="0"
-			emptySpanM="0"
+			labelSpanS="12"
+			labelSpanM="4"
+			labelSpanL="4"
+			columnsM="1"
+			columnsL="3"
 			emptySpanS="0"
-			columnsXL="2"
-			columnsL="2"
-			columnsM="2">
+			emptySpanM="3"
+			emptySpanL="0">
 			<form:content>
 				<core:Title text="Incident Details" />
 				<Label text="Incident ID"/>
@@ -79,7 +76,16 @@
 	<Panel class="sapUxAPObjectPageSubSectionAlignContent" width="auto" visible="{= ${settingsModel>/editmode} === true}">	
 		<form:SimpleForm
 			editable="true"
-			layout="ResponsiveGridLayout">
+			layout="ResponsiveGridLayout"
+			adjustLabelSpan="false"
+			labelSpanS="12"
+			labelSpanM="4"
+			labelSpanL="4"
+			columnsM="1"
+			columnsL="3"
+			emptySpanS="0"
+			emptySpanM="3"
+			emptySpanL="0" >
 			<form:content>
 				<core:Title text="Incident Details" />
 				<Label text="Incident ID"/>
@@ -141,6 +147,29 @@
 						<core:Item text="Low" key="3"/>
 					</items>
 				</ComboBox>
+				
+				<core:Title text="Next Action Monitor (Product Support)" />
+				<Label text="Report to the customer until"/>
+				<Text text="19.02.2020"/>
+				<Text text="17:43:52"/>
+				<Label text="Manual date"/>
+				<Text text="10:42"/>
+				
+				<core:Title text="Dates" />
+				<Label text="Last Update"/>
+				<Text text="21.02.2020"/>
+				<Label text="IRT"/>
+				<Text text="18.02.2020"/>
+				<Label text="ORT"/>
+				<Text text="Plan Sol. Del."/>
+				<Label text="Created"/>
+				<Text text="17.02.2020"/>
+				<Label text="MPT"/>
+				<Text text="29.02.2020"/>
+				<Label text="Man."/>
+				<Text text="" />
+				<Label text="Time"/>
+				<Text text=""/>
 			</form:content>
 		</form:SimpleForm>
 	</Panel>

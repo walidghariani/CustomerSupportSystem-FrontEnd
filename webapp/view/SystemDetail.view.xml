@@ -22,7 +22,17 @@
 			</DynamicPageTitle>
 		</title>
 		<content>
-			<form:SimpleForm editable="false">
+			<form:SimpleForm editable="false"
+							layout="ResponsiveGridLayout"
+							adjustLabelSpan="false"
+							labelSpanS="12"
+							labelSpanM="4"
+							labelSpanL="4"
+							columnsM="1"
+							columnsL="1"
+							emptySpanS="0"
+							emptySpanM="1"
+							emptySpanL="4">
 				<form:content>
 					<m:Label text="System ID" />
 					<m:Link text="D99" />
