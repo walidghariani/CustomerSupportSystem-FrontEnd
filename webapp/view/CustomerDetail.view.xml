@@ -35,18 +35,26 @@
 							emptySpanL="4">
 				<form:content>
 					<m:Label text="Customer" />
-					<m:Text text="Evonik Industries AG" />
-					<m:Text text="1170" />
-					<m:Text text="DE" />
+					<m:FlexBox>
+						<m:Text text="Evonik Industries AG" class="sapUiMediumMarginEnd" />
+						<m:Text text="1170" class="sapUiMediumMarginEnd" />
+						<m:Text text="DE" />
+					</m:FlexBox>
 					<m:Label text="Contact Type" />
-					<m:Text text="PSLE / MA / MA4 / SLA" />
-					<m:Link text="Full Support" />
+					<m:FlexBox>
+						<m:Text text="PSLE / MA / MA4 / SLA" class="sapUiMediumMarginEnd" />
+						<m:Link text="Full Support" />
+					</m:FlexBox>
 					<m:Label text="Reporter" />
-					<m:Link text="Peter Regner" />
-					<m:Link text="+49-692185954" />
+					<m:FlexBox>
+						<m:Link text="Peter Regner" class="sapUiMediumMarginEnd"/>
+						<m:Link text="+49-692185954" />
+					</m:FlexBox>
 					<m:Label text="Time And Country" />
-					<m:Text text="21.02.2020 10:49:38 (UTC+1)" />
-					<m:Text text="Germany" />
+					<m:FlexBox>
+						<m:Text text="21.02.2020 10:49:38 (UTC+1)" class="sapUiMediumMarginEnd" />
+						<m:Text text="Germany" />
+					</m:FlexBox>
 					<m:Label text="Partner type" />
 					<m:Text text="" />
 					<m:Label text="Support Partner" />

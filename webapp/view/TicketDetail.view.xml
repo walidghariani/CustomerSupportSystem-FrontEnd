@@ -39,19 +39,19 @@
 		
 			<headerContent>
 				<m:FlexBox wrap="Wrap" fitContainer="true" alignItems="Start">
-					<m:VBox justifyContent="Center" class="sapUiMediumMarginBeginEnd">
+					<m:VBox justifyContent="Center" class="sapUiLargeMarginBegin" width="100px" wrap="Wrap">
 						<m:Label text="{i18n>incidentIdLabel}"/>
 						<m:Text text="{ProductId}" />
 					</m:VBox>
-					<m:VBox justifyContent="Center" class="sapUiMediumMarginBeginEnd">
+					<m:VBox justifyContent="Center" class="sapUiLargeMarginBegin" width="100px" wrap="Wrap">
 						<m:Label text="{i18n>customerLabel}"/>
-						<m:Link text="Evonik Industries AG" press="handleCustomerLinkPress"/>
+						<m:Link text="Evonik Industries AG" press="handleCustomerLinkPress" />
 					</m:VBox>
-					<m:VBox justifyContent="Center" class="sapUiMediumMarginBeginEnd">
+					<m:VBox justifyContent="Center" class="sapUiLargeMarginBegin" width="100px" wrap="Wrap">
 						<m:Label text="{i18n>processorLabel}"/>
 						<m:Link text="Walid Ghariani" press="handleDeveloperLinkPress"/>
 					</m:VBox>
-					<m:VBox justifyContent="Center" class="sapUiMediumMarginBeginEnd">
+					<m:VBox justifyContent="Center" class="sapUiLargeMarginBegin" width="100px" wrap="Wrap">
 						<m:Label text="{i18n>systemIdLabel}"/>
 						<m:Link text="D99" press="handleSystemLinkPress"/>
 					</m:VBox>

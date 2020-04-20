@@ -35,15 +35,20 @@
 							emptySpanL="4">
 				<form:content>
 					<m:Label text="System ID" />
-					<m:Link text="D99" />
-					<m:Text text="Dev. Solution Manager 7.2" />
+					<m:FlexBox>
+						<m:Link text="D99" class="sapUiMediumMarginEnd" />
+						<m:Text text="Dev. Solution Manager 7.2" />
+					</m:FlexBox>
+					
 					<m:Label text="System Role" />
 					<m:Text text="DEVELOP / OnP" />
 					<m:Label text="Product Version" />
 					<m:Text text="SAP SOLUTION MANAGER 7.2 / 740" />
 					<m:Label text="Installation " />
-					<m:Text text="0020148952" />
-					<m:Link text="EWA" />
+					<m:FlexBox>
+						<m:Text text="0020148952" class="sapUiMediumMarginEnd" />
+						<m:Link text="EWA" />
+					</m:FlexBox>
 					<m:Label text="Operating System" />
 					<m:Text text="LINUX_X86_64" />
 					<m:Label text="Database" />
