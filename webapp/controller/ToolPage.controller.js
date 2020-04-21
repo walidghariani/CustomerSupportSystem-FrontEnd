@@ -24,8 +24,52 @@ sap.ui.define([
 			oToolPage.setSideExpanded(!oToolPage.getSideExpanded());
 		},
 		
-		onAccountIconPress: function(){
+		onAccountIconPress: function(event){
+			var oPopover = new Popover({
+				showHeader: true,
+				placement: "Bottom",
+				contentMinWidth: "200px",
+				title: "Walid Ghariani",
+				content: [
+					new sap.m.Button({
+						text: 'Recent activities',
+						type: "Transparent",
+						icon: "sap-icon://customer-history"
+					}),
+					new sap.m.Button({
+						text: 'Frequently used',
+						type: "Transparent",
+						icon: "sap-icon://activity-individual"
+					}),
+					new sap.m.Button({
+						text: 'App finder',
+						type: "Transparent",
+						icon: "sap-icon://display"
+					}),
+					new sap.m.Button({
+						text: 'Settings',
+						type: "Transparent",
+						icon: "sap-icon://action-settings"
+					}),
+					new sap.m.Button({
+						text: 'Contact support',
+						type: "Transparent",
+						icon: "sap-icon://email"
+					}),
+					new sap.m.Button({
+						text: 'About',
+						type: "Transparent",
+						icon: "sap-icon://hint"
+					}),
+					new sap.m.Button({
+						text: 'Sign out',
+						type: "Reject",
+						icon: "sap-icon://log"
+					})
+				]
+			}).addStyleClass('sapMOTAPopover sapTntToolHeaderPopover');
 			
+			oPopover.openBy(event.getSource());
 		},
 		
 		handleNotificationIconPress: function(oEvent){
@@ -35,7 +79,7 @@ sap.ui.define([
 					contentMinWidth: "400px",
 					placement: "Bottom",
 					showArrow: false,
-					showHeader: false,
+					showHeader: true,
 					title: "Notification Center",
 					content : [
 						new sap.ui.core.mvc.XMLView({

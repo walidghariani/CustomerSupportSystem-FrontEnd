@@ -26,9 +26,9 @@
 					</layoutData>
 				</ToolbarSpacer>
 				
+				<Button icon="sap-icon://message-error" type="Transparent" />
 				<Button icon="sap-icon://bell" type="Transparent" press=".handleNotificationIconPress" />
-				<Button icon="sap-icon://account" type="Transparent" press=".onAccountIconPress"/>
-				<Button icon="sap-icon://log" type="Transparent" />
+				<Button icon="sap-icon://person-placeholder" type="Transparent" press=".onAccountIconPress"/>
 
 			</tnt:ToolHeader>
 		</tnt:header>
@@ -47,9 +47,23 @@
 					</tnt:NavigationListItem>
 					
 					<tnt:NavigationListItem
-						text="{i18n>addTicketButton}"
-						icon="sap-icon://sys-add"
-						key="addticket">
+						text="Create"
+						icon="sap-icon://write-new">
+						
+						<tnt:NavigationListItem
+							text="Internal Incident"
+							key="Customer Incident" />
+							
+						<tnt:NavigationListItem
+							text="Create"
+							key="addticket" />
+						
+					</tnt:NavigationListItem>
+					
+					<tnt:NavigationListItem
+						text="Reports"
+						icon="sap-icon://line-chart"
+						key="Reports">
 						
 					</tnt:NavigationListItem>
 					

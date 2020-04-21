@@ -1,26 +1,10 @@
 <mvc:View
 	controllerName="focus.customersupportsystem.CustomerSupportSystem.controller.TicketSolution"
+	xmlns="sap.ui.table"
 	xmlns:m="sap.m"
 	xmlns:mvc="sap.ui.core.mvc"
 	height="100%" > 
 	
-	<m:UploadCollection multiple="true" numberOfAttachmentsText="{i18n>numberOfAttachmentsText} (1)">
-		<m:items>
-			<m:UploadCollectionItem enableDelete="false" 
-									enableEdit="false"
-									fileName="screenshot3.jpg"
-									url="https://i.stack.imgur.com/XhGuS.png">
-				<m:attributes>
-					<m:ObjectAttribute title="{i18n>uploadedDateAttributeLabel}" text="3/28/2020"/>
-					<m:ObjectAttribute title="{i18n>contributorAttributeLabel}" text="Khouloud Daghsni"/>
-				</m:attributes>
-				<m:markers>
-					<m:ObjectMarker type="Locked" visibility="IconOnly"/>
-				</m:markers>
-				<m:statuses>
-					<m:ObjectStatus state="Success" text="{i18n>uploadedStatusText}"/>
-				</m:statuses> 
-			</m:UploadCollectionItem>
-		</m:items>
-	</m:UploadCollection>
+	
+	
 </mvc:View>

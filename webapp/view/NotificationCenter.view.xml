@@ -1,12 +1,10 @@
 <mvc:View
 	controllerName="focus.customersupportsystem.CustomerSupportSystem.controller.NotificationCenter"
 	xmlns="sap.m"
-	xmlns:t="sap.ui.table"
 	xmlns:mvc="sap.ui.core.mvc"
 	height="100%" > 
 	
 	<List id="notificationsList" items="{path : '/notifications' }">
-		
 		<NotificationListItem	title="{title}"
 								authorName="{authorName}"
 								showButtons="false"

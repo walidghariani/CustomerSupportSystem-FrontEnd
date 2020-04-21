@@ -53,12 +53,14 @@ sap.ui.define([
 			this.oRouter.navTo("ticketslist");
 		},
 		
-		onEdit: function (){
+		onEdit: function (oEvent){
 			this.settingsModel.setProperty("/editmode" , true);
 		},
 		
-		onCancel: function (){
+		onCancel: function (oEvent){
 			this.settingsModel.setProperty("/editmode" , false);
+			
+			this.settingsModel.setProperty("/bMessageTypeClicked" , false);
 		},
 		
 		_onRouteMatched: function (oEvent) {

@@ -25,9 +25,9 @@
 					</heading>
 					
 					<actions>
-						<m:Button icon="sap-icon://edit" text="Edit" type="Default" press="onEdit"></m:Button>
-						<m:Button icon="sap-icon://save" text="Save" type="Accept" press="onSave"></m:Button>
-						<m:Button icon="sap-icon://decline" text="Cancel" type="Reject" press="onCancel"></m:Button>
+						<m:Button id="editButton" icon="sap-icon://edit" text="Edit" type="Default" press="onEdit" enabled="{= ${settingsModel>/editmode} !== true }"></m:Button>
+						<m:Button id="saveButton" icon="sap-icon://save" text="Save" type="Accept" press="onSave" enabled="{= ${settingsModel>/editmode} === true}"></m:Button> 
+						<m:Button id="cancelButton" icon="sap-icon://decline" text="Cancel" type="Reject" press="onCancel" enabled="{= ${settingsModel>/editmode} === true}"></m:Button>
 					</actions>
 					<navigationActions>
 						<m:Button type="Transparent" icon="sap-icon://full-screen" press="handleFullScreen" visible="{= ${layoutSettingsModel>/actionButtonsInfo/midColumn/fullScreen} !== null }" />

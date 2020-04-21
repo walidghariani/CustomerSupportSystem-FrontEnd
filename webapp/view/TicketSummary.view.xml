@@ -24,13 +24,14 @@
 				<core:Title text="Incident Details" />
 				<Label text="Incident ID"/>
 				<Text text="{ProductId}"/>
+				<Label text="Transaction Type"/>
+				<Text text="Customer Incident"/>
 				<Label text="Description"/>
 				<Text text="MTE - Upload error for evidence"/>
-				<Label text="Status / Priority"/>
-				<FlexBox>
-					<ObjectStatus text="In Process" state="Warning" class="sapUiMediumMarginEnd"/>
-					<ObjectStatus text="High" state="Error" class="sapUiMediumMarginEnd"/>
-				</FlexBox>
+				<Label text="Status"/>
+				<ObjectStatus text="In Process" state="Warning" class="sapUiMediumMarginEnd"/>
+				<Label text="Priority"/>
+				<ObjectStatus text="High" state="Error" class="sapUiMediumMarginEnd"/>
 				<Label text="Component"/>
 				<FlexBox>
 					<Text text="SV-SMG-OST-FB-TWB" class="sapUiMediumMarginEnd"/>
@@ -99,9 +100,11 @@
 				<core:Title text="Incident Details" />
 				<Label text="Incident ID"/>
 				<Text text="{ProductId}"/>
+				<Label text="Transaction Type"/>
+				<Text text="Customer Incident"/>
 				<Label text="Description"/>
 				<Input value="MTE - Upload error for evidence"/>
-				<Label text="Status / Priority"/>
+				<Label text="Status"/>
 				<ComboBox placeholder="Select status" selectedKey="0">
 					<items>
 						<core:Item text="In Process" key="0"/>
@@ -114,6 +117,7 @@
 						<core:Item text="Pending Release" key="7"/>
 					</items>
 				</ComboBox>
+				<Label text="Priority"/>
 				<ComboBox placeholder="Select status" selectedKey="0">
 					<items>
 						<core:Item text="Very high" key="0"/>
