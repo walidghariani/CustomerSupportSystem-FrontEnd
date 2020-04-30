@@ -14,7 +14,10 @@ sap.ui.define([
 		_onProductMatched: function (oEvent) {
 			this._ticket = oEvent.getParameter("arguments").ticket || this._ticket || "0";
 			this.getView().bindElement({
-				path: "/ProductSet('" + this._ticket + "')"
+				path: "/IncidentSet(" + this._ticket + ")",
+				parameters: {
+			        expand: "ToCustomer,ToSystem,ToProcessor"
+			    }
 			});
 		},
 		errorCategory1Change:function(oEvent){

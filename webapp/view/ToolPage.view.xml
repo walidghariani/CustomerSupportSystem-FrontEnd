@@ -52,10 +52,10 @@
 						
 						<tnt:NavigationListItem
 							text="Internal Incident"
-							key="Customer Incident" />
+							key="addticket" />
 							
 						<tnt:NavigationListItem
-							text="Create"
+							text="Customer Incident"
 							key="addticket" />
 						
 					</tnt:NavigationListItem>

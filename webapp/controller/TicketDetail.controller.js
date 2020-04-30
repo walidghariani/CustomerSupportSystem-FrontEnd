@@ -14,23 +14,20 @@ sap.ui.define([
 		},
 		
 		handleCustomerLinkPress: function (oEvent) {
-			var customerPath = oEvent.getSource().getBindingContext().getPath(),
-				customer = customerPath.match(/'([^']+)'/)[1];
+			var customer = oEvent.getSource().data("CustomerId");
 
 			this.oRouter.navTo("customerdetail", {ticket: this._ticket, customer: customer});
 		},
 		
 		handleSystemLinkPress: function (oEvent) {
-			var systemPath = oEvent.getSource().getBindingContext().getPath(),
-				system = systemPath.match(/'([^']+)'/)[1];
+			var system = oEvent.getSource().data("SystemId");
 
 			this.oRouter.navTo("systemdetail", {ticket: this._ticket, system: system});
 		},
 		
 		handleDeveloperLinkPress: function (oEvent) {
-			var developerPath = oEvent.getSource().getBindingContext().getPath(),
-				developer = developerPath.match(/'([^']+)'/)[1];
-
+			var developer = oEvent.getSource().data("ProcessorId");
+			
 			this.oRouter.navTo("developerdetail", {ticket: this._ticket, developer: developer});
 		},
 		
@@ -66,7 +63,10 @@ sap.ui.define([
 		_onRouteMatched: function (oEvent) {
 			this._ticket = oEvent.getParameter("arguments").ticket || this._ticket || "0";
 			this.getView().bindElement({
-				path: "/ProductSet('" + this._ticket + "')"
+				path: "/IncidentSet(" + this._ticket + ")",
+				parameters: {
+			        expand: "ToCustomer,ToSystem,ToProcessor"
+			    }
 			});
 			
 			var objectPageLayout = this.byId("ObjectPageLayout");

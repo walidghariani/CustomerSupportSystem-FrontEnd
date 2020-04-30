@@ -23,40 +23,40 @@
 			<form:content>
 				<core:Title text="Incident Details" />
 				<Label text="Incident ID"/>
-				<Text text="{ProductId}"/>
+				<Text text="{IncidentId}"/>
 				<Label text="Transaction Type"/>
-				<Text text="Customer Incident"/>
+				<Text text="{IncidentTypeId}"/>
 				<Label text="Description"/>
-				<Text text="MTE - Upload error for evidence"/>
+				<Text text="{Description}"/>
 				<Label text="Status"/>
-				<ObjectStatus text="In Process" state="Warning" class="sapUiMediumMarginEnd"/>
+				<ObjectStatus text="{StatusId}" state="Warning" class="sapUiMediumMarginEnd"/>
 				<Label text="Priority"/>
-				<ObjectStatus text="High" state="Error" class="sapUiMediumMarginEnd"/>
+				<ObjectStatus text="{PriorityId}" state="Error" class="sapUiMediumMarginEnd"/>
 				<Label text="Component"/>
 				<FlexBox>
-					<Text text="SV-SMG-OST-FB-TWB" class="sapUiMediumMarginEnd"/>
+					<Text text="{Component}" class="sapUiMediumMarginEnd"/>
 					<Link text="Test Management" class="sapUiMediumMarginEnd"/>
 				</FlexBox>
 				<Label text="Processor"/>
 				<FlexBox>
-					<Text text="Walid Ghariani" class="sapUiMediumMarginEnd"/>
+					<Text text="{ToProcessor/Name}" class="sapUiMediumMarginEnd"/>
 					<Text text="21.02.2020" class="sapUiMediumMarginEnd"/>
 				</FlexBox>
 				<Label text="Processing"/>
-				<Text text="DS Development"/>
+				<Text text="{ToProcessor/Name}"/>
 				<Label text="Service Team"/>
-				<Text text="DS Dev EMEA"/>
+				<Text text="{ToProcessor/Name}"/>
 				<Label text="Owner"/>
 				<Text text=""/>
 				<Label text="Error Category 1"/>
-				<Text text=""/>
+				<Text text="{ErrorCategoryId}"/>
 				<Label text="Error Category 2"/>
-				<Text text=""/>
+				<Text text="{ErrorCategoryId}"/>
 				<Label text="Internal error"/>
 				<Text text=""/>
 				
 				<core:Title text="Next Action Monitor (Product Support)" />
-				<Label text="Report to the customer until"/>
+				<Label text="Respond to the customer until"/>
 				<FlexBox>
 					<Text text="19.02.2020" class="sapUiMediumMarginEnd"/>
 					<Text text="17:43:52" class="sapUiMediumMarginEnd"/>
@@ -66,13 +66,13 @@
 				
 				<core:Title text="Dates" />
 				<Label text="Last Update"/>
-				<Text text="21.02.2020"/>
+				<Text text="{LastUpdate}"/>
 				<Label text="IRT"/>
 				<Text text="18.02.2020"/>
 				<Label text="ORT"/>
 				<Text text="Plan Sol. Del."/>
 				<Label text="Created"/>
-				<Text text="17.02.2020"/>
+				<Text text="{Created}"/>
 				<Label text="MPT"/>
 				<Text text="29.02.2020"/>
 				<Label text="Man."/>
@@ -99,13 +99,13 @@
 			<form:content>
 				<core:Title text="Incident Details" />
 				<Label text="Incident ID"/>
-				<Text text="{ProductId}"/>
+				<Text text="{IncidentId}"/>
 				<Label text="Transaction Type"/>
-				<Text text="Customer Incident"/>
+				<Text text="{IncidentTypeId}"/>
 				<Label text="Description"/>
-				<Input value="MTE - Upload error for evidence"/>
+				<Input value="{Description}"/>
 				<Label text="Status"/>
-				<ComboBox placeholder="Select status" selectedKey="0">
+				<ComboBox placeholder="Select status" selectedKey="{StatusId}">
 					<items>
 						<core:Item text="In Process" key="0"/>
 						<core:Item text="On Hold" key="1"/>
@@ -118,32 +118,32 @@
 					</items>
 				</ComboBox>
 				<Label text="Priority"/>
-				<ComboBox placeholder="Select status" selectedKey="0">
+				<ComboBox placeholder="Select status" selectedKey="{PriorityId}">
 					<items>
-						<core:Item text="Very high" key="0"/>
-						<core:Item text="High" key="1"/>
+						<core:Item text="Very high" key="4"/>
+						<core:Item text="High" key="3"/>
 						<core:Item text="Medium" key="2"/>
-						<core:Item text="Low" key="3"/>
+						<core:Item text="Low" key="1"/>
 					</items>
 				</ComboBox>
 				<Label text="Component"/>
 				<FlexBox>
-					<Text text="SV-SMG-OST-FB-TWB" class="sapUiMediumMarginEnd"/>
+					<Text text="{Component}" class="sapUiMediumMarginEnd"/>
 					<Link text="Test Management" />
 				</FlexBox>
 				
 				<Label text="Processor"/>
 				<Input
 					type="Text"
-					value="Walid Ghariani"
+					value="{ToProcessor/Name}"
 					showValueHelp="true"
 					valueHelpOnly="true"
 					valueHelpRequest="handleValueHelp"/>
 				<Text text="21.02.2020"/>
 				<Label text="Processing"/>
-				<Text text="DS Development"/>
+				<Text text="{ToProcessor/Name}"/>
 				<Label text="Service Team"/>
-				<Text text="DS Dev EMEA"/>
+				<Text text="{ToProcessor/Name}"/>
 				<Label text="Owner"/>
 				<Text text=""/>
 				<Label text="Error Category 1"/>
@@ -155,13 +155,8 @@
 					<core:Item id="itemErrorCategory2" text="{errorsCategories>errorText}" key="{errorsCategories>errorId}"/>
 				</ComboBox>
 				<Label text="Internal error"/>
-				<ComboBox placeholder="Select status" selectedKey="0">
-					<items>
-						<core:Item text="Very high" key="0"/>
-						<core:Item text="High" key="1"/>
-						<core:Item text="Medium" key="2"/>
-						<core:Item text="Low" key="3"/>
-					</items>
+				<ComboBox placeholder="Select status" >
+
 				</ComboBox>
 				
 				<core:Title text="Next Action Monitor (Product Support)" />
@@ -175,13 +170,13 @@
 				
 				<core:Title text="Dates" />
 				<Label text="Last Update"/>
-				<Text text="21.02.2020"/>
+				<Text text="{LastUpdate}"/>
 				<Label text="IRT"/>
 				<Text text="18.02.2020"/>
 				<Label text="ORT"/>
 				<Text text="Plan Sol. Del."/>
 				<Label text="Created"/>
-				<Text text="17.02.2020"/>
+				<Text text="{Created}"/>
 				<Label text="MPT"/>
 				<Text text="29.02.2020"/>
 				<Label text="Man."/>

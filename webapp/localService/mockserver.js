@@ -8,7 +8,7 @@ sap.ui.define([
 		init: function() {
 			// mock the service call from manifest.json
 			var oMockServer = new MockServer({
-				rootUri: "/sap/opu/odata/sap/EPM_REF_APPS_PROD_MAN_SRV/"
+				rootUri: "/sap/opu/odata/sap/ZINCIDENT_MANAGER_SRV/"
 			});
 
 			// configure

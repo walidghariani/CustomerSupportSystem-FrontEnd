@@ -41,19 +41,31 @@
 				<m:FlexBox wrap="Wrap" fitContainer="true" alignItems="Start">
 					<m:VBox justifyContent="Center" class="sapUiLargeMarginBegin" width="100px" wrap="Wrap">
 						<m:Label text="{i18n>incidentIdLabel}"/>
-						<m:Text text="{ProductId}" />
+						<m:Text text="{IncidentId}" />
 					</m:VBox>
 					<m:VBox justifyContent="Center" class="sapUiLargeMarginBegin" width="100px" wrap="Wrap">
 						<m:Label text="{i18n>customerLabel}"/>
-						<m:Link text="Evonik Industries AG" press="handleCustomerLinkPress" />
+						<m:Link text="{ToCustomer/Name}" press="handleCustomerLinkPress">
+							<m:customData>
+								<core:CustomData key="CustomerId" value="{CustomerId}" />
+							</m:customData>
+						</m:Link>
 					</m:VBox>
 					<m:VBox justifyContent="Center" class="sapUiLargeMarginBegin" width="100px" wrap="Wrap">
 						<m:Label text="{i18n>processorLabel}"/>
-						<m:Link text="Walid Ghariani" press="handleDeveloperLinkPress"/>
+						<m:Link text="{ToProcessor/Name}" press="handleDeveloperLinkPress">
+							<m:customData>
+								<core:CustomData key="ProcessorId" value="{ProcessorId}" />
+							</m:customData>
+						</m:Link>
 					</m:VBox>
 					<m:VBox justifyContent="Center" class="sapUiLargeMarginBegin" width="100px" wrap="Wrap">
 						<m:Label text="{i18n>systemIdLabel}"/>
-						<m:Link text="D99" press="handleSystemLinkPress"/>
+						<m:Link text="{ToSystem/SystemId}" press="handleSystemLinkPress">
+							<m:customData>
+								<core:CustomData key="SystemId" value="{SystemId}" />
+							</m:customData>
+						</m:Link>
 					</m:VBox>
 				</m:FlexBox>
 			</headerContent>

@@ -7,9 +7,8 @@ sap.ui.define([
 	return Controller.extend("focus.customersupportsystem.CustomerSupportSystem.controller.TicketsList", {
 		onInit: function () {
 			this.oRouter = this.getOwnerComponent().getRouter();
-			this.oModel = this.getOwnerComponent().getModel("ODataModel");
 			
-			if (this.oRouter.getHashChanger().hash != ""){
+			if (this.oRouter.getHashChanger().hash !== ""){
 				this.ticketsListSmartTab = this.byId("smartTable_ResponsiveTable");
 				this.ticketsListSmartTab.setProperty("enableAutoBinding",true);
 			}
@@ -18,10 +17,21 @@ sap.ui.define([
 		},
 		
 		onListRowSelect: function (oEvent) {
-			var productPath = oEvent.getParameter("rowContext").getPath(),
-			ticket = productPath.match(/'([^']+)'/)[1];
+			var incidentPath = oEvent.getParameter("rowContext").getPath(),
+			ticket = incidentPath.match(/(\d+)/)[0];
 			
 			this.oRouter.navTo("ticketdetail", {ticket: ticket});
+		},
+		
+		formatRowHighlight: function (oValue) {
+			
+			switch (oValue){
+				case 1 : return "Success";
+				case 2 : return "Warning";
+				case 3 : return "Error";
+				case 4 : return  "Error";
+			}
 		}
+
 	});
 }, true);

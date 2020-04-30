@@ -16,7 +16,7 @@
 		},
 		"dataSources": {
 			"mainService": {
-				"uri": "/sap/opu/odata/sap/EPM_REF_APPS_PROD_MAN_SRV/",
+				"uri": "/sap/opu/odata/sap/ZINCIDENT_MANAGER_SRV/",
 				"type": "OData",
 				"settings": {
 					"odataVersion": "2.0",

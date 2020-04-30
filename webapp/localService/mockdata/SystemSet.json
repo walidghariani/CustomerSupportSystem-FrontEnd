@@ -1,0 +1,161 @@
+[{
+	"SystemId": "SystemId 1",
+	"SystemRole": "SystemRole 1",
+	"ProductVersion": "ProductVersion 1",
+	"Installation": "Installation 1",
+	"OperatingSystem": "OperatingSystem 1",
+	"DatabaseId": "DatabaseId 1",
+	"__metadata": {
+		"uri": "SystemSet('SystemId%201')",
+		"type": "ZINCIDENT_MANAGER_SRV.System"
+	},
+	"SystemToIncidentNav": {
+		"__deferred": {
+			"uri": "SystemSet('SystemId%201')/SystemToIncidentNav"
+		}
+	}
+}, {
+	"SystemId": "SystemId 2",
+	"SystemRole": "SystemRole 2",
+	"ProductVersion": "ProductVersion 2",
+	"Installation": "Installation 2",
+	"OperatingSystem": "OperatingSystem 2",
+	"DatabaseId": "DatabaseId 2",
+	"__metadata": {
+		"uri": "SystemSet('SystemId%202')",
+		"type": "ZINCIDENT_MANAGER_SRV.System"
+	},
+	"SystemToIncidentNav": {
+		"__deferred": {
+			"uri": "SystemSet('SystemId%202')/SystemToIncidentNav"
+		}
+	}
+}, {
+	"SystemId": "SystemId 3",
+	"SystemRole": "SystemRole 3",
+	"ProductVersion": "ProductVersion 3",
+	"Installation": "Installation 3",
+	"OperatingSystem": "OperatingSystem 3",
+	"DatabaseId": "DatabaseId 3",
+	"__metadata": {
+		"uri": "SystemSet('SystemId%203')",
+		"type": "ZINCIDENT_MANAGER_SRV.System"
+	},
+	"SystemToIncidentNav": {
+		"__deferred": {
+			"uri": "SystemSet('SystemId%203')/SystemToIncidentNav"
+		}
+	}
+}, {
+	"SystemId": "SystemId 4",
+	"SystemRole": "SystemRole 4",
+	"ProductVersion": "ProductVersion 4",
+	"Installation": "Installation 4",
+	"OperatingSystem": "OperatingSystem 4",
+	"DatabaseId": "DatabaseId 4",
+	"__metadata": {
+		"uri": "SystemSet('SystemId%204')",
+		"type": "ZINCIDENT_MANAGER_SRV.System"
+	},
+	"SystemToIncidentNav": {
+		"__deferred": {
+			"uri": "SystemSet('SystemId%204')/SystemToIncidentNav"
+		}
+	}
+}, {
+	"SystemId": "SystemId 5",
+	"SystemRole": "SystemRole 5",
+	"ProductVersion": "ProductVersion 5",
+	"Installation": "Installation 5",
+	"OperatingSystem": "OperatingSystem 5",
+	"DatabaseId": "DatabaseId 5",
+	"__metadata": {
+		"uri": "SystemSet('SystemId%205')",
+		"type": "ZINCIDENT_MANAGER_SRV.System"
+	},
+	"SystemToIncidentNav": {
+		"__deferred": {
+			"uri": "SystemSet('SystemId%205')/SystemToIncidentNav"
+		}
+	}
+}, {
+	"SystemId": "SystemId 6",
+	"SystemRole": "SystemRole 6",
+	"ProductVersion": "ProductVersion 6",
+	"Installation": "Installation 6",
+	"OperatingSystem": "OperatingSystem 6",
+	"DatabaseId": "DatabaseId 6",
+	"__metadata": {
+		"uri": "SystemSet('SystemId%206')",
+		"type": "ZINCIDENT_MANAGER_SRV.System"
+	},
+	"SystemToIncidentNav": {
+		"__deferred": {
+			"uri": "SystemSet('SystemId%206')/SystemToIncidentNav"
+		}
+	}
+}, {
+	"SystemId": "SystemId 7",
+	"SystemRole": "SystemRole 7",
+	"ProductVersion": "ProductVersion 7",
+	"Installation": "Installation 7",
+	"OperatingSystem": "OperatingSystem 7",
+	"DatabaseId": "DatabaseId 7",
+	"__metadata": {
+		"uri": "SystemSet('SystemId%207')",
+		"type": "ZINCIDENT_MANAGER_SRV.System"
+	},
+	"SystemToIncidentNav": {
+		"__deferred": {
+			"uri": "SystemSet('SystemId%207')/SystemToIncidentNav"
+		}
+	}
+}, {
+	"SystemId": "SystemId 8",
+	"SystemRole": "SystemRole 8",
+	"ProductVersion": "ProductVersion 8",
+	"Installation": "Installation 8",
+	"OperatingSystem": "OperatingSystem 8",
+	"DatabaseId": "DatabaseId 8",
+	"__metadata": {
+		"uri": "SystemSet('SystemId%208')",
+		"type": "ZINCIDENT_MANAGER_SRV.System"
+	},
+	"SystemToIncidentNav": {
+		"__deferred": {
+			"uri": "SystemSet('SystemId%208')/SystemToIncidentNav"
+		}
+	}
+}, {
+	"SystemId": "SystemId 9",
+	"SystemRole": "SystemRole 9",
+	"ProductVersion": "ProductVersion 9",
+	"Installation": "Installation 9",
+	"OperatingSystem": "OperatingSystem 9",
+	"DatabaseId": "DatabaseId 9",
+	"__metadata": {
+		"uri": "SystemSet('SystemId%209')",
+		"type": "ZINCIDENT_MANAGER_SRV.System"
+	},
+	"SystemToIncidentNav": {
+		"__deferred": {
+			"uri": "SystemSet('SystemId%209')/SystemToIncidentNav"
+		}
+	}
+}, {
+	"SystemId": "SystemId 10",
+	"SystemRole": "SystemRole 10",
+	"ProductVersion": "ProductVersion 10",
+	"Installation": "Installation 10",
+	"OperatingSystem": "OperatingSystem 10",
+	"DatabaseId": "DatabaseId 10",
+	"__metadata": {
+		"uri": "SystemSet('SystemId%2010')",
+		"type": "ZINCIDENT_MANAGER_SRV.System"
+	},
+	"SystemToIncidentNav": {
+		"__deferred": {
+			"uri": "SystemSet('SystemId%2010')/SystemToIncidentNav"
+		}
+	}
+}]

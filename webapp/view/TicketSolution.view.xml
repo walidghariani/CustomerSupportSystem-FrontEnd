@@ -1,10 +1,41 @@
 <mvc:View
 	controllerName="focus.customersupportsystem.CustomerSupportSystem.controller.TicketSolution"
-	xmlns="sap.ui.table"
-	xmlns:m="sap.m"
+	xmlns="sap.m"
 	xmlns:mvc="sap.ui.core.mvc"
 	height="100%" > 
 	
-	
-	
+	<Table headerText="Solutions" items="solutions">
+		<columns>
+			<Column>
+				<Label text="Action" />
+			</Column>
+			<Column>
+				<Label text="Number" />
+			</Column>
+			<Column>
+				<Label text="Description" />
+			</Column>
+			<Column>
+				<Label text="Status" />
+			</Column>
+			<Column>
+				<Label text="Comment" />
+			</Column>
+			<Column>
+				<Label text="Created at" />
+			</Column>
+		</columns>
+		<items>
+			<ColumnListItem>
+				<cells>
+					<Button icon=""></Button>
+					<Input value="{solutions>Number}"/>
+					<Input value="{solutions>Description}"/>
+					<Input value="{solutions>Status}"/>
+					<Input value="{solutions>Comment}"/>
+					<Input value="{solutions>CreatedAt}"/>
+				</cells>
+			</ColumnListItem>
+		</items>
+	</Table>
 </mvc:View>

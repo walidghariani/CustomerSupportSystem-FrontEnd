@@ -21,14 +21,14 @@
 			<VBox>
 				<smartFilterBar:SmartFilterBar
 					id="smartFilterBar"
-					entitySet="ProductSet"
-					basicSearchFieldName="Name"
+					entitySet="IncidentSet"
+					basicSearchFieldName="IncidentId"
 					enableBasicSearch="true"
 					useToolbar="false"
 					showFilterConfiguration="false">
 					<smartFilterBar:controlConfiguration>
 						<smartFilterBar:ControlConfiguration
-							key="Category"
+							key="IncidentTypeId"
 							visibleInAdvancedArea="true"
 							preventInitialDataFetchInValueHelpDialog="false">
 						</smartFilterBar:ControlConfiguration>
@@ -37,20 +37,29 @@
 				<smartTable:SmartTable
 					id="smartTable_ResponsiveTable"
 					smartFilterId="smartFilterBar"
-					tableType="Table"
+					tableType="ResponsiveTable"
 					editable="false"
-					entitySet="ProductSet"
+					entitySet="IncidentSet"
 					useTablePersonalisation="true"
 					header="{i18n>ticketsListHeaderTable}"
 					showRowCount="true"
 					useExportToExcel="false"
 					enableAutoBinding="false"
-					visible="true">
+					demandPopin="true"
+					initiallyVisibleFields="IncidentId,IncidentTypeId,Description,CustomerId,StatusId,ProcessorId,Component"
+					requestAtLeastFields="IncidentId,IncidentTypeId,Description,CustomerId,StatusId,ProcessorId,PriorityId,Component">
 						<t:Table id="productsTable" 
+								enableSelectAll="false"
+								alternateRowColors="true"
+								fixedColumnCount="1"
+								showNoData="false"
 								selectionMode="Single" 
 								selectionBehavior="RowOnly" 
 								rowSelectionChange="onListRowSelect"
 								width="100%">
+							<t:rowSettingsTemplate>
+								<t:RowSettings highlight="{path:'PriorityId', formatter:'.formatRowHighlight'}"></t:RowSettings>
+							</t:rowSettingsTemplate>
 						</t:Table>
 				</smartTable:SmartTable>
 			</VBox>

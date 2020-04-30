@@ -1,0 +1,321 @@
+[{
+	"IncidentId": 9,
+	"IncidentTypeId": 1,
+	"Description": "Description 1",
+	"StatusId": 1,
+	"PriorityId": 1,
+	"Component": "Component 1",
+	"ProcessorId": "ProcessorId 1",
+	"ErrorCategoryId": 1,
+	"SystemId": "SystemId 1",
+	"CustomerId": "CustomerId 1",
+	"Created": "/Date(967805690000)/",
+	"LastUpdate": "/Date(1114253690000)/",
+	"__metadata": {
+		"uri": "IncidentSet(9)",
+		"type": "ZINCIDENT_MANAGER_SRV.Incident"
+	},
+	"IncidentToCustomerNav": {
+		"__deferred": {
+			"uri": "IncidentSet(9)/IncidentToCustomerNav"
+		}
+	},
+	"IncidentToSystemNav": {
+		"__deferred": {
+			"uri": "IncidentSet(9)/IncidentToSystemNav"
+		}
+	},
+	"IncidentToProcessorNav": {
+		"__deferred": {
+			"uri": "IncidentSet(9)/IncidentToProcessorNav"
+		}
+	}
+}, {
+	"IncidentId": 2584,
+	"IncidentTypeId": 2,
+	"Description": "Description 2",
+	"StatusId": 2,
+	"PriorityId": 2,
+	"Component": "Component 2",
+	"ProcessorId": "ProcessorId 2",
+	"ErrorCategoryId": 11,
+	"SystemId": "SystemId 2",
+	"CustomerId": "CustomerId 2",
+	"Created": "/Date(1264161290000)/",
+	"LastUpdate": "/Date(1509188090000)/",
+	"__metadata": {
+		"uri": "IncidentSet(2584)",
+		"type": "ZINCIDENT_MANAGER_SRV.Incident"
+	},
+	"IncidentToCustomerNav": {
+		"__deferred": {
+			"uri": "IncidentSet(2584)/IncidentToCustomerNav"
+		}
+	},
+	"IncidentToSystemNav": {
+		"__deferred": {
+			"uri": "IncidentSet(2584)/IncidentToSystemNav"
+		}
+	},
+	"IncidentToProcessorNav": {
+		"__deferred": {
+			"uri": "IncidentSet(2584)/IncidentToProcessorNav"
+		}
+	}
+}, {
+	"IncidentId": 9523,
+	"IncidentTypeId": 1,
+	"Description": "Description 3",
+	"StatusId": 0,
+	"PriorityId": 5,
+	"Component": "Component 3",
+	"ProcessorId": "ProcessorId 3",
+	"ErrorCategoryId": 4,
+	"SystemId": "SystemId 3",
+	"CustomerId": "CustomerId 3",
+	"Created": "/Date(1149159290000)/",
+	"LastUpdate": "/Date(1224672890000)/",
+	"__metadata": {
+		"uri": "IncidentSet(9523)",
+		"type": "ZINCIDENT_MANAGER_SRV.Incident"
+	},
+	"IncidentToCustomerNav": {
+		"__deferred": {
+			"uri": "IncidentSet(9523)/IncidentToCustomerNav"
+		}
+	},
+	"IncidentToSystemNav": {
+		"__deferred": {
+			"uri": "IncidentSet(9523)/IncidentToSystemNav"
+		}
+	},
+	"IncidentToProcessorNav": {
+		"__deferred": {
+			"uri": "IncidentSet(9523)/IncidentToProcessorNav"
+		}
+	}
+}, {
+	"IncidentId": 4053,
+	"IncidentTypeId": 2,
+	"Description": "Description 4",
+	"StatusId": 4,
+	"PriorityId": 1,
+	"Component": "Component 4",
+	"ProcessorId": "ProcessorId 4",
+	"ErrorCategoryId": 5,
+	"SystemId": "SystemId 4",
+	"CustomerId": "CustomerId 4",
+	"Created": "/Date(1190112890000)/",
+	"LastUpdate": "/Date(1157712890000)/",
+	"__metadata": {
+		"uri": "IncidentSet(4053)",
+		"type": "ZINCIDENT_MANAGER_SRV.Incident"
+	},
+	"IncidentToCustomerNav": {
+		"__deferred": {
+			"uri": "IncidentSet(4053)/IncidentToCustomerNav"
+		}
+	},
+	"IncidentToSystemNav": {
+		"__deferred": {
+			"uri": "IncidentSet(4053)/IncidentToSystemNav"
+		}
+	},
+	"IncidentToProcessorNav": {
+		"__deferred": {
+			"uri": "IncidentSet(4053)/IncidentToProcessorNav"
+		}
+	}
+}, {
+	"IncidentId": 7116,
+	"IncidentTypeId": 1,
+	"Description": "Description 5",
+	"StatusId": 3,
+	"PriorityId": 2,
+	"Component": "Component 5",
+	"ProcessorId": "ProcessorId 5",
+	"ErrorCategoryId": 10,
+	"SystemId": "SystemId 5",
+	"CustomerId": "CustomerId 5",
+	"Created": "/Date(1139226890000)/",
+	"LastUpdate": "/Date(1405335290000)/",
+	"__metadata": {
+		"uri": "IncidentSet(7116)",
+		"type": "ZINCIDENT_MANAGER_SRV.Incident"
+	},
+	"IncidentToCustomerNav": {
+		"__deferred": {
+			"uri": "IncidentSet(7116)/IncidentToCustomerNav"
+		}
+	},
+	"IncidentToSystemNav": {
+		"__deferred": {
+			"uri": "IncidentSet(7116)/IncidentToSystemNav"
+		}
+	},
+	"IncidentToProcessorNav": {
+		"__deferred": {
+			"uri": "IncidentSet(7116)/IncidentToProcessorNav"
+		}
+	}
+}, {
+	"IncidentId": 2114,
+	"IncidentTypeId": 1,
+	"Description": "Description 6",
+	"StatusId": 2,
+	"PriorityId": 5,
+	"Component": "Component 6",
+	"ProcessorId": "ProcessorId 6",
+	"ErrorCategoryId": 5,
+	"SystemId": "SystemId 6",
+	"CustomerId": "CustomerId 6",
+	"Created": "/Date(1301396090000)/",
+	"LastUpdate": "/Date(1516103690000)/",
+	"__metadata": {
+		"uri": "IncidentSet(2114)",
+		"type": "ZINCIDENT_MANAGER_SRV.Incident"
+	},
+	"IncidentToCustomerNav": {
+		"__deferred": {
+			"uri": "IncidentSet(2114)/IncidentToCustomerNav"
+		}
+	},
+	"IncidentToSystemNav": {
+		"__deferred": {
+			"uri": "IncidentSet(2114)/IncidentToSystemNav"
+		}
+	},
+	"IncidentToProcessorNav": {
+		"__deferred": {
+			"uri": "IncidentSet(2114)/IncidentToProcessorNav"
+		}
+	}
+}, {
+	"IncidentId": 5582,
+	"IncidentTypeId": 1,
+	"Description": "Description 7",
+	"StatusId": 5,
+	"PriorityId": 4,
+	"Component": "Component 7",
+	"ProcessorId": "ProcessorId 7",
+	"ErrorCategoryId": 2,
+	"SystemId": "SystemId 7",
+	"CustomerId": "CustomerId 7",
+	"Created": "/Date(1274180090000)/",
+	"LastUpdate": "/Date(990269690000)/",
+	"__metadata": {
+		"uri": "IncidentSet(5582)",
+		"type": "ZINCIDENT_MANAGER_SRV.Incident"
+	},
+	"IncidentToCustomerNav": {
+		"__deferred": {
+			"uri": "IncidentSet(5582)/IncidentToCustomerNav"
+		}
+	},
+	"IncidentToSystemNav": {
+		"__deferred": {
+			"uri": "IncidentSet(5582)/IncidentToSystemNav"
+		}
+	},
+	"IncidentToProcessorNav": {
+		"__deferred": {
+			"uri": "IncidentSet(5582)/IncidentToProcessorNav"
+		}
+	}
+}, {
+	"IncidentId": 517,
+	"IncidentTypeId": 2,
+	"Description": "Description 8",
+	"StatusId": 4,
+	"PriorityId": 2,
+	"Component": "Component 8",
+	"ProcessorId": "ProcessorId 8",
+	"ErrorCategoryId": 8,
+	"SystemId": "SystemId 8",
+	"CustomerId": "CustomerId 8",
+	"Created": "/Date(1532343290000)/",
+	"LastUpdate": "/Date(1210157690000)/",
+	"__metadata": {
+		"uri": "IncidentSet(517)",
+		"type": "ZINCIDENT_MANAGER_SRV.Incident"
+	},
+	"IncidentToCustomerNav": {
+		"__deferred": {
+			"uri": "IncidentSet(517)/IncidentToCustomerNav"
+		}
+	},
+	"IncidentToSystemNav": {
+		"__deferred": {
+			"uri": "IncidentSet(517)/IncidentToSystemNav"
+		}
+	},
+	"IncidentToProcessorNav": {
+		"__deferred": {
+			"uri": "IncidentSet(517)/IncidentToProcessorNav"
+		}
+	}
+}, {
+	"IncidentId": 6592,
+	"IncidentTypeId": 1,
+	"Description": "Description 9",
+	"StatusId": 6,
+	"PriorityId": 4,
+	"Component": "Component 9",
+	"ProcessorId": "ProcessorId 9",
+	"ErrorCategoryId": 6,
+	"SystemId": "SystemId 9",
+	"CustomerId": "CustomerId 9",
+	"Created": "/Date(1539946490000)/",
+	"LastUpdate": "/Date(1555498490000)/",
+	"__metadata": {
+		"uri": "IncidentSet(6592)",
+		"type": "ZINCIDENT_MANAGER_SRV.Incident"
+	},
+	"IncidentToCustomerNav": {
+		"__deferred": {
+			"uri": "IncidentSet(6592)/IncidentToCustomerNav"
+		}
+	},
+	"IncidentToSystemNav": {
+		"__deferred": {
+			"uri": "IncidentSet(6592)/IncidentToSystemNav"
+		}
+	},
+	"IncidentToProcessorNav": {
+		"__deferred": {
+			"uri": "IncidentSet(6592)/IncidentToProcessorNav"
+		}
+	}
+}, {
+	"IncidentId": 4212,
+	"IncidentTypeId": 2,
+	"Description": "Description 10",
+	"StatusId": 4,
+	"PriorityId": 1,
+	"Component": "Component 10",
+	"ProcessorId": "ProcessorId 10",
+	"ErrorCategoryId": 8,
+	"SystemId": "SystemId 10",
+	"CustomerId": "CustomerId 10",
+	"Created": "/Date(1039434890000)/",
+	"LastUpdate": "/Date(1239360890000)/",
+	"__metadata": {
+		"uri": "IncidentSet(4212)",
+		"type": "ZINCIDENT_MANAGER_SRV.Incident"
+	},
+	"IncidentToCustomerNav": {
+		"__deferred": {
+			"uri": "IncidentSet(4212)/IncidentToCustomerNav"
+		}
+	},
+	"IncidentToSystemNav": {
+		"__deferred": {
+			"uri": "IncidentSet(4212)/IncidentToSystemNav"
+		}
+	},
+	"IncidentToProcessorNav": {
+		"__deferred": {
+			"uri": "IncidentSet(4212)/IncidentToProcessorNav"
+		}
+	}
+}]
