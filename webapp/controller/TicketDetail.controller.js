@@ -1,10 +1,14 @@
 sap.ui.define([
 	"sap/ui/model/json/JSONModel",
-	"sap/ui/core/mvc/Controller"
-], function (JSONModel, Controller) {
+	"sap/ui/core/mvc/Controller",
+	"../model/formatter"
+], function (JSONModel, Controller, formatter) {
 	"use strict";
 
 	return Controller.extend("focus.customersupportsystem.CustomerSupportSystem.controller.TicketDetail", {
+		
+		formatter:formatter,
+		
 		onInit: function () {
 			this.oRouter = this.getOwnerComponent().getRouter();
 			this.layoutSettingsModel = this.getOwnerComponent().getModel("layoutSettingsModel");
@@ -65,7 +69,7 @@ sap.ui.define([
 			this.getView().bindElement({
 				path: "/IncidentSet(" + this._ticket + ")",
 				parameters: {
-			        expand: "ToCustomer,ToSystem,ToProcessor"
+			        expand: "ToCustomer,ToSystem,ToProcessor,ToPriority,ToStatus"
 			    }
 			});
 			

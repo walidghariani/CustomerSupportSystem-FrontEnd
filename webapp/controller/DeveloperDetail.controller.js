@@ -34,8 +34,7 @@ sap.ui.define([
 			this._developer = oEvent.getParameter("arguments").developer || this._developer || "0";
 			this._ticket = oEvent.getParameter("arguments").ticket || this._ticket || "0";
 			this.getView().bindElement({
-				path: "/ProductCollectionStats/Filters/1/values/" + this._developer,
-				model: "products"
+				path: "/ProcessorSet('" + this._developer + "')"
 			});
 		}
 	});

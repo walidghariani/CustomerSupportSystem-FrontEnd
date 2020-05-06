@@ -1,10 +1,14 @@
 sap.ui.define([
 	"sap/ui/model/json/JSONModel",
-	"sap/ui/core/mvc/Controller"
-], function (JSONModel, Controller) {
+	"sap/ui/core/mvc/Controller",
+	"../model/formatter"
+], function (JSONModel, Controller, formatter) {
 	"use strict";
 
 	return Controller.extend("focus.customersupportsystem.CustomerSupportSystem.controller.TicketsList", {
+		
+		formatter: formatter,
+		
 		onInit: function () {
 			this.oRouter = this.getOwnerComponent().getRouter();
 			
@@ -23,14 +27,9 @@ sap.ui.define([
 			this.oRouter.navTo("ticketdetail", {ticket: ticket});
 		},
 		
-		formatRowHighlight: function (oValue) {
-			
-			switch (oValue){
-				case 1 : return "Success";
-				case 2 : return "Warning";
-				case 3 : return "Error";
-				case 4 : return  "Error";
-			}
+		onBeforeRebind: function(oEvent) { 
+			var mBindingParams = oEvent.getParameter("bindingParams");
+			mBindingParams.parameters["expand"] = "ToCustomer,ToSystem,ToProcessor,ToStatus,ToReporter,ToPriority,ToErrorCategory1,ToErrorCategory2"; 
 		}
 
 	});

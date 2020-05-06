@@ -5,7 +5,8 @@
 	xmlns:mvc="sap.ui.core.mvc"
 	xmlns:smartFilterBar="sap.ui.comp.smartfilterbar"
 	xmlns:smartTable="sap.ui.comp.smarttable"
-	xmlns:t="sap.ui.table" >
+	xmlns:t="sap.ui.table" 
+	xmlns:core="sap.ui.core">
 	
 	<f:DynamicPage id="dynamicPageId" toggleHeaderOnTitleClick="false" class="sapUiNoContentPadding" >
 		
@@ -37,30 +38,131 @@
 				<smartTable:SmartTable
 					id="smartTable_ResponsiveTable"
 					smartFilterId="smartFilterBar"
-					tableType="ResponsiveTable"
+					tableType="Table"
 					editable="false"
 					entitySet="IncidentSet"
 					useTablePersonalisation="true"
 					header="{i18n>ticketsListHeaderTable}"
 					showRowCount="true"
 					useExportToExcel="false"
-					enableAutoBinding="false"
-					demandPopin="true"
-					initiallyVisibleFields="IncidentId,IncidentTypeId,Description,CustomerId,StatusId,ProcessorId,Component"
-					requestAtLeastFields="IncidentId,IncidentTypeId,Description,CustomerId,StatusId,ProcessorId,PriorityId,Component">
+					enableAutoBinding="true"
+					beforeRebindTable="onBeforeRebind"
+					ignoreFromPersonalisation="ReporterId,PriorityId,CustomerId,ProcessorId,StatusId,ErrorCategoryId1,ErrorCategoryId2"
+					requestAtLeastFields="IncidentId,IncidentType,Description,Component,PriorityId">
+
 						<t:Table id="productsTable" 
 								enableSelectAll="false"
 								alternateRowColors="true"
-								fixedColumnCount="1"
 								showNoData="false"
 								selectionMode="Single" 
 								selectionBehavior="RowOnly" 
-								rowSelectionChange="onListRowSelect"
-								width="100%">
+								rowSelectionChange="onListRowSelect">
+							<t:columns>
+								<t:Column hAlign="Left" width="150px" sortProperty="IncidentId">
+									<Label text="{i18n>incidentIdLabel}" />
+									<t:customData>
+										<core:CustomData key="p13nData" value='\{"columnKey": "IncidentId", "columnIndex":"0", "leadingProperty":"IncidentId"}' />
+									</t:customData>
+									<t:template>
+										<Text text="{IncidentId}"></Text>
+									</t:template>
+								</t:Column>
+								<t:Column hAlign="Left" width="150px" sortProperty="IncidentType">
+									<Label text="{i18n>incidentTypeLabel}" />
+									<t:customData>
+										<core:CustomData key="p13nData" value='\{"columnKey": "IncidentType", "columnIndex":"1", "leadingProperty":"IncidentType"}' />
+									</t:customData>
+									<t:template>
+										<Text text="{IncidentType}"></Text>
+									</t:template>
+								</t:Column>
+								<t:Column hAlign="Left" width="300px">
+									<Label text="{i18n>descriptionLabel}" />
+									<t:customData>
+										<core:CustomData key="p13nData" value='\{"columnKey": "Description", "columnIndex":"2", "leadingProperty":"Description"}' />
+									</t:customData>
+									<t:template>
+										<Text text="{Description}"></Text>
+									</t:template>
+								</t:Column>
+								<t:Column hAlign="Left" width="200px" sortProperty="ToCustomer/Name">
+									<Label text="{i18n>customerLabel}" />
+									<t:customData>
+										<core:CustomData key="p13nData" value='\{"columnKey": "Customer", "columnIndex":"3", "leadingProperty": "ToCustomer/Name"}' />
+									</t:customData>
+									<t:template>
+										<Text text="{ToCustomer/Name}"></Text>
+									</t:template>
+								</t:Column>
+								<t:Column hAlign="Left" width="200px" sortProperty="ToStatus/Value">
+									<Label text="{i18n>statusLabel}" />
+									<t:customData>
+										<core:CustomData key="p13nData" value='\{"columnKey": "Status", "columnIndex":"4", "leadingProperty": "ToStatus/Value"}' />
+									</t:customData>
+									<t:template>
+										<ObjectStatus text="{ToStatus/Value}" state="{path:'StatusId', formatter:'.formatter.incidentStatusHighlight'}" class="sapUiMediumMarginEnd"/>
+									</t:template>
+								</t:Column>
+								<t:Column hAlign="Left" width="200px" sortProperty="ToProcessor/Name">
+									<Label text="{i18n>processorLabel}" />
+									<t:customData>
+										<core:CustomData key="p13nData" value='\{"columnKey": "Processor", "columnIndex":"5", "leadingProperty": "ToProcessor/Name"}' />
+									</t:customData>
+									<t:template>
+										<Text text="{ToProcessor/Name}"></Text>
+									</t:template>
+								</t:Column>
+								<t:Column hAlign="Left" width="200px" sortProperty="ToReporter/Name">
+									<Label text="{i18n>reporterLabel}" />
+									<t:customData>
+										<core:CustomData key="p13nData" value='\{"columnKey": "Reporter", "columnIndex":"6", "leadingProperty": "ToReporter/Name"}' />
+									</t:customData>
+									<t:template>
+										<Text text="{ToReporter/Name}"></Text>
+									</t:template>
+								</t:Column>
+								<t:Column hAlign="Left" width="400px" sortProperty="Component">
+									<Label text="{i18n>componentLabel}" />
+									<t:customData>
+										<core:CustomData key="p13nData" value='\{"columnKey": "Component", "columnIndex":"7", "leadingProperty": "Component"}' />
+									</t:customData>
+									<t:template>
+										<Text text="{Component}"></Text>
+									</t:template>
+								</t:Column>
+								<t:Column hAlign="Left" width="180px" sortProperty="Created">
+									<Label text="{i18n>creationDateLabel}" />
+									<t:customData>
+										<core:CustomData key="p13nData" value='\{"columnKey": "Created", "columnIndex":"", "leadingProperty": "Created"}' />
+									</t:customData>
+									<t:template>
+										<Text text="{path: 'Created' , formatter: '.formatter.dateFormatter'}"></Text>
+									</t:template>
+								</t:Column>
+								<t:Column hAlign="Left" width="180px" sortProperty="LastUpdate">
+									<Label text="{i18n>lastUpdateLabel}" />
+									<t:customData>
+										<core:CustomData key="p13nData" value='\{"columnKey": "LastUpdate", "columnIndex":"", "leadingProperty": "LastUpdate"}' />
+									</t:customData>
+									<t:template>
+										<Text text="{path: 'LastUpdate' , formatter: '.formatter.dateFormatter'}"></Text>
+									</t:template>
+								</t:Column>
+								<t:Column hAlign="Left" width="150px" visible="false" sortProperty="SystemId">
+									<Label text="{i18n>systemIdLabel}" />
+									<t:customData>
+										<core:CustomData key="p13nData" value='\{"columnKey": "SystemId", "columnIndex":"", "leadingProperty": "SystemId"}' />
+									</t:customData>
+									<t:template>
+										<Text text="{SystemId}"></Text>
+									</t:template>
+								</t:Column>
+							</t:columns>
 							<t:rowSettingsTemplate>
-								<t:RowSettings highlight="{path:'PriorityId', formatter:'.formatRowHighlight'}"></t:RowSettings>
+								<t:RowSettings highlight="{path:'PriorityId', formatter:'.formatter.incidentPriorityHighlight'}"></t:RowSettings>
 							</t:rowSettingsTemplate>
 						</t:Table>
+
 				</smartTable:SmartTable>
 			</VBox>
 		</f:content>

@@ -1,0 +1,111 @@
+[{
+	"IncidentId": 9,
+	"SolutionId": 9276,
+	"Description": "Description 1",
+	"Status": "Status 1",
+	"CommentText": "CommentText 1",
+	"CreatedAt": "/Date(1467733063000)/",
+	"__metadata": {
+		"uri": "SolutionSet(9276)",
+		"type": "ZINCIDENT_MANAGER_SRV.Solution"
+	}
+}, {
+	"IncidentId": 2613,
+	"SolutionId": 2083,
+	"Description": "Description 2",
+	"Status": "Status 2",
+	"CommentText": "CommentText 2",
+	"CreatedAt": "/Date(1366645063000)/",
+	"__metadata": {
+		"uri": "SolutionSet(2083)",
+		"type": "ZINCIDENT_MANAGER_SRV.Solution"
+	}
+}, {
+	"IncidentId": 5101,
+	"SolutionId": 3228,
+	"Description": "Description 3",
+	"Status": "Status 3",
+	"CommentText": "CommentText 3",
+	"CreatedAt": "/Date(1020008263000)/",
+	"__metadata": {
+		"uri": "SolutionSet(3228)",
+		"type": "ZINCIDENT_MANAGER_SRV.Solution"
+	}
+}, {
+	"IncidentId": 8688,
+	"SolutionId": 1407,
+	"Description": "Description 4",
+	"Status": "Status 4",
+	"CommentText": "CommentText 4",
+	"CreatedAt": "/Date(1364229463000)/",
+	"__metadata": {
+		"uri": "SolutionSet(1407)",
+		"type": "ZINCIDENT_MANAGER_SRV.Solution"
+	}
+}, {
+	"IncidentId": 3324,
+	"SolutionId": 8583,
+	"Description": "Description 5",
+	"Status": "Status 5",
+	"CommentText": "CommentText 5",
+	"CreatedAt": "/Date(1038760663000)/",
+	"__metadata": {
+		"uri": "SolutionSet(8583)",
+		"type": "ZINCIDENT_MANAGER_SRV.Solution"
+	}
+}, {
+	"IncidentId": 4053,
+	"SolutionId": 5581,
+	"Description": "Description 6",
+	"Status": "Status 6",
+	"CommentText": "CommentText 6",
+	"CreatedAt": "/Date(1065022663000)/",
+	"__metadata": {
+		"uri": "SolutionSet(5581)",
+		"type": "ZINCIDENT_MANAGER_SRV.Solution"
+	}
+}, {
+	"IncidentId": 3812,
+	"SolutionId": 3991,
+	"Description": "Description 7",
+	"Status": "Status 7",
+	"CommentText": "CommentText 7",
+	"CreatedAt": "/Date(1445701063000)/",
+	"__metadata": {
+		"uri": "SolutionSet(3991)",
+		"type": "ZINCIDENT_MANAGER_SRV.Solution"
+	}
+}, {
+	"IncidentId": 3189,
+	"SolutionId": 7000,
+	"Description": "Description 8",
+	"Status": "Status 8",
+	"CommentText": "CommentText 8",
+	"CreatedAt": "/Date(1310139463000)/",
+	"__metadata": {
+		"uri": "SolutionSet(7000)",
+		"type": "ZINCIDENT_MANAGER_SRV.Solution"
+	}
+}, {
+	"IncidentId": 3050,
+	"SolutionId": 1069,
+	"Description": "Description 9",
+	"Status": "Status 9",
+	"CommentText": "CommentText 9",
+	"CreatedAt": "/Date(1576859863000)/",
+	"__metadata": {
+		"uri": "SolutionSet(1069)",
+		"type": "ZINCIDENT_MANAGER_SRV.Solution"
+	}
+}, {
+	"IncidentId": 7131,
+	"SolutionId": 5505,
+	"Description": "Description 10",
+	"Status": "Status 10",
+	"CommentText": "CommentText 10",
+	"CreatedAt": "/Date(1555256263000)/",
+	"__metadata": {
+		"uri": "SolutionSet(5505)",
+		"type": "ZINCIDENT_MANAGER_SRV.Solution"
+	}
+}]

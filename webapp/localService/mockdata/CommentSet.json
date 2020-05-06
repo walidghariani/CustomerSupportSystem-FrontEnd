@@ -1,0 +1,161 @@
+[{
+	"CommentId": 792,
+	"IncidentId": 9,
+	"EditorId": "EditorId 1",
+	"Text": "Text 1",
+	"EditionDate": "/Date(1130513858000)/",
+	"CommentTypeId": 1898,
+	"__metadata": {
+		"uri": "CommentSet(792)",
+		"type": "ZINCIDENT_MANAGER_SRV.Comment"
+	},
+	"ToCommentType": {
+		"__deferred": {
+			"uri": "CommentSet(792)/ToCommentType"
+		}
+	}
+}, {
+	"CommentId": 1082,
+	"IncidentId": 2613,
+	"EditorId": "EditorId 2",
+	"Text": "Text 2",
+	"EditionDate": "/Date(1542904658000)/",
+	"CommentTypeId": 2383,
+	"__metadata": {
+		"uri": "CommentSet(1082)",
+		"type": "ZINCIDENT_MANAGER_SRV.Comment"
+	},
+	"ToCommentType": {
+		"__deferred": {
+			"uri": "CommentSet(1082)/ToCommentType"
+		}
+	}
+}, {
+	"CommentId": 8548,
+	"IncidentId": 5101,
+	"EditorId": "EditorId 3",
+	"Text": "Text 3",
+	"EditionDate": "/Date(1376581058000)/",
+	"CommentTypeId": 251,
+	"__metadata": {
+		"uri": "CommentSet(8548)",
+		"type": "ZINCIDENT_MANAGER_SRV.Comment"
+	},
+	"ToCommentType": {
+		"__deferred": {
+			"uri": "CommentSet(8548)/ToCommentType"
+		}
+	}
+}, {
+	"CommentId": 5925,
+	"IncidentId": 8688,
+	"EditorId": "EditorId 4",
+	"Text": "Text 4",
+	"EditionDate": "/Date(1178033858000)/",
+	"CommentTypeId": 5615,
+	"__metadata": {
+		"uri": "CommentSet(5925)",
+		"type": "ZINCIDENT_MANAGER_SRV.Comment"
+	},
+	"ToCommentType": {
+		"__deferred": {
+			"uri": "CommentSet(5925)/ToCommentType"
+		}
+	}
+}, {
+	"CommentId": 6240,
+	"IncidentId": 3324,
+	"EditorId": "EditorId 5",
+	"Text": "Text 5",
+	"EditionDate": "/Date(1158853058000)/",
+	"CommentTypeId": 775,
+	"__metadata": {
+		"uri": "CommentSet(6240)",
+		"type": "ZINCIDENT_MANAGER_SRV.Comment"
+	},
+	"ToCommentType": {
+		"__deferred": {
+			"uri": "CommentSet(6240)/ToCommentType"
+		}
+	}
+}, {
+	"CommentId": 9007,
+	"IncidentId": 4053,
+	"EditorId": "EditorId 6",
+	"Text": "Text 6",
+	"EditionDate": "/Date(1406648258000)/",
+	"CommentTypeId": 1411,
+	"__metadata": {
+		"uri": "CommentSet(9007)",
+		"type": "ZINCIDENT_MANAGER_SRV.Comment"
+	},
+	"ToCommentType": {
+		"__deferred": {
+			"uri": "CommentSet(9007)/ToCommentType"
+		}
+	}
+}, {
+	"CommentId": 5794,
+	"IncidentId": 3812,
+	"EditorId": "EditorId 7",
+	"Text": "Text 7",
+	"EditionDate": "/Date(1443022658000)/",
+	"CommentTypeId": 5995,
+	"__metadata": {
+		"uri": "CommentSet(5794)",
+		"type": "ZINCIDENT_MANAGER_SRV.Comment"
+	},
+	"ToCommentType": {
+		"__deferred": {
+			"uri": "CommentSet(5794)/ToCommentType"
+		}
+	}
+}, {
+	"CommentId": 6099,
+	"IncidentId": 3189,
+	"EditorId": "EditorId 8",
+	"Text": "Text 8",
+	"EditionDate": "/Date(1561736258000)/",
+	"CommentTypeId": 3318,
+	"__metadata": {
+		"uri": "CommentSet(6099)",
+		"type": "ZINCIDENT_MANAGER_SRV.Comment"
+	},
+	"ToCommentType": {
+		"__deferred": {
+			"uri": "CommentSet(6099)/ToCommentType"
+		}
+	}
+}, {
+	"CommentId": 7821,
+	"IncidentId": 3050,
+	"EditorId": "EditorId 9",
+	"Text": "Text 9",
+	"EditionDate": "/Date(977243858000)/",
+	"CommentTypeId": 6843,
+	"__metadata": {
+		"uri": "CommentSet(7821)",
+		"type": "ZINCIDENT_MANAGER_SRV.Comment"
+	},
+	"ToCommentType": {
+		"__deferred": {
+			"uri": "CommentSet(7821)/ToCommentType"
+		}
+	}
+}, {
+	"CommentId": 2434,
+	"IncidentId": 7131,
+	"EditorId": "EditorId 10",
+	"Text": "Text 10",
+	"EditionDate": "/Date(1275147458000)/",
+	"CommentTypeId": 7987,
+	"__metadata": {
+		"uri": "CommentSet(2434)",
+		"type": "ZINCIDENT_MANAGER_SRV.Comment"
+	},
+	"ToCommentType": {
+		"__deferred": {
+			"uri": "CommentSet(2434)/ToCommentType"
+		}
+	}
+}]

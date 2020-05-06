@@ -1,0 +1,101 @@
+[{
+	"ReporterId": "ReporterId 1",
+	"Name": "Name 1",
+	"PhoneNumber": "PhoneNumber 1",
+	"CountryId": "CountryId 1",
+	"Email": "Email 1",
+	"__metadata": {
+		"uri": "ReporterSet('ReporterId%201')",
+		"type": "ZINCIDENT_MANAGER_SRV.Reporter"
+	}
+}, {
+	"ReporterId": "ReporterId 2",
+	"Name": "Name 2",
+	"PhoneNumber": "PhoneNumber 2",
+	"CountryId": "CountryId 2",
+	"Email": "Email 2",
+	"__metadata": {
+		"uri": "ReporterSet('ReporterId%202')",
+		"type": "ZINCIDENT_MANAGER_SRV.Reporter"
+	}
+}, {
+	"ReporterId": "ReporterId 3",
+	"Name": "Name 3",
+	"PhoneNumber": "PhoneNumber 3",
+	"CountryId": "CountryId 3",
+	"Email": "Email 3",
+	"__metadata": {
+		"uri": "ReporterSet('ReporterId%203')",
+		"type": "ZINCIDENT_MANAGER_SRV.Reporter"
+	}
+}, {
+	"ReporterId": "ReporterId 4",
+	"Name": "Name 4",
+	"PhoneNumber": "PhoneNumber 4",
+	"CountryId": "CountryId 4",
+	"Email": "Email 4",
+	"__metadata": {
+		"uri": "ReporterSet('ReporterId%204')",
+		"type": "ZINCIDENT_MANAGER_SRV.Reporter"
+	}
+}, {
+	"ReporterId": "ReporterId 5",
+	"Name": "Name 5",
+	"PhoneNumber": "PhoneNumber 5",
+	"CountryId": "CountryId 5",
+	"Email": "Email 5",
+	"__metadata": {
+		"uri": "ReporterSet('ReporterId%205')",
+		"type": "ZINCIDENT_MANAGER_SRV.Reporter"
+	}
+}, {
+	"ReporterId": "ReporterId 6",
+	"Name": "Name 6",
+	"PhoneNumber": "PhoneNumber 6",
+	"CountryId": "CountryId 6",
+	"Email": "Email 6",
+	"__metadata": {
+		"uri": "ReporterSet('ReporterId%206')",
+		"type": "ZINCIDENT_MANAGER_SRV.Reporter"
+	}
+}, {
+	"ReporterId": "ReporterId 7",
+	"Name": "Name 7",
+	"PhoneNumber": "PhoneNumber 7",
+	"CountryId": "CountryId 7",
+	"Email": "Email 7",
+	"__metadata": {
+		"uri": "ReporterSet('ReporterId%207')",
+		"type": "ZINCIDENT_MANAGER_SRV.Reporter"
+	}
+}, {
+	"ReporterId": "ReporterId 8",
+	"Name": "Name 8",
+	"PhoneNumber": "PhoneNumber 8",
+	"CountryId": "CountryId 8",
+	"Email": "Email 8",
+	"__metadata": {
+		"uri": "ReporterSet('ReporterId%208')",
+		"type": "ZINCIDENT_MANAGER_SRV.Reporter"
+	}
+}, {
+	"ReporterId": "ReporterId 9",
+	"Name": "Name 9",
+	"PhoneNumber": "PhoneNumber 9",
+	"CountryId": "CountryId 9",
+	"Email": "Email 9",
+	"__metadata": {
+		"uri": "ReporterSet('ReporterId%209')",
+		"type": "ZINCIDENT_MANAGER_SRV.Reporter"
+	}
+}, {
+	"ReporterId": "ReporterId 10",
+	"Name": "Name 10",
+	"PhoneNumber": "PhoneNumber 10",
+	"CountryId": "CountryId 10",
+	"Email": "Email 10",
+	"__metadata": {
+		"uri": "ReporterSet('ReporterId%2010')",
+		"type": "ZINCIDENT_MANAGER_SRV.Reporter"
+	}
+}]

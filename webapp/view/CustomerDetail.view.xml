@@ -11,7 +11,7 @@
 				<heading>
 					<m:FlexBox alignContent="Start" >
 						<core:Icon src="sap-icon://building" class="sapUiTinyMargin" />
-						<m:Title text="Evonik Industries AG" class="sapUiTinyMargin" wrapping="true"/>
+						<m:Title text="{Name}" class="sapUiTinyMargin" wrapping="true"/>
 					</m:FlexBox>
 				</heading>
 				<navigationActions>
@@ -34,34 +34,31 @@
 							emptySpanM="1"
 							emptySpanL="4">
 				<form:content>
-					<m:Label text="Customer" />
+					<m:Label text="{i18n>customerLabel}" />
 					<m:FlexBox>
-						<m:Text text="Evonik Industries AG" class="sapUiMediumMarginEnd" />
-						<m:Text text="1170" class="sapUiMediumMarginEnd" />
-						<m:Text text="DE" />
+						<m:Text text="{Name}" class="sapUiMediumMarginEnd" />
 					</m:FlexBox>
-					<m:Label text="Contact Type" />
+					<m:Label text="{i18n>contactTypeLabel}" />
 					<m:FlexBox>
-						<m:Text text="PSLE / MA / MA4 / SLA" class="sapUiMediumMarginEnd" />
-						<m:Link text="Full Support" />
+						<m:Text text="{ContactType}" />
 					</m:FlexBox>
-					<m:Label text="Reporter" />
+					<m:Label text="{i18n>reporterLabel}" />
 					<m:FlexBox>
 						<m:Link text="Peter Regner" class="sapUiMediumMarginEnd"/>
 						<m:Link text="+49-692185954" />
 					</m:FlexBox>
-					<m:Label text="Time And Country" />
+					<m:Label text="{i18n>timeAndCountryLabel}" />
 					<m:FlexBox>
 						<m:Text text="21.02.2020 10:49:38 (UTC+1)" class="sapUiMediumMarginEnd" />
 						<m:Text text="Germany" />
 					</m:FlexBox>
-					<m:Label text="Partner type" />
-					<m:Text text="" />
-					<m:Label text="Support Partner" />
-					<m:Text text="" />
-					<m:Label text="Service Partner" />
-					<m:Text text="" />
-					<m:Label text="Creator" />
+					<m:Label text="{i18n>partnerTypeLabel}" />
+					<m:Text text="{PartnerType}" />
+					<m:Label text="{i18n>Support Partner}" />
+					<m:Text text="{SupportPartner}" />
+					<m:Label text="{i18n>Support Partner}" />
+					<m:Text text="{ServicePartner}" />
+					<m:Label text="{i18n>creatorLabel}" />
 					<m:Link text="Peter Regner" />
 				</form:content>
 			</form:SimpleForm>

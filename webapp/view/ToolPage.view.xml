@@ -16,10 +16,6 @@
 				
 				<ToolbarSpacer width="20px" />
 				
-				<Button text="File" type="Transparent" />
-				
-				<tnt:ToolHeaderUtilitySeparator />
-				
 				<ToolbarSpacer>
 					<layoutData>
 						<OverflowToolbarLayoutData priority="NeverOverflow" minWidth="20px" />
@@ -47,21 +43,21 @@
 					</tnt:NavigationListItem>
 					
 					<tnt:NavigationListItem
-						text="Create"
+						text="{i18n>addTicketButton}"
 						icon="sap-icon://write-new">
 						
 						<tnt:NavigationListItem
-							text="Internal Incident"
+							text="{i18n>internalIncidentButton}"
 							key="addticket" />
 							
 						<tnt:NavigationListItem
-							text="Customer Incident"
+							text="{i18n>customerIncidentButton}"
 							key="addticket" />
 						
 					</tnt:NavigationListItem>
 					
 					<tnt:NavigationListItem
-						text="Reports"
+						text="{i18n>reportsButton}"
 						icon="sap-icon://line-chart"
 						key="Reports">
 						
@@ -72,7 +68,7 @@
 				
 				<tnt:fixedItem>
 					<tnt:NavigationList>
-						<tnt:NavigationListItem text="Settings" icon="sap-icon://action-settings" />
+						<tnt:NavigationListItem text="{i18n>settingsButton}" icon="sap-icon://action-settings" />
 					</tnt:NavigationList>
 				</tnt:fixedItem>
 				

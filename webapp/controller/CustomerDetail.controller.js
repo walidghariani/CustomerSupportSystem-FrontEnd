@@ -34,8 +34,7 @@ sap.ui.define([
 			this._customer = oEvent.getParameter("arguments").customer || this._customer || "0";
 			this._ticket = oEvent.getParameter("arguments").ticket || this._ticket || "0";
 			this.getView().bindElement({
-				path: "/ProductCollectionStats/Filters/1/values/" + this._customer,
-				model: "products"
+				path: "/CustomerSet('" + this._customer + "')"
 			});
 		}
 	});

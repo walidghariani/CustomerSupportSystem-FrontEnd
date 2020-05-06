@@ -21,39 +21,30 @@
 			emptySpanM="2"
 			emptySpanL="0">
 			<form:content>
-				<core:Title text="Incident Details" />
-				<Label text="Incident ID"/>
+				<core:Title text="{i18n>incidentDetailsSectionTitle}" />
+				<Label text="{i18n>incidentIdLabel}"/>
 				<Text text="{IncidentId}"/>
-				<Label text="Transaction Type"/>
-				<Text text="{IncidentTypeId}"/>
-				<Label text="Description"/>
+				<Label text="{i18n>incidentTypeLabel}"/>
+				<Text text="{IncidentType}"/>
+				<Label text="{i18n>descriptionLabel}"/>
 				<Text text="{Description}"/>
-				<Label text="Status"/>
-				<ObjectStatus text="{StatusId}" state="Warning" class="sapUiMediumMarginEnd"/>
-				<Label text="Priority"/>
-				<ObjectStatus text="{PriorityId}" state="Error" class="sapUiMediumMarginEnd"/>
-				<Label text="Component"/>
-				<FlexBox>
-					<Text text="{Component}" class="sapUiMediumMarginEnd"/>
-					<Link text="Test Management" class="sapUiMediumMarginEnd"/>
-				</FlexBox>
-				<Label text="Processor"/>
-				<FlexBox>
-					<Text text="{ToProcessor/Name}" class="sapUiMediumMarginEnd"/>
-					<Text text="21.02.2020" class="sapUiMediumMarginEnd"/>
-				</FlexBox>
-				<Label text="Processing"/>
+				<Label text="{i18n>statusLabel}"/>
+				<ObjectStatus text="{ToStatus/Value}" state="{path:'StatusId', formatter:'.formatter.incidentStatusHighlight'}" class="sapUiMediumMarginEnd"/>
+				<Label text="{i18n>priorityLabel}"/>
+				<ObjectStatus text="{ToPriority/Value}" state="{path:'PriorityId', formatter:'.formatter.incidentPriorityHighlight'}" class="sapUiMediumMarginEnd"/>
+				<Label text="{i18n>componentLabel}"/>
+				<Text text="{Component}" class="sapUiMediumMarginEnd"/>
+				<Label text="{i18n>processorLabel}"/>
+				<Text text="{ToProcessor/Name}" class="sapUiMediumMarginEnd"/>
+				<Label text="{i18n>processingLabel}"/>
 				<Text text="{ToProcessor/Name}"/>
-				<Label text="Service Team"/>
+				<Label text="{i18n>serviceTeamLabel}"/>
 				<Text text="{ToProcessor/Name}"/>
-				<Label text="Owner"/>
-				<Text text=""/>
-				<Label text="Error Category 1"/>
-				<Text text="{ErrorCategoryId}"/>
-				<Label text="Error Category 2"/>
-				<Text text="{ErrorCategoryId}"/>
-				<Label text="Internal error"/>
-				<Text text=""/>
+				<Label text="{i18n>errorCategory1Label}"/>
+				<Text text="{ToErrorCategory1/Value}"/>
+				<Label text="{i18n>errorCategory2Label}"/>
+				<Text text="{ToErrorCategory2/Value}"/>
+
 				
 				<core:Title text="Next Action Monitor (Product Support)" />
 				<Label text="Respond to the customer until"/>
@@ -64,15 +55,15 @@
 				<Label text="Manual date"/>
 				<Text text="10:42"/>
 				
-				<core:Title text="Dates" />
-				<Label text="Last Update"/>
-				<Text text="{LastUpdate}"/>
+				<core:Title text="{i18n>datesSectionTitle}" />
+				<Label text="{i18n>lastUpdateLabel}"/>
+				<Text text="{path: 'LastUpdate' , formatter: '.formatter.dateFormatter'}"/>
 				<Label text="IRT"/>
 				<Text text="18.02.2020"/>
 				<Label text="ORT"/>
 				<Text text="Plan Sol. Del."/>
-				<Label text="Created"/>
-				<Text text="{Created}"/>
+				<Label text="{i18n>creationDateLabel}"/>
+				<Text text="{path: 'Created' , formatter: '.formatter.dateFormatter'}"/>
 				<Label text="MPT"/>
 				<Text text="29.02.2020"/>
 				<Label text="Man."/>
@@ -97,66 +88,42 @@
 			emptySpanM="2"
 			emptySpanL="0" >
 			<form:content>
-				<core:Title text="Incident Details" />
-				<Label text="Incident ID"/>
+				<core:Title text="{i18n>incidentDetailsSectionTitle}" />
+				<Label text="{i18n>incidentIdLabel}"/>
 				<Text text="{IncidentId}"/>
-				<Label text="Transaction Type"/>
-				<Text text="{IncidentTypeId}"/>
-				<Label text="Description"/>
+				<Label text="{i18n>incidentTypeLabel}"/>
+				<Text text="{IncidentType}"/>
+				<Label text="{i18n>descriptionLabel}"/>
 				<Input value="{Description}"/>
-				<Label text="Status"/>
-				<ComboBox placeholder="Select status" selectedKey="{StatusId}">
-					<items>
-						<core:Item text="In Process" key="0"/>
-						<core:Item text="On Hold" key="1"/>
-						<core:Item text="Customer Action" key="2"/>
-						<core:Item text="Solution Provided" key="3"/>
-						<core:Item text="Pending Development" key="4"/>
-						<core:Item text="Pending Operations" key="5"/>
-						<core:Item text="Pending Partner" key="6"/>
-						<core:Item text="Pending Release" key="7"/>
-					</items>
+				<Label text="{i18n>statusLabel}"/>
+				<ComboBox placeholder="Select status" selectedKey="{StatusId}" items="{/StatusSet}">
+					<core:ListItem text="{Value}" key="{StatusId}"/>
 				</ComboBox>
-				<Label text="Priority"/>
-				<ComboBox placeholder="Select status" selectedKey="{PriorityId}">
-					<items>
-						<core:Item text="Very high" key="4"/>
-						<core:Item text="High" key="3"/>
-						<core:Item text="Medium" key="2"/>
-						<core:Item text="Low" key="1"/>
-					</items>
+				<Label text="{i18n>priorityLabel}"/>
+				<ComboBox placeholder="Select priority" selectedKey="{PriorityId}" items="{/PrioritySet}">
+					<core:ListItem text="{Value}" key="{PriorityId}"/>
 				</ComboBox>
-				<Label text="Component"/>
-				<FlexBox>
-					<Text text="{Component}" class="sapUiMediumMarginEnd"/>
-					<Link text="Test Management" />
-				</FlexBox>
-				
-				<Label text="Processor"/>
+				<Label text="{i18n>componentLabel}"/>
+				<Text text="{Component}" class="sapUiMediumMarginEnd"/>
+				<Label text="{i18n>processorLabel}"/>
 				<Input
 					type="Text"
 					value="{ToProcessor/Name}"
 					showValueHelp="true"
 					valueHelpOnly="true"
 					valueHelpRequest="handleValueHelp"/>
-				<Text text="21.02.2020"/>
-				<Label text="Processing"/>
+				<Label text="{i18n>processingLabel}"/>
 				<Text text="{ToProcessor/Name}"/>
-				<Label text="Service Team"/>
+				<Label text="{i18n>serviceTeamLabel}"/>
 				<Text text="{ToProcessor/Name}"/>
-				<Label text="Owner"/>
-				<Text text=""/>
-				<Label text="Error Category 1"/>
-				<ComboBox id="comboboxErrorCategory1" items="{ path : 'errorsCategories>/errorsCategories1' }" selectionChange="errorCategory1Change">
-					<core:Item text="{errorsCategories>errorText}" key="{errorsCategories>errorId}"/>
+				
+				<Label text="{i18n>errorCategory1Label}"/>
+				<ComboBox id="comboboxErrorCategory1" change="errorCategory1Change" items="{/ErrorCategorySet}" selectedKey="{ToErrorCategory1/ErrorCategoryId}">
+					<core:ListItem id="itemErrorCategory1" text="{Value}" key="{ErrorCategoryId}" />
 				</ComboBox>
-				<Label text="Error Category 2"/>
-				<ComboBox id="comboboxErrorCategory2" items="{ path : 'errorsCategories>/errorsCategories1' }">
-					<core:Item id="itemErrorCategory2" text="{errorsCategories>errorText}" key="{errorsCategories>errorId}"/>
-				</ComboBox>
-				<Label text="Internal error"/>
-				<ComboBox placeholder="Select status" >
-
+				<Label text="{i18n>errorCategory2Label}"/>
+				<ComboBox id="comboboxErrorCategory2" placeholder="Select an error category" items="{/ErrorCategorySet}" selectedKey="{ToErrorCategory2/ErrorCategoryId}">
+					<core:ListItem id="itemErrorCategory2" text="{Value}" key="{ErrorCategoryId}"/>
 				</ComboBox>
 				
 				<core:Title text="Next Action Monitor (Product Support)" />
@@ -168,15 +135,15 @@
 				<Label text="Manual date"/>
 				<Text text="10:42"/>
 				
-				<core:Title text="Dates" />
-				<Label text="Last Update"/>
-				<Text text="{LastUpdate}"/>
+				<core:Title text="{i18n>datesSectionTitle}" />
+				<Label text="{i18n>lastUpdateLabel}"/>
+				<Text text="{path: 'LastUpdate' , formatter: '.formatter.dateFormatter'}"/>
 				<Label text="IRT"/>
 				<Text text="18.02.2020"/>
 				<Label text="ORT"/>
 				<Text text="Plan Sol. Del."/>
-				<Label text="Created"/>
-				<Text text="{Created}"/>
+				<Label text="{i18n>creationDateLabel}"/>
+				<Text text="{path: 'Created' , formatter: '.formatter.dateFormatter'}"/>
 				<Label text="MPT"/>
 				<Text text="29.02.2020"/>
 				<Label text="Man."/>

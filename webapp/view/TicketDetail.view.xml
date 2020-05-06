@@ -8,7 +8,7 @@
 	<ObjectPageLayout 
 		id="ObjectPageLayout"
 		showTitleInHeaderContent="true"
-		alwaysShowContentHeader="true"
+		alwaysShowContentHeader="false"
 		headerContentPinnable="false"
 		preserveHeaderStateOnScroll="true"
 		useIconTabBar="true"
@@ -17,17 +17,19 @@
 			<headerTitle>
 				<ObjectPageDynamicHeaderTitle>
 					<heading>
-						<m:FlexBox wrap="Wrap" fitContainer="true" alignItems="Start">
-							<m:Title text="MTE - Upload error for evidence" class="sapUiTinyMargin"/>
-							<m:GenericTag text="In Process" design="StatusIconHidden" status="Warning" class="sapUiTinyMargin"/>
-							<m:GenericTag text="High" design="StatusIconHidden" status="Error" class="sapUiTinyMargin"/>
-						</m:FlexBox>
+						<m:VBox wrap="Wrap" fitContainer="true" alignItems="Start">
+							<m:Title text="{Description}"/>
+							<m:HBox wrap="Wrap" fitContainer="true" alignItems="Start">
+								<m:GenericTag text="{ToStatus/Value}" design="StatusIconHidden" status="{path:'StatusId', formatter:'.formatter.incidentStatusHighlight'}" class="sapUiTinyMargin"/>
+								<m:GenericTag text="{ToPriority/Value}" design="StatusIconHidden" status="{path:'PriorityId', formatter:'.formatter.incidentPriorityHighlight'}" class="sapUiTinyMargin"/>
+							</m:HBox>
+						</m:VBox>
 					</heading>
 					
 					<actions>
-						<m:Button id="editButton" icon="sap-icon://edit" text="Edit" type="Default" press="onEdit" enabled="{= ${settingsModel>/editmode} !== true }"></m:Button>
-						<m:Button id="saveButton" icon="sap-icon://save" text="Save" type="Accept" press="onSave" enabled="{= ${settingsModel>/editmode} === true}"></m:Button> 
-						<m:Button id="cancelButton" icon="sap-icon://decline" text="Cancel" type="Reject" press="onCancel" enabled="{= ${settingsModel>/editmode} === true}"></m:Button>
+						<m:Button id="editButton" icon="sap-icon://edit" text="{i18n>editButton}" type="Default" press="onEdit" enabled="{= ${settingsModel>/editmode} !== true }"></m:Button>
+						<m:Button id="saveButton" icon="sap-icon://save" text="{i18n>saveButton}" type="Accept" press="onSave" enabled="{= ${settingsModel>/editmode} === true}"></m:Button> 
+						<m:Button id="cancelButton" icon="sap-icon://decline" text="{i18n>cancelButton}" type="Reject" press="onCancel" enabled="{= ${settingsModel>/editmode} === true}"></m:Button>
 					</actions>
 					<navigationActions>
 						<m:Button type="Transparent" icon="sap-icon://full-screen" press="handleFullScreen" visible="{= ${layoutSettingsModel>/actionButtonsInfo/midColumn/fullScreen} !== null }" />

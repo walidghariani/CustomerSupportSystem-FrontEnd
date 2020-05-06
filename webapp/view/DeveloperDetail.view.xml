@@ -11,7 +11,7 @@
 				<heading>
 					<m:FlexBox alignContent="Start" >
 						<core:Icon src="sap-icon://employee" class="sapUiTinyMargin" />
-						<m:Title text="Walid Ghariani" class="sapUiTinyMargin" wrapping="true"/>
+						<m:Title text="{Name}" class="sapUiTinyMargin" wrapping="true"/>
 					</m:FlexBox>
 				</heading>
 				<navigationActions>
@@ -34,17 +34,17 @@
 							emptySpanM="1"
 							emptySpanL="4">
 				<form:content>
-					<m:Label text="Name" />
-					<m:Text text="Walid Ghariani" />
-					<m:Label text="E-mail" />
-					<m:Link text="walid.ghariani@sap.com" />
-					<m:Label text="Phone number" />
-					<m:Link text="+21653789379" />
-					<m:Label text="Company" />
-					<m:Text text="Focus" />
-					<m:Text text="Tunisie" />
-					<m:Label text="Team" />
-					<m:Text text="Focused Build" />
+					<m:Label text="{i18n>processorLabel}" />
+					<m:Text text="{Name}" />
+					<m:Label text="{i18n>emailLabel}" />
+					<m:Link text="{Email}" />
+					<m:Label text="{i18n>phoneNumberLabel}" />
+					<m:Link text="{PhoneNumber}" />
+					<m:Label text="{i18n>Company}" />
+					<m:Text text="{CompanyId}" />
+					<m:Text text="{CountryId}" />
+					<m:Label text="{i18n>Team}" />
+					<m:Text text="{TeamId}" />
 				</form:content>
 			</form:SimpleForm>
 		</content>

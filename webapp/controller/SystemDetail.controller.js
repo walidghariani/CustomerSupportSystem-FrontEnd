@@ -34,8 +34,7 @@ sap.ui.define([
 			this._system = oEvent.getParameter("arguments").system || this._system || "0";
 			this._ticket = oEvent.getParameter("arguments").ticket || this._ticket || "0";
 			this.getView().bindElement({
-				path: "/ProductCollectionStats/Filters/1/values/" + this._system,
-				model: "products"
+				path: "/SystemSet('" + this._system + "')"
 			});
 		}
 	});

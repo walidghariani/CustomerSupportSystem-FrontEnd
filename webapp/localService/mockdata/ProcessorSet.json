@@ -10,9 +10,9 @@
 		"uri": "ProcessorSet('ProcessorId%201')",
 		"type": "ZINCIDENT_MANAGER_SRV.Processor"
 	},
-	"ProcessorToIncidentNav": {
+	"ToIncidents": {
 		"__deferred": {
-			"uri": "ProcessorSet('ProcessorId%201')/ProcessorToIncidentNav"
+			"uri": "ProcessorSet('ProcessorId%201')/ToIncidents"
 		}
 	}
 }, {
@@ -27,9 +27,9 @@
 		"uri": "ProcessorSet('ProcessorId%202')",
 		"type": "ZINCIDENT_MANAGER_SRV.Processor"
 	},
-	"ProcessorToIncidentNav": {
+	"ToIncidents": {
 		"__deferred": {
-			"uri": "ProcessorSet('ProcessorId%202')/ProcessorToIncidentNav"
+			"uri": "ProcessorSet('ProcessorId%202')/ToIncidents"
 		}
 	}
 }, {
@@ -44,9 +44,9 @@
 		"uri": "ProcessorSet('ProcessorId%203')",
 		"type": "ZINCIDENT_MANAGER_SRV.Processor"
 	},
-	"ProcessorToIncidentNav": {
+	"ToIncidents": {
 		"__deferred": {
-			"uri": "ProcessorSet('ProcessorId%203')/ProcessorToIncidentNav"
+			"uri": "ProcessorSet('ProcessorId%203')/ToIncidents"
 		}
 	}
 }, {
@@ -61,9 +61,9 @@
 		"uri": "ProcessorSet('ProcessorId%204')",
 		"type": "ZINCIDENT_MANAGER_SRV.Processor"
 	},
-	"ProcessorToIncidentNav": {
+	"ToIncidents": {
 		"__deferred": {
-			"uri": "ProcessorSet('ProcessorId%204')/ProcessorToIncidentNav"
+			"uri": "ProcessorSet('ProcessorId%204')/ToIncidents"
 		}
 	}
 }, {
@@ -78,9 +78,9 @@
 		"uri": "ProcessorSet('ProcessorId%205')",
 		"type": "ZINCIDENT_MANAGER_SRV.Processor"
 	},
-	"ProcessorToIncidentNav": {
+	"ToIncidents": {
 		"__deferred": {
-			"uri": "ProcessorSet('ProcessorId%205')/ProcessorToIncidentNav"
+			"uri": "ProcessorSet('ProcessorId%205')/ToIncidents"
 		}
 	}
 }, {
@@ -95,9 +95,9 @@
 		"uri": "ProcessorSet('ProcessorId%206')",
 		"type": "ZINCIDENT_MANAGER_SRV.Processor"
 	},
-	"ProcessorToIncidentNav": {
+	"ToIncidents": {
 		"__deferred": {
-			"uri": "ProcessorSet('ProcessorId%206')/ProcessorToIncidentNav"
+			"uri": "ProcessorSet('ProcessorId%206')/ToIncidents"
 		}
 	}
 }, {
@@ -112,9 +112,9 @@
 		"uri": "ProcessorSet('ProcessorId%207')",
 		"type": "ZINCIDENT_MANAGER_SRV.Processor"
 	},
-	"ProcessorToIncidentNav": {
+	"ToIncidents": {
 		"__deferred": {
-			"uri": "ProcessorSet('ProcessorId%207')/ProcessorToIncidentNav"
+			"uri": "ProcessorSet('ProcessorId%207')/ToIncidents"
 		}
 	}
 }, {
@@ -129,9 +129,9 @@
 		"uri": "ProcessorSet('ProcessorId%208')",
 		"type": "ZINCIDENT_MANAGER_SRV.Processor"
 	},
-	"ProcessorToIncidentNav": {
+	"ToIncidents": {
 		"__deferred": {
-			"uri": "ProcessorSet('ProcessorId%208')/ProcessorToIncidentNav"
+			"uri": "ProcessorSet('ProcessorId%208')/ToIncidents"
 		}
 	}
 }, {
@@ -146,9 +146,9 @@
 		"uri": "ProcessorSet('ProcessorId%209')",
 		"type": "ZINCIDENT_MANAGER_SRV.Processor"
 	},
-	"ProcessorToIncidentNav": {
+	"ToIncidents": {
 		"__deferred": {
-			"uri": "ProcessorSet('ProcessorId%209')/ProcessorToIncidentNav"
+			"uri": "ProcessorSet('ProcessorId%209')/ToIncidents"
 		}
 	}
 }, {
@@ -163,9 +163,9 @@
 		"uri": "ProcessorSet('ProcessorId%2010')",
 		"type": "ZINCIDENT_MANAGER_SRV.Processor"
 	},
-	"ProcessorToIncidentNav": {
+	"ToIncidents": {
 		"__deferred": {
-			"uri": "ProcessorSet('ProcessorId%2010')/ProcessorToIncidentNav"
+			"uri": "ProcessorSet('ProcessorId%2010')/ToIncidents"
 		}
 	}
 }]

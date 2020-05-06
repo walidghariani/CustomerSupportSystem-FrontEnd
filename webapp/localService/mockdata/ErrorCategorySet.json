@@ -1,0 +1,216 @@
+[{
+	"ErrorCategoryId": "1",
+	"IsPrimary": "true",
+	"Value": "Database Inconsistency",
+	"ParentId": "0",
+	"__metadata": {
+		"uri": "ErrorCategorySet(0)",
+		"type": "ZINCIDENT_MANAGER_SRV.ErrorCategory"
+	}
+}, {
+	"ErrorCategoryId": "2",
+	"IsPrimary": "true",
+	"Value": "Service Request",
+	"ParentId": 0,
+	"__metadata": {
+		"uri": "ErrorCategorySet(0)",
+		"type": "ZINCIDENT_MANAGER_SRV.ErrorCategory"
+	}
+}, {
+	"ErrorCategoryId": "3",
+	"IsPrimary": "true",
+	"Value": "Cloud Infrastructure",
+	"ParentId": 0,
+	"__metadata": {
+		"uri": "ErrorCategorySet(6)",
+		"type": "ZINCIDENT_MANAGER_SRV.ErrorCategory"
+	}
+}, {
+	"ErrorCategoryId": "4",
+	"IsPrimary": "true",
+	"Value": "SAP Documentation Issue",
+	"ParentId": 0,
+	"__metadata": {
+		"uri": "ErrorCategorySet(2)",
+		"type": "ZINCIDENT_MANAGER_SRV.ErrorCategory"
+	}
+}, {
+	"ErrorCategoryId": "5",
+	"IsPrimary": "true",
+	"Value": "SAP Product Issue",
+	"ParentId": 0,
+	"__metadata": {
+		"uri": "ErrorCategorySet(7)",
+		"type": "ZINCIDENT_MANAGER_SRV.ErrorCategory"
+	}
+}, {
+	"ErrorCategoryId": "6",
+	"IsPrimary": "true",
+	"Value": "3rd Party Product Issue",
+	"ParentId": 0,
+	"__metadata": {
+		"uri": "ErrorCategorySet(2)",
+		"type": "ZINCIDENT_MANAGER_SRV.ErrorCategory"
+	}
+}, {
+	"ErrorCategoryId": "7",
+	"IsPrimary": "true",
+	"Value": "Customer / Partner Issue",
+	"ParentId": 0,
+	"__metadata": {
+		"uri": "ErrorCategorySet(5)",
+		"type": "ZINCIDENT_MANAGER_SRV.ErrorCategory"
+	}
+}, {
+	"ErrorCategoryId": "8",
+	"IsPrimary": "true",
+	"Value": "Others",
+	"ParentId": 0,
+	"__metadata": {
+		"uri": "ErrorCategorySet(7)",
+		"type": "ZINCIDENT_MANAGER_SRV.ErrorCategory"
+	}
+}, {
+	"ErrorCategoryId": "9",
+	"IsPrimary": "false",
+	"Value": "System , client , tenant , instance request/ refresh",
+	"ParentId": 2,
+	"__metadata": {
+		"uri": "ErrorCategorySet(0)",
+		"type": "ZINCIDENT_MANAGER_SRV.ErrorCategory"
+	}
+}, {
+	"ErrorCategoryId": "10",
+	"IsPrimary": "false",
+	"Value": "License related",
+	"ParentId": 2,
+	"__metadata": {
+		"uri": "ErrorCategorySet(8)",
+		"type": "ZINCIDENT_MANAGER_SRV.ErrorCategory"
+	}
+}, {
+	"ErrorCategoryId": "11",
+	"IsPrimary": "false",
+	"Value": "Data migration or restore",
+	"ParentId": 2
+}, {
+	"ErrorCategoryId": "12",
+	"Value": "Change request",
+	"ParentId": 2,
+	"IsPrimary": "false"
+}, {
+	"ErrorCategoryId": "13",
+	"IsPrimary": "false",
+	"Value": "Other service request",
+	"ParentId": 2
+}, {
+	"ErrorCategoryId": "14",
+	"IsPrimary": "false",
+	"Value": "Performance",
+	"ParentId": 3
+}, {
+	"ErrorCategoryId": "15",
+	"IsPrimary": "false",
+	"Value": "IT infrastructure (Availability, Network , etc)",
+	"ParentId": 3
+}, {
+	"ErrorCategoryId": "16",
+	"IsPrimary": "false",
+	"Value": "Software (e.g. FSI issues)",
+	"ParentId": 3
+}, {
+	"ErrorCategoryId": "17",
+	"IsPrimary": "false",
+	"Value": "SAP Note",
+	"ParentId": 4
+}, {
+	"ErrorCategoryId": "18",
+	"IsPrimary": "false",
+	"Value": "KBA",
+	"ParentId": 4
+}, {
+	"ErrorCategoryId": "19",
+	"IsPrimary": "false",
+	"Value": "Product documentation",
+	"ParentId": 4
+}, {
+	"ErrorCategoryId": "20",
+	"IsPrimary": "false",
+	"Value": "SAP Community",
+	"ParentId": 4
+}, {
+	"ErrorCategoryId": "21",
+	"IsPrimary": "false",
+	"Value": "New coding issue",
+	"ParentId": 5
+}, {
+	"ErrorCategoryId": "22",
+	"IsPrimary": "false",
+	"Value": "Known coding issue (SAP note exists)",
+	"ParentId": 5
+}, {
+	"ErrorCategoryId": "23",
+	"IsPrimary": "false",
+	"Value": "Regression issue",
+	"ParentId": 5
+}, {
+	"ErrorCategoryId": "24",
+	"IsPrimary": "false",
+	"Value": "Wrong default configuration",
+	"ParentId": 5
+}, {
+	"ErrorCategoryId": "25",
+	"IsPrimary": "false",
+	"Value": "Missing functionnality",
+	"ParentId": 5
+}, {
+	"ErrorCategoryId": "26",
+	"IsPrimary": "false",
+	"Value": "Product complexity / usability ",
+	"ParentId": 5
+}, {
+	"ErrorCategoryId": "26",
+	"IsPrimary": "false",
+	"Value": "Coding issue",
+	"ParentId": 7
+}, {
+	"ErrorCategoryId": "26",
+	"IsPrimary": "false",
+	"Value": "Configuration",
+	"ParentId": 7
+}, {
+	"ErrorCategoryId": "27",
+	"IsPrimary": "false",
+	"Value": "Improper user handling",
+	"ParentId": 7
+}, {
+	"ErrorCategoryId": "28",
+	"IsPrimary": "false",
+	"Value": "How-to-request",
+	"ParentId": 7
+}, {
+	"ErrorCategoryId": "29",
+	"IsPrimary": "false",
+	"Value": "Consulting / implementaion request",
+	"ParentId": 7
+}, {
+	"ErrorCategoryId": "30",
+	"IsPrimary": "false",
+	"Value": "Issue cannot be reproduced",
+	"ParentId": 8
+}, {
+	"ErrorCategoryId": "31",
+	"IsPrimary": "false",
+	"Value": "Duplicate incident",
+	"ParentId": 8
+}, {
+	"ErrorCategoryId": "32",
+	"IsPrimary": "false",
+	"Value": "Closed by customer",
+	"ParentId": 8
+}, {
+	"ErrorCategoryId": "33",
+	"IsPrimary": "false",
+	"Value": "Unknown",
+	"ParentId": 8
+}]

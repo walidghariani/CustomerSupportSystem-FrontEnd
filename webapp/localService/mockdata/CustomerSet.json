@@ -1,181 +1,171 @@
 [{
 	"CustomerId": "CustomerId 1",
+	"PartnerType": "PartnerType 1",
 	"Name": "Name 1",
 	"ContactType": "ContactType 1",
-	"ReporterId": "ReporterId 1",
 	"CountryId": "CountryId 1",
-	"PartnerType": "PartnerType 1",
 	"SupportPartner": "SupportPartner 1",
 	"ServicePartner": "ServicePartner 1",
 	"__metadata": {
 		"uri": "CustomerSet('CustomerId%201')",
 		"type": "ZINCIDENT_MANAGER_SRV.Customer"
 	},
-	"CustomerToIncidentNav": {
+	"ToIncidents": {
 		"__deferred": {
-			"uri": "CustomerSet('CustomerId%201')/CustomerToIncidentNav"
+			"uri": "CustomerSet('CustomerId%201')/ToIncidents"
 		}
 	}
 }, {
 	"CustomerId": "CustomerId 2",
+	"PartnerType": "PartnerType 2",
 	"Name": "Name 2",
 	"ContactType": "ContactType 2",
-	"ReporterId": "ReporterId 2",
 	"CountryId": "CountryId 2",
-	"PartnerType": "PartnerType 2",
 	"SupportPartner": "SupportPartner 2",
 	"ServicePartner": "ServicePartner 2",
 	"__metadata": {
 		"uri": "CustomerSet('CustomerId%202')",
 		"type": "ZINCIDENT_MANAGER_SRV.Customer"
 	},
-	"CustomerToIncidentNav": {
+	"ToIncidents": {
 		"__deferred": {
-			"uri": "CustomerSet('CustomerId%202')/CustomerToIncidentNav"
+			"uri": "CustomerSet('CustomerId%202')/ToIncidents"
 		}
 	}
 }, {
 	"CustomerId": "CustomerId 3",
+	"PartnerType": "PartnerType 3",
 	"Name": "Name 3",
 	"ContactType": "ContactType 3",
-	"ReporterId": "ReporterId 3",
 	"CountryId": "CountryId 3",
-	"PartnerType": "PartnerType 3",
 	"SupportPartner": "SupportPartner 3",
 	"ServicePartner": "ServicePartner 3",
 	"__metadata": {
 		"uri": "CustomerSet('CustomerId%203')",
 		"type": "ZINCIDENT_MANAGER_SRV.Customer"
 	},
-	"CustomerToIncidentNav": {
+	"ToIncidents": {
 		"__deferred": {
-			"uri": "CustomerSet('CustomerId%203')/CustomerToIncidentNav"
+			"uri": "CustomerSet('CustomerId%203')/ToIncidents"
 		}
 	}
 }, {
 	"CustomerId": "CustomerId 4",
+	"PartnerType": "PartnerType 4",
 	"Name": "Name 4",
 	"ContactType": "ContactType 4",
-	"ReporterId": "ReporterId 4",
 	"CountryId": "CountryId 4",
-	"PartnerType": "PartnerType 4",
 	"SupportPartner": "SupportPartner 4",
 	"ServicePartner": "ServicePartner 4",
 	"__metadata": {
 		"uri": "CustomerSet('CustomerId%204')",
 		"type": "ZINCIDENT_MANAGER_SRV.Customer"
 	},
-	"CustomerToIncidentNav": {
+	"ToIncidents": {
 		"__deferred": {
-			"uri": "CustomerSet('CustomerId%204')/CustomerToIncidentNav"
+			"uri": "CustomerSet('CustomerId%204')/ToIncidents"
 		}
 	}
 }, {
 	"CustomerId": "CustomerId 5",
+	"PartnerType": "PartnerType 5",
 	"Name": "Name 5",
 	"ContactType": "ContactType 5",
-	"ReporterId": "ReporterId 5",
 	"CountryId": "CountryId 5",
-	"PartnerType": "PartnerType 5",
 	"SupportPartner": "SupportPartner 5",
 	"ServicePartner": "ServicePartner 5",
 	"__metadata": {
 		"uri": "CustomerSet('CustomerId%205')",
 		"type": "ZINCIDENT_MANAGER_SRV.Customer"
 	},
-	"CustomerToIncidentNav": {
+	"ToIncidents": {
 		"__deferred": {
-			"uri": "CustomerSet('CustomerId%205')/CustomerToIncidentNav"
+			"uri": "CustomerSet('CustomerId%205')/ToIncidents"
 		}
 	}
 }, {
 	"CustomerId": "CustomerId 6",
+	"PartnerType": "PartnerType 6",
 	"Name": "Name 6",
 	"ContactType": "ContactType 6",
-	"ReporterId": "ReporterId 6",
 	"CountryId": "CountryId 6",
-	"PartnerType": "PartnerType 6",
 	"SupportPartner": "SupportPartner 6",
 	"ServicePartner": "ServicePartner 6",
 	"__metadata": {
 		"uri": "CustomerSet('CustomerId%206')",
 		"type": "ZINCIDENT_MANAGER_SRV.Customer"
 	},
-	"CustomerToIncidentNav": {
+	"ToIncidents": {
 		"__deferred": {
-			"uri": "CustomerSet('CustomerId%206')/CustomerToIncidentNav"
+			"uri": "CustomerSet('CustomerId%206')/ToIncidents"
 		}
 	}
 }, {
 	"CustomerId": "CustomerId 7",
+	"PartnerType": "PartnerType 7",
 	"Name": "Name 7",
 	"ContactType": "ContactType 7",
-	"ReporterId": "ReporterId 7",
 	"CountryId": "CountryId 7",
-	"PartnerType": "PartnerType 7",
 	"SupportPartner": "SupportPartner 7",
 	"ServicePartner": "ServicePartner 7",
 	"__metadata": {
 		"uri": "CustomerSet('CustomerId%207')",
 		"type": "ZINCIDENT_MANAGER_SRV.Customer"
 	},
-	"CustomerToIncidentNav": {
+	"ToIncidents": {
 		"__deferred": {
-			"uri": "CustomerSet('CustomerId%207')/CustomerToIncidentNav"
+			"uri": "CustomerSet('CustomerId%207')/ToIncidents"
 		}
 	}
 }, {
 	"CustomerId": "CustomerId 8",
+	"PartnerType": "PartnerType 8",
 	"Name": "Name 8",
 	"ContactType": "ContactType 8",
-	"ReporterId": "ReporterId 8",
 	"CountryId": "CountryId 8",
-	"PartnerType": "PartnerType 8",
 	"SupportPartner": "SupportPartner 8",
 	"ServicePartner": "ServicePartner 8",
 	"__metadata": {
 		"uri": "CustomerSet('CustomerId%208')",
 		"type": "ZINCIDENT_MANAGER_SRV.Customer"
 	},
-	"CustomerToIncidentNav": {
+	"ToIncidents": {
 		"__deferred": {
-			"uri": "CustomerSet('CustomerId%208')/CustomerToIncidentNav"
+			"uri": "CustomerSet('CustomerId%208')/ToIncidents"
 		}
 	}
 }, {
 	"CustomerId": "CustomerId 9",
+	"PartnerType": "PartnerType 9",
 	"Name": "Name 9",
 	"ContactType": "ContactType 9",
-	"ReporterId": "ReporterId 9",
 	"CountryId": "CountryId 9",
-	"PartnerType": "PartnerType 9",
 	"SupportPartner": "SupportPartner 9",
 	"ServicePartner": "ServicePartner 9",
 	"__metadata": {
 		"uri": "CustomerSet('CustomerId%209')",
 		"type": "ZINCIDENT_MANAGER_SRV.Customer"
 	},
-	"CustomerToIncidentNav": {
+	"ToIncidents": {
 		"__deferred": {
-			"uri": "CustomerSet('CustomerId%209')/CustomerToIncidentNav"
+			"uri": "CustomerSet('CustomerId%209')/ToIncidents"
 		}
 	}
 }, {
 	"CustomerId": "CustomerId 10",
+	"PartnerType": "PartnerType 10",
 	"Name": "Name 10",
 	"ContactType": "ContactType 10",
-	"ReporterId": "ReporterId 10",
 	"CountryId": "CountryId 10",
-	"PartnerType": "PartnerType 10",
 	"SupportPartner": "SupportPartner 10",
 	"ServicePartner": "ServicePartner 10",
 	"__metadata": {
 		"uri": "CustomerSet('CustomerId%2010')",
 		"type": "ZINCIDENT_MANAGER_SRV.Customer"
 	},
-	"CustomerToIncidentNav": {
+	"ToIncidents": {
 		"__deferred": {
-			"uri": "CustomerSet('CustomerId%2010')/CustomerToIncidentNav"
+			"uri": "CustomerSet('CustomerId%2010')/ToIncidents"
 		}
 	}
 }]

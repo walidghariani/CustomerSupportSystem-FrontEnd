@@ -1,0 +1,50 @@
+[{
+	"CommentTypeId": 1,
+	"Value": "New reply",
+	"__metadata": {
+		"uri": "CommentTypeSet(1898)",
+		"type": "ZINCIDENT_MANAGER_SRV.CommentType"
+	}
+}, {
+	"CommentTypeId": 2,
+	"Value": "New internal memo",
+	"__metadata": {
+		"uri": "CommentTypeSet(2383)",
+		"type": "ZINCIDENT_MANAGER_SRV.CommentType"
+	}
+}, {
+	"CommentTypeId": 3,
+	"Value": "info to customer",
+	"__metadata": {
+		"uri": "CommentTypeSet(251)",
+		"type": "ZINCIDENT_MANAGER_SRV.CommentType"
+	}
+}, {
+	"CommentTypeId": 4,
+	"Value": "Call from customer",
+	"__metadata": {
+		"uri": "CommentTypeSet(5615)",
+		"type": "ZINCIDENT_MANAGER_SRV.CommentType"
+	}
+}, {
+	"CommentTypeId": 5,
+	"Value": "Call to customer",
+	"__metadata": {
+		"uri": "CommentTypeSet(775)",
+		"type": "ZINCIDENT_MANAGER_SRV.CommentType"
+	}
+}, {
+	"CommentTypeId": 6,
+	"Value": "Steps to reproduce",
+	"__metadata": {
+		"uri": "CommentTypeSet(1411)",
+		"type": "ZINCIDENT_MANAGER_SRV.CommentType"
+	}
+}, {
+	"CommentTypeId": 7,
+	"Value": "Business Impact",
+	"__metadata": {
+		"uri": "CommentTypeSet(5995)",
+		"type": "ZINCIDENT_MANAGER_SRV.CommentType"
+	}
+}]

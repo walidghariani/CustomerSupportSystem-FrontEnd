@@ -87,13 +87,6 @@
 				"settings": {
 					"defaultBindingMode": "TwoWay"
 				}
-			},
-			"errorsCategories": {
-				"type": "sap.ui.model.json.JSONModel",
-				"uri": "model/ErrorsCategories.json",
-				"settings": {
-					"defaultBindingMode": "OneWay"
-				}
 			}
 		},
 		"resources": {

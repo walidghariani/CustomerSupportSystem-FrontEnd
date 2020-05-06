@@ -1,0 +1,57 @@
+[{
+	"StatusId": 1,
+	"Value": "In process",
+	"__metadata": {
+		"uri": "StatusSet(416)",
+		"type": "ZINCIDENT_MANAGER_SRV.Status"
+	}
+}, {
+	"StatusId": 2,
+	"Value": "On hold",
+	"__metadata": {
+		"uri": "StatusSet(7960)",
+		"type": "ZINCIDENT_MANAGER_SRV.Status"
+	}
+}, {
+	"StatusId": 3,
+	"Value": "Customer Action",
+	"__metadata": {
+		"uri": "StatusSet(7638)",
+		"type": "ZINCIDENT_MANAGER_SRV.Status"
+	}
+}, {
+	"StatusId": 4,
+	"Value": "Solution provided",
+	"__metadata": {
+		"uri": "StatusSet(9523)",
+		"type": "ZINCIDENT_MANAGER_SRV.Status"
+	}
+}, {
+	"StatusId": 5,
+	"Value": "Pending development",
+	"__metadata": {
+		"uri": "StatusSet(591)",
+		"type": "ZINCIDENT_MANAGER_SRV.Status"
+	}
+}, {
+	"StatusId": 6,
+	"Value": "Pending operations",
+	"__metadata": {
+		"uri": "StatusSet(7495)",
+		"type": "ZINCIDENT_MANAGER_SRV.Status"
+	}
+}, {
+	"StatusId": 7,
+	"Value": "Pending Partner",
+	"__metadata": {
+		"uri": "StatusSet(6152)",
+		"type": "ZINCIDENT_MANAGER_SRV.Status"
+	}
+}, {
+	"StatusId": 8,
+	"Value": "Pending release",
+	"__metadata": {
+		"uri": "StatusSet(2884)",
+		"type": "ZINCIDENT_MANAGER_SRV.Status"
+	}
+}]
