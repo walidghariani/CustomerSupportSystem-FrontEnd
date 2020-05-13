@@ -1,0 +1,29 @@
+[{
+	"PriorityId": 1,
+	"Value": "Low",
+	"__metadata": {
+		"uri": "PrioritySet(2022)",
+		"type": "ZINCIDENT_MANAGER_SRV.Priority"
+	}
+}, {
+	"PriorityId": 2,
+	"Value": "Medium",
+	"__metadata": {
+		"uri": "PrioritySet(72)",
+		"type": "ZINCIDENT_MANAGER_SRV.Priority"
+	}
+}, {
+	"PriorityId": 3,
+	"Value": "High",
+	"__metadata": {
+		"uri": "PrioritySet(4881)",
+		"type": "ZINCIDENT_MANAGER_SRV.Priority"
+	}
+}, {
+	"PriorityId": 4,
+	"Value": "Very high",
+	"__metadata": {
+		"uri": "PrioritySet(7647)",
+		"type": "ZINCIDENT_MANAGER_SRV.Priority"
+	}
+}]

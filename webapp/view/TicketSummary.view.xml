@@ -118,11 +118,11 @@
 				<Text text="{ToProcessor/Name}"/>
 				
 				<Label text="{i18n>errorCategory1Label}"/>
-				<ComboBox id="comboboxErrorCategory1" change="errorCategory1Change" items="{/ErrorCategorySet}" selectedKey="{ToErrorCategory1/ErrorCategoryId}">
+				<ComboBox id="comboboxErrorCategory1" change="errorCategory1Change" items="{}" selectedKey="{ToErrorCategory1/ErrorCategoryId}">
 					<core:ListItem id="itemErrorCategory1" text="{Value}" key="{ErrorCategoryId}" />
 				</ComboBox>
 				<Label text="{i18n>errorCategory2Label}"/>
-				<ComboBox id="comboboxErrorCategory2" placeholder="Select an error category" items="{/ErrorCategorySet}" selectedKey="{ToErrorCategory2/ErrorCategoryId}">
+				<ComboBox id="comboboxErrorCategory2" placeholder="Select an error category" items="{}" selectedKey="{ToErrorCategory2/ErrorCategoryId}">
 					<core:ListItem id="itemErrorCategory2" text="{Value}" key="{ErrorCategoryId}"/>
 				</ComboBox>
 				

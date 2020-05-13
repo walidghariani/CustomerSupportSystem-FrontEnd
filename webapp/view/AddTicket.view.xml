@@ -2,18 +2,72 @@
 	controllerName="focus.customersupportsystem.CustomerSupportSystem.controller.AddTicket"
 	xmlns:mvc="sap.ui.core.mvc"
 	xmlns="sap.m"
-	xmlns:smartform="sap.ui.comp.smartform"
-	xmlns:core="sap.ui.core">
+	xmlns:form="sap.ui.layout.form"
+	xmlns:core="sap.ui.core" 
+	xmlns:f="sap.f">
 	
-	<smartform:SmartForm entityType="Incident" 	
-						editTogglable="true" 
-						title="Internal incident" 
-						checkButton="true" 
-						editable="true"
-						ignoredFields="IncidentId,SystemId,CustomerId,ProcessorId,ReporterId">
+	<f:DynamicPage toggleHeaderOnTitleClick="false" showFooter="true">
+		<f:title>
+			<f:DynamicPageTitle>
+				<f:heading>
+					<FlexBox alignContent="Start" >
+						<Title text="Internal incident" class="sapUiTinyMargin" wrapping="true"/>
+					</FlexBox>
+				</f:heading>
+			</f:DynamicPageTitle>
+		</f:title>
+		<f:content>
+			<form:SimpleForm
+					editable="true"
+					layout="ResponsiveGridLayout"
+					adjustLabelSpan="false"
+					labelSpanS="12"
+					labelSpanM="4"
+					labelSpanL="3"
+					columnsM="1"
+					columnsL="1"
+					emptySpanS="0"
+					emptySpanM="2"
+					emptySpanL="4" >
+					<form:content>
+						<Label text="{i18n>incidentIdLabel}"/>
+						<Input id="incidentId" type="Text" enabled="false" />
+						
+						<Label text="{i18n>descriptionLabel}"/>
+						<Input id="description" type="Text" required="true"/>
+						
+						<Label text="{i18n>componentLabel}"/>
+						<Input id="component" type="Text" required="true"/>
+					
+						<Label text="{i18n>systemLabel}"/>
+						<Input id="system" type="Text" required="true"/>
+						
+						<Label text="Main Impact"/>
+						<ComboBox id="mainImpact" placeholder="Select main impact" items="{/PrioritySet}" required="true">
+							<core:ListItem text="{Value}" key="{PriorityId}"/>
+						</ComboBox>
+						
+						<Label text="{i18n>priorityLabel}"/>
+						<ComboBox id="priorityId" placeholder="Select priority" items="{/PrioritySet}">
+							<core:ListItem text="{Value}" key="{PriorityId}"/>
+						</ComboBox>
+						
+						<Label text="{i18n>statusLabel}"/>
+						<ComboBox id="statusId" placeholder="Select status" items="{/StatusSet}">
+							<core:ListItem text="{Value}" key="{StatusId}"/>
+						</ComboBox>
+						
+					</form:content>
+				</form:SimpleForm>
+		</f:content>
+		<f:footer>
+			<OverflowToolbar>
+				<ToolbarSpacer/>
+				<Button text="Cancel" type="Reject" press="handleCancel" />
+				<Button text="Submit" type="Default" press="handleSubmit" enabled="{ path: '', formatter : '.submitEnabled' }"/>
+			</OverflowToolbar>
+		</f:footer>
 		
-	</smartform:SmartForm>
-		
-
+	</f:DynamicPage>
 	
 </mvc:View>

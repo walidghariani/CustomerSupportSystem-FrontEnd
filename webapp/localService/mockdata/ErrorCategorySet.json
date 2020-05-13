@@ -169,47 +169,47 @@
 	"Value": "Product complexity / usability ",
 	"ParentId": 5
 }, {
-	"ErrorCategoryId": "26",
+	"ErrorCategoryId": "27",
 	"IsPrimary": "false",
 	"Value": "Coding issue",
 	"ParentId": 7
 }, {
-	"ErrorCategoryId": "26",
+	"ErrorCategoryId": "28",
 	"IsPrimary": "false",
 	"Value": "Configuration",
 	"ParentId": 7
 }, {
-	"ErrorCategoryId": "27",
+	"ErrorCategoryId": "29",
 	"IsPrimary": "false",
 	"Value": "Improper user handling",
 	"ParentId": 7
 }, {
-	"ErrorCategoryId": "28",
+	"ErrorCategoryId": "30",
 	"IsPrimary": "false",
 	"Value": "How-to-request",
 	"ParentId": 7
 }, {
-	"ErrorCategoryId": "29",
+	"ErrorCategoryId": "31",
 	"IsPrimary": "false",
 	"Value": "Consulting / implementaion request",
 	"ParentId": 7
 }, {
-	"ErrorCategoryId": "30",
+	"ErrorCategoryId": "32",
 	"IsPrimary": "false",
 	"Value": "Issue cannot be reproduced",
 	"ParentId": 8
 }, {
-	"ErrorCategoryId": "31",
+	"ErrorCategoryId": "33",
 	"IsPrimary": "false",
 	"Value": "Duplicate incident",
 	"ParentId": 8
 }, {
-	"ErrorCategoryId": "32",
+	"ErrorCategoryId": "34",
 	"IsPrimary": "false",
 	"Value": "Closed by customer",
 	"ParentId": 8
 }, {
-	"ErrorCategoryId": "33",
+	"ErrorCategoryId": "35",
 	"IsPrimary": "false",
 	"Value": "Unknown",
 	"ParentId": 8
