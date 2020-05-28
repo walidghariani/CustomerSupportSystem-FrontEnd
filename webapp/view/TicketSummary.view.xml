@@ -6,8 +6,7 @@
 	xmlns:core="sap.ui.core" 
 	xmlns:l="sap.ui.layout"> 
 	
-<!-- We should use Smart form once we have metadata -->
-	<Panel class="sapUxAPObjectPageSubSectionAlignContent" visible="{= ${settingsModel>/editmode} !== true }">
+	<Panel class="sapUxAPObjectPageSubSectionAlignContent" visible="{= ${settingsModel>/bEditMode} !== true }">
 		<form:SimpleForm 
 			editable="false"
 			layout="ResponsiveGridLayout"
@@ -25,8 +24,8 @@
 				<Label text="{i18n>incidentIdLabel}"/>
 				<Text text="{IncidentId}"/>
 				<Label text="{i18n>incidentTypeLabel}"/>
-				<Text text="{IncidentType}"/>
-				<Label text="{i18n>descriptionLabel}"/>
+				<Text text="{ path: 'IncidentType' , formatter : '.formatter.incidentType'}"/>
+				<Label text="Title"/>
 				<Text text="{Description}"/>
 				<Label text="{i18n>statusLabel}"/>
 				<ObjectStatus text="{ToStatus/Value}" state="{path:'StatusId', formatter:'.formatter.incidentStatusHighlight'}" class="sapUiMediumMarginEnd"/>
@@ -44,7 +43,9 @@
 				<Text text="{ToErrorCategory1/Value}"/>
 				<Label text="{i18n>errorCategory2Label}"/>
 				<Text text="{ToErrorCategory2/Value}"/>
-
+				
+				<core:Title text="Incident Description" />
+				<FormattedText></FormattedText>
 				
 				<core:Title text="Next Action Monitor (Product Support)" />
 				<Label text="Respond to the customer until"/>
@@ -56,25 +57,21 @@
 				<Text text="10:42"/>
 				
 				<core:Title text="{i18n>datesSectionTitle}" />
+				<Label text="{i18n>creationDateLabel}"/>
+				<Text text="{path: 'Created' , formatter: '.formatter.dateFormatter'}"/>
 				<Label text="{i18n>lastUpdateLabel}"/>
 				<Text text="{path: 'LastUpdate' , formatter: '.formatter.dateFormatter'}"/>
 				<Label text="IRT"/>
 				<Text text="18.02.2020"/>
 				<Label text="ORT"/>
 				<Text text="Plan Sol. Del."/>
-				<Label text="{i18n>creationDateLabel}"/>
-				<Text text="{path: 'Created' , formatter: '.formatter.dateFormatter'}"/>
 				<Label text="MPT"/>
 				<Text text="29.02.2020"/>
-				<Label text="Man."/>
-				<Text text="" />
-				<Label text="Time"/>
-				<Text text=""/>
 			</form:content>
 		</form:SimpleForm>
 	</Panel>
 	
-	<Panel class="sapUxAPObjectPageSubSectionAlignContent" width="auto" visible="{= ${settingsModel>/editmode} === true}">	
+	<Panel class="sapUxAPObjectPageSubSectionAlignContent" width="auto" visible="{= ${settingsModel>/bEditMode} === true}">	
 		<form:SimpleForm
 			editable="true"
 			layout="ResponsiveGridLayout"
@@ -93,38 +90,46 @@
 				<Text text="{IncidentId}"/>
 				<Label text="{i18n>incidentTypeLabel}"/>
 				<Text text="{IncidentType}"/>
-				<Label text="{i18n>descriptionLabel}"/>
-				<Input value="{Description}"/>
+				<Label text="Title"/>
+				<Input id="description" value="{Description}" required="true"/>
 				<Label text="{i18n>statusLabel}"/>
-				<ComboBox placeholder="Select status" selectedKey="{StatusId}" items="{/StatusSet}">
+				<Select id="statusId" selectedKey="{StatusId}"
+						items="{ path : '/StatusSet' , filters : [ { path : 'IncidentType' , operator : 'EQ' , value1 : 'I' } ] }">
 					<core:ListItem text="{Value}" key="{StatusId}"/>
-				</ComboBox>
+				</Select>
 				<Label text="{i18n>priorityLabel}"/>
-				<ComboBox placeholder="Select priority" selectedKey="{PriorityId}" items="{/PrioritySet}">
+				<Select id="priorityId" selectedKey="{PriorityId}" items="{/PrioritySet}">
 					<core:ListItem text="{Value}" key="{PriorityId}"/>
-				</ComboBox>
+				</Select>
 				<Label text="{i18n>componentLabel}"/>
 				<Text text="{Component}" class="sapUiMediumMarginEnd"/>
 				<Label text="{i18n>processorLabel}"/>
 				<Input
+					id="processorId"
 					type="Text"
 					value="{ToProcessor/Name}"
 					showValueHelp="true"
 					valueHelpOnly="true"
-					valueHelpRequest="handleValueHelp"/>
+					valueHelpRequest="handleValueHelpProcessor"
+					suggestionItems="{/ProcessorSet}">
+					<core:Item key="{ProcessorId}" text="{Name}" />
+				</Input>
 				<Label text="{i18n>processingLabel}"/>
 				<Text text="{ToProcessor/Name}"/>
 				<Label text="{i18n>serviceTeamLabel}"/>
 				<Text text="{ToProcessor/Name}"/>
 				
 				<Label text="{i18n>errorCategory1Label}"/>
-				<ComboBox id="comboboxErrorCategory1" change="errorCategory1Change" items="{}" selectedKey="{ToErrorCategory1/ErrorCategoryId}">
+				<Select id="comboboxErrorCategory1" change="errorCategory1Change" items="{}" selectedKey="{ErrorCategoryId1}">
 					<core:ListItem id="itemErrorCategory1" text="{Value}" key="{ErrorCategoryId}" />
-				</ComboBox>
+				</Select>
 				<Label text="{i18n>errorCategory2Label}"/>
-				<ComboBox id="comboboxErrorCategory2" placeholder="Select an error category" items="{}" selectedKey="{ToErrorCategory2/ErrorCategoryId}">
+				<Select id="comboboxErrorCategory2" items="{}" selectedKey="{ErrorCategoryId2}">
 					<core:ListItem id="itemErrorCategory2" text="{Value}" key="{ErrorCategoryId}"/>
-				</ComboBox>
+				</Select>
+				
+				<core:Title text="Incident Description" />
+				<FormattedText></FormattedText>
 				
 				<core:Title text="Next Action Monitor (Product Support)" />
 				<Label text="Report to the customer until"/>
@@ -136,20 +141,16 @@
 				<Text text="10:42"/>
 				
 				<core:Title text="{i18n>datesSectionTitle}" />
+				<Label text="{i18n>creationDateLabel}"/>
+				<Text text="{path: 'Created' , formatter: '.formatter.dateFormatter'}"/>
 				<Label text="{i18n>lastUpdateLabel}"/>
 				<Text text="{path: 'LastUpdate' , formatter: '.formatter.dateFormatter'}"/>
 				<Label text="IRT"/>
 				<Text text="18.02.2020"/>
 				<Label text="ORT"/>
 				<Text text="Plan Sol. Del."/>
-				<Label text="{i18n>creationDateLabel}"/>
-				<Text text="{path: 'Created' , formatter: '.formatter.dateFormatter'}"/>
 				<Label text="MPT"/>
 				<Text text="29.02.2020"/>
-				<Label text="Man."/>
-				<Text text="" />
-				<Label text="Time"/>
-				<Text text=""/>
 			</form:content>
 		</form:SimpleForm>
 	</Panel>

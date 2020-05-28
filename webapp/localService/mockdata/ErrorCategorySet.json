@@ -73,8 +73,8 @@
 }, {
 	"ErrorCategoryId": "9",
 	"IsPrimary": "false",
-	"Value": "System , client , tenant , instance request/ refresh",
-	"ParentId": 2,
+	"Value": "lllll",
+	"ParentId": "0",
 	"__metadata": {
 		"uri": "ErrorCategorySet(0)",
 		"type": "ZINCIDENT_MANAGER_SRV.ErrorCategory"
@@ -213,4 +213,7 @@
 	"IsPrimary": "false",
 	"Value": "Unknown",
 	"ParentId": 8
+}, {
+	"ErrorCategoryId": "0",
+	"ParentId": "0"
 }]

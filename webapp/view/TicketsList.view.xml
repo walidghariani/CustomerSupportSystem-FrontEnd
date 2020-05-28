@@ -73,7 +73,7 @@
 										<core:CustomData key="p13nData" value='\{"columnKey": "IncidentType", "columnIndex":"1", "leadingProperty":"IncidentType"}' />
 									</t:customData>
 									<t:template>
-										<Text text="{IncidentType}"></Text>
+										<Text text="{ path: 'IncidentType' , formatter : '.formatter.incidentType'}"></Text>
 									</t:template>
 								</t:Column>
 								<t:Column hAlign="Left" width="300px">

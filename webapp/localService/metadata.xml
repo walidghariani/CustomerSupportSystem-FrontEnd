@@ -1,214 +1,484 @@
-<?xml version="1.0" encoding="utf-8"?>
-<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx"
-	xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData">
+<edmx:Edmx xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx"
+	xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData" Version="1.0">
 	<edmx:DataServices m:DataServiceVersion="2.0">
-		<Schema Namespace="ZINCIDENT_MANAGER_SRV" xml:lang="en" sap:schema-version="1" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+		<Schema xmlns="http://schemas.microsoft.com/ado/2008/09/edm" Namespace="ZINCIDENT_MANAGER_SRV" xml:lang="en" sap:schema-version="1">
 			<EntityType Name="System" sap:content-version="1">
-				<Key><PropertyRef Name="SystemId"/></Key><Property Name="SystemId" Type="Edm.String" Nullable="false" MaxLength="5" sap:unicode="false" sap:label="System Id" sap:creatable="false"
-					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="SystemRole" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:label="System Role"
-					sap:sortable="false" sap:filterable="false"/><Property Name="ProductVersion" Type="Edm.String" Nullable="false" MaxLength="30" sap:unicode="false" sap:label="Product Version"
-					sap:sortable="false" sap:filterable="false"/><Property Name="Installation" Type="Edm.String" Nullable="false" MaxLength="30" sap:unicode="false" sap:label="Installation"
-					sap:sortable="false" sap:filterable="false"/><Property Name="OperatingSystem" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:label="Operating System"
-					sap:sortable="false" sap:filterable="false"/><Property Name="DatabaseId" Type="Edm.String" Nullable="false" MaxLength="30" sap:unicode="false" sap:label="Database" sap:sortable="false"
-					sap:filterable="false"/><NavigationProperty Name="SystemToIncidentNav" Relationship="ZINCIDENT_MANAGER_SRV.IncidentSystemAss" FromRole="FromRole_IncidentSystemAss"
-					ToRole="ToRole_IncidentSystemAss"/></EntityType>
+				<Key>
+					<PropertyRef Name="SystemId"/>
+				</Key>
+				<Property Name="SystemId" Type="Edm.String" Nullable="false" MaxLength="5" sap:unicode="false" sap:label="System Id" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+				<Property Name="SystemRole" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:label="System Role"
+					sap:sortable="false" sap:filterable="false"/>
+				<Property Name="ProductVersion" Type="Edm.String" Nullable="false" MaxLength="30" sap:unicode="false" sap:label="Product Version"
+					sap:sortable="false" sap:filterable="false"/>
+				<Property Name="Installation" Type="Edm.String" Nullable="false" MaxLength="30" sap:unicode="false" sap:label="Installation"
+					sap:sortable="false" sap:filterable="false"/>
+				<Property Name="OperatingSystem" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:label="Operating System"
+					sap:sortable="false" sap:filterable="false"/>
+				<Property Name="DatabaseId" Type="Edm.String" Nullable="false" MaxLength="30" sap:unicode="false" sap:label="Database" sap:sortable="false"
+					sap:filterable="false"/>
+				<NavigationProperty Name="SystemToIncidentNav" Relationship="ZINCIDENT_MANAGER_SRV.IncidentSystemAss" FromRole="FromRole_IncidentSystemAss"
+					ToRole="ToRole_IncidentSystemAss"/>
+			</EntityType>
 			<EntityType Name="Processor" sap:content-version="1">
-				<Key><PropertyRef Name="ProcessorId"/></Key><Property Name="ProcessorId" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Processor Id"
-					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Name" Type="Edm.String" Nullable="false" MaxLength="30" sap:unicode="false" sap:label="Name"/><Property Name="Email" Type="Edm.String" Nullable="false" MaxLength="50" sap:unicode="false" sap:label="Email" sap:sortable="false"/><Property Name="PhoneNumber" Type="Edm.String" Nullable="false" MaxLength="15" sap:unicode="false" sap:label="Phone Number"
-					sap:sortable="false"/><Property Name="CountryId" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:label="Country Id" sap:sortable="false"
-					sap:filterable="false"/><Property Name="CompanyId" Type="Edm.String" Nullable="false" MaxLength="5" sap:unicode="false" sap:label="Company Id" sap:sortable="false"
-					sap:filterable="false"/><Property Name="TeamId" Type="Edm.String" Nullable="false" MaxLength="5" sap:unicode="false" sap:label="Team Id" sap:sortable="false"
-					sap:filterable="false"/><NavigationProperty Name="ToIncidents" Relationship="ZINCIDENT_MANAGER_SRV.IncidentProcessorAss" FromRole="FromRole_IncidentProcessorAss"
-					ToRole="ToRole_IncidentProcessorAss"/></EntityType>
+				<Key>
+					<PropertyRef Name="ProcessorId"/>
+				</Key>
+				<Property Name="ProcessorId" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Processor Id"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+				<Property Name="Name" Type="Edm.String" Nullable="false" MaxLength="30" sap:unicode="false" sap:label="Name"/>
+				<Property Name="Email" Type="Edm.String" Nullable="false" MaxLength="50" sap:unicode="false" sap:label="Email" sap:sortable="false"/>
+				<Property Name="PhoneNumber" Type="Edm.String" Nullable="false" MaxLength="15" sap:unicode="false" sap:label="Phone Number"
+					sap:sortable="false"/>
+				<Property Name="CountryId" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:label="Country Id" sap:sortable="false"
+					sap:filterable="false"/>
+				<Property Name="CompanyId" Type="Edm.String" Nullable="false" MaxLength="5" sap:unicode="false" sap:label="Company Id" sap:sortable="false"
+					sap:filterable="false"/>
+				<Property Name="TeamId" Type="Edm.String" Nullable="false" MaxLength="5" sap:unicode="false" sap:label="Team Id" sap:sortable="false"
+					sap:filterable="false"/>
+				<NavigationProperty Name="ToIncidents" Relationship="ZINCIDENT_MANAGER_SRV.IncidentProcessorAss" FromRole="FromRole_IncidentProcessorAss"
+					ToRole="ToRole_IncidentProcessorAss"/>
+			</EntityType>
 			<EntityType Name="Customer" sap:content-version="1">
-				<Key><PropertyRef Name="CustomerId"/></Key><Property Name="CustomerId" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Customer Id"
-					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="PartnerType" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Partner Type"
-					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Name" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:label="Name" sap:updatable="false"/><Property Name="ContactType" Type="Edm.String" Nullable="false" MaxLength="30" sap:unicode="false" sap:label="Contact Type"
-					sap:updatable="false"/><Property Name="CountryId" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:label="Country Id" sap:updatable="false"/><Property Name="SupportPartner" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Support Partner"
-					sap:updatable="false"/><Property Name="ServicePartner" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Service Partner"
-					sap:updatable="false"/><NavigationProperty Name="ToIncidents" Relationship="ZINCIDENT_MANAGER_SRV.IncidentCustomerAss" FromRole="FromRole_IncidentCustomerAss"
-					ToRole="ToRole_IncidentCustomerAss"/></EntityType>
+				<Key>
+					<PropertyRef Name="CustomerId"/>
+				</Key>
+				<Property Name="CustomerId" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Customer Id"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+				<Property Name="PartnerType" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Partner Type"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+				<Property Name="Name" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:label="Name" sap:updatable="false"/>
+				<Property Name="ContactType" Type="Edm.String" Nullable="false" MaxLength="30" sap:unicode="false" sap:label="Contact Type"
+					sap:updatable="false"/>
+				<Property Name="CountryId" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:label="Country Id" sap:updatable="false"/>
+				<Property Name="SupportPartner" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Support Partner"
+					sap:updatable="false"/>
+				<Property Name="ServicePartner" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Service Partner"
+					sap:updatable="false"/>
+				<NavigationProperty Name="ToIncidents" Relationship="ZINCIDENT_MANAGER_SRV.IncidentCustomerAss" FromRole="FromRole_IncidentCustomerAss"
+					ToRole="ToRole_IncidentCustomerAss"/>
+			</EntityType>
 			<EntityType Name="Incident" sap:content-version="1">
-				<Key><PropertyRef Name="IncidentId"/></Key><Property Name="ErrorCategoryId1" Type="Edm.Byte" Nullable="false" sap:unicode="false" sap:label="Error Category Id 1" sap:sortable="false"
-					sap:filterable="false"/><Property Name="ErrorCategoryId2" Type="Edm.Byte" Nullable="false" sap:unicode="false" sap:label="Error Category Id 2" sap:creatable="false"
-					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="IncidentType" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Incident Type"
-					sap:updatable="false" sap:filterable="false"/><Property Name="IncidentId" Type="Edm.Int32" Nullable="false" sap:unicode="false" sap:label="Incident Id" sap:creatable="false"
-					sap:updatable="false"/><Property Name="ReporterId" Type="Edm.String" MaxLength="10" sap:unicode="false" sap:label="Reporter Id" sap:updatable="false"
-					sap:sortable="false" sap:filterable="false"/><Property Name="Description" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Description" sap:sortable="false"/><Property Name="StatusId" Type="Edm.Byte" Nullable="false" sap:unicode="false" sap:label="Status Id" sap:filterable="false"/><Property Name="PriorityId" Type="Edm.Byte" Nullable="false" sap:unicode="false" sap:label="Priority Id" sap:filterable="false"/><Property Name="Component" Type="Edm.String" Nullable="false" MaxLength="30" sap:unicode="false" sap:label="Component" sap:updatable="false"/><Property Name="ProcessorId" Type="Edm.String" MaxLength="10" sap:unicode="false" sap:label="Processor Id" sap:filterable="false"/><Property Name="SystemId" Type="Edm.String" Nullable="false" MaxLength="5" sap:unicode="false" sap:label="System Id" sap:updatable="false"
-					sap:sortable="false" sap:filterable="false"/><Property Name="CustomerId" Type="Edm.String" MaxLength="10" sap:unicode="false" sap:label="Customer Id" sap:updatable="false"
-					sap:sortable="false" sap:filterable="false"/><Property Name="Created" Type="Edm.DateTime" Nullable="false" Precision="7" sap:unicode="false" sap:label="Created" sap:updatable="false"
-					sap:filterable="false"/><Property Name="LastUpdate" Type="Edm.DateTime" Nullable="false" Precision="7" sap:unicode="false" sap:label="Last Update"
-					sap:filterable="false"/><NavigationProperty Name="ToCustomer" Relationship="ZINCIDENT_MANAGER_SRV.IncidentCustomerAss" FromRole="ToRole_IncidentCustomerAss"
-					ToRole="FromRole_IncidentCustomerAss"/><NavigationProperty Name="ToSystem" Relationship="ZINCIDENT_MANAGER_SRV.IncidentSystemAss" FromRole="ToRole_IncidentSystemAss"
-					ToRole="FromRole_IncidentSystemAss"/><NavigationProperty Name="ToProcessor" Relationship="ZINCIDENT_MANAGER_SRV.IncidentProcessorAss" FromRole="ToRole_IncidentProcessorAss"
-					ToRole="FromRole_IncidentProcessorAss"/><NavigationProperty Name="ToComments" Relationship="ZINCIDENT_MANAGER_SRV.IncidentCommentAss" FromRole="FromRole_IncidentCommentAss"
-					ToRole="ToRole_IncidentCommentAss"/><NavigationProperty Name="ToSolutions" Relationship="ZINCIDENT_MANAGER_SRV.IncidentSolutionAss" FromRole="FromRole_IncidentSolutionAss"
-					ToRole="ToRole_IncidentSolutionAss"/><NavigationProperty Name="ToAttachments" Relationship="ZINCIDENT_MANAGER_SRV.IncidentAttachmentAss"
-					FromRole="FromRole_IncidentAttachmentAss" ToRole="ToRole_IncidentAttachmentAss"/><NavigationProperty Name="ToReporter" Relationship="ZINCIDENT_MANAGER_SRV.IncidentReporterAss" FromRole="ToRole_IncidentReporterAss"
-					ToRole="FromRole_IncidentReporterAss"/><NavigationProperty Name="ToStatus" Relationship="ZINCIDENT_MANAGER_SRV.IncidentStatusAss" FromRole="ToRole_IncidentStatusAss"
-					ToRole="FromRole_IncidentStatusAss"/><NavigationProperty Name="ToPriority" Relationship="ZINCIDENT_MANAGER_SRV.IncidentPriorityAss" FromRole="ToRole_IncidentPriorityAss"
-					ToRole="FromRole_IncidentPriorityAss"/><NavigationProperty Name="ToErrorCategory1" Relationship="ZINCIDENT_MANAGER_SRV.IncidentErrorCategoryAss1"
-					FromRole="ToRole_IncidentErrorCategoryAss1" ToRole="FromRole_IncidentErrorCategoryAss1"/><NavigationProperty Name="ToErrorCategory2" Relationship="ZINCIDENT_MANAGER_SRV.IncidentErrorCategoryAss2"
-					FromRole="ToRole_IncidentErrorCategoryAss2" ToRole="FromRole_IncidentErrorCategoryAss2"/></EntityType>
+				<Key>
+					<PropertyRef Name="IncidentId"/>
+				</Key>
+				<Property Name="ErrorCategoryId1" Type="Edm.Byte" sap:unicode="false" sap:label="Error Category Id 1" sap:sortable="false"
+					sap:filterable="false"/>
+				<Property Name="ImpactId" Type="Edm.Byte" Nullable="false" sap:unicode="false" sap:label="Int." sap:updatable="false" sap:sortable="false"
+					sap:filterable="false"/>
+				<Property Name="ErrorCategoryId2" Type="Edm.Byte" sap:unicode="false" sap:label="Error Category Id 2" sap:sortable="false"
+					sap:filterable="false"/>
+				<Property Name="IncidentType" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Incident Type"
+					sap:updatable="false" sap:filterable="false"/>
+				<Property Name="IncidentId" Type="Edm.Int32" Nullable="false" sap:unicode="false" sap:label="Incident Id" sap:updatable="false"/>
+				<Property Name="ReporterId" Type="Edm.String" MaxLength="10" sap:unicode="false" sap:label="Reporter Id" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/>
+				<Property Name="Description" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Description" sap:sortable="false"/>
+				<Property Name="StatusId" Type="Edm.Byte" sap:unicode="false" sap:label="Status Id" sap:filterable="false"/>
+				<Property Name="PriorityId" Type="Edm.Byte" sap:unicode="false" sap:label="Priority Id" sap:filterable="false"/>
+				<Property Name="Component" Type="Edm.String" Nullable="false" MaxLength="30" sap:unicode="false" sap:label="Component" sap:updatable="false"/>
+				<Property Name="ProcessorId" Type="Edm.String" MaxLength="10" sap:unicode="false" sap:label="Processor Id" sap:filterable="false"/>
+				<Property Name="SystemId" Type="Edm.String" Nullable="false" MaxLength="5" sap:unicode="false" sap:label="System Id" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/>
+				<Property Name="CustomerId" Type="Edm.String" MaxLength="10" sap:unicode="false" sap:label="Customer Id" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/>
+				<Property Name="Created" Type="Edm.DateTime" Precision="7" sap:unicode="false" sap:label="Created" sap:updatable="false"
+					sap:filterable="false"/>
+				<Property Name="LastUpdate" Type="Edm.DateTime" Precision="7" sap:unicode="false" sap:label="Last Update" sap:filterable="false"/>
+				<NavigationProperty Name="ToCustomer" Relationship="ZINCIDENT_MANAGER_SRV.IncidentCustomerAss" FromRole="ToRole_IncidentCustomerAss"
+					ToRole="FromRole_IncidentCustomerAss"/>
+				<NavigationProperty Name="ToSystem" Relationship="ZINCIDENT_MANAGER_SRV.IncidentSystemAss" FromRole="ToRole_IncidentSystemAss"
+					ToRole="FromRole_IncidentSystemAss"/>
+				<NavigationProperty Name="ToProcessor" Relationship="ZINCIDENT_MANAGER_SRV.IncidentProcessorAss" FromRole="ToRole_IncidentProcessorAss"
+					ToRole="FromRole_IncidentProcessorAss"/>
+				<NavigationProperty Name="ToErrorCategory1" Relationship="ZINCIDENT_MANAGER_SRV.IncidentErrorCategoryAss1"
+					FromRole="ToRole_IncidentErrorCategoryAss1" ToRole="FromRole_IncidentErrorCategoryAss1"/>
+				<NavigationProperty Name="ToComments" Relationship="ZINCIDENT_MANAGER_SRV.IncidentCommentAss" FromRole="FromRole_IncidentCommentAss"
+					ToRole="ToRole_IncidentCommentAss"/>
+				<NavigationProperty Name="ToSolutions" Relationship="ZINCIDENT_MANAGER_SRV.IncidentSolutionAss" FromRole="FromRole_IncidentSolutionAss"
+					ToRole="ToRole_IncidentSolutionAss"/>
+				<NavigationProperty Name="ToAttachments" Relationship="ZINCIDENT_MANAGER_SRV.IncidentAttachmentAss"
+					FromRole="FromRole_IncidentAttachmentAss" ToRole="ToRole_IncidentAttachmentAss"/>
+				<NavigationProperty Name="ToReporter" Relationship="ZINCIDENT_MANAGER_SRV.IncidentReporterAss" FromRole="ToRole_IncidentReporterAss"
+					ToRole="FromRole_IncidentReporterAss"/>
+				<NavigationProperty Name="ToStatus" Relationship="ZINCIDENT_MANAGER_SRV.IncidentStatusAss" FromRole="ToRole_IncidentStatusAss"
+					ToRole="FromRole_IncidentStatusAss"/>
+				<NavigationProperty Name="ToPriority" Relationship="ZINCIDENT_MANAGER_SRV.IncidentPriorityAss" FromRole="ToRole_IncidentPriorityAss"
+					ToRole="FromRole_IncidentPriorityAss"/>
+				<NavigationProperty Name="ToErrorCategory2" Relationship="ZINCIDENT_MANAGER_SRV.IncidentErrorCategoryAss2"
+					FromRole="ToRole_IncidentErrorCategoryAss2" ToRole="FromRole_IncidentErrorCategoryAss2"/>
+				<NavigationProperty Name="ToMainImpact" Relationship="ZINCIDENT_MANAGER_SRV.IncidentMainImpactAss" FromRole="ToRole_IncidentMainImpactAss"
+					ToRole="FromRole_IncidentMainImpactAss"/>
+			</EntityType>
 			<EntityType Name="Priority" sap:content-version="1">
-				<Key><PropertyRef Name="PriorityId"/></Key><Property Name="PriorityId" Type="Edm.Byte" Nullable="false" sap:unicode="false" sap:label="Int2" sap:creatable="false"
-					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Value" Type="Edm.String" Nullable="false" MaxLength="15" sap:unicode="false" sap:label="Incident priority value"
-					sap:filterable="false"/></EntityType>
+				<Key>
+					<PropertyRef Name="PriorityId"/>
+				</Key>
+				<Property Name="PriorityId" Type="Edm.Byte" Nullable="false" sap:unicode="false" sap:label="Int2" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+				<Property Name="Value" Type="Edm.String" Nullable="false" MaxLength="15" sap:unicode="false" sap:label="Incident priority value"
+					sap:filterable="false"/>
+			</EntityType>
 			<EntityType Name="Reporter" sap:content-version="1">
-				<Key><PropertyRef Name="ReporterId"/></Key><Property Name="ReporterId" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="REPORTERID"
-					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Name" Type="Edm.String" Nullable="false" MaxLength="30" sap:unicode="false" sap:label="NAME" sap:creatable="false"
-					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="PhoneNumber" Type="Edm.String" Nullable="false" MaxLength="15" sap:unicode="false" sap:label="PHONENUMBER"
-					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="CountryId" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:label="COUNTRYID" sap:creatable="false"
-					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Email" Type="Edm.String" Nullable="false" MaxLength="50" sap:unicode="false" sap:label="EMAIL" sap:creatable="false"
-					sap:updatable="false" sap:sortable="false" sap:filterable="false"/></EntityType>
+				<Key>
+					<PropertyRef Name="ReporterId"/>
+				</Key>
+				<Property Name="ReporterId" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="REPORTERID"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+				<Property Name="Name" Type="Edm.String" Nullable="false" MaxLength="30" sap:unicode="false" sap:label="NAME" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+				<Property Name="PhoneNumber" Type="Edm.String" Nullable="false" MaxLength="15" sap:unicode="false" sap:label="PHONENUMBER"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+				<Property Name="CountryId" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:label="COUNTRYID" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+				<Property Name="Email" Type="Edm.String" Nullable="false" MaxLength="50" sap:unicode="false" sap:label="EMAIL" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+			</EntityType>
 			<EntityType Name="Comment" sap:content-version="1">
-				<Key><PropertyRef Name="CommentId"/></Key><Property Name="CommentId" Type="Edm.Int32" Nullable="false" sap:unicode="false" sap:label="Comment Id" sap:creatable="false"
-					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="IncidentId" Type="Edm.Int32" Nullable="false" sap:unicode="false" sap:label="Incident Id" sap:updatable="false"
-					sap:sortable="false" sap:filterable="false"/><Property Name="EditorId" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="EditorId" sap:updatable="false"
-					sap:sortable="false" sap:filterable="false"/><Property Name="Text" Type="Edm.String" Nullable="false" MaxLength="1000" sap:unicode="false" sap:label="Text" sap:updatable="false"
-					sap:sortable="false" sap:filterable="false"/><Property Name="EditionDate" Type="Edm.DateTime" Nullable="false" Precision="7" sap:unicode="false" sap:label="EditionDate"
-					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="CommentTypeId" Type="Edm.Int16" Nullable="false" sap:unicode="false" sap:label="CommentTypeId" sap:updatable="false"
-					sap:sortable="false" sap:filterable="false"/><NavigationProperty Name="ToCommentType" Relationship="ZINCIDENT_MANAGER_SRV.CommentTypeCommentAss" FromRole="ToRole_CommentTypeCommentAss"
-					ToRole="FromRole_CommentTypeCommentAss"/></EntityType>
+				<Key>
+					<PropertyRef Name="CommentId"/>
+				</Key>
+				<Property Name="CommentId" Type="Edm.Int32" Nullable="false" sap:unicode="false" sap:label="Comment Id" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+				<Property Name="IncidentId" Type="Edm.Int32" Nullable="false" sap:unicode="false" sap:label="Incident Id" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/>
+				<Property Name="EditorName" Type="Edm.String" Nullable="false" MaxLength="50" sap:unicode="false" sap:label="Editor Name" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/>
+				<Property Name="Text" Type="Edm.String" Nullable="false" MaxLength="1000" sap:unicode="false" sap:label="Text" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/>
+				<Property Name="EditionDate" Type="Edm.DateTime" Nullable="false" Precision="7" sap:unicode="false" sap:label="EditionDate"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+				<Property Name="CommentTypeId" Type="Edm.Int16" Nullable="false" sap:unicode="false" sap:label="CommentTypeId" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/>
+				<NavigationProperty Name="ToCommentType" Relationship="ZINCIDENT_MANAGER_SRV.CommentTypeCommentAss" FromRole="ToRole_CommentTypeCommentAss"
+					ToRole="FromRole_CommentTypeCommentAss"/>
+			</EntityType>
 			<EntityType Name="Attachment" sap:content-version="1">
-				<Key><PropertyRef Name="AttachmentId"/></Key><Property Name="AttachmentId" Type="Edm.Int32" Nullable="false" sap:unicode="false" sap:label="Attachment Id" sap:creatable="false"
-					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="IncidentId" Type="Edm.Int32" Nullable="false" sap:unicode="false" sap:label="Incident Id" sap:updatable="false"
-					sap:sortable="false" sap:filterable="false"/><Property Name="Type" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Type" sap:filterable="false"/><Property Name="Location" Type="Edm.String" Nullable="false" MaxLength="50" sap:unicode="false" sap:label="Location" sap:updatable="false"
-					sap:sortable="false" sap:filterable="false"/><Property Name="CreationDate" Type="Edm.DateTime" Nullable="false" Precision="7" sap:unicode="false" sap:label="Date" sap:creatable="false"
-					sap:updatable="false" sap:filterable="false"/><Property Name="Name" Type="Edm.String" Nullable="false" MaxLength="15" sap:unicode="false" sap:label="Name"/><Property Name="CreatorId" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Creator Id"
-					sap:updatable="false" sap:sortable="false" sap:filterable="false"/></EntityType>
+				<Key>
+					<PropertyRef Name="AttachmentId"/>
+				</Key>
+				<Property Name="AttachmentId" Type="Edm.Int32" Nullable="false" sap:unicode="false" sap:label="Attachment Id" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+				<Property Name="IncidentId" Type="Edm.Int32" Nullable="false" sap:unicode="false" sap:label="Incident Id" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/>
+				<Property Name="Type" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Type" sap:filterable="false"/>
+				<Property Name="Location" Type="Edm.String" Nullable="false" MaxLength="50" sap:unicode="false" sap:label="Location" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/>
+				<Property Name="CreationDate" Type="Edm.DateTime" Nullable="false" Precision="7" sap:unicode="false" sap:label="Date" sap:creatable="false"
+					sap:updatable="false" sap:filterable="false"/>
+				<Property Name="Name" Type="Edm.String" Nullable="false" MaxLength="15" sap:unicode="false" sap:label="Name"/>
+				<Property Name="CreatorId" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Creator Id"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+			</EntityType>
 			<EntityType Name="Solution" sap:content-version="1">
-				<Key><PropertyRef Name="SolutionId"/></Key><Property Name="IncidentId" Type="Edm.Int32" Nullable="false" sap:unicode="false" sap:label="Incident Id" sap:updatable="false"
-					sap:sortable="false" sap:filterable="false"/><Property Name="SolutionId" Type="Edm.Int32" Nullable="false" sap:unicode="false" sap:label="Solution Id" sap:creatable="false"
-					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Description" Type="Edm.String" MaxLength="50" sap:unicode="false" sap:label="Description" sap:sortable="false"
-					sap:filterable="false"/><Property Name="Status" Type="Edm.String" Nullable="false" MaxLength="30" sap:unicode="false" sap:label="Status" sap:sortable="false"
-					sap:filterable="false"/><Property Name="CommentText" Type="Edm.String" MaxLength="30" sap:unicode="false" sap:label="Text" sap:sortable="false"
-					sap:filterable="false"/><Property Name="CreatedAt" Type="Edm.DateTime" Nullable="false" Precision="7" sap:unicode="false" sap:label="Created At"
-					sap:creatable="false" sap:updatable="false" sap:filterable="false"/></EntityType>
+				<Key>
+					<PropertyRef Name="SolutionId"/>
+				</Key>
+				<Property Name="IncidentId" Type="Edm.Int32" Nullable="false" sap:unicode="false" sap:label="Incident Id" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/>
+				<Property Name="SolutionId" Type="Edm.Int32" Nullable="false" sap:unicode="false" sap:label="Solution Id" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+				<Property Name="Description" Type="Edm.String" MaxLength="50" sap:unicode="false" sap:label="Description" sap:sortable="false"
+					sap:filterable="false"/>
+				<Property Name="Status" Type="Edm.String" Nullable="false" MaxLength="30" sap:unicode="false" sap:label="Status" sap:sortable="false"
+					sap:filterable="false"/>
+				<Property Name="CommentText" Type="Edm.String" MaxLength="30" sap:unicode="false" sap:label="Text" sap:sortable="false"
+					sap:filterable="false"/>
+				<Property Name="CreatedAt" Type="Edm.DateTime" Nullable="false" Precision="7" sap:unicode="false" sap:label="Created At"
+					sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+			</EntityType>
 			<EntityType Name="CommentType" sap:content-version="1">
-				<Key><PropertyRef Name="CommentTypeId"/></Key><Property Name="CommentTypeId" Type="Edm.Int16" Nullable="false" sap:unicode="false" sap:label="Comment Type Id" sap:creatable="false"
-					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Value" Type="Edm.String" Nullable="false" MaxLength="25" sap:unicode="false" sap:label="Value"/></EntityType>
+				<Key>
+					<PropertyRef Name="CommentTypeId"/>
+				</Key>
+				<Property Name="CommentTypeId" Type="Edm.Int16" Nullable="false" sap:unicode="false" sap:label="Comment Type Id" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+				<Property Name="Value" Type="Edm.String" Nullable="false" MaxLength="25" sap:unicode="false" sap:label="Value"/>
+			</EntityType>
 			<EntityType Name="ErrorCategory" sap:content-version="1">
-				<Key><PropertyRef Name="ErrorCategoryId"/></Key><Property Name="ErrorCategoryId" Type="Edm.Byte" Nullable="false" sap:unicode="false" sap:label="Int." sap:creatable="false"
-					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Value" Type="Edm.String" Nullable="false" MaxLength="30" sap:unicode="false" sap:label="value of the error category"/><Property Name="ParentId" Type="Edm.Byte" sap:unicode="false" sap:label="Int2" sap:updatable="false" sap:sortable="false"
-					sap:filterable="false"/></EntityType>
+				<Key>
+					<PropertyRef Name="ErrorCategoryId"/>
+				</Key>
+				<Property Name="ErrorCategoryId" Type="Edm.Byte" Nullable="false" sap:unicode="false" sap:label="Int." sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+				<Property Name="Value" Type="Edm.String" Nullable="false" MaxLength="50" sap:unicode="false" sap:label="value of the error category"/>
+				<Property Name="ParentId" Type="Edm.Byte" sap:unicode="false" sap:label="Int2" sap:updatable="false" sap:sortable="false"
+					sap:filterable="false"/>
+			</EntityType>
 			<EntityType Name="Status" sap:content-version="1">
-				<Key><PropertyRef Name="StatusId"/></Key><Property Name="StatusId" Type="Edm.Byte" Nullable="false" sap:unicode="false" sap:label="StatusId" sap:creatable="false"
-					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Value" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:label="Value" sap:creatable="false"
-					sap:updatable="false" sap:sortable="false" sap:filterable="false"/></EntityType>
-			<Association Name="IncidentPriorityAss" sap:content-version="1"><End Type="ZINCIDENT_MANAGER_SRV.Priority" Multiplicity="1" Role="FromRole_IncidentPriorityAss"/><End Type="ZINCIDENT_MANAGER_SRV.Incident" Multiplicity="1" Role="ToRole_IncidentPriorityAss"/>
+				<Key>
+					<PropertyRef Name="StatusId"/>
+				</Key>
+				<Property Name="IncidentType" Type="Edm.String" Nullable="false" MaxLength="1" sap:unicode="false" sap:label="IncidentType"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+				<Property Name="StatusId" Type="Edm.Byte" Nullable="false" sap:unicode="false" sap:label="StatusId" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+				<Property Name="Value" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:label="Value" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+			</EntityType>
+			<EntityType Name="MainImpact" sap:content-version="1">
+				<Key>
+					<PropertyRef Name="ImpactId"/>
+				</Key>
+				<Property Name="ImpactId" Type="Edm.Byte" Nullable="false" sap:unicode="false" sap:label="Impact Id" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+				<Property Name="Value" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:label="Value" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+			</EntityType>
+			<Association Name="IncidentPriorityAss" sap:content-version="1">
+				<End Type="ZINCIDENT_MANAGER_SRV.Priority" Multiplicity="1" Role="FromRole_IncidentPriorityAss"/>
+				<End Type="ZINCIDENT_MANAGER_SRV.Incident" Multiplicity="1" Role="ToRole_IncidentPriorityAss"/>
 				<ReferentialConstraint>
-					<Principal Role="FromRole_IncidentPriorityAss"><PropertyRef Name="PriorityId"/></Principal>
-					<Dependent Role="ToRole_IncidentPriorityAss"><PropertyRef Name="PriorityId"/></Dependent>
+					<Principal Role="FromRole_IncidentPriorityAss">
+						<PropertyRef Name="PriorityId"/>
+					</Principal>
+					<Dependent Role="ToRole_IncidentPriorityAss">
+						<PropertyRef Name="PriorityId"/>
+					</Dependent>
 				</ReferentialConstraint>
 			</Association>
-			<Association Name="IncidentStatusAss" sap:content-version="1"><End Type="ZINCIDENT_MANAGER_SRV.Status" Multiplicity="1" Role="FromRole_IncidentStatusAss"/><End Type="ZINCIDENT_MANAGER_SRV.Incident" Multiplicity="1" Role="ToRole_IncidentStatusAss"/>
+			<Association Name="IncidentStatusAss" sap:content-version="1">
+				<End Type="ZINCIDENT_MANAGER_SRV.Status" Multiplicity="1" Role="FromRole_IncidentStatusAss"/>
+				<End Type="ZINCIDENT_MANAGER_SRV.Incident" Multiplicity="1" Role="ToRole_IncidentStatusAss"/>
 				<ReferentialConstraint>
-					<Principal Role="FromRole_IncidentStatusAss"><PropertyRef Name="StatusId"/></Principal>
-					<Dependent Role="ToRole_IncidentStatusAss"><PropertyRef Name="StatusId"/></Dependent>
+					<Principal Role="FromRole_IncidentStatusAss">
+						<PropertyRef Name="StatusId"/>
+					</Principal>
+					<Dependent Role="ToRole_IncidentStatusAss">
+						<PropertyRef Name="StatusId"/>
+					</Dependent>
 				</ReferentialConstraint>
 			</Association>
-			<Association Name="IncidentReporterAss" sap:content-version="1"><End Type="ZINCIDENT_MANAGER_SRV.Reporter" Multiplicity="1" Role="FromRole_IncidentReporterAss"/><End Type="ZINCIDENT_MANAGER_SRV.Incident" Multiplicity="1" Role="ToRole_IncidentReporterAss"/>
+			<Association Name="IncidentMainImpactAss" sap:content-version="1">
+				<End Type="ZINCIDENT_MANAGER_SRV.MainImpact" Multiplicity="1" Role="FromRole_IncidentMainImpactAss"/>
+				<End Type="ZINCIDENT_MANAGER_SRV.Incident" Multiplicity="1" Role="ToRole_IncidentMainImpactAss"/>
 				<ReferentialConstraint>
-					<Principal Role="FromRole_IncidentReporterAss"><PropertyRef Name="ReporterId"/></Principal>
-					<Dependent Role="ToRole_IncidentReporterAss"><PropertyRef Name="ReporterId"/></Dependent>
+					<Principal Role="FromRole_IncidentMainImpactAss">
+						<PropertyRef Name="ImpactId"/>
+					</Principal>
+					<Dependent Role="ToRole_IncidentMainImpactAss">
+						<PropertyRef Name="ImpactId"/>
+					</Dependent>
 				</ReferentialConstraint>
 			</Association>
-			<Association Name="IncidentCustomerAss" sap:content-version="1"><End Type="ZINCIDENT_MANAGER_SRV.Customer" Multiplicity="1" Role="FromRole_IncidentCustomerAss"/><End Type="ZINCIDENT_MANAGER_SRV.Incident" Multiplicity="*" Role="ToRole_IncidentCustomerAss"/>
+			<Association Name="IncidentReporterAss" sap:content-version="1">
+				<End Type="ZINCIDENT_MANAGER_SRV.Reporter" Multiplicity="1" Role="FromRole_IncidentReporterAss"/>
+				<End Type="ZINCIDENT_MANAGER_SRV.Incident" Multiplicity="1" Role="ToRole_IncidentReporterAss"/>
 				<ReferentialConstraint>
-					<Principal Role="FromRole_IncidentCustomerAss"><PropertyRef Name="CustomerId"/></Principal>
-					<Dependent Role="ToRole_IncidentCustomerAss"><PropertyRef Name="CustomerId"/></Dependent>
+					<Principal Role="FromRole_IncidentReporterAss">
+						<PropertyRef Name="ReporterId"/>
+					</Principal>
+					<Dependent Role="ToRole_IncidentReporterAss">
+						<PropertyRef Name="ReporterId"/>
+					</Dependent>
 				</ReferentialConstraint>
 			</Association>
-			<Association Name="IncidentSystemAss" sap:content-version="1"><End Type="ZINCIDENT_MANAGER_SRV.System" Multiplicity="1" Role="FromRole_IncidentSystemAss"/><End Type="ZINCIDENT_MANAGER_SRV.Incident" Multiplicity="*" Role="ToRole_IncidentSystemAss"/>
+			<Association Name="IncidentCustomerAss" sap:content-version="1">
+				<End Type="ZINCIDENT_MANAGER_SRV.Customer" Multiplicity="1" Role="FromRole_IncidentCustomerAss"/>
+				<End Type="ZINCIDENT_MANAGER_SRV.Incident" Multiplicity="*" Role="ToRole_IncidentCustomerAss"/>
 				<ReferentialConstraint>
-					<Principal Role="FromRole_IncidentSystemAss"><PropertyRef Name="SystemId"/></Principal>
-					<Dependent Role="ToRole_IncidentSystemAss"><PropertyRef Name="SystemId"/></Dependent>
+					<Principal Role="FromRole_IncidentCustomerAss">
+						<PropertyRef Name="CustomerId"/>
+					</Principal>
+					<Dependent Role="ToRole_IncidentCustomerAss">
+						<PropertyRef Name="CustomerId"/>
+					</Dependent>
 				</ReferentialConstraint>
 			</Association>
-			<Association Name="CommentTypeCommentAss" sap:content-version="1"><End Type="ZINCIDENT_MANAGER_SRV.CommentType" Multiplicity="1" Role="FromRole_CommentTypeCommentAss"/><End Type="ZINCIDENT_MANAGER_SRV.Comment" Multiplicity="1" Role="ToRole_CommentTypeCommentAss"/>
+			<Association Name="IncidentSystemAss" sap:content-version="1">
+				<End Type="ZINCIDENT_MANAGER_SRV.System" Multiplicity="1" Role="FromRole_IncidentSystemAss"/>
+				<End Type="ZINCIDENT_MANAGER_SRV.Incident" Multiplicity="*" Role="ToRole_IncidentSystemAss"/>
 				<ReferentialConstraint>
-					<Principal Role="FromRole_CommentTypeCommentAss"><PropertyRef Name="CommentTypeId"/></Principal>
-					<Dependent Role="ToRole_CommentTypeCommentAss"><PropertyRef Name="CommentTypeId"/></Dependent>
+					<Principal Role="FromRole_IncidentSystemAss">
+						<PropertyRef Name="SystemId"/>
+					</Principal>
+					<Dependent Role="ToRole_IncidentSystemAss">
+						<PropertyRef Name="SystemId"/>
+					</Dependent>
 				</ReferentialConstraint>
 			</Association>
-			<Association Name="IncidentCommentAss" sap:content-version="1"><End Type="ZINCIDENT_MANAGER_SRV.Incident" Multiplicity="1" Role="FromRole_IncidentCommentAss"/><End Type="ZINCIDENT_MANAGER_SRV.Comment" Multiplicity="*" Role="ToRole_IncidentCommentAss"/>
+			<Association Name="CommentTypeCommentAss" sap:content-version="1">
+				<End Type="ZINCIDENT_MANAGER_SRV.CommentType" Multiplicity="1" Role="FromRole_CommentTypeCommentAss"/>
+				<End Type="ZINCIDENT_MANAGER_SRV.Comment" Multiplicity="1" Role="ToRole_CommentTypeCommentAss"/>
 				<ReferentialConstraint>
-					<Principal Role="FromRole_IncidentCommentAss"><PropertyRef Name="IncidentId"/></Principal>
-					<Dependent Role="ToRole_IncidentCommentAss"><PropertyRef Name="IncidentId"/></Dependent>
+					<Principal Role="FromRole_CommentTypeCommentAss">
+						<PropertyRef Name="CommentTypeId"/>
+					</Principal>
+					<Dependent Role="ToRole_CommentTypeCommentAss">
+						<PropertyRef Name="CommentTypeId"/>
+					</Dependent>
 				</ReferentialConstraint>
 			</Association>
-			<Association Name="IncidentSolutionAss" sap:content-version="1"><End Type="ZINCIDENT_MANAGER_SRV.Incident" Multiplicity="1" Role="FromRole_IncidentSolutionAss"/><End Type="ZINCIDENT_MANAGER_SRV.Solution" Multiplicity="*" Role="ToRole_IncidentSolutionAss"/>
+			<Association Name="IncidentCommentAss" sap:content-version="1">
+				<End Type="ZINCIDENT_MANAGER_SRV.Incident" Multiplicity="1" Role="FromRole_IncidentCommentAss"/>
+				<End Type="ZINCIDENT_MANAGER_SRV.Comment" Multiplicity="*" Role="ToRole_IncidentCommentAss"/>
 				<ReferentialConstraint>
-					<Principal Role="FromRole_IncidentSolutionAss"><PropertyRef Name="IncidentId"/></Principal>
-					<Dependent Role="ToRole_IncidentSolutionAss"><PropertyRef Name="IncidentId"/></Dependent>
+					<Principal Role="FromRole_IncidentCommentAss">
+						<PropertyRef Name="IncidentId"/>
+					</Principal>
+					<Dependent Role="ToRole_IncidentCommentAss">
+						<PropertyRef Name="IncidentId"/>
+					</Dependent>
 				</ReferentialConstraint>
 			</Association>
-			<Association Name="IncidentAttachmentAss" sap:content-version="1"><End Type="ZINCIDENT_MANAGER_SRV.Incident" Multiplicity="1" Role="FromRole_IncidentAttachmentAss"/><End Type="ZINCIDENT_MANAGER_SRV.Attachment" Multiplicity="*" Role="ToRole_IncidentAttachmentAss"/>
+			<Association Name="IncidentSolutionAss" sap:content-version="1">
+				<End Type="ZINCIDENT_MANAGER_SRV.Incident" Multiplicity="1" Role="FromRole_IncidentSolutionAss"/>
+				<End Type="ZINCIDENT_MANAGER_SRV.Solution" Multiplicity="*" Role="ToRole_IncidentSolutionAss"/>
 				<ReferentialConstraint>
-					<Principal Role="FromRole_IncidentAttachmentAss"><PropertyRef Name="IncidentId"/></Principal>
-					<Dependent Role="ToRole_IncidentAttachmentAss"><PropertyRef Name="IncidentId"/></Dependent>
+					<Principal Role="FromRole_IncidentSolutionAss">
+						<PropertyRef Name="IncidentId"/>
+					</Principal>
+					<Dependent Role="ToRole_IncidentSolutionAss">
+						<PropertyRef Name="IncidentId"/>
+					</Dependent>
 				</ReferentialConstraint>
 			</Association>
-			<Association Name="IncidentProcessorAss" sap:content-version="1"><End Type="ZINCIDENT_MANAGER_SRV.Processor" Multiplicity="1" Role="FromRole_IncidentProcessorAss"/><End Type="ZINCIDENT_MANAGER_SRV.Incident" Multiplicity="*" Role="ToRole_IncidentProcessorAss"/>
+			<Association Name="IncidentAttachmentAss" sap:content-version="1">
+				<End Type="ZINCIDENT_MANAGER_SRV.Incident" Multiplicity="1" Role="FromRole_IncidentAttachmentAss"/>
+				<End Type="ZINCIDENT_MANAGER_SRV.Attachment" Multiplicity="*" Role="ToRole_IncidentAttachmentAss"/>
 				<ReferentialConstraint>
-					<Principal Role="FromRole_IncidentProcessorAss"><PropertyRef Name="ProcessorId"/></Principal>
-					<Dependent Role="ToRole_IncidentProcessorAss"><PropertyRef Name="ProcessorId"/></Dependent>
+					<Principal Role="FromRole_IncidentAttachmentAss">
+						<PropertyRef Name="IncidentId"/>
+					</Principal>
+					<Dependent Role="ToRole_IncidentAttachmentAss">
+						<PropertyRef Name="IncidentId"/>
+					</Dependent>
 				</ReferentialConstraint>
 			</Association>
-			<Association Name="IncidentErrorCategoryAss1" sap:content-version="1"><End Type="ZINCIDENT_MANAGER_SRV.ErrorCategory" Multiplicity="1" Role="FromRole_IncidentErrorCategoryAss1"/><End Type="ZINCIDENT_MANAGER_SRV.Incident" Multiplicity="1" Role="ToRole_IncidentErrorCategoryAss1"/>
+			<Association Name="IncidentErrorCategoryAss2" sap:content-version="1">
+				<End Type="ZINCIDENT_MANAGER_SRV.ErrorCategory" Multiplicity="1" Role="FromRole_IncidentErrorCategoryAss2"/>
+				<End Type="ZINCIDENT_MANAGER_SRV.Incident" Multiplicity="1" Role="ToRole_IncidentErrorCategoryAss2"/>
 				<ReferentialConstraint>
-					<Principal Role="FromRole_IncidentErrorCategoryAss1"><PropertyRef Name="ErrorCategoryId"/></Principal>
-					<Dependent Role="ToRole_IncidentErrorCategoryAss1"><PropertyRef Name="ErrorCategoryId1"/></Dependent>
+					<Principal Role="FromRole_IncidentErrorCategoryAss2">
+						<PropertyRef Name="ErrorCategoryId"/>
+					</Principal>
+					<Dependent Role="ToRole_IncidentErrorCategoryAss2">
+						<PropertyRef Name="ErrorCategoryId2"/>
+					</Dependent>
 				</ReferentialConstraint>
 			</Association>
-			<Association Name="IncidentErrorCategoryAss2" sap:content-version="1"><End Type="ZINCIDENT_MANAGER_SRV.ErrorCategory" Multiplicity="1" Role="FromRole_IncidentErrorCategoryAss2"/><End Type="ZINCIDENT_MANAGER_SRV.Incident" Multiplicity="1" Role="ToRole_IncidentErrorCategoryAss2"/>
+			<Association Name="IncidentProcessorAss" sap:content-version="1">
+				<End Type="ZINCIDENT_MANAGER_SRV.Processor" Multiplicity="1" Role="FromRole_IncidentProcessorAss"/>
+				<End Type="ZINCIDENT_MANAGER_SRV.Incident" Multiplicity="*" Role="ToRole_IncidentProcessorAss"/>
 				<ReferentialConstraint>
-					<Principal Role="FromRole_IncidentErrorCategoryAss2"><PropertyRef Name="ErrorCategoryId"/></Principal>
-					<Dependent Role="ToRole_IncidentErrorCategoryAss2"><PropertyRef Name="ErrorCategoryId2"/></Dependent>
+					<Principal Role="FromRole_IncidentProcessorAss">
+						<PropertyRef Name="ProcessorId"/>
+					</Principal>
+					<Dependent Role="ToRole_IncidentProcessorAss">
+						<PropertyRef Name="ProcessorId"/>
+					</Dependent>
 				</ReferentialConstraint>
 			</Association>
-			<EntityContainer Name="ZINCIDENT_MANAGER_SRV_Entities" m:IsDefaultEntityContainer="true" sap:supported-formats="atom json xlsx"><EntitySet Name="SystemSet" EntityType="ZINCIDENT_MANAGER_SRV.System" sap:creatable="false" sap:deletable="false" sap:pageable="false"
-				sap:content-version="1"/><EntitySet Name="ProcessorSet" EntityType="ZINCIDENT_MANAGER_SRV.Processor" sap:creatable="false" sap:deletable="false" sap:pageable="false"
-				sap:content-version="1"/><EntitySet Name="CustomerSet" EntityType="ZINCIDENT_MANAGER_SRV.Customer" sap:creatable="false" sap:deletable="false" sap:pageable="false"
-				sap:content-version="1"/><EntitySet Name="IncidentSet" EntityType="ZINCIDENT_MANAGER_SRV.Incident" sap:creatable="false" sap:deletable="false" sap:pageable="false"
-				sap:content-version="1"/><EntitySet Name="PrioritySet" EntityType="ZINCIDENT_MANAGER_SRV.Priority" sap:creatable="false" sap:updatable="false" sap:deletable="false"
-				sap:pageable="false" sap:content-version="1"/><EntitySet Name="ReporterSet" EntityType="ZINCIDENT_MANAGER_SRV.Reporter" sap:creatable="false" sap:updatable="false" sap:deletable="false"
-				sap:pageable="false" sap:content-version="1"/><EntitySet Name="CommentSet" EntityType="ZINCIDENT_MANAGER_SRV.Comment" sap:creatable="false" sap:updatable="false" sap:deletable="false"
-				sap:pageable="false" sap:content-version="1"/><EntitySet Name="AttachmentSet" EntityType="ZINCIDENT_MANAGER_SRV.Attachment" sap:creatable="false" sap:updatable="false"
-				sap:deletable="false" sap:pageable="false" sap:content-version="1"/><EntitySet Name="SolutionSet" EntityType="ZINCIDENT_MANAGER_SRV.Solution" sap:creatable="false" sap:updatable="false" sap:deletable="false"
-				sap:pageable="false" sap:content-version="1"/><EntitySet Name="CommentTypeSet" EntityType="ZINCIDENT_MANAGER_SRV.CommentType" sap:creatable="false" sap:updatable="false"
-				sap:deletable="false" sap:pageable="false" sap:content-version="1"/><EntitySet Name="ErrorCategorySet" EntityType="ZINCIDENT_MANAGER_SRV.ErrorCategory" sap:creatable="false" sap:updatable="false"
-				sap:deletable="false" sap:pageable="false" sap:content-version="1"/><EntitySet Name="StatusSet" EntityType="ZINCIDENT_MANAGER_SRV.Status" sap:creatable="false" sap:updatable="false" sap:deletable="false"
-				sap:pageable="false" sap:content-version="1"/>
+			<Association Name="IncidentErrorCategoryAss1" sap:content-version="1">
+				<End Type="ZINCIDENT_MANAGER_SRV.ErrorCategory" Multiplicity="1" Role="FromRole_IncidentErrorCategoryAss1"/>
+				<End Type="ZINCIDENT_MANAGER_SRV.Incident" Multiplicity="1" Role="ToRole_IncidentErrorCategoryAss1"/>
+				<ReferentialConstraint>
+					<Principal Role="FromRole_IncidentErrorCategoryAss1">
+						<PropertyRef Name="ErrorCategoryId"/>
+					</Principal>
+					<Dependent Role="ToRole_IncidentErrorCategoryAss1">
+						<PropertyRef Name="ErrorCategoryId1"/>
+					</Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<EntityContainer Name="ZINCIDENT_MANAGER_SRV_Entities" m:IsDefaultEntityContainer="true" sap:supported-formats="atom json xlsx">
+				<EntitySet Name="SystemSet" EntityType="ZINCIDENT_MANAGER_SRV.System" sap:creatable="false" sap:deletable="false" sap:pageable="false"
+					sap:content-version="1"/>
+				<EntitySet Name="ProcessorSet" EntityType="ZINCIDENT_MANAGER_SRV.Processor" sap:creatable="false" sap:deletable="false" sap:pageable="false"
+					sap:content-version="1"/>
+				<EntitySet Name="CustomerSet" EntityType="ZINCIDENT_MANAGER_SRV.Customer" sap:creatable="false" sap:deletable="false" sap:pageable="false"
+					sap:content-version="1"/>
+				<EntitySet Name="IncidentSet" EntityType="ZINCIDENT_MANAGER_SRV.Incident" sap:creatable="false" sap:deletable="false" sap:pageable="false"
+					sap:content-version="1"/>
+				<EntitySet Name="PrioritySet" EntityType="ZINCIDENT_MANAGER_SRV.Priority" sap:creatable="false" sap:updatable="false" sap:deletable="false"
+					sap:pageable="false" sap:content-version="1"/>
+				<EntitySet Name="ReporterSet" EntityType="ZINCIDENT_MANAGER_SRV.Reporter" sap:creatable="false" sap:updatable="false" sap:deletable="false"
+					sap:pageable="false" sap:content-version="1"/>
+				<EntitySet Name="CommentSet" EntityType="ZINCIDENT_MANAGER_SRV.Comment" sap:creatable="false" sap:updatable="false" sap:deletable="false"
+					sap:pageable="false" sap:content-version="1"/>
+				<EntitySet Name="AttachmentSet" EntityType="ZINCIDENT_MANAGER_SRV.Attachment" sap:creatable="false" sap:updatable="false"
+					sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+				<EntitySet Name="SolutionSet" EntityType="ZINCIDENT_MANAGER_SRV.Solution" sap:creatable="false" sap:updatable="false" sap:deletable="false"
+					sap:pageable="false" sap:content-version="1"/>
+				<EntitySet Name="CommentTypeSet" EntityType="ZINCIDENT_MANAGER_SRV.CommentType" sap:creatable="false" sap:updatable="false"
+					sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+				<EntitySet Name="ErrorCategorySet" EntityType="ZINCIDENT_MANAGER_SRV.ErrorCategory" sap:creatable="false" sap:updatable="false"
+					sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+				<EntitySet Name="StatusSet" EntityType="ZINCIDENT_MANAGER_SRV.Status" sap:creatable="false" sap:updatable="false" sap:deletable="false"
+					sap:pageable="false" sap:content-version="1"/>
+				<EntitySet Name="MainImpactSet" EntityType="ZINCIDENT_MANAGER_SRV.MainImpact" sap:creatable="false" sap:updatable="false"
+					sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
 				<AssociationSet Name="IncidentProcessorAssSet" Association="ZINCIDENT_MANAGER_SRV.IncidentProcessorAss" sap:creatable="false"
-					sap:updatable="false" sap:deletable="false" sap:content-version="1"><End EntitySet="ProcessorSet" Role="FromRole_IncidentProcessorAss"/><End EntitySet="IncidentSet" Role="ToRole_IncidentProcessorAss"/></AssociationSet>
+					sap:updatable="false" sap:deletable="false" sap:content-version="1">
+					<End EntitySet="ProcessorSet" Role="FromRole_IncidentProcessorAss"/>
+					<End EntitySet="IncidentSet" Role="ToRole_IncidentProcessorAss"/>
+				</AssociationSet>
 				<AssociationSet Name="IncidentSolutionAssSet" Association="ZINCIDENT_MANAGER_SRV.IncidentSolutionAss" sap:creatable="false"
-					sap:updatable="false" sap:deletable="false" sap:content-version="1"><End EntitySet="IncidentSet" Role="FromRole_IncidentSolutionAss"/><End EntitySet="SolutionSet" Role="ToRole_IncidentSolutionAss"/></AssociationSet>
+					sap:updatable="false" sap:deletable="false" sap:content-version="1">
+					<End EntitySet="IncidentSet" Role="FromRole_IncidentSolutionAss"/>
+					<End EntitySet="SolutionSet" Role="ToRole_IncidentSolutionAss"/>
+				</AssociationSet>
 				<AssociationSet Name="CommentTypeCommentAssSet" Association="ZINCIDENT_MANAGER_SRV.CommentTypeCommentAss" sap:creatable="false"
-					sap:updatable="false" sap:deletable="false" sap:content-version="1"><End EntitySet="CommentTypeSet" Role="FromRole_CommentTypeCommentAss"/><End EntitySet="CommentSet" Role="ToRole_CommentTypeCommentAss"/></AssociationSet>
+					sap:updatable="false" sap:deletable="false" sap:content-version="1">
+					<End EntitySet="CommentTypeSet" Role="FromRole_CommentTypeCommentAss"/>
+					<End EntitySet="CommentSet" Role="ToRole_CommentTypeCommentAss"/>
+				</AssociationSet>
 				<AssociationSet Name="IncidentReporterAssSet" Association="ZINCIDENT_MANAGER_SRV.IncidentReporterAss" sap:creatable="false"
-					sap:updatable="false" sap:deletable="false" sap:content-version="1"><End EntitySet="ReporterSet" Role="FromRole_IncidentReporterAss"/><End EntitySet="IncidentSet" Role="ToRole_IncidentReporterAss"/></AssociationSet>
+					sap:updatable="false" sap:deletable="false" sap:content-version="1">
+					<End EntitySet="ReporterSet" Role="FromRole_IncidentReporterAss"/>
+					<End EntitySet="IncidentSet" Role="ToRole_IncidentReporterAss"/>
+				</AssociationSet>
 				<AssociationSet Name="IncidentErrorCategoryAss2Set" Association="ZINCIDENT_MANAGER_SRV.IncidentErrorCategoryAss2" sap:creatable="false"
-					sap:updatable="false" sap:deletable="false" sap:content-version="1"><End EntitySet="ErrorCategorySet" Role="FromRole_IncidentErrorCategoryAss2"/><End EntitySet="IncidentSet" Role="ToRole_IncidentErrorCategoryAss2"/></AssociationSet>
+					sap:updatable="false" sap:deletable="false" sap:content-version="1">
+					<End EntitySet="ErrorCategorySet" Role="FromRole_IncidentErrorCategoryAss2"/>
+					<End EntitySet="IncidentSet" Role="ToRole_IncidentErrorCategoryAss2"/>
+				</AssociationSet>
 				<AssociationSet Name="IncidentPriorityAssSet" Association="ZINCIDENT_MANAGER_SRV.IncidentPriorityAss" sap:creatable="false"
-					sap:updatable="false" sap:deletable="false" sap:content-version="1"><End EntitySet="PrioritySet" Role="FromRole_IncidentPriorityAss"/><End EntitySet="IncidentSet" Role="ToRole_IncidentPriorityAss"/></AssociationSet>
+					sap:updatable="false" sap:deletable="false" sap:content-version="1">
+					<End EntitySet="PrioritySet" Role="FromRole_IncidentPriorityAss"/>
+					<End EntitySet="IncidentSet" Role="ToRole_IncidentPriorityAss"/>
+				</AssociationSet>
 				<AssociationSet Name="IncidentStatusAssSet" Association="ZINCIDENT_MANAGER_SRV.IncidentStatusAss" sap:creatable="false"
-					sap:updatable="false" sap:deletable="false" sap:content-version="1"><End EntitySet="StatusSet" Role="FromRole_IncidentStatusAss"/><End EntitySet="IncidentSet" Role="ToRole_IncidentStatusAss"/></AssociationSet>
+					sap:updatable="false" sap:deletable="false" sap:content-version="1">
+					<End EntitySet="StatusSet" Role="FromRole_IncidentStatusAss"/>
+					<End EntitySet="IncidentSet" Role="ToRole_IncidentStatusAss"/>
+				</AssociationSet>
 				<AssociationSet Name="IncidentSystemAssSet" Association="ZINCIDENT_MANAGER_SRV.IncidentSystemAss" sap:creatable="false"
-					sap:updatable="false" sap:deletable="false" sap:content-version="1"><End EntitySet="SystemSet" Role="FromRole_IncidentSystemAss"/><End EntitySet="IncidentSet" Role="ToRole_IncidentSystemAss"/></AssociationSet>
+					sap:updatable="false" sap:deletable="false" sap:content-version="1">
+					<End EntitySet="SystemSet" Role="FromRole_IncidentSystemAss"/>
+					<End EntitySet="IncidentSet" Role="ToRole_IncidentSystemAss"/>
+				</AssociationSet>
+				<AssociationSet Name="IncidentMainImpactAssSet" Association="ZINCIDENT_MANAGER_SRV.IncidentMainImpactAss" sap:creatable="false"
+					sap:updatable="false" sap:deletable="false" sap:content-version="1">
+					<End EntitySet="MainImpactSet" Role="FromRole_IncidentMainImpactAss"/>
+					<End EntitySet="IncidentSet" Role="ToRole_IncidentMainImpactAss"/>
+				</AssociationSet>
 				<AssociationSet Name="IncidentAttachmentAssSet" Association="ZINCIDENT_MANAGER_SRV.IncidentAttachmentAss" sap:creatable="false"
-					sap:updatable="false" sap:deletable="false" sap:content-version="1"><End EntitySet="IncidentSet" Role="FromRole_IncidentAttachmentAss"/><End EntitySet="AttachmentSet" Role="ToRole_IncidentAttachmentAss"/></AssociationSet>
+					sap:updatable="false" sap:deletable="false" sap:content-version="1">
+					<End EntitySet="IncidentSet" Role="FromRole_IncidentAttachmentAss"/>
+					<End EntitySet="AttachmentSet" Role="ToRole_IncidentAttachmentAss"/>
+				</AssociationSet>
 				<AssociationSet Name="IncidentCustomerAssSet" Association="ZINCIDENT_MANAGER_SRV.IncidentCustomerAss" sap:creatable="false"
-					sap:updatable="false" sap:deletable="false" sap:content-version="1"><End EntitySet="CustomerSet" Role="FromRole_IncidentCustomerAss"/><End EntitySet="IncidentSet" Role="ToRole_IncidentCustomerAss"/></AssociationSet>
+					sap:updatable="false" sap:deletable="false" sap:content-version="1">
+					<End EntitySet="CustomerSet" Role="FromRole_IncidentCustomerAss"/>
+					<End EntitySet="IncidentSet" Role="ToRole_IncidentCustomerAss"/>
+				</AssociationSet>
 				<AssociationSet Name="IncidentErrorCategoryAss1Set" Association="ZINCIDENT_MANAGER_SRV.IncidentErrorCategoryAss1" sap:creatable="false"
-					sap:updatable="false" sap:deletable="false" sap:content-version="1"><End EntitySet="ErrorCategorySet" Role="FromRole_IncidentErrorCategoryAss1"/><End EntitySet="IncidentSet" Role="ToRole_IncidentErrorCategoryAss1"/></AssociationSet>
+					sap:updatable="false" sap:deletable="false" sap:content-version="1">
+					<End EntitySet="ErrorCategorySet" Role="FromRole_IncidentErrorCategoryAss1"/>
+					<End EntitySet="IncidentSet" Role="ToRole_IncidentErrorCategoryAss1"/>
+				</AssociationSet>
 				<AssociationSet Name="IncidentCommentAssSet" Association="ZINCIDENT_MANAGER_SRV.IncidentCommentAss" sap:creatable="false"
-					sap:updatable="false" sap:deletable="false" sap:content-version="1"><End EntitySet="IncidentSet" Role="FromRole_IncidentCommentAss"/><End EntitySet="CommentSet" Role="ToRole_IncidentCommentAss"/></AssociationSet>
-			</EntityContainer><atom:link rel="self"
-				href="https://webidecp-fiori.dispatcher.int.sap.eu2.hana.ondemand.com/destinations/OFDCLNT200/sap/opu/odata/sap/ZINCIDENT_MANAGER_SRV/$metadata"
-				xmlns:atom="http://www.w3.org/2005/Atom"/><atom:link rel="latest-version"
-				href="https://webidecp-fiori.dispatcher.int.sap.eu2.hana.ondemand.com/destinations/OFDCLNT200/sap/opu/odata/sap/ZINCIDENT_MANAGER_SRV/$metadata"
-				xmlns:atom="http://www.w3.org/2005/Atom"/></Schema>
+					sap:updatable="false" sap:deletable="false" sap:content-version="1">
+					<End EntitySet="IncidentSet" Role="FromRole_IncidentCommentAss"/>
+					<End EntitySet="CommentSet" Role="ToRole_IncidentCommentAss"/>
+				</AssociationSet>
+			</EntityContainer>
+			<atom:link xmlns:atom="http://www.w3.org/2005/Atom" rel="self"
+				href="https://ldciofd.mo.sap.corp:44378/sap/opu/odata/sap/ZINCIDENT_MANAGER_SRV/$metadata"/>
+			<atom:link xmlns:atom="http://www.w3.org/2005/Atom" rel="latest-version"
+				href="https://ldciofd.mo.sap.corp:44378/sap/opu/odata/sap/ZINCIDENT_MANAGER_SRV/$metadata"/>
+		</Schema>
 	</edmx:DataServices>
 </edmx:Edmx>

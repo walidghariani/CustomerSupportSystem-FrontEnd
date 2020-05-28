@@ -4,7 +4,8 @@
 	xmlns="sap.m"
 	xmlns:form="sap.ui.layout.form"
 	xmlns:core="sap.ui.core" 
-	xmlns:f="sap.f">
+	xmlns:f="sap.f"
+	xmlns:richtexteditor="sap.ui.richtexteditor">
 	
 	<f:DynamicPage toggleHeaderOnTitleClick="false" showFooter="true">
 		<f:title>
@@ -30,32 +31,88 @@
 					emptySpanM="2"
 					emptySpanL="4" >
 					<form:content>
+						<core:Title text="General data"/>
 						<Label text="{i18n>incidentIdLabel}"/>
 						<Input id="incidentId" type="Text" enabled="false" />
 						
+						<Label text="Title"/>
+						<Input id="description" type="Text" required="true" liveChange="onLiveChange" valueStateText="Required field"/>
+						
 						<Label text="{i18n>descriptionLabel}"/>
-						<Input id="description" type="Text" required="true"/>
+						<richtexteditor:RichTextEditor required="true"></richtexteditor:RichTextEditor>
 						
 						<Label text="{i18n>componentLabel}"/>
-						<Input id="component" type="Text" required="true"/>
+						<Input id="component" type="Text" required="true" liveChange="onLiveChange" valueStateText="Required field"/>
 					
-						<Label text="{i18n>systemLabel}"/>
-						<Input id="system" type="Text" required="true"/>
+						<Label text="{i18n>systemIdLabel}"/>
+						<Input
+							id="systemId"
+							type="Text"
+							required="true"
+							change="onLiveChange"
+							showValueHelp="true"
+							valueHelpOnly="true"
+							valueHelpRequest="handleValueHelpSystem"
+							suggestionItems="{/SystemSet}"
+							valueStateText="Required field">
+							<core:Item key="{SystemId}" text="{SystemId}" />
+						</Input>
 						
-						<Label text="Main Impact"/>
-						<ComboBox id="mainImpact" placeholder="Select main impact" items="{/PrioritySet}" required="true">
-							<core:ListItem text="{Value}" key="{PriorityId}"/>
-						</ComboBox>
-						
+						<Label text="Main Impact" required="true" />
+						<Select id="mainImpact" items="{/MainImpactSet}" change="onLiveChange" valueStateText="Required field">
+							<core:ListItem text="{Value}" key="{ImpactId}"/>
+						</Select>
+					
 						<Label text="{i18n>priorityLabel}"/>
-						<ComboBox id="priorityId" placeholder="Select priority" items="{/PrioritySet}">
+						<Select id="priorityId" selectedKey="0" items="{/PrioritySet}" >
 							<core:ListItem text="{Value}" key="{PriorityId}"/>
-						</ComboBox>
+						</Select>
 						
 						<Label text="{i18n>statusLabel}"/>
-						<ComboBox id="statusId" placeholder="Select status" items="{/StatusSet}">
+						<Select id="statusId" items="{/StatusSet}" selectedKey="0" enabled="false">
 							<core:ListItem text="{Value}" key="{StatusId}"/>
-						</ComboBox>
+						</Select>
+						
+						<core:Title text="More details"/>
+						
+						<Label text="{i18n>errorCategory1Label}"/>
+						<Select id="comboboxErrorCategory1" change="errorCategory1Change" selectedKey="0" items="{ path : '/ErrorCategorySet' , filters : [ { path : 'ParentId' , operator : 'EQ' , value1 : 0 } ] }" >
+							<core:ListItem id="itemErrorCategory1" text="{Value}" key="{ErrorCategoryId}" />
+						</Select>
+						
+						<Label text="{i18n>errorCategory2Label}"/>
+						<Select id="comboboxErrorCategory2" selectedKey="0" items="{}" enabled="false">
+							<core:ListItem id="itemErrorCategory2" text="{Value}" key="{ErrorCategoryId}"/>
+						</Select>
+						
+						<Label text="{i18n>processorLabel}"/>
+						<Input
+							id="processorId"
+							type="Text"
+							showValueHelp="true"
+							valueHelpOnly="true"
+							valueHelpRequest="handleValueHelpProcessor"
+							suggestionItems="{/ProcessorSet}">
+							<core:Item key="{ProcessorId}" text="{Name}" />
+						</Input>
+						
+						<Label text="Database"/>
+						<Input
+							id="databaseId"
+							type="Text"
+							change="onLiveChange"
+							showValueHelp="true"
+							valueHelpOnly="true"
+							valueHelpRequest="handleValueHelpDatabase"
+							suggestionItems="{}"
+							valueStateText="Required field">
+							<core:Item key="{}" text="{}" />
+						</Input>
+						
+						<core:Title text=""/>
+						
+						<UploadCollection multiple="true" >
+						</UploadCollection>
 						
 					</form:content>
 				</form:SimpleForm>
@@ -64,7 +121,7 @@
 			<OverflowToolbar>
 				<ToolbarSpacer/>
 				<Button text="Cancel" type="Reject" press="handleCancel" />
-				<Button text="Submit" type="Default" press="handleSubmit" enabled="{ path: '', formatter : '.submitEnabled' }"/>
+				<Button text="Submit" type="Default" press="handleSubmit"/>
 			</OverflowToolbar>
 		</f:footer>
 		

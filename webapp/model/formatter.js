@@ -27,6 +27,13 @@ sap.ui.define([], function () {
 		dateFormatter: function (oValue) {
 			var oDateFormat = sap.ui.core.format.DateFormat.getDateTimeInstance({pattern: "MMM d, yyyy,  h:mm aaa"});
 			return oDateFormat.format(new Date(oValue));
+		},
+		
+		incidentType: function (oValue) {
+			if (oValue === "I" )
+				return "Internal incident";
+			else if (oValue === "C")
+				return "Customer incident";
 		}
 	};
 });

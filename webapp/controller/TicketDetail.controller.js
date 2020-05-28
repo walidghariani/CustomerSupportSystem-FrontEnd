@@ -55,13 +55,31 @@ sap.ui.define([
 		},
 		
 		onEdit: function (oEvent){
-			this.settingsModel.setProperty("/editmode" , true);
+			this.settingsModel.setProperty("/bEditMode" , true);
 		},
 		
 		onCancel: function (oEvent){
-			this.settingsModel.setProperty("/editmode" , false);
+			this.getView().getModel().updateBindings(true);
+			
+			this.settingsModel.setProperty("/bEditMode" , false);
 			
 			this.settingsModel.setProperty("/bMessageTypeClicked" , false);
+		},
+		
+		onSave: function (oEvent){
+			
+			var bus = this.getOwnerComponent().getEventBus();
+			bus.publish("buttonsEvents", "savepressed");
+			
+			if( this.settingsModel.getProperty("/bValidSummaryForm") === false ){
+				sap.m.MessageToast.show("Please check overview form");
+			}else if( this.settingsModel.getProperty("/bValidCommunication") === false ){
+				sap.m.MessageToast.show("Please check overview form");
+			}
+			else{
+				this.settingsModel.setProperty("/bEditMode" , false);
+				this.settingsModel.setProperty("/bMessageTypeClicked" , false);
+			}
 		},
 		
 		_onRouteMatched: function (oEvent) {
@@ -69,7 +87,7 @@ sap.ui.define([
 			this.getView().bindElement({
 				path: "/IncidentSet(" + this._ticket + ")",
 				parameters: {
-			        expand: "ToCustomer,ToSystem,ToProcessor,ToPriority,ToStatus"
+			        expand: "ToCustomer,ToSystem,ToProcessor,ToPriority,ToStatus,ToReporter"
 			    }
 			});
 			

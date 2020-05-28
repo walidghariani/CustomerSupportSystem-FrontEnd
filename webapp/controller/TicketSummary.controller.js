@@ -2,8 +2,9 @@ sap.ui.define([
 	"sap/ui/core/mvc/Controller",
 	"sap/ui/model/Filter",
 	"sap/ui/model/FilterOperator",
-	"../model/formatter"
-], function (Controller, Filter, FilterOperator, formatter) {
+	"../model/formatter",
+	'sap/ui/model/json/JSONModel'
+], function (Controller, Filter, FilterOperator, formatter, JSONModel) {
 	"use strict";
 
 	return Controller.extend("focus.customersupportsystem.CustomerSupportSystem.controller.TicketSummary", {		
@@ -16,6 +17,14 @@ sap.ui.define([
 			this.oRouter.getRoute("ticketdetail").attachPatternMatched(this._onProductMatched, this);
 			
 			this.oModel = this.getOwnerComponent().getModel();
+			
+			var bus = this.getOwnerComponent().getEventBus();
+			
+			bus.subscribe("buttonsEvents", "savepressed", this.onSave, this);
+			
+			this.oSettingsModel = this.getOwnerComponent().getModel("settingsModel");
+			
+			this.oSettingsModel.setProperty("/bValidSummaryForm" , true);
 		},
 		
 		_onProductMatched: function (oEvent) {
@@ -42,25 +51,27 @@ sap.ui.define([
 			var that = this;
 			
 			this.oModel.read("/IncidentSet(" + this._ticket + ")",{
-				urlParameters: {
-			        "$expand": "ToErrorCategory1"
-			    },
 				success: function(oData){
 					that.intializeCombobox2(oData);
 				}
 			});
+			
 		},
 		
 		intializeCombobox2: function(oData){
-			
 			var comboboxErrorCategory2 = this.byId("comboboxErrorCategory2");
 			var itemErrorCategory2 = this.byId("itemErrorCategory2");
-			comboboxErrorCategory2.bindItems({
-				path:"/ErrorCategorySet",
-				template: itemErrorCategory2,
-				templateShareable: true,
-				filters: [new Filter({path:"ParentId", operator: FilterOperator.EQ , value1: oData.ToErrorCategory1.ErrorCategoryId })]
-			});
+			if (!oData.ErrorCategoryId1)
+				this.byId("comboboxErrorCategory2").setEnabled(false);
+			else{
+				this.byId("comboboxErrorCategory2").setEnabled(true);
+				comboboxErrorCategory2.bindItems({
+					path:"/ErrorCategorySet",
+					template: itemErrorCategory2,
+					templateShareable: true,
+					filters: [new Filter({path:"ParentId", operator: FilterOperator.EQ , value1: oData.ErrorCategoryId1 })]
+				});
+			}
 		},
 		
 		errorCategory1Change:function(oEvent){
@@ -71,12 +82,97 @@ sap.ui.define([
 			
 			comboboxErrorCategory2.setSelectedKey(undefined);
 			
-			comboboxErrorCategory2.bindItems({
-				path:"/ErrorCategorySet",
-				template: itemErrorCategory2,
-				templateShareable: true,
-				filters: [new Filter({path:"ParentId", operator: FilterOperator.EQ , value1: idErrorCategory1 })]
+			if(idErrorCategory1 === "0"){
+				comboboxErrorCategory2.setEnabled(false);
+				comboboxErrorCategory2.unbindItems();
+			}
+			else {
+				comboboxErrorCategory2.setEnabled(true);
+				comboboxErrorCategory2.bindItems({
+					path:"/ErrorCategorySet",
+					template: itemErrorCategory2,
+					templateShareable: true,
+					filters: [new Filter({path:"ParentId", operator: FilterOperator.EQ , value1: idErrorCategory1 })]
+				});
+			}
+		},
+		
+		onSave: function(){
+			this.verifForm();
+			if ( this.oSettingsModel.getProperty("/bValidSummaryForm") === false || this.oSettingsModel.getProperty("/bValidCommunication") === false || this.oSettingsModel.getProperty("/bValidSolution") === false )
+				return;
+			var incident = {
+			    "Description" : this.byId("description").getValue(),
+			    "StatusId" : parseInt(this.byId("statusId").getSelectedKey(),10),
+			    "PriorityId" : parseInt(this.byId("priorityId").getSelectedKey(),10),
+			    "ErrorCategoryId1" : this.byId("comboboxErrorCategory1").getSelectedKey(),
+			    "ErrorCategoryId2" : this.byId("comboboxErrorCategory2").getSelectedKey(),
+			    "ProcessorId" : this.byId("processorId").getSelectedKey()
+			};
+			
+			var that = this;
+			
+			this.oModel.update("/IncidentSet("+ this._ticket + ")", incident ,{
+				success: function(oData, oResponse){
+					sap.m.MessageToast.show("Your incident is up-to-date");
+				},
+				error: function(err, oResponse){
+					sap.m.MessageToast.show("Error while updating your incident");
+				}
+				
 			});
+		},
+		
+		verifForm: function(){
+			if(this.byId("description").getValue() === ""){
+				this.byId("description").setValueState("Error");
+				this.byId("description").focus();
+				this.oSettingsModel.setProperty("/bValidSummaryForm" , false);
+			}
+			else {
+				this.oSettingsModel.setProperty("/bValidSummaryForm" , true);
+				return true;
+			}
+		},
+		
+		handleValueHelpProcessor: function(){
+			var that = this;
+			if(!this._oValueHelpDialogProcessor){
+				this._oValueHelpDialogProcessor = new sap.ui.comp.valuehelpdialog.ValueHelpDialog("vhdProcessor",{
+					supportMultiselect: true,
+					key:"ProcessorId",
+					title:"Processors' List",
+					descriptionKey:"Name",
+					cancel: function(){
+						this.close();
+					},
+					ok: function(oEvent){
+						var aTokens = oEvent.getParameter("tokens");
+						that.byId("processorId").setSelectedKey(aTokens[0].getKey());
+						this.close();
+					},
+					afterClose: function(){
+						this.setTokens([]);
+					}
+				});
+			}
+			
+			var oColModel = new JSONModel();
+			oColModel.setData({
+				cols:[
+					{label: "Processor Id", template: "ProcessorId", width:"200px"},
+					{label: "Name", template: "Name"}
+				]
+			});
+			
+			var oTable = this._oValueHelpDialogProcessor.getTable();
+			oTable.setModel(oColModel, "columns");
+			oTable.setModel(this.oModel);
+			oTable.bindRows("/ProcessorSet");
+			
+			oTable.setSelectionMode("Single");
+			
+			this._oValueHelpDialogProcessor.open();
 		}
 	});
 });

@@ -19,7 +19,8 @@
 				"uri": "/sap/opu/odata/sap/ZINCIDENT_MANAGER_SRV",
 				"type": "OData",
 				"settings": {
-					"odataVersion": "2.0"
+					"odataVersion": "2.0",
+					"localUri": "localService/metadata.xml"
 				}
 			}
 		},
@@ -72,7 +73,7 @@
 			"": {
 				"type": "sap.ui.model.odata.v2.ODataModel",
 				"settings": {
-					"defaultBindingMode": "TwoWay"
+					"defaultBindingMode": "OneWay"
 				},
 				"dataSource": "mainService",
 				"preload": true

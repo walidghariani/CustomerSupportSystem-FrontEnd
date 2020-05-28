@@ -6,10 +6,10 @@
 	
 	<m:UploadCollection multiple="true" 
 						numberOfAttachmentsText="{i18n>numberOfAttachmentsText} (2)"
-						uploadEnabled="{= ${settingsModel>/editmode} === true }">
+						uploadEnabled="{= ${settingsModel>/bEditMode} === true }">
 		<m:items>
-			<m:UploadCollectionItem enableDelete="{= ${settingsModel>/editmode} === true }" 
-									enableEdit="{= ${settingsModel>/editmode} === true }"
+			<m:UploadCollectionItem enableDelete="{= ${settingsModel>/bEditMode} === true }" 
+									enableEdit="{= ${settingsModel>/bEditMode} === true }"
 									fileName="screenshot1.jpg"
 									url="https://i.stack.imgur.com/XhGuS.png">
 				<m:attributes>
@@ -24,8 +24,8 @@
 				</m:statuses> 
 			</m:UploadCollectionItem>
 			
-			<m:UploadCollectionItem enableDelete="{= ${settingsModel>/editmode} === true }" 
-									enableEdit="{= ${settingsModel>/editmode} === true }"
+			<m:UploadCollectionItem enableDelete="{= ${settingsModel>/bEditMode} === true }" 
+									enableEdit="{= ${settingsModel>/bEditMode} === true }"
 									fileName="screenshot2.jpg"
 									url="https://i.stack.imgur.com/XhGuS.png">
 				<m:attributes>

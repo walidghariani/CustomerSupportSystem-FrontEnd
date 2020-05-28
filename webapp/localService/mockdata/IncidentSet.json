@@ -62,7 +62,8 @@
 		}
 	},
 	"ErrorCategoryId1": "3",
-	"ErrorCategoryId2": "14"
+	"ErrorCategoryId2": "14",
+	"ImpactId": "1"
 }, {
 	"ErrorCategoryId": "20",
 	"IncidentType": "External",
@@ -127,7 +128,8 @@
 		}
 	},
 	"ErrorCategoryId1": "3",
-	"ErrorCategoryId2": "15"
+	"ErrorCategoryId2": "15",
+	"ImpactId": "1"
 }, {
 	"ErrorCategoryId": "12",
 	"IncidentType": "Internal",
@@ -192,7 +194,8 @@
 		}
 	},
 	"ErrorCategoryId1": "2",
-	"ErrorCategoryId2": "13"
+	"ErrorCategoryId2": "13",
+	"ImpactId": "1"
 }, {
 	"ErrorCategoryId": "15",
 	"IncidentType": "Internal",
@@ -257,7 +260,8 @@
 		}
 	},
 	"ErrorCategoryId1": "2",
-	"ErrorCategoryId2": "10"
+	"ErrorCategoryId2": "10",
+	"ImpactId": "1"
 }, {
 	"ErrorCategoryId": "30",
 	"IncidentType": "Internal",
@@ -322,7 +326,8 @@
 		}
 	},
 	"ErrorCategoryId1": "8",
-	"ErrorCategoryId2": "30"
+	"ErrorCategoryId2": "30",
+	"ImpactId": "1"
 }, {
 	"ErrorCategoryId": "24",
 	"IncidentType": "External",
@@ -387,7 +392,8 @@
 		}
 	},
 	"ErrorCategoryId1": "8",
-	"ErrorCategoryId2": "32"
+	"ErrorCategoryId2": "32",
+	"ImpactId": "1"
 }, {
 	"ErrorCategoryId": "29",
 	"IncidentType": "Internal",
@@ -452,7 +458,8 @@
 		}
 	},
 	"ErrorCategoryId1": "7",
-	"ErrorCategoryId2": "28"
+	"ErrorCategoryId2": "28",
+	"ImpactId": "1"
 }, {
 	"ErrorCategoryId": "9",
 	"IncidentType": "External",
@@ -517,7 +524,8 @@
 		}
 	},
 	"ErrorCategoryId1": "7",
-	"ErrorCategoryId2": "29"
+	"ErrorCategoryId2": "29",
+	"ImpactId": "1"
 }, {
 	"ErrorCategoryId": "15",
 	"IncidentType": "Internal",
@@ -582,7 +590,8 @@
 		}
 	},
 	"ErrorCategoryId1": "5",
-	"ErrorCategoryId2": "22"
+	"ErrorCategoryId2": "22",
+	"ImpactId": "1"
 }, {
 	"ErrorCategoryId": "25",
 	"IncidentType": "External",
@@ -647,5 +656,86 @@
 		}
 	},
 	"ErrorCategoryId1": "4",
-	"ErrorCategoryId2": "19"
+	"ErrorCategoryId2": "19",
+	"ImpactId": "1"
+}, {
+	"ErrorCategoryId1": "",
+	"ImpactId": "1",
+	"ErrorCategoryId2": "",
+	"IncidentType": "I",
+	"IncidentId": 8687,
+	"ReporterId": "ReporterId 10",
+	"Description": "Description 10",
+	"StatusId": "1",
+	"PriorityId": "1",
+	"Component": "Component 10",
+	"ProcessorId": "ProcessorId 10",
+	"SystemId": "SystemId 10",
+	"CustomerId": "CustomerId 10",
+	"Created": "/Date(1039427769000)/",
+	"LastUpdate": "/Date(1239353769000)/",
+	"__metadata": {
+		"uri": "IncidentSet(8688)",
+		"type": "ZINCIDENT_MANAGER_SRV.Incident"
+	},
+	"ToCustomer": {
+		"__deferred": {
+			"uri": "IncidentSet(8688)/ToCustomer"
+		}
+	},
+	"ToSystem": {
+		"__deferred": {
+			"uri": "IncidentSet(8688)/ToSystem"
+		}
+	},
+	"ToProcessor": {
+		"__deferred": {
+			"uri": "IncidentSet(8688)/ToProcessor"
+		}
+	},
+	"ToErrorCategory1": {
+		"__deferred": {
+			"uri": "IncidentSet(8688)/ToErrorCategory1"
+		}
+	},
+	"ToComments": {
+		"__deferred": {
+			"uri": "IncidentSet(8688)/ToComments"
+		}
+	},
+	"ToSolutions": {
+		"__deferred": {
+			"uri": "IncidentSet(8688)/ToSolutions"
+		}
+	},
+	"ToAttachments": {
+		"__deferred": {
+			"uri": "IncidentSet(8688)/ToAttachments"
+		}
+	},
+	"ToReporter": {
+		"__deferred": {
+			"uri": "IncidentSet(8688)/ToReporter"
+		}
+	},
+	"ToStatus": {
+		"__deferred": {
+			"uri": "IncidentSet(8688)/ToStatus"
+		}
+	},
+	"ToPriority": {
+		"__deferred": {
+			"uri": "IncidentSet(8688)/ToPriority"
+		}
+	},
+	"ToErrorCategory2": {
+		"__deferred": {
+			"uri": "IncidentSet(8688)/ToErrorCategory2"
+		}
+	},
+	"ToMainImpact": {
+		"__deferred": {
+			"uri": "IncidentSet(8688)/ToMainImpact"
+		}
+	}
 }]

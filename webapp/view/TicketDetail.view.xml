@@ -27,9 +27,9 @@
 					</heading>
 					
 					<actions>
-						<m:Button id="editButton" icon="sap-icon://edit" text="{i18n>editButton}" type="Default" press="onEdit" enabled="{= ${settingsModel>/editmode} !== true }"></m:Button>
-						<m:Button id="saveButton" icon="sap-icon://save" text="{i18n>saveButton}" type="Accept" press="onSave" enabled="{= ${settingsModel>/editmode} === true}"></m:Button> 
-						<m:Button id="cancelButton" icon="sap-icon://decline" text="{i18n>cancelButton}" type="Reject" press="onCancel" enabled="{= ${settingsModel>/editmode} === true}"></m:Button>
+						<m:Button id="editButton" icon="sap-icon://edit" text="{i18n>editButton}" type="Default" press="onEdit" enabled="{= ${settingsModel>/bEditMode} !== true }"></m:Button>
+						<m:Button id="saveButton" icon="sap-icon://save" text="{i18n>saveButton}" type="Accept" press="onSave" enabled="{= ${settingsModel>/bEditMode} === true}"></m:Button> 
+						<m:Button id="cancelButton" icon="sap-icon://decline" text="{i18n>cancelButton}" type="Reject" press="onCancel" enabled="{= ${settingsModel>/bEditMode} === true}"></m:Button>
 					</actions>
 					<navigationActions>
 						<m:Button type="Transparent" icon="sap-icon://full-screen" press="handleFullScreen" visible="{= ${layoutSettingsModel>/actionButtonsInfo/midColumn/fullScreen} !== null }" />
@@ -50,6 +50,14 @@
 						<m:Link text="{ToCustomer/Name}" press="handleCustomerLinkPress">
 							<m:customData>
 								<core:CustomData key="CustomerId" value="{CustomerId}" />
+							</m:customData>
+						</m:Link>
+					</m:VBox>
+					<m:VBox justifyContent="Center" class="sapUiLargeMarginBegin" width="100px" wrap="Wrap">
+						<m:Label text="{i18n>reporterLabel}"/>
+						<m:Link text="{ToReporter/Name}" >
+							<m:customData>
+								<core:CustomData key="ProcessorId" value="{ReporterId}" />
 							</m:customData>
 						</m:Link>
 					</m:VBox>
