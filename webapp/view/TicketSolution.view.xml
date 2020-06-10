@@ -1,41 +1,72 @@
 <mvc:View
 	controllerName="focus.customersupportsystem.CustomerSupportSystem.controller.TicketSolution"
-	xmlns="sap.m"
+	xmlns="sap.ui.table"
+	xmlns:m="sap.m"
 	xmlns:mvc="sap.ui.core.mvc"
+	xmlns:core="sap.ui.core"
 	height="100%" > 
 	
-	<Table headerText="Solutions" items="solutions">
+	<m:Table id="mTable" items="{ }">
+		<m:columns>
+			<m:Column>
+				<m:Label text="Solution Id" />
+			</m:Column>
+			<m:Column>
+				<m:Label text="Description" />
+			</m:Column>
+			<m:Column>
+				<m:Label text="Status" />
+			</m:Column>
+			<m:Column>
+				<m:Label text="Comment" />
+			</m:Column>
+			<m:Column>
+				<m:Label text="Created At" />
+			</m:Column>
+		</m:columns>
+		<m:items>
+			<m:ColumnListItem id="mTemplate">
+				<m:cells>
+					<m:Text text="{SolutionId}" />
+					<m:Text text="{Description}" />
+					<m:Text text="{Status}" />
+					<m:Text text="{CommentText}" />
+					<m:Text text="{path: 'CreatedAt' , formatter: '.formatter.dateFormatter'}" />
+				</m:cells>
+			</m:ColumnListItem>
+		</m:items>
+	</m:Table>
+	<!--
+	<Table id="solutionsTable" editable="false" enableSelectAll="false" selectionMode="Single" visibleRowCountMode="Auto" selectionBehavior="RowOnly">
 		<columns>
-			<Column>
-				<Label text="Action" />
+			<Column hAlign="Left" width="150px" sortProperty="SolutionId">
+				<m:Label text="Solution Id" />
+				<customData>
+					<core:CustomData key="p13nData" value='\{"columnKey": "SolutionId", "columnIndex":"0", "leadingProperty":"SolutionId"}' />
+				</customData>
+				<template>
+					<m:Input value="{SolutionId}" editable="false"></m:Input>
+				</template>
 			</Column>
-			<Column>
-				<Label text="Number" />
+			<Column hAlign="Left" width="300px">
+				<m:Label text="{i18n>descriptionLabel}" />
+				<customData>
+					<core:CustomData key="p13nData" value='\{"columnKey": "Description", "columnIndex":"1", "leadingProperty":"Description"}' />
+				</customData>
+				<template>
+					<m:Input value="{Description}" editable="false"></m:Input>
+				</template>
 			</Column>
-			<Column>
-				<Label text="Description" />
-			</Column>
-			<Column>
-				<Label text="Status" />
-			</Column>
-			<Column>
-				<Label text="Comment" />
-			</Column>
-			<Column>
-				<Label text="Created at" />
+			<Column hAlign="Left" width="180px" sortProperty="Created">
+				<m:Label text="{i18n>creationDateLabel}" />
+				<customData>
+					<core:CustomData key="p13nData" value='\{"columnKey": "Created", "columnIndex":"", "leadingProperty": "Created"}' />
+				</customData>
+				<template>
+					<m:Input value="{path: 'CreatedAt' , formatter: '.formatter.dateFormatter'}" editable="false"></m:Input>
+				</template>
 			</Column>
 		</columns>
-		<items>
-			<ColumnListItem>
-				<cells>
-					<Button icon=""></Button>
-					<Input value="{solutions>Number}"/>
-					<Input value="{solutions>Description}"/>
-					<Input value="{solutions>Status}"/>
-					<Input value="{solutions>Comment}"/>
-					<Input value="{solutions>CreatedAt}"/>
-				</cells>
-			</ColumnListItem>
-		</items>
 	</Table>
+	-->
 </mvc:View>

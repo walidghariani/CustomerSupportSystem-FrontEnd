@@ -25,56 +25,92 @@ sap.ui.define([
 		},
 		
 		onAccountIconPress: function(event){
-			var oPopover = new Popover({
-				showHeader: true,
-				placement: "Bottom",
-				contentMinWidth: "200px",
-				title: "Walid Ghariani",
-				content: [
-					new sap.m.Button({
-						text: 'Recent activities',
-						type: "Transparent",
-						icon: "sap-icon://customer-history"
-					}),
-					new sap.m.Button({
-						text: 'Frequently used',
-						type: "Transparent",
-						icon: "sap-icon://activity-individual"
-					}),
-					new sap.m.Button({
-						text: 'App finder',
-						type: "Transparent",
-						icon: "sap-icon://display"
-					}),
-					new sap.m.Button({
-						text: 'Settings',
-						type: "Transparent",
-						icon: "sap-icon://action-settings"
-					}),
-					new sap.m.Button({
-						text: 'Contact support',
-						type: "Transparent",
-						icon: "sap-icon://email"
-					}),
-					new sap.m.Button({
-						text: 'About',
-						type: "Transparent",
-						icon: "sap-icon://hint"
-					}),
-					new sap.m.Button({
-						text: 'Sign out',
-						type: "Reject",
-						icon: "sap-icon://log"
-					})
-				]
-			}).addStyleClass('sapMOTAPopover sapTntToolHeaderPopover');
 			
-			oPopover.openBy(event.getSource());
+			var userModel = this.getOwnerComponent().getModel("user");
+			if (!this.oAccPopover){
+				this.oAccPopover = new Popover({
+					showHeader: true,
+					placement: "Bottom",
+					contentMinWidth: "300px",
+					title: "{user>/displayName}" ,
+					content: [
+						new sap.m.Button({
+							text: 'Recent activities',
+							type: "Transparent",
+							icon: "sap-icon://customer-history"
+						}),
+						new sap.m.Button({
+							text: 'Frequently used',
+							type: "Transparent",
+							icon: "sap-icon://activity-individual"
+						}),
+						new sap.m.Button({
+							text: 'App finder',
+							type: "Transparent",
+							icon: "sap-icon://display"
+						}),
+						new sap.m.Button({
+							text: 'Settings',
+							type: "Transparent",
+							icon: "sap-icon://action-settings"
+						}),
+						new sap.m.Button({
+							text: 'Contact support',
+							type: "Transparent",
+							icon: "sap-icon://email"
+						}),
+						new sap.m.Button({
+							text: 'About',
+							type: "Transparent",
+							icon: "sap-icon://hint"
+						}),
+						new sap.m.Button({
+							text: 'Sign out',
+							type: "Reject",
+							icon: "sap-icon://log"
+						})
+					]
+				}).addStyleClass('sapMOTAPopover sapTntToolHeaderPopover');
+				
+				this.oAccPopover.setModel(userModel , "user");
+			}
+			
+			if(this.oAccPopover.isOpen())
+				this.oAccPopover.close();
+			else
+				this.oAccPopover.openBy(event.getSource());
+		},
+		
+		handleErrorIconPress: function(oEvent){
+			var oMessageTemplate = new sap.m.MessageItem({
+				title : "Error message" ,
+				activeTitle:true,
+				subtitle : "{errorsModel>subtitle}",
+				type : "Error"
+			}); 
+			
+			this.oMessagePopover = new sap.m.MessagePopover({
+				activeTitlePress : function (){
+					
+				},
+				items: {
+					path: '/ErrorSet',
+					model : "errorsModel",
+					template: oMessageTemplate
+				}
+			});
+			var errorsModel = this.getOwnerComponent().getModel("errorsModel");
+			this.oMessagePopover.setModel(errorsModel , "errorsModel");
+			
+			if (this.oMessagePopover.isOpen())
+				this.oMessagePopover.close();
+			else
+				this.oMessagePopover.toggle(oEvent.getSource());
 		},
 		
 		handleNotificationIconPress: function(oEvent){
 			var oButton = oEvent.getSource();
-			if (!this._oPopover){
+			if (!this.oNotifPopover){
 				var mSettings = {
 					contentMinWidth: "400px",
 					placement: "Bottom",
@@ -87,13 +123,13 @@ sap.ui.define([
 						})
 					]
 				};
-				this._oPopover = new Popover(mSettings);
+				this.oNotifPopover = new Popover(mSettings);
 			}
 			
-			if (this._oPopover.isOpen())
-				this._oPopover.close();
+			if (this.oNotifPopover.isOpen())
+				this.oNotifPopover.close();
 			else	
-				this._oPopover.openBy(oButton);
+				this.oNotifPopover.openBy(oButton);
 		},
 		
 		onRouteMatched: function (oEvent) {
@@ -123,7 +159,6 @@ sap.ui.define([
 		
 		onExit: function () {
 			this.oRouter.detachRouteMatched(this.onRouteMatched, this);
-			this.oRouter.detachBeforeRouteMatched(this.onBeforeRouteMatched, this);
 		}
 	});
 });

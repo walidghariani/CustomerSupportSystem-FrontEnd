@@ -14,6 +14,10 @@
 					type="Transparent"
 					press=".onSideNavButtonPress" />
 				
+				<Image src = "./view/SAP_Logo.png" width="60px" />
+				
+				<Title text="Customer Support System" wrapping="false" />
+				
 				<ToolbarSpacer width="20px" />
 				
 				<ToolbarSpacer>
@@ -22,7 +26,7 @@
 					</layoutData>
 				</ToolbarSpacer>
 				
-				<Button icon="sap-icon://message-error" type="Transparent" />
+				<Button icon="sap-icon://message-error" type="Transparent" press=".handleErrorIconPress"/>
 				<Button icon="sap-icon://bell" type="Transparent" press=".handleNotificationIconPress" />
 				<Button icon="sap-icon://person-placeholder" type="Transparent" press=".onAccountIconPress"/>
 

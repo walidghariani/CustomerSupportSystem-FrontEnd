@@ -89,6 +89,13 @@
         "name": "northwind"
       },
       "description": "Northwind OData Service"
+    },
+    {
+      "path": "/services/userapi",
+      "target": {
+        "type": "service",
+        "name": "userapi"
+      }
     }
   ],
   "sendWelcomeFileRedirect": true

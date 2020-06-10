@@ -1,0 +1,13 @@
+<core:FragmentDefinition xmlns="sap.m"	xmlns:core="sap.ui.core">
+	<Dialog id="confirmDialog"
+			title="Warning !"
+			state="Warning"
+			type="Message">
+		<VBox>
+			<Text text="Please save or cancel your changes before leaving this page." />
+		</VBox>
+		<buttons>
+			<Button text="OK" press="onDialogOkButtonPress"></Button>
+		</buttons>
+	</Dialog>
+</core:FragmentDefinition>

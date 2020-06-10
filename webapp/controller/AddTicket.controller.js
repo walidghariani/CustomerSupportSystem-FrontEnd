@@ -11,6 +11,7 @@ sap.ui.define([
 		onInit: function () {
 			this.oRouter = this.getOwnerComponent().getRouter();
 			this.oModel = this.getOwnerComponent().getModel();
+			this.errorsModel = this.getOwnerComponent().getModel("errorsModel");
 			
 			this.oRouter.attachRouteMatched(this.onRouteMatched, this);
 			
@@ -30,7 +31,7 @@ sap.ui.define([
 			if ( this.verifForm() === false )
 				return;
 			var incident = {
-				"IncidentId" : 0,
+				"IncidentId" : 100,
 			    "IncidentType" : "I",
 			    "ReporterId" : "C5305377",
 			    "Description" : this.byId("description").getValue(),
@@ -40,7 +41,10 @@ sap.ui.define([
 			    "SystemId" : this.byId("systemId").getValue(),
 			    "ErrorCategoryId1" : this.byId("comboboxErrorCategory1").getSelectedKey(),
 			    "ErrorCategoryId2" : this.byId("comboboxErrorCategory2").getSelectedKey(),
-			    "ProcessorId" : this.byId("processorId").getSelectedKey()
+			    "ProcessorId" : this.byId("processorId").getSelectedKey(),
+			    "Created" : new Date(),
+			    "LastUpdate" : new Date(),
+			    "ImpactId" : 1
 			};
 			
 			var that = this;
@@ -50,6 +54,9 @@ sap.ui.define([
 					that.oRouter.navTo("ticketdetail", {ticket: oData.IncidentId});
 					sap.m.MessageToast.show("Your incident is added successfully");
 					that.resetform();
+					that.errorsModel.getProperty("/ErrorSet").push({
+						"subtitle" : "An error occurs while adding the incident."
+					});    
 				},
 				error: function(err, oResponse){
 					sap.m.MessageToast.show("Error while creating your incident");
@@ -98,12 +105,12 @@ sap.ui.define([
 				this.byId("systemId").setValueState("Error");
 				this.byId("systemId").focus();
 				return false;
-			}
+			}/*
 			else if	(this.byId("mainImpact").getValue() === ""){
 				this.byId("mainImpact").setValueState("Error");
 				this.byId("mainImpact").focus();
 				return false;
-			}
+			}*/
 			else 
 				return true;
 		},

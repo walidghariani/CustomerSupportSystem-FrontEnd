@@ -7,6 +7,7 @@
 	<Panel class="sapUxAPObjectPageSubSectionAlignContent" width="auto">
 		<OverflowToolbar>
 			<content>
+				<ToolbarSpacer width="200px" />
 				<Button id="newReplyButton" text="New reply" icon="sap-icon://response" type="Transparent" enabled="{= ${settingsModel>/bEditMode} === true }" press="onMessageType"></Button>
 				<Button id="newInternalMemoButton" text="New internal memo" icon="sap-icon://edit" type="Transparent" enabled="{= ${settingsModel>/bEditMode} === true }" press="onMessageType"/>
 				<Button id="infoToCustomerButton" text="Info to customer" icon="sap-icon://message-information" type="Transparent" enabled="{= ${settingsModel>/bEditMode} === true }" press="onMessageType"/>

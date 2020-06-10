@@ -23,13 +23,21 @@
 				<smartFilterBar:SmartFilterBar
 					id="smartFilterBar"
 					entitySet="IncidentSet"
-					basicSearchFieldName="IncidentId"
+					basicSearchFieldName="Description"
 					enableBasicSearch="true"
+					liveMode="true"
 					useToolbar="false"
-					showFilterConfiguration="false">
+					showFilterConfiguration="true"
+					showClearOnFB="true"
+					showClearButton="true">
 					<smartFilterBar:controlConfiguration>
 						<smartFilterBar:ControlConfiguration
-							key="IncidentTypeId"
+							key="Description"
+							visibleInAdvancedArea="true"
+							preventInitialDataFetchInValueHelpDialog="false">
+						</smartFilterBar:ControlConfiguration>
+						<smartFilterBar:ControlConfiguration
+							key="ToCustomer/Name"
 							visibleInAdvancedArea="true"
 							preventInitialDataFetchInValueHelpDialog="false">
 						</smartFilterBar:ControlConfiguration>

@@ -1,8 +1,9 @@
 sap.ui.define([
 	"sap/ui/model/json/JSONModel",
 	"sap/ui/core/mvc/Controller",
-	"../model/formatter"
-], function (JSONModel, Controller, formatter) {
+	"../model/formatter",
+	"sap/ui/core/Fragment"
+], function (JSONModel, Controller, formatter, Fragment ) {
 	"use strict";
 
 	return Controller.extend("focus.customersupportsystem.CustomerSupportSystem.controller.TicketDetail", {
@@ -13,8 +14,13 @@ sap.ui.define([
 			this.oRouter = this.getOwnerComponent().getRouter();
 			this.layoutSettingsModel = this.getOwnerComponent().getModel("layoutSettingsModel");
 			this.settingsModel = this.getOwnerComponent().getModel("settingsModel");
+			this.oHashChanger = this.oRouter.getHashChanger();
 			
 			this.oRouter.attachRouteMatched(this._onRouteMatched, this);
+			
+			this.settingsModel.setProperty("/bEditMode" , false);
+			
+			this.oHashChanger.attachEvent("hashChanged", this.onHashChange, this);
 		},
 		
 		handleCustomerLinkPress: function (oEvent) {
@@ -55,15 +61,28 @@ sap.ui.define([
 		},
 		
 		onEdit: function (oEvent){
+			var bus = this.getOwnerComponent().getEventBus();
+			bus.publish("buttonsEvents", "editpressed");
+			
+			this.settingsModel.setProperty("/bValidSummary" , true);
+			this.settingsModel.setProperty("/bValidSolution" , true);
+			this.settingsModel.setProperty("/bValidCommunication" , true);
+			
 			this.settingsModel.setProperty("/bEditMode" , true);
+			this.oRouter.stop();
 		},
 		
 		onCancel: function (oEvent){
+			var bus = this.getOwnerComponent().getEventBus();
+			bus.publish("buttonsEvents", "cancelpressed");
+			
 			this.getView().getModel().updateBindings(true);
 			
 			this.settingsModel.setProperty("/bEditMode" , false);
 			
 			this.settingsModel.setProperty("/bMessageTypeClicked" , false);
+			
+			this.oRouter.initialize(true);
 		},
 		
 		onSave: function (oEvent){
@@ -71,10 +90,12 @@ sap.ui.define([
 			var bus = this.getOwnerComponent().getEventBus();
 			bus.publish("buttonsEvents", "savepressed");
 			
-			if( this.settingsModel.getProperty("/bValidSummaryForm") === false ){
+			if( this.settingsModel.getProperty("/bValidSummary") === false ){
 				sap.m.MessageToast.show("Please check overview form");
 			}else if( this.settingsModel.getProperty("/bValidCommunication") === false ){
-				sap.m.MessageToast.show("Please check overview form");
+				sap.m.MessageToast.show("Please check communication tab");
+			}else if( this.settingsModel.getProperty("/bValidSolution") === false ){
+				sap.m.MessageToast.show("Please check solution tab");
 			}
 			else{
 				this.settingsModel.setProperty("/bEditMode" , false);
@@ -94,6 +115,34 @@ sap.ui.define([
 			var objectPageLayout = this.byId("ObjectPageLayout");
 			var overview = this.byId("overview");
 			objectPageLayout.setSelectedSection(overview);
+		},
+		
+		onHashChange: function(oEvent){
+			this.oldHash = oEvent.getParameter("oldHash");
+			this.newHash = oEvent.getParameter("newHash");
+			if(this.settingsModel.getProperty("/bEditMode") === true ){
+				
+				var oView = this.getView();
+				if (!this.byId("confirmDialog")) {
+					Fragment.load({
+						id: oView.getId(),
+						name: "focus.customersupportsystem.CustomerSupportSystem.view.ConfirmDialog",
+						controller: this
+					}).then(function (oDialog) {
+						oView.addDependent(oDialog);
+						oDialog.open();
+					});
+				} else {
+					this.byId("confirmDialog").open();
+				}
+				
+			}
+		},
+		
+		onDialogOkButtonPress: function(oEvent){
+			this.oHashChanger.replaceHash(this.oldHash);
+			this.byId("confirmDialog").close();
 		}
+		
 	});
 }, true);

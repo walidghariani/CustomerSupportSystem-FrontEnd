@@ -13,6 +13,7 @@ sap.ui.define([
 		
 		onInit: function () {
 			this.oRouter = this.getOwnerComponent().getRouter();
+			this.oSettingsModel = this.getOwnerComponent().getModel("settingsModel");
 			
 			this.oRouter.getRoute("ticketdetail").attachPatternMatched(this._onProductMatched, this);
 			
@@ -22,9 +23,7 @@ sap.ui.define([
 			
 			bus.subscribe("buttonsEvents", "savepressed", this.onSave, this);
 			
-			this.oSettingsModel = this.getOwnerComponent().getModel("settingsModel");
 			
-			this.oSettingsModel.setProperty("/bValidSummaryForm" , true);
 		},
 		
 		_onProductMatched: function (oEvent) {
@@ -99,7 +98,7 @@ sap.ui.define([
 		
 		onSave: function(){
 			this.verifForm();
-			if ( this.oSettingsModel.getProperty("/bValidSummaryForm") === false || this.oSettingsModel.getProperty("/bValidCommunication") === false || this.oSettingsModel.getProperty("/bValidSolution") === false )
+			if ( this.oSettingsModel.getProperty("/bValidSummary") === false || this.oSettingsModel.getProperty("/bValidCommunication") === false || this.oSettingsModel.getProperty("/bValidSolution") === false )
 				return;
 			var incident = {
 			    "Description" : this.byId("description").getValue(),
@@ -127,10 +126,10 @@ sap.ui.define([
 			if(this.byId("description").getValue() === ""){
 				this.byId("description").setValueState("Error");
 				this.byId("description").focus();
-				this.oSettingsModel.setProperty("/bValidSummaryForm" , false);
+				this.oSettingsModel.setProperty("/bValidSummary" , false);
 			}
 			else {
-				this.oSettingsModel.setProperty("/bValidSummaryForm" , true);
+				this.oSettingsModel.setProperty("/bValidSummary" , true);
 				return true;
 			}
 		},

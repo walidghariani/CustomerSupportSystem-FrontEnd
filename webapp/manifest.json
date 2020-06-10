@@ -22,6 +22,10 @@
 					"odataVersion": "2.0",
 					"localUri": "localService/metadata.xml"
 				}
+			},
+			"user":{
+				"uri": "/services/userapi/currentUser",
+				"type": "JSON"
 			}
 		},
 		"resources": "resources.json"
@@ -86,6 +90,21 @@
 			},
 			"settingsModel": {
 				"type": "sap.ui.model.json.JSONModel",
+				"settings": {
+					"defaultBindingMode": "TwoWay"
+				}
+			},
+			"user":{
+				"type": "sap.ui.model.json.JSONModel",
+				"settings": {
+					"defaultBindingMode": "OneWay"
+				},
+				"dataSource": "user",
+				"preload": true
+			},
+			"errorsModel": {
+				"type": "sap.ui.model.json.JSONModel",
+				"uri": "model/errors.json",
 				"settings": {
 					"defaultBindingMode": "TwoWay"
 				}
