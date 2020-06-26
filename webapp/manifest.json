@@ -20,12 +20,22 @@
 				"type": "OData",
 				"settings": {
 					"odataVersion": "2.0",
-					"localUri": "localService/metadata.xml"
+					"localUri": "localService/metadata.xml",
+					"annotations": [
+						"annotation0"
+					]
 				}
 			},
-			"user":{
+			"user": {
 				"uri": "/services/userapi/currentUser",
 				"type": "JSON"
+			},
+			"annotation0": {
+				"type": "ODataAnnotation",
+				"uri": "annotations/annotation0.xml",
+				"settings": {
+					"localUri": "annotations/annotation0.xml"
+				}
 			}
 		},
 		"resources": "resources.json"
@@ -94,7 +104,7 @@
 					"defaultBindingMode": "TwoWay"
 				}
 			},
-			"user":{
+			"user": {
 				"type": "sap.ui.model.json.JSONModel",
 				"settings": {
 					"defaultBindingMode": "OneWay"
@@ -108,12 +118,18 @@
 				"settings": {
 					"defaultBindingMode": "TwoWay"
 				}
+			},
+			"@i18n": {
+				"type": "sap.ui.model.resource.ResourceModel",
+				"uri": "i18n/i18n.properties"
 			}
 		},
 		"resources": {
-			"css": [{
-				"uri": "css/style.css"
-			}]
+			"css": [
+				{
+					"uri": "css/style.css"
+				}
+			]
 		},
 		"routing": {
 			"config": {
@@ -124,31 +140,57 @@
 				"controlId": "fcl",
 				"controlAggregation": "pages"
 			},
-			"routes": [{
-				"pattern": "addticket",
-				"name": "addticket",
-				"target": ["addticket"]
-			}, {
-				"pattern": "",
-				"name": "ticketslist",
-				"target": ["ticketslist"]
-			}, {
-				"pattern": "tickets/{ticket}",
-				"name": "ticketdetail",
-				"target": ["ticketslist", "ticketdetail"]
-			}, {
-				"pattern": "tickets/{ticket}/customer/{customer}",
-				"name": "customerdetail",
-				"target": ["ticketslist", "ticketdetail", "customerdetail"]
-			}, {
-				"pattern": "tickets/{ticket}/system/{system}",
-				"name": "systemdetail",
-				"target": ["ticketslist", "ticketdetail", "systemdetail"]
-			}, {
-				"pattern": "tickets/{ticket}/developer/{developer}",
-				"name": "developerdetail",
-				"target": ["ticketslist", "ticketdetail", "developerdetail"]
-			}],
+			"routes": [
+				{
+					"pattern": "addticket",
+					"name": "addticket",
+					"target": [
+						"addticket"
+					]
+				},
+				{
+					"pattern": "",
+					"name": "ticketslist",
+					"target": [
+						"ticketslist"
+					]
+				},
+				{
+					"pattern": "tickets/{ticket}",
+					"name": "ticketdetail",
+					"target": [
+						"ticketslist",
+						"ticketdetail"
+					]
+				},
+				{
+					"pattern": "tickets/{ticket}/customer/{customer}",
+					"name": "customerdetail",
+					"target": [
+						"ticketslist",
+						"ticketdetail",
+						"customerdetail"
+					]
+				},
+				{
+					"pattern": "tickets/{ticket}/system/{system}",
+					"name": "systemdetail",
+					"target": [
+						"ticketslist",
+						"ticketdetail",
+						"systemdetail"
+					]
+				},
+				{
+					"pattern": "tickets/{ticket}/developer/{developer}",
+					"name": "developerdetail",
+					"target": [
+						"ticketslist",
+						"ticketdetail",
+						"developerdetail"
+					]
+				}
+			],
 			"targets": {
 				"ticketslist": {
 					"viewName": "TicketsList",

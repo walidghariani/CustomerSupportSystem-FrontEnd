@@ -36,10 +36,10 @@
 						<Input id="incidentId" type="Text" enabled="false" />
 						
 						<Label text="Title"/>
-						<Input id="description" type="Text" required="true" liveChange="onLiveChange" valueStateText="Required field"/>
+						<Input id="title" type="Text" required="true" liveChange="onLiveChange" valueStateText="Required field"/>
 						
 						<Label text="{i18n>descriptionLabel}"/>
-						<richtexteditor:RichTextEditor required="true"></richtexteditor:RichTextEditor>
+						<richtexteditor:RichTextEditor id="description" required="true"></richtexteditor:RichTextEditor>
 						
 						<Label text="{i18n>componentLabel}"/>
 						<Input id="component" type="Text" required="true" liveChange="onLiveChange" valueStateText="Required field"/>
@@ -111,7 +111,36 @@
 						
 						<core:Title text=""/>
 						
-						<UploadCollection multiple="true" >
+						<UploadCollection	
+											id="uploadCollection"
+											maximumFileSize="1000" 
+											mode="SingleSelectMaster" 
+											beforeUploadStarts="onBeforeUploadStarts" 
+											items="{}"
+											multiple="true"
+											uploadUrl="/sap/opu/odata/sap/ZINCIDENT_MANAGER_SRV/AttachmentSet"
+											uploadComplete="onUploadComplete">
+							<items>
+							    <UploadCollectionItem 
+							      id="uploadCollectionItem"
+							      documentId="{AttachmentId}" 
+							      fileName="{FileName}" 
+							      url="/sap/opu/odata/sap/ZINCIDENT_MANAGER_SRV/AttachmentSet({AttachmentId})/$value"
+							      mimeType="{MimeType}" 
+							      enableEdit="false" 
+							      enableDelete="true" 
+							      visibleDelete="true" 
+							      visibleEdit="false"
+							      deletePress="onDeleteAttachment">
+							    	<attributes>
+										<ObjectAttribute title="{i18n>uploadedDateAttributeLabel}" text="{ path : 'CreationDate' , formatter: '.formatter.dateFormatter' }"/>
+										<ObjectAttribute title="{i18n>contributorAttributeLabel}" text="{CreatorId}"/>
+									</attributes>
+									<statuses>
+										<ObjectStatus state="Success" text="{i18n>uploadedStatusText}"/>
+									</statuses> 
+							    </UploadCollectionItem>
+							  </items>
 						</UploadCollection>
 						
 					</form:content>

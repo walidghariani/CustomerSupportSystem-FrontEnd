@@ -1,5 +1,6 @@
 {
   "welcomeFile": "/webapp/index.html",
+  "headerWhiteList" : ["incidentid","creatorid"],
   "routes": [
     {
       "path": "/resources",

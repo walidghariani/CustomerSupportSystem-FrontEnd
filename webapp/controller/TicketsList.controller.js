@@ -16,6 +16,8 @@ sap.ui.define([
 				this.ticketsListSmartTab = this.byId("smartTable_ResponsiveTable");
 				this.ticketsListSmartTab.setProperty("enableAutoBinding",true);
 			}
+			
+			var smartfilterbar = this.byId("smartFilterBar");
 		},
 		
 		onListRowSelect: function (oEvent) {

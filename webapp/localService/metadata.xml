@@ -7,17 +7,17 @@
 					<PropertyRef Name="SystemId"/>
 				</Key>
 				<Property Name="SystemId" Type="Edm.String" Nullable="false" MaxLength="5" sap:unicode="false" sap:label="System Id" sap:creatable="false"
-					sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+					sap:updatable="false" sap:sortable="false" sap:filterable="true"/>
 				<Property Name="SystemRole" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:label="System Role"
-					sap:sortable="false" sap:filterable="false"/>
+					sap:sortable="false" sap:filterable="true"/>
 				<Property Name="ProductVersion" Type="Edm.String" Nullable="false" MaxLength="30" sap:unicode="false" sap:label="Product Version"
-					sap:sortable="false" sap:filterable="false"/>
+					sap:sortable="false" sap:filterable="true"/>
 				<Property Name="Installation" Type="Edm.String" Nullable="false" MaxLength="30" sap:unicode="false" sap:label="Installation"
-					sap:sortable="false" sap:filterable="false"/>
+					sap:sortable="false" sap:filterable="true"/>
 				<Property Name="OperatingSystem" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:label="Operating System"
-					sap:sortable="false" sap:filterable="false"/>
+					sap:sortable="false" sap:filterable="true"/>
 				<Property Name="DatabaseId" Type="Edm.String" Nullable="false" MaxLength="30" sap:unicode="false" sap:label="Database" sap:sortable="false"
-					sap:filterable="false"/>
+					sap:filterable="true"/>
 				<NavigationProperty Name="SystemToIncidentNav" Relationship="ZINCIDENT_MANAGER_SRV.IncidentSystemAss" FromRole="FromRole_IncidentSystemAss"
 					ToRole="ToRole_IncidentSystemAss"/>
 			</EntityType>
@@ -26,11 +26,11 @@
 					<PropertyRef Name="ProcessorId"/>
 				</Key>
 				<Property Name="ProcessorId" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Processor Id"
-					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
-				<Property Name="Name" Type="Edm.String" Nullable="false" MaxLength="30" sap:unicode="false" sap:label="Name"/>
-				<Property Name="Email" Type="Edm.String" Nullable="false" MaxLength="50" sap:unicode="false" sap:label="Email" sap:sortable="false"/>
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="true" sap:text="Name" />
+				<Property Name="Name" Type="Edm.String" Nullable="false" MaxLength="30" sap:unicode="false" sap:label="Name" sap:filterable="true"/>
+				<Property Name="Email" Type="Edm.String" Nullable="false" MaxLength="50" sap:unicode="false" sap:label="Email" sap:sortable="false" sap:filterable="true"/>
 				<Property Name="PhoneNumber" Type="Edm.String" Nullable="false" MaxLength="15" sap:unicode="false" sap:label="Phone Number"
-					sap:sortable="false"/>
+					sap:sortable="false" sap:filterable="false"/>
 				<Property Name="CountryId" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:label="Country Id" sap:sortable="false"
 					sap:filterable="false"/>
 				<Property Name="CompanyId" Type="Edm.String" Nullable="false" MaxLength="5" sap:unicode="false" sap:label="Company Id" sap:sortable="false"
@@ -45,17 +45,17 @@
 					<PropertyRef Name="CustomerId"/>
 				</Key>
 				<Property Name="CustomerId" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Customer Id"
-					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="trye" sap:text="Name"/>
 				<Property Name="PartnerType" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Partner Type"
-					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
-				<Property Name="Name" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:label="Name" sap:updatable="false"/>
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="true"/>
+				<Property Name="Name" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:label="Name" sap:updatable="false" sap:filterable="true"/>
 				<Property Name="ContactType" Type="Edm.String" Nullable="false" MaxLength="30" sap:unicode="false" sap:label="Contact Type"
-					sap:updatable="false"/>
-				<Property Name="CountryId" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:label="Country Id" sap:updatable="false"/>
+					sap:updatable="false" sap:filterable="true"/>
+				<Property Name="CountryId" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:label="Country Id" sap:updatable="false" sap:filterable="false"/>
 				<Property Name="SupportPartner" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Support Partner"
-					sap:updatable="false"/>
+					sap:updatable="false" sap:filterable="true"/>
 				<Property Name="ServicePartner" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Service Partner"
-					sap:updatable="false"/>
+					sap:updatable="false" sap:filterable="true"/>
 				<NavigationProperty Name="ToIncidents" Relationship="ZINCIDENT_MANAGER_SRV.IncidentCustomerAss" FromRole="FromRole_IncidentCustomerAss"
 					ToRole="ToRole_IncidentCustomerAss"/>
 			</EntityType>
@@ -70,22 +70,23 @@
 				<Property Name="ErrorCategoryId2" Type="Edm.Byte" sap:unicode="false" sap:label="Error Category Id 2" sap:sortable="false"
 					sap:filterable="false"/>
 				<Property Name="IncidentType" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Incident Type"
-					sap:updatable="false" sap:filterable="false"/>
-				<Property Name="IncidentId" Type="Edm.Int32" Nullable="false" sap:unicode="false" sap:label="Incident Id" sap:updatable="false"/>
+					sap:updatable="false" sap:filterable="true"/>
+				<Property Name="IncidentId" Type="Edm.Int32" Nullable="false" sap:unicode="false" sap:label="Incident Id" sap:updatable="false" sap:filterable="true"/>
 				<Property Name="ReporterId" Type="Edm.String" MaxLength="10" sap:unicode="false" sap:label="Reporter Id" sap:updatable="false"
-					sap:sortable="false" sap:filterable="false"/>
-				<Property Name="Description" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Description" sap:sortable="false"/>
-				<Property Name="StatusId" Type="Edm.Byte" sap:unicode="false" sap:label="Status Id" sap:filterable="false"/>
-				<Property Name="PriorityId" Type="Edm.Byte" sap:unicode="false" sap:label="Priority Id" sap:filterable="false"/>
+					sap:sortable="false" sap:filterable="true"/>
+				<Property Name="Description" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Description" sap:sortable="false" sap:filterable="true"/>
+				<Property Name="StatusId" Type="Edm.Byte" sap:unicode="false" sap:label="Status Id" sap:filterable="true" sap:value-list="fixed-values"/>
+				<Property Name="PriorityId" Type="Edm.Byte" sap:unicode="false" sap:label="Priority Id" sap:filterable="true" sap:value-list="fixed-values"/>
 				<Property Name="Component" Type="Edm.String" Nullable="false" MaxLength="30" sap:unicode="false" sap:label="Component" sap:updatable="false"/>
-				<Property Name="ProcessorId" Type="Edm.String" MaxLength="10" sap:unicode="false" sap:label="Processor Id" sap:filterable="false"/>
+				<Property Name="ProcessorId" Type="Edm.String" MaxLength="10" sap:unicode="false" sap:label="Processor Id" sap:filterable="true"/>
 				<Property Name="SystemId" Type="Edm.String" Nullable="false" MaxLength="5" sap:unicode="false" sap:label="System Id" sap:updatable="false"
-					sap:sortable="false" sap:filterable="false"/>
+					sap:sortable="false" sap:filterable="true"/>
 				<Property Name="CustomerId" Type="Edm.String" MaxLength="10" sap:unicode="false" sap:label="Customer Id" sap:updatable="false"
-					sap:sortable="false" sap:filterable="false"/>
+					sap:sortable="false" sap:filterable="true"/>
 				<Property Name="Created" Type="Edm.DateTime" Precision="7" sap:unicode="false" sap:label="Created" sap:updatable="false"
-					sap:filterable="false"/>
-				<Property Name="LastUpdate" Type="Edm.DateTime" Precision="7" sap:unicode="false" sap:label="Last Update" sap:filterable="false"/>
+					sap:filterable="true" sap:display-format="Date" sap:filter-restriction="interval"/>
+				<Property Name="LastUpdate" Type="Edm.DateTime" Precision="7" sap:unicode="false" sap:label="Last Update" sap:filterable="true"
+					sap:display-format="Date" sap:filter-restriction="interval"/>
 				<NavigationProperty Name="ToCustomer" Relationship="ZINCIDENT_MANAGER_SRV.IncidentCustomerAss" FromRole="ToRole_IncidentCustomerAss"
 					ToRole="FromRole_IncidentCustomerAss"/>
 				<NavigationProperty Name="ToSystem" Relationship="ZINCIDENT_MANAGER_SRV.IncidentSystemAss" FromRole="ToRole_IncidentSystemAss"
@@ -115,25 +116,25 @@
 				<Key>
 					<PropertyRef Name="PriorityId"/>
 				</Key>
-				<Property Name="PriorityId" Type="Edm.Byte" Nullable="false" sap:unicode="false" sap:label="Int2" sap:creatable="false"
-					sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+				<Property Name="PriorityId" Type="Edm.Byte" Nullable="false" sap:unicode="false" sap:label="Int2" sap:creatable="true"
+					sap:updatable="false" sap:sortable="false" sap:filterable="true" sap:text="Value"/>
 				<Property Name="Value" Type="Edm.String" Nullable="false" MaxLength="15" sap:unicode="false" sap:label="Incident priority value"
-					sap:filterable="false"/>
+					sap:filterable="true"/>
 			</EntityType>
 			<EntityType Name="Reporter" sap:content-version="1">
 				<Key>
 					<PropertyRef Name="ReporterId"/>
 				</Key>
 				<Property Name="ReporterId" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="REPORTERID"
-					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="true" sap:text="Name"/>
 				<Property Name="Name" Type="Edm.String" Nullable="false" MaxLength="30" sap:unicode="false" sap:label="NAME" sap:creatable="false"
-					sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+					sap:updatable="false" sap:sortable="false" sap:filterable="true"/>
 				<Property Name="PhoneNumber" Type="Edm.String" Nullable="false" MaxLength="15" sap:unicode="false" sap:label="PHONENUMBER"
 					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
 				<Property Name="CountryId" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:label="COUNTRYID" sap:creatable="false"
 					sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
 				<Property Name="Email" Type="Edm.String" Nullable="false" MaxLength="50" sap:unicode="false" sap:label="EMAIL" sap:creatable="false"
-					sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+					sap:updatable="false" sap:sortable="false" sap:filterable="true"/>
 			</EntityType>
 			<EntityType Name="Comment" sap:content-version="1">
 				<Key>
@@ -202,7 +203,7 @@
 				</Key>
 				<Property Name="ErrorCategoryId" Type="Edm.Byte" Nullable="false" sap:unicode="false" sap:label="Int." sap:creatable="false"
 					sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
-				<Property Name="Value" Type="Edm.String" Nullable="false" MaxLength="50" sap:unicode="false" sap:label="value of the error category"/>
+				<Property Name="Value" Type="Edm.String" Nullable="false" MaxLength="50" sap:unicode="false" sap:label="ErrorCategory" sap:filterable="true"/>
 				<Property Name="ParentId" Type="Edm.Byte" sap:unicode="false" sap:label="Int2" sap:updatable="false" sap:sortable="false"
 					sap:filterable="false"/>
 			</EntityType>
@@ -213,9 +214,9 @@
 				<Property Name="IncidentType" Type="Edm.String" Nullable="false" MaxLength="1" sap:unicode="false" sap:label="IncidentType"
 					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
 				<Property Name="StatusId" Type="Edm.Byte" Nullable="false" sap:unicode="false" sap:label="StatusId" sap:creatable="false"
-					sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+					sap:updatable="false" sap:sortable="false" sap:filterable="false" sap:text="Value"/>
 				<Property Name="Value" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:label="Value" sap:creatable="false"
-					sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+					sap:updatable="false" sap:sortable="false" sap:filterable="true"/>
 			</EntityType>
 			<EntityType Name="MainImpact" sap:content-version="1">
 				<Key>

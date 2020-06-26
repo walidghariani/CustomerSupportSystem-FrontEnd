@@ -3,55 +3,93 @@ sap.ui.define([
 	"sap/ui/model/Filter",
 	"sap/ui/model/FilterOperator",
 	'sap/ui/model/json/JSONModel',
-	"sap/ui/comp/valuehelpdialog/ValueHelpDialog"
-], function (Controller, Filter, FilterOperator,JSONModel,ValueHelpDialog) {
+	"sap/ui/comp/valuehelpdialog/ValueHelpDialog",
+	"../model/formatter"
+], function (Controller, Filter, FilterOperator,JSONModel,ValueHelpDialog,formatter) {
 	"use strict";
 
 	return Controller.extend("focus.customersupportsystem.CustomerSupportSystem.controller.AddTicket", {
+		formatter:formatter,
 		onInit: function () {
 			this.oRouter = this.getOwnerComponent().getRouter();
+			this.oHashChanger = this.oRouter.getHashChanger();
 			this.oModel = this.getOwnerComponent().getModel();
 			this.errorsModel = this.getOwnerComponent().getModel("errorsModel");
+			this.userModel = this.getOwnerComponent().getModel("user");
 			
 			this.oRouter.attachRouteMatched(this.onRouteMatched, this);
 			
-			this.byId("description").addEventDelegate({ onsapfocusleave: this.onsapfocusleave });
+			this.oHashChanger.attachEvent("hashChanged", this.onHashChange, this);
+			
+			this.byId("title").addEventDelegate({ onsapfocusleave: this.onsapfocusleave });
 			this.byId("component").addEventDelegate({ onsapfocusleave: this.onsapfocusleave });
 			this.byId("systemId").addEventDelegate({ onsapfocusleave: this.onsapfocusleave });
-			this.byId("mainImpact").addEventDelegate({ onsapfocusleave: this.onsapfocusleave });
+		},
+		
+		onHashChange: function(oEvent){
+			if(oEvent.getParameter("newHash") !== "addticket" && oEvent.getParameter("oldHash") === "addticket" && this.validSubmission === false){
+				this.oModel.remove("/IncidentSet(" + this.IncidentId + ")");
+			}
 		},
 		
 		onRouteMatched: function (oEvent) {
 			var sRouteName = oEvent.getParameter("name");
-			if(sRouteName === "addticket")
+			if(sRouteName === "addticket"){
 				this.oModel.setProperty("/layout", "OneColumn");
+				
+				
+				var that = this;
+			
+				this.incident = {
+				    "IncidentType" : "I",
+				    "ReporterId" : this.userModel.oData.name,
+				    "Created" : new Date()
+				};
+				
+				this.validSubmission = false;
+				
+				this.oModel.create("/IncidentSet", this.incident,{
+					success: function(oData, oResponse){
+						that.IncidentId = oData.IncidentId;
+						that.byId("incidentId").setValue(that.IncidentId);
+						
+						that.byId("uploadCollection").bindItems({
+							path : "/AttachmentSet",
+							filters: [ new sap.ui.model.Filter({ path : "IncidentId" , operator : "EQ" , value1: that.IncidentId })],
+							template: that.byId("uploadCollectionItem")
+						});
+						
+					},
+					error: function(err, oResponse){
+						
+					}
+				});	
+			}
 		},
 		
 		handleSubmit: function(oEvent){
 			if ( this.verifForm() === false )
 				return;
-			var incident = {
-				"IncidentId" : 100,
-			    "IncidentType" : "I",
-			    "ReporterId" : "C5305377",
+			this.incident = {
+			    "Title": this.byId("title").getValue(),
 			    "Description" : this.byId("description").getValue(),
 			    "StatusId" : parseInt(this.byId("statusId").getSelectedKey(),10),
 			    "PriorityId" : parseInt(this.byId("priorityId").getSelectedKey(),10),
 			    "Component" : this.byId("component").getValue(),
 			    "SystemId" : this.byId("systemId").getValue(),
-			    "ErrorCategoryId1" : this.byId("comboboxErrorCategory1").getSelectedKey(),
-			    "ErrorCategoryId2" : this.byId("comboboxErrorCategory2").getSelectedKey(),
-			    "ProcessorId" : this.byId("processorId").getSelectedKey(),
-			    "Created" : new Date(),
+			    "ErrorCategoryId1" : parseInt(this.byId("comboboxErrorCategory1").getSelectedKey(),10),
+			    "ErrorCategoryId2" : parseInt(this.byId("comboboxErrorCategory2").getSelectedKey(),10),
 			    "LastUpdate" : new Date(),
-			    "ImpactId" : 1
+			    "ProcessorId" : this.byId("processorId").getSelectedKey(),
+			    "ImpactId" : parseInt(this.byId("mainImpact").getSelectedKey(),10)
 			};
 			
 			var that = this;
 			
-			this.oModel.create("/IncidentSet", incident,{
+			this.oModel.update("/IncidentSet("+ this.IncidentId + ")", this.incident ,{
 				success: function(oData, oResponse){
-					that.oRouter.navTo("ticketdetail", {ticket: oData.IncidentId});
+					that.validSubmission = true;
+					that.oRouter.navTo("ticketdetail", {ticket: that.IncidentId});
 					sap.m.MessageToast.show("Your incident is added successfully");
 					that.resetform();
 					that.errorsModel.getProperty("/ErrorSet").push({
@@ -67,6 +105,7 @@ sap.ui.define([
 		},
 		
 		resetform: function(){
+			this.byId("title").setValue("");
 			this.byId("description").setValue("");
 			this.byId("component").setValue("");
 			this.byId("systemId").setValue("");
@@ -91,6 +130,11 @@ sap.ui.define([
 		},
 		
 		verifForm: function(){
+			if(this.byId("title").getValue() === ""){
+				this.byId("title").setValueState("Error");
+				this.byId("title").focus();
+				return false;
+			}
 			if(this.byId("description").getValue() === ""){
 				this.byId("description").setValueState("Error");
 				this.byId("description").focus();
@@ -142,7 +186,7 @@ sap.ui.define([
 			var that = this;
 			if(!this._oValueHelpDialogProcessor){
 				this._oValueHelpDialogProcessor = new ValueHelpDialog("valhelpdialProcessor",{
-					supportMultiselect: true,
+					supportMultiselect: false,
 					key:"ProcessorId",
 					title:"Processors' List",
 					descriptionKey:"Name",
@@ -218,6 +262,58 @@ sap.ui.define([
 			oTable.setSelectionMode("Single");
 			
 			this._oValueHelpDialogSystem.open();
+		},
+		
+		onBeforeUploadStarts: function (oEvent) {
+			
+			var oCustomerHeaderSlug = new sap.m.UploadCollectionParameter({
+				name: "slug",
+				value: oEvent.getParameter("fileName")
+			});
+			oEvent.getParameters().addHeaderParameter(oCustomerHeaderSlug);
+
+			 var oModel = this.getView().getModel();
+
+			oModel.refreshSecurityToken();
+
+			var oHeaders = oModel.oHeaders;
+
+			var sToken = oHeaders['x-csrf-token'];
+
+			var oCustomerHeaderToken = new sap.m.UploadCollectionParameter({
+			 	name: "x-csrf-token",
+			 	value: sToken
+			});
+			oEvent.getParameters().addHeaderParameter(oCustomerHeaderToken);
+			
+			
+			var oCustomerHeaderIncidentId = new sap.m.UploadCollectionParameter({
+			 	name: "incidentid",
+			 	value: this.IncidentId
+			});
+			oEvent.getParameters().addHeaderParameter(oCustomerHeaderIncidentId);
+			
+			var oCustomerHeaderCreatorId = new sap.m.UploadCollectionParameter({
+			 	name: "creatorid",
+			 	value: this.incident.ReporterId
+			});
+			oEvent.getParameters().addHeaderParameter(oCustomerHeaderCreatorId);
+			
+		},
+		onUploadComplete: function(oEvent){
+			this.byId("uploadCollection").getModel().refresh();
+		},
+		
+		onDeleteAttachment: function(oEvent){
+			var attachmentId =oEvent.getSource().getProperty("documentId");
+			this.oModel.remove("/AttachmentSet("+ attachmentId + ")", {
+				success: function(oData){
+					
+				}, 
+				error: function(oData){
+					
+				}
+			});
 		}
 		
 	});

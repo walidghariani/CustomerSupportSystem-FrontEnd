@@ -12,6 +12,8 @@ sap.ui.define([
 			this.oRouter = this.getOwnerComponent().getRouter();
 			this.oModel = this.getOwnerComponent().getModel();
 			this.settingsModel = this.getOwnerComponent().getModel("settingsModel");
+			this.userModel = this.getOwnerComponent().getModel("user");
+			
 			
 			this.oRouter.attachRouteMatched(this._onRouteMatched, this);
 			
@@ -66,9 +68,8 @@ sap.ui.define([
 		onPost: function(oEvent){
 			
 			var comment = {
-				"CommentId" : 123,
 				"IncidentId" : parseInt(this._ticket,10),
-				"EditorName" : "Walid Ghariani",
+				"EditorId" : this.userModel.oData.name ,
 				"Text" : oEvent.getParameter("value"),
 				"CommentTypeId" : this.commentTypeId,
 				"EditionDate" : new Date()

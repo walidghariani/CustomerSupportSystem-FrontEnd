@@ -1,41 +1,41 @@
 <mvc:View
 	controllerName="focus.customersupportsystem.CustomerSupportSystem.controller.TicketSolution"
-	xmlns="sap.ui.table"
-	xmlns:m="sap.m"
+	xmlns:t="sap.ui.table"
+	xmlns="sap.m"
 	xmlns:mvc="sap.ui.core.mvc"
 	xmlns:core="sap.ui.core"
 	height="100%" > 
 	
-	<m:Table id="mTable" items="{ }">
-		<m:columns>
-			<m:Column>
-				<m:Label text="Solution Id" />
-			</m:Column>
-			<m:Column>
-				<m:Label text="Description" />
-			</m:Column>
-			<m:Column>
-				<m:Label text="Status" />
-			</m:Column>
-			<m:Column>
-				<m:Label text="Comment" />
-			</m:Column>
-			<m:Column>
-				<m:Label text="Created At" />
-			</m:Column>
-		</m:columns>
-		<m:items>
-			<m:ColumnListItem id="mTemplate">
-				<m:cells>
-					<m:Text text="{SolutionId}" />
-					<m:Text text="{Description}" />
-					<m:Text text="{Status}" />
-					<m:Text text="{CommentText}" />
-					<m:Text text="{path: 'CreatedAt' , formatter: '.formatter.dateFormatter'}" />
-				</m:cells>
-			</m:ColumnListItem>
-		</m:items>
-	</m:Table>
+	<Table id="mTable" items="{}">
+		<columns>
+			<Column>
+				<Label text="Solution Id" />
+			</Column>
+			<Column>
+				<Label text="Description" />
+			</Column>
+			<Column>
+				<Label text="Status" />
+			</Column>
+			<Column>
+				<Label text="Comment" />
+			</Column>
+			<Column>
+				<Label text="Created At" />
+			</Column>
+		</columns>
+		<items>
+			<ColumnListItem id="mTemplate">
+				<cells>
+					<Text text="{SolutionId}" />
+					<Text text="{Description}" />
+					<Text text="{Status}" />
+					<Text text="{CommentText}" />
+					<Text text="{path: 'CreatedAt' , formatter: '.formatter.dateFormatter'}" />
+				</cells>
+			</ColumnListItem>
+		</items>
+	</Table>
 	<!--
 	<Table id="solutionsTable" editable="false" enableSelectAll="false" selectionMode="Single" visibleRowCountMode="Auto" selectionBehavior="RowOnly">
 		<columns>

@@ -101,11 +101,11 @@ sap.ui.define([
 			if ( this.oSettingsModel.getProperty("/bValidSummary") === false || this.oSettingsModel.getProperty("/bValidCommunication") === false || this.oSettingsModel.getProperty("/bValidSolution") === false )
 				return;
 			var incident = {
-			    "Description" : this.byId("description").getValue(),
+			    "Title" : this.byId("title").getValue(),
 			    "StatusId" : parseInt(this.byId("statusId").getSelectedKey(),10),
 			    "PriorityId" : parseInt(this.byId("priorityId").getSelectedKey(),10),
-			    "ErrorCategoryId1" : this.byId("comboboxErrorCategory1").getSelectedKey(),
-			    "ErrorCategoryId2" : this.byId("comboboxErrorCategory2").getSelectedKey(),
+			    "ErrorCategoryId1" : parseInt(this.byId("comboboxErrorCategory1").getSelectedKey(),10),
+			    "ErrorCategoryId2" : parseInt(this.byId("comboboxErrorCategory2").getSelectedKey(),10),
 			    "ProcessorId" : this.byId("processorId").getSelectedKey()
 			};
 			
@@ -123,9 +123,9 @@ sap.ui.define([
 		},
 		
 		verifForm: function(){
-			if(this.byId("description").getValue() === ""){
-				this.byId("description").setValueState("Error");
-				this.byId("description").focus();
+			if(this.byId("title").getValue() === ""){
+				this.byId("title").setValueState("Error");
+				this.byId("title").focus();
 				this.oSettingsModel.setProperty("/bValidSummary" , false);
 			}
 			else {

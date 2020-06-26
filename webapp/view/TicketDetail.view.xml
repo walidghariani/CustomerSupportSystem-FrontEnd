@@ -18,10 +18,10 @@
 				<ObjectPageDynamicHeaderTitle>
 					<heading>
 						<m:VBox wrap="Wrap" fitContainer="true" alignItems="Start">
-							<m:Title text="{Description}"/>
+							<m:Title text="{Title}"/>
 							<m:HBox wrap="Wrap" fitContainer="true" alignItems="Start">
-								<m:GenericTag text="{ToStatus/Value}" design="StatusIconHidden" status="{path:'StatusId', formatter:'.formatter.incidentStatusHighlight'}" class="sapUiTinyMargin"/>
-								<m:GenericTag text="{ToPriority/Value}" design="StatusIconHidden" status="{path:'PriorityId', formatter:'.formatter.incidentPriorityHighlight'}" class="sapUiTinyMargin"/>
+								<m:GenericTag text="{ToStatus/Value}" design="StatusIconHidden" status="{path:'StatusId', formatter:'.formatter.incidentStatusHighlight'}" class="sapUiTinyMargin" visible="{= ${StatusId} !== 0 }"/>
+								<m:GenericTag text="{ToPriority/Value}" design="StatusIconHidden" status="{path:'PriorityId', formatter:'.formatter.incidentPriorityHighlight'}" class="sapUiTinyMargin" visible="{= ${PriorityId} !== 0 }"/>
 							</m:HBox>
 						</m:VBox>
 					</heading>

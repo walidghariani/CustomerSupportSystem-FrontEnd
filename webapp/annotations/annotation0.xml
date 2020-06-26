@@ -1,0 +1,360 @@
+<edmx:Edmx xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx" Version="4.0">
+	<edmx:Reference Uri="/sap/opu/odata/sap/ZINCIDENT_MANAGER_SRV$metadata">
+		<edmx:Include Alias="Metadata" Namespace="ZINCIDENT_MANAGER_SRV"/>
+	</edmx:Reference>
+	<edmx:Reference Uri="https://wiki.scn.sap.com/wiki/download/attachments/448470968/UI.xml?api=v2">
+		<edmx:Include Alias="UI" Namespace="com.sap.vocabularies.UI.v1"/>
+	</edmx:Reference>
+	<edmx:Reference Uri="https://wiki.scn.sap.com/wiki/download/attachments/448470974/Common.xml?api=v2">
+		<edmx:Include Alias="Common" Namespace="com.sap.vocabularies.Common.v1"/>
+	</edmx:Reference>
+	<edmx:DataServices>
+		<Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="CustomerSupportSystem.annotations.annotation0.ZINCIDENT_MANAGER_SRV">
+			<Annotations Target="Metadata.Incident">
+				<Annotation Term="UI.SelectionFields">
+					<Collection>
+						<PropertyPath>StatusId</PropertyPath>
+						<PropertyPath>PriorityId</PropertyPath>
+						<PropertyPath>ReporterId</PropertyPath>
+						<PropertyPath>ProcessorId</PropertyPath>
+						<PropertyPath>CustomerId</PropertyPath>
+						<PropertyPath>Created</PropertyPath>
+						<PropertyPath>SystemId</PropertyPath>
+						<PropertyPath >LastUpdate</PropertyPath>
+					</Collection>
+				</Annotation>
+				<Annotation Term="UI.FieldGroup" Qualifier="General">
+					<Record Type="UI.FieldGroupType">
+						<PropertyValue Property="Data">
+							<Collection>
+								<Record Type="UI.DataField">
+									<PropertyValue Property="Value" Path="ToErrorCategory1/Value"/>
+									<PropertyValue Property="Label" String="{@i18n&gt;errorCategory1Label}"/>
+								</Record>
+								<Record Type="UI.DataField">
+									<PropertyValue Property="Value" Path="ToErrorCategory2/Value"/>
+									<PropertyValue Property="Label" String="{@i18n&gt;errorCategory2Label}"/>
+								</Record>
+								<Record Type="UI.DataField">
+									<PropertyValue Property="Value" Path="ReporterId"/>
+									<PropertyValue Property="Label" String="{@i18n&gt;reporterLabel}"/>
+								</Record>
+								<Record Type="UI.DataField">
+									<PropertyValue Property="Value" Path="ProcessorId"/>
+									<PropertyValue Property="Label" String="{@i18n&gt;processorLabel}"/>
+								</Record>
+								<Record Type="UI.DataField">
+									<PropertyValue Property="Value" Path="IncidentId"/>
+									<PropertyValue Property="Label" String="{@i18n&gt;incidentIdLabel}"/>
+								</Record>
+								<Record Type="UI.DataField">
+									<PropertyValue Property="Value" Path="IncidentType"/>
+									<PropertyValue Property="Label" String="{@i18n&gt;incidentTypeLabel}"/>
+								</Record>
+								<Record Type="UI.DataField">
+									<PropertyValue Property="Value" Path="Description"/>
+									<PropertyValue Property="Label" String="{@i18n&gt;descriptionLabel}"/>
+								</Record>
+								<Record Type="UI.DataField">
+									<PropertyValue Property="Value" Path="Component"/>
+									<PropertyValue Property="Label" String="{@i18n&gt;componentLabel}"/>
+								</Record>
+								<Record Type="UI.DataField">
+									<PropertyValue Property="Value" Path="Created"/>
+									<PropertyValue Property="Label" String="{@i18n&gt;creationDateLabel}"/>
+								</Record>
+								<Record Type="UI.DataField">
+									<PropertyValue Property="Value" Path="LastUpdate"/>
+									<PropertyValue Property="Label" String="{@i18n&gt;lastUpdateLabel}"/>
+								</Record>
+								<Record Type="UI.DataField">
+									<PropertyValue Property="Value" Path="PriorityId"/>
+									<PropertyValue Property="Label" String="{@i18n&gt;priorityLabel}"/>
+								</Record>
+								<Record Type="UI.DataField">
+									<PropertyValue Property="Value" Path="StatusId"/>
+									<PropertyValue Property="Label" String="{@i18n&gt;statusLabel}"/>
+								</Record>
+								<Record Type="UI.DataField">
+									<PropertyValue Property="Value" Path="CustomerId"/>
+									<PropertyValue Property="Label" String="{@i18n&gt;customerLabel}"/>
+								</Record>
+								<Record Type="UI.DataField">
+									<PropertyValue Property="Value" Path="SystemId"/>
+									<PropertyValue Property="Label" String="{@i18n&gt;SYSTEM}"/>
+								</Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+				<Annotation Term="UI.FieldGroup" Qualifier="System">
+					<Record Type="UI.FieldGroupType">
+						<PropertyValue Property="Data">
+							<Collection>
+								<Record Type="UI.DataField">
+									<PropertyValue Property="Value" Path="ToSystem/DatabaseId"/>
+									<PropertyValue Property="Label" String="{@i18n&gt;DATABASE_ID}"/>
+								</Record>
+								<Record Type="UI.DataField">
+									<PropertyValue Property="Value" Path="ToSystem/Installation"/>
+									<PropertyValue Property="Label" String="{@i18n&gt;installationLabel}"/>
+								</Record>
+								<Record Type="UI.DataField">
+									<PropertyValue Property="Value" Path="ToSystem/OperatingSystem"/>
+									<PropertyValue Property="Label" String="{@i18n&gt;operatingSystemLabel}"/>
+								</Record>
+								<Record Type="UI.DataField">
+									<PropertyValue Property="Value" Path="ToSystem/ProductVersion"/>
+									<PropertyValue Property="Label" String="{@i18n&gt;productVersionLabel}"/>
+								</Record>
+								<Record Type="UI.DataField">
+									<PropertyValue Property="Value" Path="ToSystem/SystemId"/>
+									<PropertyValue Property="Label" String="{@i18n&gt;systemIdLabel}"/>
+								</Record>
+								<Record Type="UI.DataField">
+									<PropertyValue Property="Value" Path="ToSystem/SystemRole"/>
+									<PropertyValue Property="Label" String="{@i18n&gt;systemRoleLabel}"/>
+								</Record>
+							</Collection>
+						</PropertyValue>
+						<PropertyValue Property="Label" String="{@i18n&gt;SYSTEM}"/>
+					</Record>
+				</Annotation>
+				<Annotation Term="UI.FieldGroup" Qualifier="Customer">
+					<Record Type="UI.FieldGroupType">
+						<PropertyValue Property="Data">
+							<Collection>
+								<Record Type="UI.DataField">
+									<PropertyValue Property="Value" Path="ToCustomer/PartnerType"/>
+									<PropertyValue Property="Label" String="{@i18n&gt;partnerTypeLabel}"/>
+								</Record>
+								<Record Type="UI.DataField">
+									<PropertyValue Property="Value" Path="ToCustomer/Name"/>
+									<PropertyValue Property="Label" String="{@i18n&gt;customerLabel}"/>
+								</Record>
+								<Record Type="UI.DataField">
+									<PropertyValue Property="Value" Path="ToCustomer/ContactType"/>
+									<PropertyValue Property="Label" String="{@i18n&gt;contactTypeLabel}"/>
+								</Record>
+								<Record Type="UI.DataField">
+									<PropertyValue Property="Value" Path="ToCustomer/ServicePartner"/>
+									<PropertyValue Property="Label" String="{@i18n&gt;servicePartnerLabel}"/>
+								</Record>
+								<Record Type="UI.DataField">
+									<PropertyValue Property="Value" Path="ToCustomer/SupportPartner"/>
+									<PropertyValue Property="Label" String="{@i18n&gt;supportPartnerLabel}"/>
+								</Record>
+							</Collection>
+						</PropertyValue>
+						<PropertyValue Property="Label" String="{@i18n&gt;customerLabel}"/>
+					</Record>
+					<Record Type="UI.FieldGroupType">
+						<PropertyValue Property="Data">
+							<Collection>
+								<Record Type="UI.DataField">
+									<PropertyValue Property="Value" Path="ToCustomer/Name"/>
+									<PropertyValue Property="Label" String="{@i18n&gt;customerLabel}"/>
+								</Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="Metadata.Incident/StatusId">
+				<Annotation Term="Common.ValueListWithFixedValues"/>
+				<Annotation Term="Common.ValueList">
+					<Record Type="Common.ValueListType">
+						<PropertyValue Property="CollectionPath" String="StatusSet"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<Record Type="Common.ValueListParameterOut">
+									<PropertyValue Property="LocalDataProperty" PropertyPath="StatusId"/>
+									<PropertyValue Property="ValueListProperty" String="StatusId"/>
+								</Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="Metadata.Incident/ReporterId">
+				<Annotation Term="Common.ValueList">
+					<Record Type="Common.ValueListType">
+						<PropertyValue Property="CollectionPath" String="ReporterSet"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<Record Type="Common.ValueListParameterOut">
+									<PropertyValue Property="LocalDataProperty" PropertyPath="ReporterId"/>
+									<PropertyValue Property="ValueListProperty" String="ReporterId"/>
+								</Record>
+								<Record Type="Common.ValueListParameterDisplayOnly">
+									<PropertyValue Property="ValueListProperty" String="Name"/>
+								</Record>
+								<Record Type="Common.ValueListParameterDisplayOnly">
+									<PropertyValue Property="ValueListProperty" String="Email"/>
+								</Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="Metadata.Incident/ProcessorId">
+				<Annotation Term="Common.ValueList">
+					<Record Type="Common.ValueListType">
+						<PropertyValue Property="CollectionPath" String="ProcessorSet"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<Record Type="Common.ValueListParameterOut">
+									<PropertyValue Property="LocalDataProperty" PropertyPath="ProcessorId"/>
+									<PropertyValue Property="ValueListProperty" String="ProcessorId"/>
+								</Record>
+								<Record Type="Common.ValueListParameterDisplayOnly">
+									<PropertyValue Property="ValueListProperty" String="Name"/>
+								</Record>
+								<Record Type="Common.ValueListParameterDisplayOnly">
+									<PropertyValue Property="ValueListProperty" String="Email"/>
+								</Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="Metadata.Processor">
+				<Annotation Term="UI.FieldGroup">
+					<Record Type="UI.FieldGroupType">
+						<PropertyValue Property="Data">
+							<Collection>
+								<Record Type="UI.DataField">
+									<PropertyValue Property="Value" Path="ProcessorId"/>
+									<PropertyValue Property="Label" String="{@i18n&gt;PROCESSOR_ID}"/>
+								</Record>
+								<Record Type="UI.DataField">
+									<PropertyValue Property="Value" Path="Name"/>
+									<PropertyValue Property="Label" String="{@i18n&gt;processorLabel}"/>
+								</Record>
+								<Record Type="UI.DataField">
+									<PropertyValue Property="Value" Path="Email"/>
+									<PropertyValue Property="Label" String="{@i18n&gt;EMAIL}"/>
+								</Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="Metadata.Reporter">
+				<Annotation Term="UI.FieldGroup">
+					<Record Type="UI.FieldGroupType">
+						<PropertyValue Property="Data">
+							<Collection>
+								<Record Type="UI.DataField">
+									<PropertyValue Property="Value" Path="ReporterId"/>
+									<PropertyValue Property="Label" String="{@i18n&gt;ID}"/>
+								</Record>
+								<Record Type="UI.DataField">
+									<PropertyValue Property="Value" Path="Name"/>
+									<PropertyValue Property="Label" String="{@i18n&gt;reporterLabel}"/>
+								</Record>
+								<Record Type="UI.DataField">
+									<PropertyValue Property="Value" Path="Email"/>
+									<PropertyValue Property="Label" String="{@i18n&gt;EMAIL}"/>
+								</Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="Metadata.Customer/CustomerId">
+				<Annotation Term="Common.ValueList">
+					<Record Type="Common.ValueListType">
+						<PropertyValue Property="CollectionPath" String="CustomerSet"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<Record Type="Common.ValueListParameterOut">
+									<PropertyValue Property="LocalDataProperty" PropertyPath="PartnerType"/>
+									<PropertyValue Property="ValueListProperty" String="PartnerType"/>
+								</Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="Metadata.Incident/CustomerId">
+				<Annotation Term="Common.ValueList">
+					<Record Type="Common.ValueListType">
+						<PropertyValue Property="CollectionPath" String="CustomerSet"/>
+						<PropertyValue Property="SearchSupported" Bool="true"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<Record Type="Common.ValueListParameterOut">
+									<PropertyValue Property="LocalDataProperty" PropertyPath="CustomerId"/>
+									<PropertyValue Property="ValueListProperty" String="CustomerId"/>
+								</Record>
+								<Record Type="Common.ValueListParameterDisplayOnly">
+									<PropertyValue Property="ValueListProperty" String="PartnerType"/>
+								</Record>
+								<Record Type="Common.ValueListParameterDisplayOnly">
+									<PropertyValue Property="ValueListProperty" String="ContactType"/>
+								</Record>
+								<Record Type="Common.ValueListParameterDisplayOnly">
+									<PropertyValue Property="ValueListProperty" String="ServicePartner"/>
+								</Record>
+								<Record Type="Common.ValueListParameterDisplayOnly">
+									<PropertyValue Property="ValueListProperty" String="SupportPartner"/>
+								</Record>
+								<Record Type="Common.ValueListParameterDisplayOnly">
+									<PropertyValue Property="ValueListProperty" String="Name"/>
+								</Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="Metadata.Incident/PriorityId">
+				<Annotation Term="Common.ValueList">
+					<Record Type="Common.ValueListType">
+						<PropertyValue Property="CollectionPath" String="PrioritySet"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<Record Type="Common.ValueListParameterOut">
+									<PropertyValue Property="LocalDataProperty" PropertyPath="PriorityId"/>
+									<PropertyValue Property="ValueListProperty" String="PriorityId"/>
+								</Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+				<Annotation Term="Common.ValueListWithFixedValues" Bool="true"/>
+			</Annotations>
+			<Annotations Target="Metadata.Incident/SystemId">
+				<Annotation Term="Common.ValueList">
+					<Record Type="Common.ValueListType">
+						<PropertyValue Property="CollectionPath" String="SystemSet"/>
+						<PropertyValue Property="SearchSupported" Bool="true"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<Record Type="Common.ValueListParameterOut">
+									<PropertyValue Property="LocalDataProperty" PropertyPath="SystemId"/>
+									<PropertyValue Property="ValueListProperty" String="SystemId"/>
+								</Record>
+								<Record Type="Common.ValueListParameterDisplayOnly">
+									<PropertyValue Property="ValueListProperty" String="SystemRole"/>
+								</Record>
+								<Record Type="Common.ValueListParameterDisplayOnly">
+									<PropertyValue Property="ValueListProperty" String="ProductVersion"/>
+								</Record>
+								<Record Type="Common.ValueListParameterDisplayOnly">
+									<PropertyValue Property="ValueListProperty" String="Installation"/>
+								</Record>
+								<Record Type="Common.ValueListParameterDisplayOnly">
+									<PropertyValue Property="ValueListProperty" String="OperatingSystem"/>
+								</Record>
+								<Record Type="Common.ValueListParameterDisplayOnly">
+									<PropertyValue Property="ValueListProperty" String="DatabaseId"/>
+								</Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+		</Schema>
+	</edmx:DataServices>
+</edmx:Edmx>

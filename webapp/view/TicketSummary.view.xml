@@ -26,7 +26,7 @@
 				<Label text="{i18n>incidentTypeLabel}"/>
 				<Text text="{ path: 'IncidentType' , formatter : '.formatter.incidentType'}"/>
 				<Label text="Title"/>
-				<Text text="{Description}"/>
+				<Text text="{Title}"/>
 				<Label text="{i18n>statusLabel}"/>
 				<ObjectStatus text="{ToStatus/Value}" state="{path:'StatusId', formatter:'.formatter.incidentStatusHighlight'}" class="sapUiMediumMarginEnd"/>
 				<Label text="{i18n>priorityLabel}"/>
@@ -45,7 +45,7 @@
 				<Text text="{ToErrorCategory2/Value}"/>
 				
 				<core:Title text="Incident Description" />
-				<FormattedText></FormattedText>
+				<FormattedText htmlText="{Description}"></FormattedText>
 				
 				<core:Title text="Next Action Monitor (Product Support)" />
 				<Label text="Respond to the customer until"/>
@@ -89,9 +89,9 @@
 				<Label text="{i18n>incidentIdLabel}"/>
 				<Text text="{IncidentId}"/>
 				<Label text="{i18n>incidentTypeLabel}"/>
-				<Text text="{IncidentType}"/>
+				<Text text="{ path: 'IncidentType' , formatter : '.formatter.incidentType'}"/>
 				<Label text="Title"/>
-				<Input id="description" value="{Description}" required="true"/>
+				<Input id="title" value="{Title}" required="true"/>
 				<Label text="{i18n>statusLabel}"/>
 				<Select id="statusId" selectedKey="{StatusId}"
 						items="{ path : '/StatusSet' , filters : [ { path : 'IncidentType' , operator : 'EQ' , value1 : 'I' } ] }">
@@ -129,7 +129,7 @@
 				</Select>
 				
 				<core:Title text="Incident Description" />
-				<FormattedText></FormattedText>
+				<FormattedText htmlText="{Description}"></FormattedText>
 				
 				<core:Title text="Next Action Monitor (Product Support)" />
 				<Label text="Report to the customer until"/>

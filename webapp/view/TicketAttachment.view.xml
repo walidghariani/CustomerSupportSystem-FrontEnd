@@ -1,45 +1,42 @@
 <mvc:View
 	controllerName="focus.customersupportsystem.CustomerSupportSystem.controller.TicketAttachment"
-	xmlns:m="sap.m"
+	xmlns="sap.m"
 	xmlns:mvc="sap.ui.core.mvc"
 	height="100%" > 
 	
-	<m:UploadCollection multiple="true" 
-						numberOfAttachmentsText="{i18n>numberOfAttachmentsText} (2)"
-						uploadEnabled="{= ${settingsModel>/bEditMode} === true }">
-		<m:items>
-			<m:UploadCollectionItem enableDelete="{= ${settingsModel>/bEditMode} === true }" 
-									enableEdit="{= ${settingsModel>/bEditMode} === true }"
-									fileName="screenshot1.jpg"
-									url="https://i.stack.imgur.com/XhGuS.png">
-				<m:attributes>
-					<m:ObjectAttribute title="{i18n>uploadedDateAttributeLabel}" text="3/28/2020"/>
-					<m:ObjectAttribute title="{i18n>contributorAttributeLabel}" text="Walid Ghariani"/>
-				</m:attributes>
-				<m:markers>
-					<m:ObjectMarker type="Locked" visibility="IconOnly"/>
-				</m:markers>
-				<m:statuses>
-					<m:ObjectStatus state="Success" text="{i18n>uploadedStatusText}"/>
-				</m:statuses> 
-			</m:UploadCollectionItem>
-			
-			<m:UploadCollectionItem enableDelete="{= ${settingsModel>/bEditMode} === true }" 
-									enableEdit="{= ${settingsModel>/bEditMode} === true }"
-									fileName="screenshot2.jpg"
-									url="https://i.stack.imgur.com/XhGuS.png">
-				<m:attributes>
-					<m:ObjectAttribute title="{i18n>uploadedDateAttributeLabel}" text="3/28/2020"/>
-					<m:ObjectAttribute title="{i18n>contributorAttributeLabel}" text="Khouloud Daghsni"/>
-				</m:attributes>
-				<m:markers>
-					<m:ObjectMarker type="Locked" visibility="IconOnly"/>
-				</m:markers>
-				<m:statuses>
-					<m:ObjectStatus state="Success" text="{i18n>uploadedStatusText}"/>
-				</m:statuses> 
-			</m:UploadCollectionItem>
-		</m:items>
-	</m:UploadCollection>
-	
+	<UploadCollection	
+		id="uploadCollection"
+		maximumFileSize="1000" 
+		mode="SingleSelectMaster" 
+		beforeUploadStarts="onBeforeUploadStarts" 
+		items="{}"
+		multiple="true"
+		uploadEnabled="{= ${settingsModel>/bEditMode} === true }"
+		uploadUrl="/sap/opu/odata/sap/ZINCIDENT_MANAGER_SRV/AttachmentSet"
+		uploadComplete="onUploadComplete">
+		<items>
+		    <UploadCollectionItem 
+		    	id="uploadCollectionItem"
+		    	documentId="{AttachmentId}" 
+		    	fileName="{FileName}" 
+		    	url="/sap/opu/odata/sap/ZINCIDENT_MANAGER_SRV/AttachmentSet({AttachmentId})/$value"
+		    	mimeType="{MimeType}" 
+				enableDelete="{= ${settingsModel>/bEditMode} === true }" 
+				enableEdit="{= ${settingsModel>/bEditMode} === true }" 
+		    	visibleDelete="true" 
+		    	visibleEdit="false"
+		    	deletePress="onDeleteAttachment">
+			    	<attributes>
+						<ObjectAttribute title="{i18n>uploadedDateAttributeLabel}" text="{ path : 'CreationDate' , formatter: '.formatter.dateFormatter' }"/>
+						<ObjectAttribute title="{i18n>contributorAttributeLabel}" text="{CreatorId}"/>
+					</attributes>
+					<markers>
+						<ObjectMarker type="Locked" visibility="IconOnly"/>
+					</markers>
+					<statuses>
+						<ObjectStatus state="Success" text="{i18n>uploadedStatusText}"/>
+					</statuses> 
+		    </UploadCollectionItem>
+		  </items>
+	</UploadCollection>
 </mvc:View>
