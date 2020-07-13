@@ -56,7 +56,7 @@
 							
 						<tnt:NavigationListItem
 							text="{i18n>customerIncidentButton}"
-							key="addticket" />
+							key="customerticket" />
 						
 					</tnt:NavigationListItem>
 					

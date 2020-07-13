@@ -18,6 +18,9 @@ sap.ui.define([
 			this.oRouter.attachRouteMatched(this._onRouteMatched, this);
 			
 			this.settingsModel.setProperty("/bMessageTypeClicked" , false);
+			
+			var bus = this.getOwnerComponent().getEventBus();
+			bus.subscribe("buttonsEvents", "savepressed", this.onSave, this);
 		},
 		
 		onMessageType: function (oEvent){
@@ -65,12 +68,12 @@ sap.ui.define([
 			});
 		},
 		
-		onPost: function(oEvent){
+		onSave: function(){
 			
 			var comment = {
 				"IncidentId" : parseInt(this._ticket,10),
 				"EditorId" : this.userModel.oData.name ,
-				"Text" : oEvent.getParameter("value"),
+				"Text" : this.byId("feedInput").getValue(),
 				"CommentTypeId" : this.commentTypeId,
 				"EditionDate" : new Date()
 			};

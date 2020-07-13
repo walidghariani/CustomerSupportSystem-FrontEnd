@@ -1,0 +1,137 @@
+<mvc:View
+	controllerName="focus.customersupportsystem.CustomerSupportSystem.controller.CustomerTicket"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns="sap.m"
+	xmlns:form="sap.ui.layout.form"
+	xmlns:core="sap.ui.core" 
+	xmlns:f="sap.f"
+	xmlns:richtexteditor="sap.ui.richtexteditor">
+	
+	<f:DynamicPage toggleHeaderOnTitleClick="false" showFooter="true">
+		<f:title>
+			<f:DynamicPageTitle>
+				<f:heading>
+					<FlexBox alignContent="Start" >
+						<Title text="Customer incident" class="sapUiTinyMargin" wrapping="true"/>
+					</FlexBox>
+				</f:heading>
+			</f:DynamicPageTitle>
+		</f:title>
+		<f:content>
+			<form:SimpleForm
+					editable="true"
+					layout="ResponsiveGridLayout"
+					adjustLabelSpan="false"
+					labelSpanS="12"
+					labelSpanM="4"
+					labelSpanL="3"
+					columnsM="1"
+					columnsL="1"
+					emptySpanS="0"
+					emptySpanM="2"
+					emptySpanL="4" >
+					<form:content>
+						<core:Title text="General data"/>
+						<Label text="{i18n>incidentIdLabel}"/>
+						<Input id="incidentId" type="Text" enabled="false" />
+						
+						<Label text="Title"/>
+						<Input id="title" type="Text" required="true" liveChange="onLiveChange" valueStateText="Required field"/>
+						
+						<Label text="{i18n>descriptionLabel}"/>
+						<richtexteditor:RichTextEditor id="description" required="true"></richtexteditor:RichTextEditor>
+						
+						<Label text="{i18n>componentLabel}"/>
+						<Input id="component" type="Text" required="true" liveChange="onLiveChange" valueStateText="Required field"/>
+					
+						<Label text="{i18n>priorityLabel}"/>
+						<Select id="priorityId" selectedKey="2" items="{/PrioritySet}" enabled="false">
+							<core:ListItem text="{Value}" key="{PriorityId}"/>
+						</Select>
+						
+						<Label text="{i18n>statusLabel}"/>
+						<Select id="statusId" items="{/StatusSet}" selectedKey="0" enabled="false">
+							<core:ListItem text="{Value}" key="{StatusId}"/>
+						</Select>
+						
+						<core:Title text="Customer Data"/>
+						
+						<Label text="{i18n>customerLabel}"/>
+						<Input
+							id="customerId"
+							type="Text"
+							required="true"
+							change="onLiveChange"
+							showValueHelp="true"
+							valueHelpOnly="true"
+							valueHelpRequest="handleValueHelpCustomer"
+							suggestionItems="{/CustomerSet}"
+							valueStateText="Required field">
+							<core:Item key="{CustomerId}" text="{Name}" />
+						</Input>
+						
+						<core:Title text="Environment"/>
+						
+						<Label text="{i18n>systemIdLabel}"/>
+						<Input
+							id="systemId"
+							type="Text"
+							required="true"
+							change="onLiveChange"
+							showValueHelp="true"
+							valueHelpOnly="true"
+							valueHelpRequest="handleValueHelpSystem"
+							suggestionItems="{/SystemSet}"
+							valueStateText="Required field">
+							<core:Item key="{SystemId}" text="{SystemId}" />
+						</Input>
+						
+						<core:Title text=""/>
+						
+						<UploadCollection	
+											id="uploadCollection"
+											maximumFileSize="1000" 
+											mode="SingleSelectMaster" 
+											beforeUploadStarts="onBeforeUploadStarts" 
+											items="{}"
+											multiple="true"
+											uploadUrl="/sap/opu/odata/sap/ZINCIDENT_MANAGER_SRV/AttachmentSet"
+											uploadComplete="onUploadComplete">
+							<items>
+							    <UploadCollectionItem 
+							      id="uploadCollectionItem"
+							      documentId="{AttachmentId}" 
+							      fileName="{FileName}" 
+							      url="/sap/opu/odata/sap/ZINCIDENT_MANAGER_SRV/AttachmentSet({AttachmentId})/$value"
+							      mimeType="{MimeType}" 
+							      enableEdit="false" 
+							      enableDelete="true" 
+							      visibleDelete="true" 
+							      visibleEdit="false"
+							      deletePress="onDeleteAttachment">
+							    	<attributes>
+										<ObjectAttribute title="{i18n>uploadedDateAttributeLabel}" text="{ path : 'CreationDate' , formatter: '.formatter.dateFormatter' }"/>
+										<ObjectAttribute title="{i18n>contributorAttributeLabel}" text="{CreatorId}"/>
+									</attributes>
+									<statuses>
+										<ObjectStatus state="Success" text="{i18n>uploadedStatusText}"/>
+									</statuses> 
+							    </UploadCollectionItem>
+							  </items>
+						</UploadCollection>
+						
+						
+					</form:content>
+				</form:SimpleForm>
+		</f:content>
+		<f:footer>
+			<OverflowToolbar>
+				<ToolbarSpacer/>
+				<Button text="Cancel" type="Reject" press="handleCancel" />
+				<Button text="Submit" type="Default" press="handleSubmit"/>
+			</OverflowToolbar>
+		</f:footer>
+		
+	</f:DynamicPage>
+	
+</mvc:View>

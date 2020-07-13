@@ -73,6 +73,7 @@ sap.ui.define([
 		},
 		
 		onCancel: function (oEvent){
+			this.getOwnerComponent().getModel().resetChanges();
 			var bus = this.getOwnerComponent().getEventBus();
 			bus.publish("buttonsEvents", "cancelpressed");
 			
@@ -86,7 +87,6 @@ sap.ui.define([
 		},
 		
 		onSave: function (oEvent){
-			
 			var bus = this.getOwnerComponent().getEventBus();
 			bus.publish("buttonsEvents", "savepressed");
 			

@@ -20,7 +20,8 @@
 						<PropertyPath>CustomerId</PropertyPath>
 						<PropertyPath>Created</PropertyPath>
 						<PropertyPath>SystemId</PropertyPath>
-						<PropertyPath >LastUpdate</PropertyPath>
+						<PropertyPath>LastUpdate</PropertyPath>
+						<PropertyPath>IncidentType</PropertyPath>
 					</Collection>
 				</Annotation>
 				<Annotation Term="UI.FieldGroup" Qualifier="General">
@@ -161,7 +162,7 @@
 				</Annotation>
 			</Annotations>
 			<Annotations Target="Metadata.Incident/StatusId">
-				<Annotation Term="Common.ValueListWithFixedValues"/>
+				<Annotation Term="Common.ValueListWithFixedValues" Bool="true"/>
 				<Annotation Term="Common.ValueList">
 					<Record Type="Common.ValueListType">
 						<PropertyValue Property="CollectionPath" String="StatusSet"/>
@@ -354,6 +355,31 @@
 						</PropertyValue>
 					</Record>
 				</Annotation>
+			</Annotations>
+			<Annotations Target="Metadata.Incident/IncidentType">
+				<Annotation Term="Common.ValueListWithFixedValues" Bool="true"/>
+				<Annotation Term="Common.ValueList">
+					<Record Type="Common.ValueListType">
+						<PropertyValue Property="CollectionPath" String="IncidentTypeSet"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<Record Type="Common.ValueListParameterOut">
+									<PropertyValue Property="LocalDataProperty" PropertyPath="IncidentType"/>
+									<PropertyValue Property="ValueListProperty" String="IncidentTypeId"/>
+								</Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="Metadata.Status/StatusId">
+				<Annotation Term="Common.Text" Path="Value"/>
+			</Annotations>
+			<Annotations Target="Metadata.Priority/PriorityId">
+				<Annotation Term="Common.Text" Path="Value"/>
+			</Annotations>
+			<Annotations Target="Metadata.IncidentType/IncidentTypeId">
+				<Annotation Term="Common.Text" Path="Value"/>
 			</Annotations>
 		</Schema>
 	</edmx:DataServices>

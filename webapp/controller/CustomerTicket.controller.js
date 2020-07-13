@@ -11,7 +11,7 @@ sap.ui.define([
 ], function (Controller, Filter, FilterOperator,JSONModel,ValueHelpDialog,formatter, SapPcpWebSocket, DateFormat, WebSocket) {
 	"use strict";
 
-	return Controller.extend("focus.customersupportsystem.CustomerSupportSystem.controller.AddTicket", {
+	return Controller.extend("focus.customersupportsystem.CustomerSupportSystem.controller.CustomerTicket", {
 		formatter:formatter,
 		onInit: function () {
 			this.oRouter = this.getOwnerComponent().getRouter();
@@ -27,84 +27,26 @@ sap.ui.define([
 			this.byId("title").addEventDelegate({ onsapfocusleave: this.onsapfocusleave });
 			this.byId("component").addEventDelegate({ onsapfocusleave: this.onsapfocusleave });
 			this.byId("systemId").addEventDelegate({ onsapfocusleave: this.onsapfocusleave });
-	
-	var hostLocation = window.location,
-socket, socketHostURI, webSocketURI;
-
-if (hostLocation.protocol === "https:") {
-socketHostURI = "wss:";
-} else {
-socketHostURI = "ws:";
-}
-
-socketHostURI += "//" + hostLocation.host;
-webSocketURI = socketHostURI + '/sap/bc/apc/sap/zapc';
-	
-     var ws = new WebSocket("/sap/bc/apc/sap/zapc");
-
- 
-
-     ws.onopen = function()
-
-     {
-
-        // WebSocket is connected, send data using send()
-
-        ws.send("Sending Message");
-
-        sap.m.MessageToast.show("Message is sent");
-
-     };
-
- 
-
-     ws.onmessage = function (msg)
-
-     {
-
-        // process received Message
-
-        sap.m.MessageToast.show(msg.data);
-
- 
-
-        // optionally close connection
-         ws.close();
-
-     };
-
- 
-
-     ws.onclose = function()
-
-     {
-
-         // WebSocket is closed.
-
-         sap.m.MessageToast.show("Connection is closed");
-
-     };
-			
+			this.byId("customerId").addEventDelegate({ onsapfocusleave: this.onsapfocusleave });
 		},
 		
 		onHashChange: function(oEvent){
-			if(oEvent.getParameter("newHash") !== "addticket" && oEvent.getParameter("oldHash") === "addticket" && this.validSubmission === false){
+			if(oEvent.getParameter("newHash") !== "customerticket" && oEvent.getParameter("customerticket") === "customerticket" && this.validSubmission === false){
 				this.oModel.remove("/IncidentSet(" + this.IncidentId + ")");
 			}
 		},
 		
 		onRouteMatched: function (oEvent) {
 			var sRouteName = oEvent.getParameter("name");
-			if(sRouteName === "addticket"){
+			if(sRouteName === "customerticket"){
 				this.oModel.setProperty("/layout", "OneColumn");
 				
 				
 				var that = this;
 			
 				this.incident = {
-				    "IncidentType" : "I",
-				    "ReporterId" : this.userModel.oData.name,
-				    "Created" : new Date()
+				    "IncidentType" : "C",
+				    "ReporterId" : this.userModel.oData.name
 				};
 				
 				this.validSubmission = false;
@@ -113,13 +55,11 @@ webSocketURI = socketHostURI + '/sap/bc/apc/sap/zapc';
 					success: function(oData, oResponse){
 						that.IncidentId = oData.IncidentId;
 						that.byId("incidentId").setValue(that.IncidentId);
-						
 						that.byId("uploadCollection").bindItems({
 							path : "/AttachmentSet",
 							filters: [ new sap.ui.model.Filter({ path : "IncidentId" , operator : "EQ" , value1: that.IncidentId })],
 							template: that.byId("uploadCollectionItem")
 						});
-						
 					},
 					error: function(err, oResponse){
 						
@@ -138,11 +78,7 @@ webSocketURI = socketHostURI + '/sap/bc/apc/sap/zapc';
 			this.incident.PriorityId = parseInt(this.byId("priorityId").getSelectedKey(),10);
 			this.incident.Component = this.byId("component").getValue();
 			this.incident.SystemId = this.byId("systemId").getValue();
-			this.incident.ErrorCategoryId1 = parseInt(this.byId("comboboxErrorCategory1").getSelectedKey(),10);
-			this.incident.ErrorCategoryId2 = parseInt(this.byId("comboboxErrorCategory2").getSelectedKey(),10);
-			this.incident.LastUpdate = new Date();
-			this.incident.ProcessorId = this.byId("processorId").getSelectedKey();
-			this.incident.ImpactId = parseInt(this.byId("mainImpact").getSelectedKey(),10);
+			this.incident.CustomerId = this.byId("customerId").getSelectedKey();
 			
 			var that = this;
 			
@@ -152,12 +88,13 @@ webSocketURI = socketHostURI + '/sap/bc/apc/sap/zapc';
 					that.oRouter.navTo("ticketdetail", {ticket: that.IncidentId});
 					sap.m.MessageToast.show("Your incident is added successfully");
 					that.resetform();
-					that.errorsModel.getProperty("/ErrorSet").push({
-						"subtitle" : "An error occurs while adding the incident."
-					});    
+					
 				},
 				error: function(err, oResponse){
 					sap.m.MessageToast.show("Error while creating your incident");
+					that.errorsModel.getProperty("/ErrorSet").push({
+						"subtitle" : "An error occurs while adding the incident."
+					});    
 				}
 				
 			});
@@ -169,10 +106,7 @@ webSocketURI = socketHostURI + '/sap/bc/apc/sap/zapc';
 			this.byId("description").setValue("");
 			this.byId("component").setValue("");
 			this.byId("systemId").setValue("");
-			this.byId("mainImpact").setSelectedKey(undefined);
-			this.byId("statusId").setSelectedKey(undefined);
-			this.byId("priorityId").setSelectedKey(undefined);
-			
+			this.byId("customerId").setValue("");
 		},
 		
 		onsapfocusleave: function(oEvent){
@@ -205,81 +139,18 @@ webSocketURI = socketHostURI + '/sap/bc/apc/sap/zapc';
 				this.byId("component").focus();
 				return false;
 			}
+			else if	(this.byId("customerId").getValue() === ""){
+				this.byId("customerId").setValueState("Error");
+				this.byId("customerId").focus();
+				return false;
+			}
 			else if	(this.byId("systemId").getValue() === ""){
 				this.byId("systemId").setValueState("Error");
 				this.byId("systemId").focus();
 				return false;
-			}/*
-			else if	(this.byId("mainImpact").getValue() === ""){
-				this.byId("mainImpact").setValueState("Error");
-				this.byId("mainImpact").focus();
-				return false;
-			}*/
+			}
 			else 
 				return true;
-		},
-		
-		errorCategory1Change:function(oEvent){
-			
-			var idErrorCategory1 = oEvent.getSource().getProperty("selectedKey");
-			var comboboxErrorCategory2 = this.byId("comboboxErrorCategory2");
-			var itemErrorCategory2 = this.byId("itemErrorCategory2");
-			
-			comboboxErrorCategory2.setSelectedKey(undefined);
-			
-			if(idErrorCategory1 === "0"){
-				comboboxErrorCategory2.setEnabled(false);
-				comboboxErrorCategory2.unbindItems();
-			}
-			else {
-				comboboxErrorCategory2.setEnabled(true);
-				comboboxErrorCategory2.bindItems({
-					path:"/ErrorCategorySet",
-					template: itemErrorCategory2,
-					templateShareable: true,
-					filters: [new Filter({path:"ParentId", operator: FilterOperator.EQ , value1: idErrorCategory1 })]
-				});
-			}
-		},
-		
-		handleValueHelpProcessor: function(){
-			var that = this;
-			if(!this._oValueHelpDialogProcessor){
-				this._oValueHelpDialogProcessor = new ValueHelpDialog("valhelpdialProcessor",{
-					supportMultiselect: false,
-					key:"ProcessorId",
-					title:"Processors' List",
-					descriptionKey:"Name",
-					cancel: function(){
-						this.close();
-					},
-					ok: function(oEvent){
-						var aTokens = oEvent.getParameter("tokens");
-						that.byId("processorId").setSelectedKey(aTokens[0].getKey());
-						this.close();
-					},
-					afterClose: function(){
-						this.setTokens([]);
-					}
-				});
-			}
-			
-			var oColModel = new JSONModel();
-			oColModel.setData({
-				cols:[
-					{label: "Processor Id", template: "ProcessorId", width:"200px"},
-					{label: "Name", template: "Name"}
-				]
-			});
-			
-			var oTable = this._oValueHelpDialogProcessor.getTable();
-			oTable.setModel(oColModel, "columns");
-			oTable.setModel(this.oModel);
-			oTable.bindRows("/ProcessorSet");
-			
-			oTable.setSelectionMode("Single");
-			
-			this._oValueHelpDialogProcessor.open();
 		},
 		
 		handleValueHelpSystem: function(){
@@ -323,6 +194,50 @@ webSocketURI = socketHostURI + '/sap/bc/apc/sap/zapc';
 			
 			this._oValueHelpDialogSystem.open();
 		},
+		
+		handleValueHelpCustomer: function(){
+			var that = this;
+			if(!this._oValueHelpDialogCustomer){
+				this._oValueHelpDialogCustomer = new ValueHelpDialog("dialogCustomer",{
+					supportMultiselect: true,
+					key:"CustomerId",
+					title:"Customers' List",
+					cancel: function(){
+						this.close();
+					},
+					ok: function(oEvent){
+						var aTokens = oEvent.getParameter("tokens");
+						that.byId("customerId").setSelectedKey(aTokens[0].getKey());
+						this.close();
+					},
+					afterClose: function(){
+						this.setTokens([]);
+					}
+				});
+			}
+			
+			var oColModel = new JSONModel();
+			oColModel.setData({
+				cols:[
+					{label: "Customer Id", template: "CustomerId", width:"200px"},
+					{label: "Name", template: "Name", width:"200px"},
+					{label: "Partner Type", template: "PartnerType", width:"200px"},
+					{label: "Contact Type", template: "ContactType", width:"200px"},
+					{label: "Support Partner", template: "SupportPartner", width:"200px"},
+					{label: "Contact Type", template: "ServicePartner", width:"200px"}
+				]
+			});
+			
+			var oTable = this._oValueHelpDialogCustomer.getTable();
+			oTable.setModel(oColModel, "columns");
+			oTable.setModel(this.oModel);
+			oTable.bindRows("/CustomerSet");
+			
+			oTable.setSelectionMode("Single");
+			
+			this._oValueHelpDialogCustomer.open();
+		},
+		
 		
 		onBeforeUploadStarts: function (oEvent) {
 			

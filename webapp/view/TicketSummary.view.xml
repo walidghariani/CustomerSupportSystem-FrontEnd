@@ -93,12 +93,12 @@
 				<Label text="Title"/>
 				<Input id="title" value="{Title}" required="true"/>
 				<Label text="{i18n>statusLabel}"/>
-				<Select id="statusId" selectedKey="{StatusId}"
+				<Select id="statusId" selectedKey="{ path : 'StatusId' , type: 'sap.ui.model.type.Integer'}"
 						items="{ path : '/StatusSet' , filters : [ { path : 'IncidentType' , operator : 'EQ' , value1 : 'I' } ] }">
 					<core:ListItem text="{Value}" key="{StatusId}"/>
 				</Select>
 				<Label text="{i18n>priorityLabel}"/>
-				<Select id="priorityId" selectedKey="{PriorityId}" items="{/PrioritySet}">
+				<Select id="priorityId" selectedKey="{ path : 'PriorityId' , type: 'sap.ui.model.type.Integer'}" items="{/PrioritySet}">
 					<core:ListItem text="{Value}" key="{PriorityId}"/>
 				</Select>
 				<Label text="{i18n>componentLabel}"/>
@@ -120,11 +120,11 @@
 				<Text text="{ToProcessor/Name}"/>
 				
 				<Label text="{i18n>errorCategory1Label}"/>
-				<Select id="comboboxErrorCategory1" change="errorCategory1Change" items="{}" selectedKey="{ErrorCategoryId1}">
+				<Select id="comboboxErrorCategory1" change="errorCategory1Change" items="{}" selectedKey="{path : 'ErrorCategoryId1' , type: 'sap.ui.model.type.Integer'}">
 					<core:ListItem id="itemErrorCategory1" text="{Value}" key="{ErrorCategoryId}" />
 				</Select>
 				<Label text="{i18n>errorCategory2Label}"/>
-				<Select id="comboboxErrorCategory2" items="{}" selectedKey="{ErrorCategoryId2}">
+				<Select id="comboboxErrorCategory2" items="{}" selectedKey="{path : 'ErrorCategoryId2' , type: 'sap.ui.model.type.Integer'}">
 					<core:ListItem id="itemErrorCategory2" text="{Value}" key="{ErrorCategoryId}"/>
 				</Select>
 				

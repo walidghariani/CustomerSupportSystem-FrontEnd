@@ -12,35 +12,7 @@ sap.ui.define([
 			this.layoutSettingsModel = this.getOwnerComponent().getModel("layoutSettingsModel");
 			
 			this.oRouter.attachRouteMatched(this.onRouteMatched, this);
-			
-			this.initDunningRunFeed();
 		},
-		
-		
-		initDunningRunFeed: function() {
-			var that = this ;
-			var hostLocation = window.location,socket, socketHostURI, webSocketURI;
-			if (hostLocation.protocol === "https:")
-				socketHostURI = "wss:";
-			else
-				socketHostURI = "ws:";
-		
-			socketHostURI += "//" + hostLocation.host;
-			webSocketURI = socketHostURI + '/sap/bc/apc/sap/ztest_apc' ;
-			// var oSocket = this.oSocket = new sap.ui.core.ws.SapPcpWebSocket(webSocketURI,sap.ui.core.ws.SapPcpWebSocket.SUPPORTED_PROTOCOLS.v10);
-			socket = new WebSocket(webSocketURI);
-			socket.onopen = function() {};
-			socket.onmessage = function(dunningRunFeed) {
-				if (dunningRunFeed.data !== undefined) {
-					jQuery.sap.require("sap.m.MessageBox");
-					sap.m.InstanceManager.closeAllDialogs();
-						that.getOwnerComponent().getModel().refresh();
-						sap.m.MessageBox.show('You ve added a new user : '+ dunningRunFeed.data, sap.m.MessageBox.Icon.INFORMATION, "APC Notification", [sap.m.MessageBox.Action.OK]);
-				}
-			};
-			socket.onclose = function() {};
-		},
-
 		
 		onItemSelect: function (oEvent) {
 			var oItem = oEvent.getParameter("item");
@@ -165,7 +137,7 @@ sap.ui.define([
 			
 			var oNextUIState;
 			
-			if(sRouteName === "ticketslist" || sRouteName === "addticket")
+			if(sRouteName === "ticketslist" || sRouteName === "addticket" || sRouteName === "customerticket")
 				oNextUIState = this.getOwnerComponent().getFlexibleColumnLayoutHelper().getNextUIState(0);
 				
 			else if(sRouteName === "ticketdetail")

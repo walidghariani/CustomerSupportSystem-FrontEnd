@@ -45,7 +45,7 @@
 						<m:Label text="{i18n>incidentIdLabel}"/>
 						<m:Text text="{IncidentId}" />
 					</m:VBox>
-					<m:VBox justifyContent="Center" class="sapUiLargeMarginBegin" width="100px" wrap="Wrap">
+					<m:VBox justifyContent="Center" class="sapUiLargeMarginBegin" width="100px" wrap="Wrap" visible="{= ${IncidentType} === 'C' }">
 						<m:Label text="{i18n>customerLabel}"/>
 						<m:Link text="{ToCustomer/Name}" press="handleCustomerLinkPress">
 							<m:customData>

@@ -50,7 +50,7 @@ sap.ui.define([
 			if(!this.columnListItemNewLine){
 				this.columnListItemNewLine = new sap.m.ColumnListItem( "NewLine", {
 					cells: [
-						new sap.m.Input("NewSolutionId",{ type: "Text" , value :"" }),
+						new sap.m.Input("NewSolutionId",{ type: "Number" , value :"" }),
 						new sap.m.Input("NewDescription",{ type: "Text" , value :"" }),
 						new sap.m.Input("NewStatus",{ type: "Text" , value :"" }),
 						new sap.m.Input("NewCommentText",{ type: "Text" , value :"" }),
@@ -73,10 +73,10 @@ sap.ui.define([
 				"SolutionId" : parseInt(this.columnListItemNewLine.getCells()[0].getValue(),10),
 				"Description" : this.columnListItemNewLine.getCells()[1].getValue(),
 				"Status" : this.columnListItemNewLine.getCells()[2].getValue(),
-				"CommentText" : this.columnListItemNewLine.getCells()[3].getValue(),
-				"CreatedAt" : new Date()
+				"CommentText" : this.columnListItemNewLine.getCells()[3].getValue()
 			};
 			var that = this;
+			
 			this.oModel.create("/SolutionSet", solution,{
 				success: function(oData, oResponse){
 					that.columnListItemNewLine.destroyCells();

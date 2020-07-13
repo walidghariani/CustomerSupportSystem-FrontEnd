@@ -87,7 +87,7 @@
 			"": {
 				"type": "sap.ui.model.odata.v2.ODataModel",
 				"settings": {
-					"defaultBindingMode": "OneWay"
+					"defaultBindingMode": "TwoWay"
 				},
 				"dataSource": "mainService",
 				"preload": true
@@ -149,6 +149,13 @@
 					]
 				},
 				{
+					"pattern": "customerticket",
+					"name": "customerticket",
+					"target": [
+						"customerticket"
+					]
+				},
+				{
 					"pattern": "",
 					"name": "ticketslist",
 					"target": [
@@ -198,6 +205,10 @@
 				},
 				"addticket": {
 					"viewName": "AddTicket",
+					"controlAggregation": "beginColumnPages"
+				},
+				"customerticket": {
+					"viewName": "CustomerTicket",
 					"controlAggregation": "beginColumnPages"
 				},
 				"ticketdetail": {

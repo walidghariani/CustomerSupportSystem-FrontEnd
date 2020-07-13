@@ -42,24 +42,30 @@
 					<m:FlexBox>
 						<m:Text text="{ContactType}" />
 					</m:FlexBox>
+					<!--
 					<m:Label text="{i18n>reporterLabel}" />
 					<m:FlexBox>
 						<m:Link text="Peter Regner" class="sapUiMediumMarginEnd"/>
 						<m:Link text="+49-692185954" />
 					</m:FlexBox>
+					-->
+					<!--
 					<m:Label text="{i18n>timeAndCountryLabel}" />
 					<m:FlexBox>
 						<m:Text text="21.02.2020 10:49:38 (UTC+1)" class="sapUiMediumMarginEnd" />
 						<m:Text text="Germany" />
 					</m:FlexBox>
+					-->
 					<m:Label text="{i18n>partnerTypeLabel}" />
 					<m:Text text="{PartnerType}" />
 					<m:Label text="{i18n>Support Partner}" />
 					<m:Text text="{SupportPartner}" />
 					<m:Label text="{i18n>Support Partner}" />
 					<m:Text text="{ServicePartner}" />
+					<!--
 					<m:Label text="{i18n>creatorLabel}" />
 					<m:Link text="Peter Regner" />
+					-->
 				</form:content>
 			</form:SimpleForm>
 		</content>

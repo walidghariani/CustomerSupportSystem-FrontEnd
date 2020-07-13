@@ -102,24 +102,30 @@ sap.ui.define([
 				return;
 			var incident = {
 			    "Title" : this.byId("title").getValue(),
-			    "StatusId" : parseInt(this.byId("statusId").getSelectedKey(),10),
-			    "PriorityId" : parseInt(this.byId("priorityId").getSelectedKey(),10),
-			    "ErrorCategoryId1" : parseInt(this.byId("comboboxErrorCategory1").getSelectedKey(),10),
-			    "ErrorCategoryId2" : parseInt(this.byId("comboboxErrorCategory2").getSelectedKey(),10),
+			    "StatusId" : this.byId("statusId").getSelectedKey(),
+			    "PriorityId" : this.byId("priorityId").getSelectedKey(),
+			    "ErrorCategoryId1" : this.byId("comboboxErrorCategory1").getSelectedKey(),
+			    "ErrorCategoryId2" : this.byId("comboboxErrorCategory2").getSelectedKey(),
 			    "ProcessorId" : this.byId("processorId").getSelectedKey()
 			};
 			
 			var that = this;
 			
-			this.oModel.update("/IncidentSet("+ this._ticket + ")", incident ,{
-				success: function(oData, oResponse){
-					sap.m.MessageToast.show("Your incident is up-to-date");
-				},
-				error: function(err, oResponse){
-					sap.m.MessageToast.show("Error while updating your incident");
-				}
-				
-			});
+			//this.oModel.update("/IncidentSet("+ this._ticket + ")", incident ,{groupId:"incidentUpdate"});
+			
+			
+			
+			if(this.oModel.hasPendingChanges()){
+				this.oModel.submitChanges({
+					success: function(oData, oResponse){
+						sap.m.MessageToast.show("Your incident is up-to-date");
+					},
+					error: function(err, oResponse){
+						sap.m.MessageToast.show("Error while updating your incident");
+					}
+					
+				});
+			}
 		},
 		
 		verifForm: function(){
