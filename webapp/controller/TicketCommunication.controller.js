@@ -61,18 +61,24 @@ sap.ui.define([
 				template: this.byId("commentTemplateId") ,
 				templateShareable:true,
 				filters: [ new sap.ui.model.Filter({ path : "IncidentId" , operator : "EQ" , value1: this._ticket })],
-				sorter: new sap.ui.model.Sorter( "EditionDate" , true ),
 				parameters: {
 			        expand: "ToCommentType"
 			    }
 			});
+			
+			this.byId("commentsListId").bindElement({
+				path: "/IncidentSet",
+				filters: [ new sap.ui.model.Filter({ path : "IncidentId" , operator : "EQ" , value1: this._ticket })]
+			});
 		},
 		
 		onSave: function(){
-			
+			if(this.byId("feedInput").getValue() === "")
+				return;
 			var comment = {
 				"IncidentId" : parseInt(this._ticket,10),
 				"EditorId" : this.userModel.oData.name ,
+				"EditorName" : this.userModel.oData.displayName,
 				"Text" : this.byId("feedInput").getValue(),
 				"CommentTypeId" : this.commentTypeId,
 				"EditionDate" : new Date()
@@ -87,8 +93,9 @@ sap.ui.define([
 				error: function(err, oResponse){
 					sap.m.MessageToast.show("Error ! Message not sent");
 				}
-				
 			});
+			
+			this.byId("feedInput").setValue("");
 		},
 		
 		onCommentAction: function(oEvent){

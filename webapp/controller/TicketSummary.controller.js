@@ -119,6 +119,7 @@ sap.ui.define([
 				this.oModel.submitChanges({
 					success: function(oData, oResponse){
 						sap.m.MessageToast.show("Your incident is up-to-date");
+						that.oModel.refresh();
 					},
 					error: function(err, oResponse){
 						sap.m.MessageToast.show("Error while updating your incident");
@@ -144,7 +145,7 @@ sap.ui.define([
 			var that = this;
 			if(!this._oValueHelpDialogProcessor){
 				this._oValueHelpDialogProcessor = new sap.ui.comp.valuehelpdialog.ValueHelpDialog("vhdProcessor",{
-					supportMultiselect: true,
+					supportMultiselect: false,
 					key:"ProcessorId",
 					title:"Processors' List",
 					descriptionKey:"Name",

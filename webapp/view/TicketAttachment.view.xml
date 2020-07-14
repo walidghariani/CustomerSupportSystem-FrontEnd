@@ -22,17 +22,14 @@
 		    	url="/sap/opu/odata/sap/ZINCIDENT_MANAGER_SRV/AttachmentSet({AttachmentId})/$value"
 		    	mimeType="{MimeType}" 
 				enableDelete="{= ${settingsModel>/bEditMode} === true }" 
-				enableEdit="{= ${settingsModel>/bEditMode} === true }" 
-		    	visibleDelete="true" 
+				enableEdit="false" 
+		    	visibleDelete="{= ${CreatorId} === ${user>/name} }" 
 		    	visibleEdit="false"
 		    	deletePress="onDeleteAttachment">
 			    	<attributes>
 						<ObjectAttribute title="{i18n>uploadedDateAttributeLabel}" text="{ path : 'CreationDate' , formatter: '.formatter.dateFormatter' }"/>
 						<ObjectAttribute title="{i18n>contributorAttributeLabel}" text="{CreatorId}"/>
 					</attributes>
-					<markers>
-						<ObjectMarker type="Locked" visibility="IconOnly"/>
-					</markers>
 					<statuses>
 						<ObjectStatus state="Success" text="{i18n>uploadedStatusText}"/>
 					</statuses> 

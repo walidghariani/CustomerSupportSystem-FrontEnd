@@ -25,7 +25,7 @@ sap.ui.define([], function () {
 		},
 		
 		dateFormatter: function (oValue) {
-			var oDateFormat = sap.ui.core.format.DateFormat.getDateTimeInstance({pattern: "MMM d, yyyy,  h:mm aaa"});
+			var oDateFormat = sap.ui.core.format.DateFormat.getDateTimeInstance({pattern: "MMM d, yyyy hh:mm aaa"});
 			return oDateFormat.format(new Date(oValue));
 		},
 		

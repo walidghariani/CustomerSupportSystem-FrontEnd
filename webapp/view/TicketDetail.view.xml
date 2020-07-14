@@ -55,11 +55,11 @@
 					</m:VBox>
 					<m:VBox justifyContent="Center" class="sapUiLargeMarginBegin" width="100px" wrap="Wrap">
 						<m:Label text="{i18n>reporterLabel}"/>
-						<m:Link text="{ToReporter/Name}" >
+						<m:Text text="{ReporterName}">
 							<m:customData>
 								<core:CustomData key="ProcessorId" value="{ReporterId}" />
 							</m:customData>
-						</m:Link>
+						</m:Text>
 					</m:VBox>
 					<m:VBox justifyContent="Center" class="sapUiLargeMarginBegin" width="100px" wrap="Wrap">
 						<m:Label text="{i18n>processorLabel}"/>

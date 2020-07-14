@@ -104,6 +104,7 @@ webSocketURI = socketHostURI + '/sap/bc/apc/sap/zapc';
 				this.incident = {
 				    "IncidentType" : "I",
 				    "ReporterId" : this.userModel.oData.name,
+				    "ReporterName" : this.userModel.oData.displayName,
 				    "Created" : new Date()
 				};
 				

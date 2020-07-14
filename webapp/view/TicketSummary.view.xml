@@ -107,12 +107,12 @@
 				<Input
 					id="processorId"
 					type="Text"
-					value="{ToProcessor/Name}"
+					value="{ProcessorId}"
 					showValueHelp="true"
 					valueHelpOnly="true"
 					valueHelpRequest="handleValueHelpProcessor"
 					suggestionItems="{/ProcessorSet}">
-					<core:Item key="{ProcessorId}" text="{Name}" />
+					<core:Item key="{ProcessorId}" text="{ProcessorId}" />
 				</Input>
 				<Label text="{i18n>processingLabel}"/>
 				<Text text="{ToProcessor/Name}"/>

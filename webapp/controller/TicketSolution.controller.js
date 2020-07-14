@@ -12,6 +12,7 @@ sap.ui.define([
 			this.oRouter = this.getOwnerComponent().getRouter();
 			this.oModel = this.getOwnerComponent().getModel();
 			this.oSettingsModel = this.getOwnerComponent().getModel("settingsModel");
+			this.userModel = this.getOwnerComponent().getModel("user");
 			
 			this.oRouter.attachRouteMatched(this._onRouteMatched, this);
 			
@@ -73,7 +74,10 @@ sap.ui.define([
 				"SolutionId" : parseInt(this.columnListItemNewLine.getCells()[0].getValue(),10),
 				"Description" : this.columnListItemNewLine.getCells()[1].getValue(),
 				"Status" : this.columnListItemNewLine.getCells()[2].getValue(),
-				"CommentText" : this.columnListItemNewLine.getCells()[3].getValue()
+				"CommentText" : this.columnListItemNewLine.getCells()[3].getValue(),
+				"EditorId": this.userModel.oData.name,
+				"EditorName": this.userModel.oData.displayName,
+				
 			};
 			var that = this;
 			

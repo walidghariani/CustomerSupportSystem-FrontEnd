@@ -96,7 +96,7 @@
 					enableAutoBinding="true"
 					beforeRebindTable="onBeforeRebind"
 					ignoreFromPersonalisation="ReporterId,PriorityId,CustomerId,ProcessorId,StatusId,ErrorCategoryId1,ErrorCategoryId2"
-					requestAtLeastFields="IncidentId,IncidentType,Description,Component,PriorityId"
+					requestAtLeastFields="IncidentId,IncidentType,Description,Component,PriorityId,ReporterName"
 					persistencyKey="SmartTablePKey">
 
 						<t:Table id="productsTable" 
@@ -161,13 +161,13 @@
 										<Text text="{ToProcessor/Name}"></Text>
 									</t:template>
 								</t:Column>
-								<t:Column hAlign="Left" width="200px" sortProperty="ToReporter/Name">
+								<t:Column hAlign="Left" width="200px" sortProperty="ReporterName">
 									<Label text="{i18n>reporterLabel}" />
 									<t:customData>
-										<core:CustomData key="p13nData" value='\{"columnKey": "Reporter", "columnIndex":"6", "leadingProperty": "ToReporter/Name"}' />
+										<core:CustomData key="p13nData" value='\{"columnKey": "ReporterName", "columnIndex":"6", "leadingProperty": "ReporterName"}' />
 									</t:customData>
 									<t:template>
-										<Text text="{ToReporter/Name}"></Text>
+										<Text text="{ReporterName}"></Text>
 									</t:template>
 								</t:Column>
 								<t:Column hAlign="Left" width="400px" sortProperty="Component">
