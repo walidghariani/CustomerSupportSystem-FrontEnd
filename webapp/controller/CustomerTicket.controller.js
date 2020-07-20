@@ -31,7 +31,7 @@ sap.ui.define([
 		},
 		
 		onHashChange: function(oEvent){
-			if(oEvent.getParameter("newHash") !== "customerticket" && oEvent.getParameter("customerticket") === "customerticket" && this.validSubmission === false){
+			if(oEvent.getParameter("newHash") !== "customerticket" && oEvent.getParameter("oldHash") === "customerticket" && this.validSubmission === false){
 				this.oModel.remove("/IncidentSet(" + this.IncidentId + ")");
 			}
 		},
@@ -46,7 +46,8 @@ sap.ui.define([
 			
 				this.incident = {
 				    "IncidentType" : "C",
-				    "ReporterId" : this.userModel.oData.name
+				    "ReporterId" : this.userModel.oData.name,
+				    "ReporterName" : this.userModel.oData.displayName,
 				};
 				
 				this.validSubmission = false;

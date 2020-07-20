@@ -10,7 +10,7 @@ sap.ui.define([
 		onInit: function () {
 			this.oRouter = this.getOwnerComponent().getRouter();
 			this.layoutSettingsModel = this.getOwnerComponent().getModel("layoutSettingsModel");
-			
+			this.oModel = this.getOwnerComponent().getModel();
 			this.oRouter.attachRouteMatched(this.onRouteMatched, this);
 		},
 		
@@ -89,16 +89,18 @@ sap.ui.define([
 				type : "Error"
 			}); 
 			
-			this.oMessagePopover = new sap.m.MessagePopover({
-				activeTitlePress : function (){
-					
-				},
-				items: {
-					path: '/ErrorSet',
-					model : "errorsModel",
-					template: oMessageTemplate
-				}
-			});
+			if (!this.oMessagePopover){
+				this.oMessagePopover = new sap.m.MessagePopover({
+					activeTitlePress : function (){
+						
+					},
+					items: {
+						path: '/ErrorSet',
+						model : "errorsModel",
+						template: oMessageTemplate
+					}
+				});
+			}
 			var errorsModel = this.getOwnerComponent().getModel("errorsModel");
 			this.oMessagePopover.setModel(errorsModel , "errorsModel");
 			

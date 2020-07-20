@@ -18,39 +18,42 @@ sap.ui.define([
 			}
 			
 			var smartfilterbar = this.byId("smartFilterBar");
-			this.initDunningRunFeed();
+			//this.initDunningRunFeed();
 		},
 		
 		initDunningRunFeed: function() {
 			var that = this ;
-			var hostLocation = window.location, socket, socketHostURI, webSocketURI;
+			var hostLocation = window.location, socket, socketHostURI, webSocketURI , backenduri;
 			
+			backenduri = "wss://ldciofd.mo.sap.corp:44378"
 			if (hostLocation.protocol === "https:") 
 				socketHostURI ="wss:"; 
 			else
 				socketHostURI = "ws:";
 				
 			socketHostURI += "//" + hostLocation.host;
-			webSocketURI = socketHostURI + "/sap/bc/apc/sap/ztest_apc" ;
 			
-			// var oSocket = this.oSocket = new sap.ui.core.ws.SapPcpWebSocket(webSocketURI,
-			// sap.ui.core.ws.SapPcpWebSocket.SUPPORTED_PROTOCOLS.v10);
-			
+			webSocketURI = backenduri + "/sap/bc/apc/sap/zapc_test" ;
 			socket = new WebSocket(webSocketURI);
 			
-			socket.onopen = function() {};
+			socket.onopen = function() {
+				sap.m.MessageToast.show("Websocket opened");
+			};
 			
 			socket.onmessage = function(dunningRunFeed) {
 				
 				if (dunningRunFeed.data !== undefined) {
 					jQuery.sap.require("sap.m.MessageBox");
+					sap.m.MessageToast.show("You ve added a new user :" + dunningRunFeed.data, sap.m.MessageBox.Icon.INFORMATION, "APC Notification", [sap.m.MessageBox.Action.OK]);
 					sap.m.InstanceManager.closeAllDialogs();
 					that.getOwnerComponent().getModel().refresh();
-					sap.m.MessageBox.show("You ve added a new user :" + dunningRunFeed.data, sap.m.MessageBox.Icon.INFORMATION, "APC Notification", [sap.m.MessageBox.Action.OK]);
+					
 				}
 			};
 
-			socket.onclose = function() {};
+			socket.onclose = function() {
+				sap.m.MessageToast.show("Websocket closed");
+			};
 		},
 		
 		onListRowSelect: function (oEvent) {

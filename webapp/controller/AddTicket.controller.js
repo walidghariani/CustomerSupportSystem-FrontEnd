@@ -27,69 +27,13 @@ sap.ui.define([
 			this.byId("title").addEventDelegate({ onsapfocusleave: this.onsapfocusleave });
 			this.byId("component").addEventDelegate({ onsapfocusleave: this.onsapfocusleave });
 			this.byId("systemId").addEventDelegate({ onsapfocusleave: this.onsapfocusleave });
-	
-	var hostLocation = window.location,
-socket, socketHostURI, webSocketURI;
 
-if (hostLocation.protocol === "https:") {
-socketHostURI = "wss:";
-} else {
-socketHostURI = "ws:";
-}
-
-socketHostURI += "//" + hostLocation.host;
-webSocketURI = socketHostURI + '/sap/bc/apc/sap/zapc';
-	
-     var ws = new WebSocket("/sap/bc/apc/sap/zapc");
-
- 
-
-     ws.onopen = function()
-
-     {
-
-        // WebSocket is connected, send data using send()
-
-        ws.send("Sending Message");
-
-        sap.m.MessageToast.show("Message is sent");
-
-     };
-
- 
-
-     ws.onmessage = function (msg)
-
-     {
-
-        // process received Message
-
-        sap.m.MessageToast.show(msg.data);
-
- 
-
-        // optionally close connection
-         ws.close();
-
-     };
-
- 
-
-     ws.onclose = function()
-
-     {
-
-         // WebSocket is closed.
-
-         sap.m.MessageToast.show("Connection is closed");
-
-     };
-			
 		},
 		
 		onHashChange: function(oEvent){
 			if(oEvent.getParameter("newHash") !== "addticket" && oEvent.getParameter("oldHash") === "addticket" && this.validSubmission === false){
 				this.oModel.remove("/IncidentSet(" + this.IncidentId + ")");
+				this.resetform();
 			}
 		},
 		
@@ -104,8 +48,7 @@ webSocketURI = socketHostURI + '/sap/bc/apc/sap/zapc';
 				this.incident = {
 				    "IncidentType" : "I",
 				    "ReporterId" : this.userModel.oData.name,
-				    "ReporterName" : this.userModel.oData.displayName,
-				    "Created" : new Date()
+				    "ReporterName" : this.userModel.oData.displayName
 				};
 				
 				this.validSubmission = false;
@@ -154,8 +97,11 @@ webSocketURI = socketHostURI + '/sap/bc/apc/sap/zapc';
 					sap.m.MessageToast.show("Your incident is added successfully");
 					that.resetform();
 					that.errorsModel.getProperty("/ErrorSet").push({
-						"subtitle" : "An error occurs while adding the incident."
-					});    
+						"subtitle" : "An error occurs while adding the incident.",
+						"description" : oResponse
+					});
+					var count = that.errorsModel.getProperty("/ErrorCount") + 1;
+					that.errorsModel.setProperty("/ErrorCount", count);
 				},
 				error: function(err, oResponse){
 					sap.m.MessageToast.show("Error while creating your incident");
@@ -171,9 +117,10 @@ webSocketURI = socketHostURI + '/sap/bc/apc/sap/zapc';
 			this.byId("component").setValue("");
 			this.byId("systemId").setValue("");
 			this.byId("mainImpact").setSelectedKey(undefined);
-			this.byId("statusId").setSelectedKey(undefined);
 			this.byId("priorityId").setSelectedKey(undefined);
-			
+			this.byId("comboboxErrorCategory1").setSelectedKey(undefined);
+			this.byId("comboboxErrorCategory2").unbindItems();
+			this.byId("processorId").setValue("");
 		},
 		
 		onsapfocusleave: function(oEvent){
@@ -210,12 +157,7 @@ webSocketURI = socketHostURI + '/sap/bc/apc/sap/zapc';
 				this.byId("systemId").setValueState("Error");
 				this.byId("systemId").focus();
 				return false;
-			}/*
-			else if	(this.byId("mainImpact").getValue() === ""){
-				this.byId("mainImpact").setValueState("Error");
-				this.byId("mainImpact").focus();
-				return false;
-			}*/
+			}
 			else 
 				return true;
 		},

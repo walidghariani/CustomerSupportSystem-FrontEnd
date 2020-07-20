@@ -26,7 +26,7 @@
 					</layoutData>
 				</ToolbarSpacer>
 				
-				<Button icon="sap-icon://message-error" type="Transparent" press=".handleErrorIconPress"/>
+				<Button icon="sap-icon://message-error" type="Transparent" press=".handleErrorIconPress" text="{errorsModel>/ErrorCount}"/>
 				<Button icon="sap-icon://bell" type="Transparent" press=".handleNotificationIconPress" />
 				<Button icon="sap-icon://person-placeholder" type="Transparent" press=".onAccountIconPress"/>
 

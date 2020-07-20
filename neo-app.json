@@ -87,6 +87,23 @@
       "description": "OFDCLNT200"
     },
     {
+
+      "path": "/sap/bc/apc",
+
+      "target": {
+
+        "type": "destination",
+
+        "name": "OFDCLNT200",
+
+        "entryPath": "/sap/bc/apc"
+
+      },
+
+      "description": "OFDCLNT200"
+
+    },
+    {
       "path": "/destinations/northwind",
       "target": {
         "type": "destination",

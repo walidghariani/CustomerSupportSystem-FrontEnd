@@ -25,9 +25,9 @@
 		</VBox>
 		<!--<FeedInput id="feedInput" post="onPost" placeholder="{i18n>sendResponsePlaceHolder}" growing="true" visible="{= ${settingsModel>/bEditMode} === true &amp;&amp; ${settingsModel>/bMessageTypeClicked} === true }" /> -->
 		<ListBase id="commentsListId" items="{}">
-			<FeedListItem id="commentTemplateId" sender="{EditorName}" text="{Text}" timestamp="{ path : 'EditionDate', formatter : '.formatter.dateFormatter'}" info="{ToCommentType/Value}" actions="null"></FeedListItem>
+			<FeedListItem id="commentTemplateId" sender="{EditorName}" text="{Text}" timestamp="{ path : 'EditionDate', formatter : '.formatter.dateFormatter'}" info="{ToCommentType/Value}"></FeedListItem>
 		</ListBase>
-		<FeedListItem id="description" sender="{ReporterName}" text="{Description}" timestamp="{ path : 'Created', formatter : '.formatter.dateFormatter'}" info="Description" actions="null"></FeedListItem>
+		<FeedListItem id="description" sender="{ReporterName}" text="{Description}" timestamp="{ path : 'Created', formatter : '.formatter.dateFormatter'}" info="Description" ></FeedListItem>
 	</Panel> 
 	
 </mvc:View>

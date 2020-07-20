@@ -95,20 +95,7 @@
 							suggestionItems="{/ProcessorSet}">
 							<core:Item key="{ProcessorId}" text="{Name}" />
 						</Input>
-						
-						<Label text="Database"/>
-						<Input
-							id="databaseId"
-							type="Text"
-							change="onLiveChange"
-							showValueHelp="true"
-							valueHelpOnly="true"
-							valueHelpRequest="handleValueHelpDatabase"
-							suggestionItems="{}"
-							valueStateText="Required field">
-							<core:Item key="{}" text="{}" />
-						</Input>
-						
+
 						<core:Title text=""/>
 						
 						<UploadCollection	
