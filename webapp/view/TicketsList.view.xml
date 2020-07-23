@@ -31,6 +31,7 @@
 					useProvidedNavigationProperties="true"
 					smartVariant="pageVariantId"
 					persistencyKey="SmartFilterPKey"
+					useDateRangeType="true"
 					>
 					<!--
 					<smartFilterBar:controlConfiguration>

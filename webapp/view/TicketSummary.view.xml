@@ -47,26 +47,11 @@
 				<core:Title text="Incident Description" />
 				<FormattedText htmlText="{Description}"></FormattedText>
 				
-				<core:Title text="Next Action Monitor (Product Support)" />
-				<Label text="Respond to the customer until"/>
-				<FlexBox>
-					<Text text="19.02.2020" class="sapUiMediumMarginEnd"/>
-					<Text text="17:43:52" class="sapUiMediumMarginEnd"/>
-				</FlexBox>
-				<Label text="Manual date"/>
-				<Text text="10:42"/>
-				
 				<core:Title text="{i18n>datesSectionTitle}" />
 				<Label text="{i18n>creationDateLabel}"/>
 				<Text text="{path: 'Created' , formatter: '.formatter.dateFormatter'}"/>
 				<Label text="{i18n>lastUpdateLabel}"/>
 				<Text text="{path: 'LastUpdate' , formatter: '.formatter.dateFormatter'}"/>
-				<Label text="IRT"/>
-				<Text text="18.02.2020"/>
-				<Label text="ORT"/>
-				<Text text="Plan Sol. Del."/>
-				<Label text="MPT"/>
-				<Text text="29.02.2020"/>
 			</form:content>
 		</form:SimpleForm>
 	</Panel>
@@ -94,8 +79,8 @@
 				<Input id="title" value="{Title}" required="true"/>
 				<Label text="{i18n>statusLabel}"/>
 				<Select id="statusId" selectedKey="{ path : 'StatusId' , type: 'sap.ui.model.type.Integer'}"
-						items="{ path : '/StatusSet' , filters : [ { path : 'IncidentType' , operator : 'EQ' , value1 : 'I' } ] }">
-					<core:ListItem text="{Value}" key="{StatusId}"/>
+						items="{/StatusSet}">
+					<core:ListItem id="templateStatus" text="{Value}" key="{StatusId}"/>
 				</Select>
 				<Label text="{i18n>priorityLabel}"/>
 				<Select id="priorityId" selectedKey="{ path : 'PriorityId' , type: 'sap.ui.model.type.Integer'}" items="{/PrioritySet}">
@@ -131,26 +116,11 @@
 				<core:Title text="Incident Description" />
 				<FormattedText htmlText="{Description}"></FormattedText>
 				
-				<core:Title text="Next Action Monitor (Product Support)" />
-				<Label text="Report to the customer until"/>
-				<FlexBox>
-					<Text text="19.02.2020" class="sapUiMediumMarginEnd"/>
-					<Text text="17:43:52" />
-				</FlexBox>
-				<Label text="Manual date"/>
-				<Text text="10:42"/>
-				
 				<core:Title text="{i18n>datesSectionTitle}" />
 				<Label text="{i18n>creationDateLabel}"/>
 				<Text text="{path: 'Created' , formatter: '.formatter.dateFormatter'}"/>
 				<Label text="{i18n>lastUpdateLabel}"/>
 				<Text text="{path: 'LastUpdate' , formatter: '.formatter.dateFormatter'}"/>
-				<Label text="IRT"/>
-				<Text text="18.02.2020"/>
-				<Label text="ORT"/>
-				<Text text="Plan Sol. Del."/>
-				<Label text="MPT"/>
-				<Text text="29.02.2020"/>
 			</form:content>
 		</form:SimpleForm>
 	</Panel>

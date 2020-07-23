@@ -52,9 +52,23 @@ sap.ui.define([
 			this.oModel.read("/IncidentSet(" + this._ticket + ")",{
 				success: function(oData){
 					that.intializeCombobox2(oData);
+					that.initializeIncidentType(oData);
 				}
 			});
 			
+		},
+		
+		initializeIncidentType: function(oData){
+			var incidentType = oData.IncidentType;
+			this.byId("statusId").bindItems({
+				path: "/StatusSet",
+				template: this.byId("templateStatus"),
+				templateShareable: true,
+				filters: [
+					new Filter({path:"IncidentType", operator: FilterOperator.EQ , value1: "A" }),
+					new Filter({path:"IncidentType", operator: FilterOperator.EQ , value1: incidentType })
+				]
+			});
 		},
 		
 		intializeCombobox2: function(oData){
